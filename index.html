@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Software - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<table class="layout">
+<tr>
+<td colspan="2" class="header">
+    <h1>NovelDR Site</h1>
+    <marquee>🔥 Welcome to the Official Website 🔥</marquee>
+</td>
+</tr>
+
+<tr>
+<td class="sidebar">
+    <a href="index.html">Home</a><br>
+    <a href="downloads.html">Download</a><br>
+    <a href="old_versions.html">Old Versions</a><br>
+
+    <br>
+
+    <h3>🌍 Visitors</h3>
+    <!-- FlagCounter -->
+    <a href="https://info.flagcounter.com">
+        <img src="<a href="https://info.flagcounter.com/G8tC"><img src="https://s01.flagcounter.com/count2/G8tC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"/>
+    </a>
+
+    <br><br>
+
+    <h3>📟 Hits</h3>
+    <div id="counter">Loading...</div>
+</td>
+
+<td class="content">
+
+<!-- Announcement -->
+<div class="announcement">
+<b>📢 NEW RELEASE:</b><br>
+Version 3.0 is now available!<br>
+<span id="newBadge"></span>
+</div>
+
+<h2>About</h2>
+<p>This is the official homepage of My Software.</p>
+
+<h2>Latest Features</h2>
+<ul>
+<li>[Feature Placeholder 1] <span class="new"></span></li>
+<li>[Feature Placeholder 2]</li>
+<li>[Feature Placeholder 3]</li>
+</ul>
+
+<h2>Quick Download</h2>
+<a class="button" href="downloads.html">Download Now</a>
+
+</td>
+</tr>
+
+<tr>
+<td colspan="2" class="footer">
+© 2012 My Software | Retro Edition
+</td>
+</tr>
+</table>
+
+<script>
+// CountAPI visitor counter
+fetch('https://api.countapi.xyz/hit/noveldr-site/visits')
+.then(res => res.json())
+.then(data => {
+    document.getElementById('counter').innerText = data.value;
+});
+
+// NEW badge logic (7 days)
+const releaseDate = new Date("2026-04-01");
+const now = new Date();
+if ((now - releaseDate) / (1000 * 60 * 60 * 24) < 7) {
+    document.getElementById("newBadge").innerHTML =
+        '<img src="https://www.animatedimages.org/data/media/562/animated-new-image-0031.gif">';
+    document.querySelector(".new").innerHTML =
+        '<img src="https://www.animatedimages.org/data/media/562/animated-new-image-0031.gif">';
+}
+</script>
+
+</body>
+</html>
