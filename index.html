@@ -1,90 +1,288 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Software - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novel DR · Read Wuxia & Xianxia offline</title>
+    <style>
+        /* Web 2.0 retro style — 2005–2012 vibe */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #e9f0f5;  /* faded blue-gray like old forums */
+            font-family: 'Lucida Grande', 'Segoe UI', Tahoma, Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #222;
+            padding: 30px 20px;
+        }
+        .wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #c0d0dc;
+            overflow: hidden;
+        }
+        /* header with glossy gradient (classic 2009) */
+        .header {
+            background: linear-gradient(135deg, #2c5f8a, #1e3e5c);
+            padding: 20px 30px;
+            border-bottom: 3px solid #ffb347;
+            color: white;
+            text-shadow: 1px 1px 0 #0a2a3a;
+        }
+        .header h1 {
+            font-size: 36px;
+            font-weight: normal;
+            letter-spacing: -0.5px;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .header .tagline {
+            font-size: 16px;
+            display: inline-block;
+            border-left: 1px solid #6a9bc2;
+            padding-left: 18px;
+            margin-left: 10px;
+            color: #e0f0ff;
+        }
+        /* old school navigation tabs */
+        .nav {
+            background: #f4f7fa;
+            padding: 8px 20px;
+            border-bottom: 1px solid #d0dee5;
+            box-shadow: inset 0 1px 0 #ffffff;
+        }
+        .nav a {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #e2eaf1;
+            color: #1e4663;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            margin-right: 12px;
+            border: 1px solid #bcccd6;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+        }
+        .nav a:hover {
+            background: #d1dfea;
+            text-decoration: none;
+            border-color: #9aafbf;
+        }
+        /* main content — two columns like old blogs */
+        .main-content {
+            display: flex;
+            padding: 30px 25px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .left-col {
+            flex: 2;
+            min-width: 200px;
+        }
+        .right-col {
+            flex: 1;
+            min-width: 180px;
+            background: #fafcfd;
+            border: 1px solid #dce6ed;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+        /* download box (shiny button) */
+        .download-box {
+            background: #fef7e0;
+            border: 1px solid #f3d48f;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(to bottom, #6aa84f, #3c7e2e);
+            padding: 12px 32px;
+            border-radius: 40px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: none;
+            text-shadow: 0 1px 1px #2b5e1a;
+            border: 1px solid #2f6b1f;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            margin: 12px 0 8px;
+            transition: 0.05s linear;
+        }
+        .download-btn:hover {
+            background: #5f9547;
+            transform: scale(1.01);
+            cursor: pointer;
+        }
+        .version-badge {
+            font-size: 11px;
+            color: #7a6e4b;
+            background: #fff2d0;
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+        /* feature list with old school bullet icons */
+        .feature-list {
+            list-style: none;
+            margin: 18px 0;
+        }
+        .feature-list li {
+            margin: 12px 0;
+            padding-left: 24px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%233777a3"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
+            background-size: 16px;
+        }
+        .right-col h3 {
+            background: #e2edf7;
+            padding: 8px 12px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #1c4b73;
+        }
+        .site-badge {
+            background: #eef2f5;
+            border-radius: 30px;
+            padding: 5px 12px;
+            margin: 8px 0;
+            font-size: 13px;
+            display: inline-block;
+        }
+        hr {
+            margin: 18px 0;
+            border: none;
+            border-top: 1px dashed #cbdbe0;
+        }
+        .footer {
+            background: #eef3f8;
+            padding: 16px 25px;
+            font-size: 11px;
+            color: #5f7e9a;
+            border-top: 1px solid #cbdbe0;
+            text-align: center;
+        }
+        /* old school table for stats */
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .stats-table td {
+            padding: 8px 6px;
+            border-bottom: 1px solid #e0e8ef;
+        }
+        .stats-table td:first-child {
+            font-weight: bold;
+            width: 45%;
+        }
+        @media (max-width: 700px) {
+            .main-content { flex-direction: column; }
+            .header .tagline { display: block; border-left: none; padding-left: 0; margin: 8px 0 0; }
+        }
+        /* old-school 3d button imitation */
+        .button-flat {
+            background: #e9edf2;
+            border: 1px solid #bac8d4;
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 12px;
+            color: #1e3f5c;
+        }
+        .glossy {
+            background: #ffffffc9;
+        }
+    </style>
 </head>
-
 <body>
-
-<table class="layout">
-<tr>
-<td colspan="2" class="header">
-    <h1>NovelDR Site</h1>
-    <marquee>🔥 Welcome to the Official Website 🔥</marquee>
-</td>
-</tr>
-
-<tr>
-<td class="sidebar">
-    <a href="index.html">Home</a><br>
-    <a href="downloads.html">Download</a><br>
-    <a href="old_versions.html">Old Versions</a><br>
-
-    <br>
-
-    <h3>🌍 Visitors</h3>
-    <!-- FlagCounter -->
-    <a href="https://info.flagcounter.com">
-        <img src="<a href="https://info.flagcounter.com/G8tC"><img src="https://s01.flagcounter.com/count2/G8tC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"/>
-    </a>
-
-    <br><br>
-
-    <h3>📟 Hits</h3>
-    <div id="counter">Loading...</div>
-</td>
-
-<td class="content">
-
-<!-- Announcement -->
-<div class="announcement">
-<b>📢 NEW RELEASE:</b><br>
-Version 3.0 is now available!<br>
-<span id="newBadge"></span>
+<div class="wrapper">
+    <div class="header">
+        <h1>📘 Novel DR</h1>
+        <div class="tagline">offline · wuxia · xianxia</div>
+    </div>
+    <div class="nav">
+        <a href="#">🏠 Home</a>
+        <a href="#">📥 Download</a>
+        <a href="#">📚 Supported sites</a>
+        <a href="#">🔄 Updates</a>
+        <a href="#">⚙️ old.settings</a>
+    </div>
+    <div class="main-content">
+        <div class="left-col">
+            <div class="download-box">
+                <div style="font-size: 28px;">📱 Novel DR v1.3</div>
+                <div style="margin: 8px 0 4px; color: #2c5a2c;">Android 8.0+ · 100% free · no ads</div>
+                <a href="#" class="download-btn" id="apkDownloadBtn">⬇  Download APK  ⬇</a>
+                <div><span class="version-badge">latest build: 2025.04.03</span></div>
+                <div style="font-size: 11px; margin-top: 12px;">⭐ 100% offline after download · read anytime</div>
+            </div>
+            <h2 style="color:#1e4663; font-size:20px; margin: 10px 0 12px;">✦ Read wuxia & xianxia novels, no internet needed</h2>
+            <ul class="feature-list">
+                <li>📖 <strong>Download full novels</strong> from 3 popular sites</li>
+                <li>🎨 <strong>Custom font size & line spacing</strong> – comfort for eyes</li>
+                <li>🌙 <strong>3 themes</strong> (Dark / Light / Sepia)</li>
+                <li>⏩ <strong>Auto‑scroll mode</strong> – hands‑free reading</li>
+                <li>💾 <strong>Backup & restore</strong> your whole library</li>
+                <li>🔄 <strong>Chapter updates</strong> – get new chapters automatically</li>
+                <li>📊 <strong>Reading progress</strong> saved per chapter (scroll position)</li>
+            </ul>
+            <hr>
+            <div style="background: #f3f7fb; padding: 12px 16px; border-radius: 14px;">
+                <span style="font-weight:bold;">🔌 Supported sources:</span>
+                <span class="site-badge">ReadNovelFull</span>
+                <span class="site-badge">NovelFull</span>
+                <span class="site-badge">FreeWebNovel</span>
+                <div style="margin-top: 12px;"><i>→ Just paste the novel URL, and Novel DR does the rest.</i></div>
+            </div>
+        </div>
+        <div class="right-col">
+            <h3>📊 Stats & facts</h3>
+            <table class="stats-table">
+                <tr><td>📚 Max chapters</td><td><strong>3000+</strong> (tested)</td></tr>
+                <tr><td>📀 APK size</td><td>~25 MB</td></tr>
+                <tr><td>⚡ Download speed</td><td>text‑only → fast</td></tr>
+                <tr><td>🎨 Themes</td><td>3 + auto system</td></tr>
+                <tr><td>🔁 Backup</td><td>JSON export/import</td></tr>
+            </table>
+            <div style="margin: 20px 0 8px; text-align:center">
+                <div class="button-flat">📁 Open source (GitHub)</div>
+            </div>
+            <div style="background: #fbf5e8; padding: 10px; border-radius: 12px; margin-top: 12px;">
+                <div>🕹️ <strong>Retro tip</strong>:</div>
+                <div style="font-size:12px;">Double-tap left/right edge of reader to jump chapters (coming soon!)</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Novel DR — made for Android, inspired by 2005-2012 web aesthetic.<br>
+        No tracking, no ads, just pure offline reading. <strong>#FOSS</strong>
+        <div style="margin-top: 6px;">✨ version 1.3 · Build 42 · “Eternal Dao” release ✨</div>
+    </div>
 </div>
-
-<h2>About</h2>
-<p>This is the official homepage of My Software.</p>
-
-<h2>Latest Features</h2>
-<ul>
-<li>[Feature Placeholder 1] <span class="new"></span></li>
-<li>[Feature Placeholder 2]</li>
-<li>[Feature Placeholder 3]</li>
-</ul>
-
-<h2>Quick Download</h2>
-<a class="button" href="downloads.html">Download Now</a>
-
-</td>
-</tr>
-
-<tr>
-<td colspan="2" class="footer">
-© 2012 My Software | Retro Edition
-</td>
-</tr>
-</table>
-
 <script>
-// CountAPI visitor counter
-fetch('https://api.countapi.xyz/hit/noveldr-site/visits')
-.then(res => res.json())
-.then(data => {
-    document.getElementById('counter').innerText = data.value;
-});
-
-// NEW badge logic (7 days)
-const releaseDate = new Date("2026-04-01");
-const now = new Date();
-if ((now - releaseDate) / (1000 * 60 * 60 * 24) < 7) {
-    document.getElementById("newBadge").innerHTML =
-        '<img src="https://www.animatedimages.org/data/media/562/animated-new-image-0031.gif">';
-    document.querySelector(".new").innerHTML =
-        '<img src="https://www.animatedimages.org/data/media/562/animated-new-image-0031.gif">';
-}
+    // Replace with your actual APK download link (GitHub release, Drive, etc.)
+    const APK_URL = "https://github.com/yourusername/novel-dr/releases/download/v1.3/NovelDR-v1.3.apk";
+    const btn = document.getElementById("apkDownloadBtn");
+    if (btn) {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = APK_URL;
+        });
+    }
 </script>
-
 </body>
 </html>
