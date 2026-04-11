@@ -5,48 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novel DR · Read Wuxia & Xianxia offline</title>
     <style>
-        /* Web 2.0 retro style — 2005–2012 vibe */
-        * {
-            margin: 0;
-            padding: 0;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: #e9f0f5;
+            background: #1a2a3a url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQYV2NkYGBoYmBg+M8ABYxMTEwM////Z2RkZAAAuQQEAeqJBkwAAAAASUVORK5CYII=');
             font-family: 'Lucida Grande', 'Segoe UI', Tahoma, Arial, sans-serif;
             font-size: 13px;
             line-height: 1.4;
-            color: #222;
             padding: 30px 20px;
         }
         .wrapper {
-            max-width: 960px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border: 1px solid #c0d0dc;
+            background: #eef4ff;
+            background: linear-gradient(145deg, #f5f9ff 0%, #e2ebf3 100%);
+            border-radius: 24px 24px 20px 20px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.8);
+            border: 1px solid #b7c9e2;
             overflow: hidden;
         }
         .header {
-            background: linear-gradient(135deg, #2c5f8a, #1e3e5c);
-            padding: 20px 30px;
+            background: linear-gradient(90deg, #0a2f6c, #1e4a8a);
+            padding: 16px 25px;
             border-bottom: 3px solid #ffb347;
+            box-shadow: inset 0 1px 0 #3d70b0, 0 2px 4px rgba(0,0,0,0.2);
             color: white;
-            text-shadow: 1px 1px 0 #0a2a3a;
+            text-shadow: 1px 1px 0 #0a2f3f;
         }
         .header h1 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: normal;
-            letter-spacing: -0.5px;
             display: inline-block;
-            margin-right: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="28px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>') no-repeat left center;
+            background-size: 28px;
+            padding-left: 38px;
         }
         .header .tagline {
-            font-size: 16px;
+            font-size: 14px;
             display: inline-block;
             border-left: 1px solid #6a9bc2;
             padding-left: 18px;
-            margin-left: 10px;
+            margin-left: 12px;
             color: #e0f0ff;
         }
         .nav {
@@ -74,14 +72,11 @@
         }
         .main-content {
             display: flex;
-            padding: 30px 25px;
+            padding: 25px 25px;
             gap: 30px;
             flex-wrap: wrap;
         }
-        .left-col {
-            flex: 2;
-            min-width: 200px;
-        }
+        .left-col { flex: 2; min-width: 200px; }
         .right-col {
             flex: 1;
             min-width: 180px;
@@ -91,35 +86,31 @@
             padding: 18px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.03);
         }
-        .download-box {
+        .download-card {
             background: #fef7e0;
             border: 1px solid #f3d48f;
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 20px;
             text-align: center;
             margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .download-btn {
             display: inline-block;
             background: linear-gradient(to bottom, #6aa84f, #3c7e2e);
-            padding: 12px 32px;
+            padding: 12px 28px;
             border-radius: 40px;
             color: white;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 20px;
             text-decoration: none;
             text-shadow: 0 1px 1px #2b5e1a;
             border: 1px solid #2f6b1f;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-            margin: 12px 0 8px;
+            box-shadow: 0 5px 0 #1f5413, 0 3px 8px black;
             transition: 0.05s linear;
+            margin: 10px 0;
         }
-        .download-btn:hover {
-            background: #5f9547;
-            transform: scale(1.01);
-            cursor: pointer;
-        }
+        .download-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #1f5413; }
         .version-badge {
             font-size: 11px;
             color: #7a6e4b;
@@ -127,23 +118,6 @@
             display: inline-block;
             padding: 2px 10px;
             border-radius: 20px;
-        }
-        .old-version-link {
-            margin-top: 10px;
-            font-size: 12px;
-        }
-        .old-version-link a {
-            color: #2c6b9e;
-            text-decoration: none;
-            font-weight: bold;
-            background: #f0e5cf;
-            padding: 3px 10px;
-            border-radius: 20px;
-            border: 1px solid #dcc89b;
-        }
-        .old-version-link a:hover {
-            background: #e9d8bc;
-            text-decoration: underline;
         }
         .feature-list {
             list-style: none;
@@ -155,70 +129,40 @@
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%233777a3"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
             background-size: 16px;
         }
-        .right-col h3 {
-            background: #e2edf7;
-            padding: 8px 12px;
-            border-radius: 30px;
-            font-size: 14px;
-            margin-bottom: 15px;
-            text-align: center;
-            color: #1c4b73;
-        }
-        .site-badge {
-            background: #eef2f5;
-            border-radius: 30px;
-            padding: 5px 12px;
-            margin: 8px 0;
-            font-size: 13px;
-            display: inline-block;
-        }
-        hr {
-            margin: 18px 0;
-            border: none;
-            border-top: 1px dashed #cbdbe0;
-        }
-        .footer {
-            background: #eef3f8;
-            padding: 16px 25px;
-            font-size: 11px;
-            color: #5f7e9a;
-            border-top: 1px solid #cbdbe0;
-            text-align: center;
-        }
         .stats-table {
             width: 100%;
             border-collapse: collapse;
             background: white;
             border-radius: 8px;
-            overflow: hidden;
         }
         .stats-table td {
             padding: 8px 6px;
             border-bottom: 1px solid #e0e8ef;
         }
-        .stats-table td:first-child {
+        .stats-table td:first-child { font-weight: bold; width: 45%; }
+        .counter-box { margin-top: 20px; text-align: center; }
+        .flag-container { margin-top: 10px; }
+        .footer {
+            background: #cfdddd;
+            background: linear-gradient(135deg, #dbe8e8, #c2d2d2);
+            padding: 14px 25px;
+            font-size: 11px;
+            text-align: center;
+            border-top: 1px solid #f0f6fa;
+            color: #2c3e2f;
+        }
+        marquee {
+            background: #fffaec;
+            padding: 5px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            color: #ad4b1c;
             font-weight: bold;
-            width: 45%;
-        }
-        .button-flat {
-            background: #e9edf2;
-            border: 1px solid #bac8d4;
-            border-radius: 6px;
-            padding: 5px 10px;
-            font-size: 12px;
-            color: #1e3f5c;
-        }
-        .counter-box {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .flag-container {
-            margin-top: 15px;
-            text-align: center;
+            margin-top: 12px;
         }
         @media (max-width: 700px) {
+            .header .tagline { display: block; border-left: none; padding-left: 0; margin-top: 6px; }
             .main-content { flex-direction: column; }
-            .header .tagline { display: block; border-left: none; padding-left: 0; margin: 8px 0 0; }
         }
     </style>
 </head>
@@ -231,22 +175,19 @@
     <div class="nav">
         <a href="index.html">🏠 Home</a>
         <a href="downloads.html">📥 Download</a>
-        <a href="about.html">⚙️ About Site</a>
+        <a href="about.html">ℹ️ About</a>
+        <a href="old_versions.html">📦 Archive</a>
     </div>
     <div class="main-content">
         <div class="left-col">
-            <div class="download-box">
+            <div class="download-card">
                 <div style="font-size: 28px;">📱 Novel DR v1.3</div>
-                <div style="margin: 8px 0 4px; color: #2c5a2c;">Android 8.0+ · 100% free · no ads</div>
-                <a href="#" class="download-btn" id="apkDownloadBtn">⬇  Download APK  ⬇</a>
+                <div style="margin: 8px 0; color: #2c5a2c;">Android 8.0+ · 100% free · no ads</div>
+                <a href="downloads.html" class="download-btn">⬇  Download APK  ⬇</a>
                 <div><span class="version-badge">latest build: 2025.04.03</span></div>
-                <!-- NEW: Old versions link -->
-                <div class="old-version-link">
-                    <a href="old_versions.html">📦 Download Old Versions Here</a>
-                </div>
                 <div style="font-size: 11px; margin-top: 12px;">⭐ 100% offline after download · read anytime</div>
             </div>
-            <h2 style="color:#1e4663; font-size:20px; margin: 10px 0 12px;">✦ Read wuxia & xianxia novels, no internet needed</h2>
+            <h2 style="color:#1e4663; font-size:20px;">✦ Read wuxia & xianxia novels, no internet needed</h2>
             <ul class="feature-list">
                 <li>📖 <strong>Download full novels</strong> from 3 popular sites</li>
                 <li>🎨 <strong>Custom font size & line spacing</strong> – comfort for eyes</li>
@@ -254,77 +195,41 @@
                 <li>⏩ <strong>Auto‑scroll mode</strong> – hands‑free reading</li>
                 <li>💾 <strong>Backup & restore</strong> your whole library</li>
                 <li>🔄 <strong>Chapter updates</strong> – get new chapters automatically</li>
-                <li>📊 <strong>Reading progress</strong> saved per chapter (scroll position)</li>
             </ul>
-            <hr>
-            <div style="background: #f3f7fb; padding: 12px 16px; border-radius: 14px;">
-                <span style="font-weight:bold;">🔌 Supported sources:</span>
-                <span class="site-badge">ReadNovelFull</span>
-                <span class="site-badge">NovelFull</span>
-                <span class="site-badge">FreeWebNovel</span>
-                <div style="margin-top: 12px;"><i>→ Just paste the novel URL, and Novel DR does the rest.</i></div>
-            </div>
+            <marquee scrollamount="3">✔️ 100% virus free • Compatible with Android 8+ • No tracking • Open source ✔️</marquee>
         </div>
         <div class="right-col">
-            <h3>📊 Stats & facts</h3>
+            <h3 style="background:#e2edf7; padding:8px; border-radius:30px; text-align:center;">📊 Stats & facts</h3>
             <table class="stats-table">
-                <tr><td>📚 Max chapters</td><td><strong>3000+</strong> (tested)</td></tr>
+                <tr><td>📚 Max chapters</td><td><strong>3000+</strong></td></tr>
                 <tr><td>📀 APK size</td><td>~25 MB</td></tr>
-                <tr><td>⚡ Download speed</td><td>text‑only → fast</td></tr>
                 <tr><td>🎨 Themes</td><td>3 + auto system</td></tr>
                 <tr><td>🔁 Backup</td><td>JSON export/import</td></tr>
             </table>
-
-            <!-- 🌍 Visitors (FlagCounter) -->
             <div class="counter-box">
                 <h3>🌍 Visitors</h3>
                 <div class="flag-container">
                     <a href="https://info.flagcounter.com/G8tC">
-                        <img src="https://s01.flagcounter.com/count2/G8tC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0">
+                        <img src="https://s01.flagcounter.com/count2/G8tC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter">
                     </a>
                 </div>
             </div>
-
-            <!-- 📟 Hits (CountAPI) -->
             <div class="counter-box">
                 <h3>📟 Hits</h3>
                 <div id="counter" style="font-size: 24px; font-weight: bold; color: #2c5f8a;">Loading...</div>
-            </div>
-
-            <div style="background: #fbf5e8; padding: 10px; border-radius: 12px; margin-top: 12px;">
-                <div>🕹️ <strong>Version Tip</strong>:</div>
-                <div style="font-size:12px;">There is Haptic Version and None Haptic Version of the App</div>
             </div>
         </div>
     </div>
     <div class="footer">
         Novel DR — made for Android, inspired by 2005-2012 web aesthetic.<br>
         No tracking, no ads, just pure offline reading. <strong>#FOSS</strong>
-        <div style="margin-top: 6px;">✨ version 1.1.3d · Build 88 · release ✨</div>
     </div>
 </div>
-
 <script>
-    // APK download (replace with your actual URL)
-    const APK_URL = "https://github.com/yourusername/novel-dr/releases/download/v1.3/NovelDR-v1.3.apk";
-    const btn = document.getElementById("apkDownloadBtn");
-    if (btn) {
-        btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            window.location.href = APK_URL;
-        });
-    }
-
-    // CountAPI visitor counter
     fetch('https://api.countapi.xyz/hit/noveldr-site/visits')
         .then(res => res.json())
-        .then(data => {
-            document.getElementById('counter').innerText = data.value;
-        })
-        .catch(err => {
-            document.getElementById('counter').innerText = "—";
-            console.warn("Counter error:", err);
-        });
+        .then(data => document.getElementById('counter').innerText = data.value)
+        .catch(() => document.getElementById('counter').innerText = '—');
 </script>
 </body>
 </html>
