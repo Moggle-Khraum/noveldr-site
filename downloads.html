@@ -2,56 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novel DR · Download APK</title>
+    <title>Novel DR · Download APK (retro countdown)</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: #e9f0f5;
+            background: #1a2a3a url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQYV2NkYGBoYmBg+M8ABYxMTEwM////Z2RkZAAAuQQEAeqJBkwAAAAASUVORK5CYII=');
             font-family: 'Lucida Grande', 'Segoe UI', Tahoma, Arial, sans-serif;
-            font-size: 13px;
-            line-height: 1.4;
-            color: #222;
             padding: 30px 20px;
         }
         .wrapper {
-            max-width: 960px;
+            max-width: 900px;
             margin: 0 auto;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border: 1px solid #c0d0dc;
+            background: linear-gradient(145deg, #f5f9ff 0%, #e2ebf3 100%);
+            border-radius: 24px 24px 20px 20px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.8);
+            border: 1px solid #b7c9e2;
             overflow: hidden;
         }
         .header {
-            background: linear-gradient(135deg, #2c5f8a, #1e3e5c);
-            padding: 20px 30px;
+            background: linear-gradient(90deg, #0a2f6c, #1e4a8a);
+            padding: 16px 25px;
             border-bottom: 3px solid #ffb347;
+            box-shadow: inset 0 1px 0 #3d70b0;
             color: white;
-            text-shadow: 1px 1px 0 #0a2a3a;
+            text-shadow: 1px 1px 0 #0a2f3f;
         }
         .header h1 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: normal;
             display: inline-block;
-            margin-right: 20px;
-        }
-        .header .tagline {
-            font-size: 16px;
-            display: inline-block;
-            border-left: 1px solid #6a9bc2;
-            padding-left: 18px;
-            margin-left: 10px;
-            color: #e0f0ff;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="28px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>') no-repeat left center;
+            background-size: 28px;
+            padding-left: 38px;
         }
         .nav {
             background: #f4f7fa;
             padding: 8px 20px;
             border-bottom: 1px solid #d0dee5;
-            box-shadow: inset 0 1px 0 #ffffff;
         }
         .nav a {
             display: inline-block;
@@ -64,170 +51,251 @@
             font-size: 12px;
             margin-right: 12px;
             border: 1px solid #bcccd6;
-            box-shadow: 0 1px 1px rgba(0,0,0,0.05);
         }
-        .nav a:hover {
-            background: #d1dfea;
-            border-color: #9aafbf;
-        }
-        .content {
-            padding: 30px 30px;
-        }
-        .download-card {
-            background: #fef7e0;
-            border: 1px solid #f3d48f;
-            border-radius: 20px;
-            padding: 25px;
+        .content { padding: 25px 30px; }
+        .retro-timer {
+            background: #1e1a14;
+            background: radial-gradient(circle at 20% 30%, #2c2820, #0f0d0a);
+            border-radius: 40px;
+            padding: 24px 20px;
             text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: inset 0 1px 5px rgba(0,0,0,0.6), 0 6px 12px rgba(0,0,0,0.3);
+            border: 1px solid #5f5240;
+            margin-bottom: 25px;
         }
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(to bottom, #6aa84f, #3c7e2e);
-            padding: 14px 40px;
-            border-radius: 50px;
-            color: white;
+        .countdown-digit {
+            font-family: 'Courier New', monospace;
+            font-size: 5rem;
             font-weight: bold;
-            font-size: 22px;
-            text-decoration: none;
-            text-shadow: 0 1px 1px #2b5e1a;
-            border: 1px solid #2f6b1f;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-            margin: 15px 0 10px;
-            transition: 0.05s linear;
-        }
-        .download-btn:hover {
-            background: #5f9547;
-            transform: scale(1.01);
-            cursor: pointer;
-        }
-        .version-badge {
-            font-size: 13px;
-            color: #7a6e4b;
-            background: #fff2d0;
+            background: #000000aa;
             display: inline-block;
-            padding: 4px 14px;
-            border-radius: 20px;
-            margin-top: 8px;
+            padding: 10px 30px;
+            border-radius: 32px;
+            color: #ffd966;
+            text-shadow: 0 0 6px #ffa500;
+            letter-spacing: 6px;
         }
+        .status-text { margin-top: 16px; color: #ffe3b3; font-weight: bold; text-shadow: 0 1px 2px black; }
+        .prog-area { margin-top: 12px; display: none; }
+        .progress-block {
+            background: #2b2b2b;
+            border-radius: 12px;
+            height: 20px;
+            border: 1px solid #5f5f5f;
+            overflow: hidden;
+        }
+        .progress-fill-retro {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #2f7d2f, #5fbf5f);
+        }
+        .prog-percent { font-family: monospace; margin-top: 6px; color: #dad9c7; font-size: 0.75rem; }
         .info-table {
             width: 100%;
             border-collapse: collapse;
             background: #fafcfd;
             border: 1px solid #dce6ed;
-            border-radius: 14px;
             margin: 20px 0;
         }
-        .info-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #e0e8ef;
-        }
-        .info-table tr:last-child td {
-            border-bottom: none;
-        }
-        .info-table td:first-child {
+        .info-table td { padding: 10px 12px; border-bottom: 1px solid #e0e8ef; }
+        .info-table td:first-child { font-weight: bold; background: #f0f6fc; width: 35%; }
+        .download-button {
+            background: linear-gradient(to bottom, #6aa84f, #3c7e2e);
+            border: none;
+            width: 100%;
+            padding: 14px 0;
+            font-size: 1.4rem;
             font-weight: bold;
-            width: 35%;
-            background: #f0f6fc;
+            color: white;
+            text-shadow: 0 -1px 0 #0e4a0e;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #1f5413, 0 3px 12px black;
+            transition: 0.07s linear;
+            margin: 10px 0;
         }
+        .download-button:active { transform: translateY(2px); box-shadow: 0 3px 0 #1f5413; }
+        .download-button:disabled { opacity: 0.7; cursor: wait; transform: none; }
+        .reset-link { text-align: center; margin: 12px 0; cursor: pointer; color: #1f5490; text-decoration: underline; font-size: 0.8rem; }
         .warning-box {
             background: #fff2e0;
             border-left: 5px solid #ffa74d;
-            padding: 14px 18px;
+            padding: 12px 16px;
             margin: 20px 0;
             border-radius: 10px;
             font-size: 12px;
         }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            background: #e2eaf1;
-            padding: 6px 14px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            color: #1e4663;
-            border: 1px solid #bcccd6;
-        }
         .footer {
-            background: #eef3f8;
-            padding: 16px 25px;
+            background: linear-gradient(135deg, #dbe8e8, #c2d2d2);
+            padding: 14px 25px;
             font-size: 11px;
-            color: #5f7e9a;
-            border-top: 1px solid #cbdbe0;
             text-align: center;
+            border-top: 1px solid #f0f6fa;
         }
-        @media (max-width: 700px) {
-            .header .tagline { display: block; border-left: none; padding-left: 0; margin-top: 8px; }
-            .download-btn { font-size: 18px; padding: 10px 25px; }
+        marquee {
+            background: #fffaec;
+            padding: 5px;
+            border-radius: 40px;
+            margin-bottom: 20px;
         }
+        @media (max-width: 700px) { .countdown-digit { font-size: 3rem; padding: 6px 16px; } }
     </style>
 </head>
 <body>
 <div class="wrapper">
-    <div class="header">
-        <h1>📥 Novel DR</h1>
-        <div class="tagline">download · latest APK</div>
-    </div>
+    <div class="header"><h1>📥 Novel DR</h1></div>
     <div class="nav">
         <a href="index.html">🏠 Home</a>
-        <a href="old_versions.html">📦 Old Versions</a>
+        <a href="downloads.html">📥 Download</a>
         <a href="about.html">ℹ️ About</a>
+        <a href="old_versions.html">📦 Archive</a>
     </div>
     <div class="content">
-        <div class="download-card">
-            <div style="font-size: 32px; margin-bottom: 8px;">📱 Novel DR v1.3</div>
-            <div style="margin-bottom: 8px; color: #2c5a2c;">Android 8.0+ · Free · No ads</div>
-            <a href="#" class="download-btn" id="directDownloadBtn">⬇ Download APK</a>
-            <div><span class="version-badge">latest build: 2025.04.08</span></div>
-            <div style="font-size: 12px; margin-top: 12px;">⭐ SHA-256: a1b2c3d4... (verify integrity)</div>
+        <marquee scrollamount="3">✔️ Official APK • No ads • No tracking • Offline reader ✔️</marquee>
+
+        <div class="retro-timer">
+            <div class="countdown-digit" id="countdownDisplay">5</div>
+            <div class="status-text" id="statusMsg">Click the big green button</div>
+            <div class="prog-area" id="progressArea">
+                <div class="progress-block"><div class="progress-fill-retro" id="progressFill"></div></div>
+                <div class="prog-percent" id="progressPercent">0% complete</div>
+            </div>
         </div>
 
-        <h2 style="color:#1e4663; margin: 20px 0 10px;">📋 APK details</h2>
+        <button class="download-button" id="downloadBtn">⬇️  DOWNLOAD APK v1.3  ⬇️</button>
+        <div class="reset-link" id="resetAction">⟳ Cancel / Reset countdown</div>
+
+        <h2 style="color:#1e4663;">📋 APK details</h2>
         <table class="info-table">
             <tr><td>Version</td><td><strong>1.3</strong> (stable)</td></tr>
             <tr><td>File size</td><td>25 MB</td></tr>
             <tr><td>Min. Android</td><td>8.0 (Oreo)</td></tr>
-            <tr><td>Target SDK</td><td>34 (Android 14)</td></tr>
-            <tr><td>Architecture</td><td>arm64-v8a, armeabi-v7a, x86_64</td></tr>
-            <tr><td>Package name</td><td>com.noveldr.app</td></tr>
-            <tr><td>Signature</td><td>Fingerprint: 12:34:56:78:9a:bc:de:f0</td></tr>
+            <tr><td>Architecture</td><td>arm64-v8a, armeabi-v7a</td></tr>
+            <tr><td>Package</td><td>com.noveldr.app</td></tr>
         </table>
 
         <div class="warning-box">
-            <strong>⚠️ Important notes:</strong><br>
-            • This app requires storage permission to save downloaded novels.<br>
-            • No internet needed after downloading – all chapters stored locally.<br>
-            • If you have an older version installed, you can install the latest directly (same signature).<br>
-            • For issues, check the <a href="old_versions.html">old versions page</a> or contact support.
+            <strong>⚠️ Important:</strong> Storage permission required. After download, install manually (enable "Unknown sources" if needed).<br>
+            The download starts after a 5‑second countdown + progress bar – it's a simulation, but the real APK will download automatically.
         </div>
 
-        <h2 style="color:#1e4663; margin: 20px 0 10px;">🔗 Alternative download mirrors</h2>
-        <p style="margin-bottom: 12px;">If the main button doesn't work, try one of these:</p>
-        <ul style="margin-left: 25px; margin-bottom: 20px;">
-            <li><a href="#" style="color:#2c6b9e;">GitHub Releases</a> (recommended for checksums)</li>
-            <li><a href="#" style="color:#2c6b9e;">F-Droid (coming soon)</a></li>
-            <li><a href="#" style="color:#2c6b9e;">Direct mirror 1</a></li>
+        <h3 style="color:#1e4663;">🔗 Alternative mirrors</h3>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <li><a href="#" id="mirrorLink">GitHub Releases</a> (direct)</li>
         </ul>
-
-        <a href="index.html" class="back-link">← Back to home</a>
     </div>
     <div class="footer">
-        Novel DR — download the APK, install, and start reading offline.<br>
-        No tracking, no ads. Verified builds only.
+        Novel DR — retro downloader. No tricks, just the APK.<br>
+        <span style="font-family: monospace;">📟 Total downloads: <span id="downloadCounter">1284</span></span>
     </div>
 </div>
+
 <script>
-    // Replace with actual APK URL
-    const APK_URL = "https://github.com/yourusername/novel-dr/releases/download/v1.3/NovelDR-v1.3.apk";
-    const btn = document.getElementById("directDownloadBtn");
-    if (btn) {
-        btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            window.location.href = APK_URL;
-        });
+    // ========== CONFIG: REPLACE WITH YOUR REAL APK URL ==========
+    const APK_URL = "https://raw.githubusercontent.com/Moggle-Khraum/noveldr-site/main/NovelDR-v1.3.apk";
+    // Or use GitHub Pages: "https://moggle-khraum.github.io/noveldr-site/NovelDR-v1.3.apk"
+    // ============================================================
+
+    let activeCountdown = null, activeProgress = null;
+    let isLocked = false, countdownRunning = false;
+    let secondsLeft = 5;
+    const countdownDisplay = document.getElementById("countdownDisplay");
+    const statusMsg = document.getElementById("statusMsg");
+    const progressArea = document.getElementById("progressArea");
+    const progressFill = document.getElementById("progressFill");
+    const progressPercent = document.getElementById("progressPercent");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const resetAction = document.getElementById("resetAction");
+
+    function clearAllTimers() {
+        if (activeCountdown) { clearInterval(activeCountdown); activeCountdown = null; }
+        if (activeProgress) { clearInterval(activeProgress); activeProgress = null; }
     }
+    function resetUI(manual = false) {
+        clearAllTimers();
+        isLocked = false;
+        countdownRunning = false;
+        secondsLeft = 5;
+        countdownDisplay.innerText = secondsLeft;
+        progressArea.style.display = "none";
+        progressFill.style.width = "0%";
+        progressPercent.innerText = "0% complete";
+        downloadBtn.disabled = false;
+        statusMsg.innerText = manual ? "Cancelled. Click button again." : "Ready to download";
+    }
+    function triggerRealDownload() {
+        const link = document.createElement('a');
+        link.href = APK_URL;
+        link.download = '';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        statusMsg.innerText = "✅ Download started! Check your browser.";
+        setTimeout(() => { if (!isLocked && !countdownRunning) statusMsg.innerText = "Download ready – you can download again."; }, 3000);
+    }
+    function startProgressSimulation() {
+        let progress = 0;
+        progressFill.style.width = "0%";
+        progressPercent.innerText = "0% complete";
+        activeProgress = setInterval(() => {
+            if (progress >= 100) {
+                clearInterval(activeProgress);
+                activeProgress = null;
+                statusMsg.innerText = "⚡ Initiating download...";
+                setTimeout(() => { triggerRealDownload(); isLocked = false; downloadBtn.disabled = false; }, 200);
+                return;
+            }
+            progress += Math.floor(Math.random() * 9) + 4;
+            if (progress > 100) progress = 100;
+            progressFill.style.width = `${progress}%`;
+            progressPercent.innerText = `${progress}% complete`;
+        }, 70);
+    }
+    function startCountdown() {
+        if (countdownRunning || isLocked) return;
+        resetUI();
+        countdownRunning = true;
+        isLocked = true;
+        downloadBtn.disabled = true;
+        progressArea.style.display = "none";
+        secondsLeft = 5;
+        countdownDisplay.innerText = secondsLeft;
+        statusMsg.innerText = `⏳ Download starts in ${secondsLeft} seconds...`;
+        activeCountdown = setInterval(() => {
+            if (secondsLeft <= 1) {
+                clearInterval(activeCountdown);
+                activeCountdown = null;
+                countdownRunning = false;
+                statusMsg.innerText = "📀 Preparing file...";
+                countdownDisplay.innerText = "0";
+                progressArea.style.display = "block";
+                startProgressSimulation();
+            } else {
+                secondsLeft--;
+                countdownDisplay.innerText = secondsLeft;
+                statusMsg.innerText = `⏳ Download starts in ${secondsLeft} second${secondsLeft !== 1 ? 's' : ''}...`;
+            }
+        }, 1000);
+    }
+    downloadBtn.addEventListener("click", () => {
+        if (isLocked) { statusMsg.innerText = "⏰ Already preparing. Wait or reset."; return; }
+        startCountdown();
+    });
+    resetAction.addEventListener("click", () => { resetUI(true); });
+
+    // Mirror link (optional)
+    document.getElementById("mirrorLink")?.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = APK_URL;
+    });
+
+    // Fake download counter increment
+    let dCounter = 1284;
+    setInterval(() => {
+        dCounter++;
+        document.getElementById("downloadCounter").innerText = dCounter;
+    }, 30000); // increment every 30 seconds just for fun
 </script>
 </body>
 </html>
+
