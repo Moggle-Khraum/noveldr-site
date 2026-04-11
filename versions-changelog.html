@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Novel DR · Full Changelog</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #1a2a3a url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQYV2NkYGBoYmBg+M8ABYxMTEwM////Z2RkZAAAuQQEAeqJBkwAAAAASUVORK5CYII=');
+            font-family: 'Lucida Grande', 'Segoe UI', Tahoma, Arial, sans-serif;
+            padding: 30px 20px;
+        }
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #f5f9ff 0%, #e2ebf3 100%);
+            border-radius: 24px 24px 20px 20px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.8);
+            border: 1px solid #b7c9e2;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(90deg, #0a2f6c, #1e4a8a);
+            padding: 16px 25px;
+            border-bottom: 3px solid #ffb347;
+            color: white;
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: normal;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="28px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>') no-repeat left center;
+            background-size: 28px;
+            padding-left: 38px;
+        }
+        .nav {
+            background: #f4f7fa;
+            padding: 8px 20px;
+            border-bottom: 1px solid #d0dee5;
+        }
+        .nav a {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #e2eaf1;
+            color: #1e4663;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            margin-right: 12px;
+            border: 1px solid #bcccd6;
+        }
+        .content { padding: 25px 30px; }
+        .changelog-entry {
+            background: #fefcf5;
+            border-left: 5px solid #ffb347;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .changelog-entry h2 {
+            color: #1c4b73;
+            font-size: 26px;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #cbdbe0;
+            padding-bottom: 6px;
+        }
+        .changelog-date {
+            font-size: 12px;
+            color: #7a6e4b;
+            background: #fff2d0;
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+        .changelog-entry ul {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+        .changelog-entry li {
+            margin: 8px 0;
+            line-height: 1.4;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            background: #e2eaf1;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #1e4663;
+            border: 1px solid #bcccd6;
+        }
+        .footer {
+            background: linear-gradient(135deg, #dbe8e8, #c2d2d2);
+            padding: 14px 25px;
+            font-size: 11px;
+            text-align: center;
+            border-top: 1px solid #f0f6fa;
+        }
+        marquee {
+            background: #fffaec;
+            padding: 5px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 700px) {
+            .changelog-entry h2 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="header"><h1>📜 Full Changelog</h1></div>
+    <div class="nav">
+        <a href="index.html">🏠 Home</a>
+        <a href="downloads.html">📥 Download</a>
+        <a href="about.html">ℹ️ About</a>
+        <a href="old_versions.html">📦 Archive</a>
+    </div>
+    <div class="content">
+        <marquee scrollamount="3">📝 Detailed history of every Novel DR release 📝</marquee>
+
+        <!-- v1.3 -->
+        <div class="changelog-entry" id="v1.3">
+            <h2>🔖 Version 1.3</h2>
+            <div class="changelog-date">Released: April 8, 2025</div>
+            <ul>
+                <li><strong>Added</strong> – Sepia reading theme (easy on eyes for night reading).</li>
+                <li><strong>Added</strong> – Auto‑scroll speed presets (slow, medium, fast).</li>
+                <li><strong>Added</strong> – Backup & restore entire library metadata (JSON export/import).</li>
+                <li><strong>Added</strong> – Batch delete multiple novels from library.</li>
+                <li><strong>Improved</strong> – Download stability for novels with 2000+ chapters.</li>
+                <li><strong>Improved</strong> – Chapter list loading speed (virtualized).</li>
+                <li><strong>Fixed</strong> – Crash when reopening app after long background time.</li>
+                <li><strong>Fixed</strong> – Line spacing resetting after theme change.</li>
+            </ul>
+        </div>
+
+        <!-- v1.2 -->
+        <div class="changelog-entry" id="v1.2">
+            <h2>🔖 Version 1.2</h2>
+            <div class="changelog-date">Released: February 18, 2025</div>
+            <ul>
+                <li><strong>Added</strong> – Font size presets (14pt, 16pt, 18pt, 20pt, 22pt).</li>
+                <li><strong>Added</strong> – Line spacing options (1.0, 1.2, 1.5, 1.8).</li>
+                <li><strong>Added</strong> – Download logs (view which chapters failed).</li>
+                <li><strong>Improved</strong> – Reading progress indicator in chapter list.</li>
+                <li><strong>Fixed</strong> – Rare issue where novels wouldn't resume download after interruption.</li>
+                <li><strong>Changed</strong> – Minimum Android version raised to 8.0 (Oreo).</li>
+            </ul>
+        </div>
+
+        <!-- v1.1 -->
+        <div class="changelog-entry" id="v1.1">
+            <h2>🔖 Version 1.1</h2>
+            <div class="changelog-date">Released: January 5, 2025</div>
+            <ul>
+                <li><strong>Added</strong> – Update novels: fetch only new chapters (no re-download).</li>
+                <li><strong>Added</strong> – Table of contents modal with current chapter highlight.</li>
+                <li><strong>Added</strong> – Reading progress saved per chapter (scroll position).</li>
+                <li><strong>Added</strong> – Haptic feedback toggle (optional).</li>
+                <li><strong>Improved</strong> – Dark theme contrast.</li>
+                <li><strong>Fixed</strong> – Bug where some novels failed to parse due to site changes.</li>
+            </ul>
+        </div>
+
+        <!-- v1.0 -->
+        <div class="changelog-entry" id="v1.0">
+            <h2>🔖 Version 1.0</h2>
+            <div class="changelog-date">Released: December 12, 2024</div>
+            <ul>
+                <li><strong>Initial stable release.</strong></li>
+                <li>Download entire novels from ReadNovelFull, NovelFull, FreeWebNovel.</li>
+                <li>Offline reader with customisable font size (basic).</li>
+                <li>Two themes: Light and Dark.</li>
+                <li>Library management: delete, reorder, mark read.</li>
+                <li>Basic auto‑scroll (fixed speed).</li>
+                <li>Persistent storage using AsyncStorage.</li>
+            </ul>
+        </div>
+
+        <!-- v0.9 beta -->
+        <div class="changelog-entry" id="v0.9">
+            <h2>🔖 Version 0.9 Beta</h2>
+            <div class="changelog-date">Released: November 20, 2024</div>
+            <ul>
+                <li><strong>First public beta.</strong></li>
+                <li>Core download and reading functionality.</li>
+                <li>Experimental support for three novel sites.</li>
+                <li>Basic library with local storage.</li>
+                <li>Known issues: occasional crashes on very long chapters, no update feature.</li>
+                <li>For testing only – not recommended for daily use.</li>
+            </ul>
+        </div>
+
+        <a href="old_versions.html" class="back-link">← Back to old versions</a>
+    </div>
+    <div class="footer">
+        Novel DR — complete changelog. Every version is archived for transparency.<br>
+        No tracking, no ads. <strong>#FOSS</strong>
+    </div>
+</div>
+</body>
+</html>
