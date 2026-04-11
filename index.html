@@ -30,19 +30,28 @@
             box-shadow: inset 0 1px 0 #3d70b0, 0 2px 4px rgba(0,0,0,0.2);
             color: white;
             text-shadow: 1px 1px 0 #0a2f3f;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
         }
+        
         .header h1 {
             background: url('app-icon.png') no-repeat left center;
             background-size: 32px 32px;
             padding-left: 42px;
-        }
-        .header .tagline {
-            font-size: 14px;
+            font-size: 32px;
+            font-weight: normal;
+            margin: 0;
             display: inline-block;
+        }
+        
+        .tagline {
+            font-size: 14px;
             border-left: 1px solid #6a9bc2;
-            padding-left: 18px;
-            margin-left: 12px;
+            padding-left: 14px;
             color: #e0f0ff;
+            white-space: nowrap;
         }
         .nav {
             background: #f4f7fa;
@@ -166,7 +175,7 @@
 <body>
 <div class="wrapper">
     <div class="header">
-        <h1>📘 Novel DR</h1>
+        <h1>Novel DR </h1>
         <div class="tagline">offline · wuxia · xianxia</div>
     </div>
     <div class="nav">
