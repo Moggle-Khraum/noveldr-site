@@ -2,56 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novel DR · Old Versions</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: #e9f0f5;
+            background: #1a2a3a url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQYV2NkYGBoYmBg+M8ABYxMTEwM////Z2RkZAAAuQQEAeqJBkwAAAAASUVORK5CYII=');
             font-family: 'Lucida Grande', 'Segoe UI', Tahoma, Arial, sans-serif;
-            font-size: 13px;
-            line-height: 1.4;
-            color: #222;
             padding: 30px 20px;
         }
         .wrapper {
-            max-width: 960px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border: 1px solid #c0d0dc;
+            background: linear-gradient(145deg, #f5f9ff 0%, #e2ebf3 100%);
+            border-radius: 24px 24px 20px 20px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.8);
+            border: 1px solid #b7c9e2;
             overflow: hidden;
         }
         .header {
-            background: linear-gradient(135deg, #2c5f8a, #1e3e5c);
-            padding: 20px 30px;
+            background: linear-gradient(90deg, #0a2f6c, #1e4a8a);
+            padding: 16px 25px;
             border-bottom: 3px solid #ffb347;
             color: white;
-            text-shadow: 1px 1px 0 #0a2a3a;
         }
         .header h1 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: normal;
-            display: inline-block;
-            margin-right: 20px;
-        }
-        .header .tagline {
-            font-size: 16px;
-            display: inline-block;
-            border-left: 1px solid #6a9bc2;
-            padding-left: 18px;
-            margin-left: 10px;
-            color: #e0f0ff;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="28px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>') no-repeat left center;
+            background-size: 28px;
+            padding-left: 38px;
         }
         .nav {
             background: #f4f7fa;
             padding: 8px 20px;
             border-bottom: 1px solid #d0dee5;
-            box-shadow: inset 0 1px 0 #ffffff;
         }
         .nav a {
             display: inline-block;
@@ -64,37 +48,22 @@
             font-size: 12px;
             margin-right: 12px;
             border: 1px solid #bcccd6;
-            box-shadow: 0 1px 1px rgba(0,0,0,0.05);
         }
-        .nav a:hover {
-            background: #d1dfea;
-            border-color: #9aafbf;
-        }
-        .content {
-            padding: 30px 25px;
-        }
+        .content { padding: 25px 30px; }
         .version-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0 30px;
-            background: #fff;
+            background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            margin: 20px 0;
         }
         .version-table th, .version-table td {
             padding: 12px 10px;
             border-bottom: 1px solid #e0e8ef;
             text-align: left;
         }
-        .version-table th {
-            background: #eef3f8;
-            color: #1f4970;
-            font-weight: bold;
-        }
-        .version-table tr:last-child td {
-            border-bottom: none;
-        }
+        .version-table th { background: #eef3f8; color: #1f4970; }
         .download-link {
             background: #e0e9f2;
             padding: 4px 12px;
@@ -102,11 +71,7 @@
             text-decoration: none;
             font-weight: bold;
             color: #2b6a9f;
-            display: inline-block;
             border: 1px solid #bcccd6;
-        }
-        .download-link:hover {
-            background: #d1dfea;
         }
         .changelog {
             background: #fafcfd;
@@ -115,96 +80,80 @@
             padding: 18px;
             margin-top: 20px;
         }
-        .changelog h3 {
-            margin-bottom: 12px;
-            color: #1c4b73;
-        }
         .changelog ul {
             margin-left: 20px;
-            color: #3a5e7a;
         }
         .changelog li {
-            margin: 6px 0;
+            margin: 8px 0;
         }
-        .back-link {
-            margin-top: 20px;
-            display: inline-block;
-            background: #e2eaf1;
-            padding: 6px 14px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            color: #1e4663;
-            border: 1px solid #bcccd6;
+        .changelog-link {
+            font-size: 0.8rem;
+            margin-left: 8px;
         }
         .footer {
-            background: #eef3f8;
-            padding: 16px 25px;
+            background: linear-gradient(135deg, #dbe8e8, #c2d2d2);
+            padding: 14px 25px;
             font-size: 11px;
-            color: #5f7e9a;
-            border-top: 1px solid #cbdbe0;
             text-align: center;
+            border-top: 1px solid #f0f6fa;
         }
-        @media (max-width: 700px) {
-            .header .tagline { display: block; border-left: none; padding-left: 0; margin-top: 8px; }
-            .version-table th, .version-table td { padding: 8px 6px; }
+        marquee {
+            background: #fffaec;
+            padding: 5px;
+            border-radius: 40px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 <div class="wrapper">
-    <div class="header">
-        <h1>📦 Novel DR</h1>
-        <div class="tagline">archive · old versions</div>
-    </div>
+    <div class="header"><h1>📦 Novel DR · Archive</h1></div>
     <div class="nav">
         <a href="index.html">🏠 Home</a>
         <a href="downloads.html">📥 Download</a>
-        <a href="about.html">⚙️ About Site</a>
+        <a href="about.html">ℹ️ About</a>
+        <a href="old_versions.html">📦 Archive</a>
     </div>
     <div class="content">
-        <h2 style="color:#1e4663; margin-bottom: 10px;">📜 Older APK builds</h2>
-        <p>All historical versions of Novel DR. <strong>Latest stable: v1.3</strong> (recommended). Older releases may lack features like auto-scroll, sepia theme, or backup/restore.</p>
+        <marquee scrollamount="3">📜 Older versions – for compatibility or nostalgia 📜</marquee>
+
+        <h2 style="color:#1e4663;">📜 Older APK builds</h2>
+        <p>All historical versions. <strong>Latest stable: v1.3</strong> (recommended).</p>
 
         <table class="version-table">
-            <thead>
-                <tr><th>Version</th><th>Release date</th><th>Size</th><th>Download</th></tr>
-            </thead>
+            <thead><tr><th>Version</th><th>Release</th><th>Size</th><th>Download</th></tr></thead>
             <tbody>
-                <tr><td><strong>v1.3</strong></td><td>2025.04.08</td><td>25 MB</td><td><a href="#" class="download-link">⬇ APK</a></td></tr>
-                <tr><td>v1.2</td><td>2025.02.18</td><td>24 MB</td><td><a href="#" class="download-link">⬇ APK</a></td></tr>
-                <tr><td>v1.1</td><td>2025.01.05</td><td>23 MB</td><td><a href="#" class="download-link">⬇ APK</a></td></tr>
-                <tr><td>v1.0</td><td>2024.12.12</td><td>22 MB</td><td><a href="#" class="download-link">⬇ APK</a></td></tr>
-                <tr><td>v0.9 beta</td><td>2024.11.20</td><td>21 MB</td><td><a href="#" class="download-link">⬇ APK</a></td></tr>
+                <tr><td><strong>v1.3</strong></td><td>2025.04.08</td><td>25 MB</td><td><a href="#" class="download-link" data-url="https://raw.githubusercontent.com/Moggle-Khraum/noveldr-site/main/NovelDR-v1.3.apk">⬇ APK</a></td></tr>
+                <tr><td>v1.2</td><td>2025.02.18</td><td>24 MB</td><td><a href="#" class="download-link" data-url="https://raw.githubusercontent.com/Moggle-Khraum/noveldr-site/main/NovelDR-v1.2.apk">⬇ APK</a></td></tr>
+                <tr><td>v1.1</td><td>2025.01.05</td><td>23 MB</td><td><a href="#" class="download-link" data-url="https://raw.githubusercontent.com/Moggle-Khraum/noveldr-site/main/NovelDR-v1.1.apk">⬇ APK</a></td></tr>
+                <tr><td>v1.0</td><td>2024.12.12</td><td>22 MB</td><td><a href="#" class="download-link" data-url="https://raw.githubusercontent.com/Moggle-Khraum/noveldr-site/main/NovelDR-v1.0.apk">⬇ APK</a></td></tr>
             </tbody>
         </table>
 
         <div class="changelog">
             <h3>📋 Changelog highlights</h3>
             <ul>
-                <li><strong>v1.3</strong> – Added sepia theme, auto‑scroll speed presets, batch delete novels, backup/restore library.</li>
-                <li><strong>v1.2</strong> – Font size presets (14–22pt), line spacing options, improved download logs.</li>
-                <li><strong>v1.1</strong> – Chapter updates (fetch only new chapters), TOC modal, reading progress per chapter.</li>
-                <li><strong>v1.0</strong> – Initial release: download novels, basic reader, library management.</li>
-                <li><strong>v0.9 beta</strong> – Experimental build with core download and reading features.</li>
+                <li><strong>v1.3</strong> – Sepia theme, auto‑scroll presets, backup/restore. <a href="versions-changelog.html#v1.3" class="changelog-link">[View Full Changelog]</a></li>
+                <li><strong>v1.2</strong> – Font size presets, line spacing options. <a href="versions-changelog.html#v1.2" class="changelog-link">[View Full Changelog]</a></li>
+                <li><strong>v1.1</strong> – Chapter updates, reading progress per chapter. <a href="versions-changelog.html#v1.1" class="changelog-link">[View Full Changelog]</a></li>
+                <li><strong>v1.0</strong> – Initial release: download novels, basic reader. <a href="versions-changelog.html#v1.0" class="changelog-link">[View Full Changelog]</a></li>
+                <li><strong>v0.9 beta</strong> – Experimental build with core download/reading. <a href="versions-changelog.html#v0.9" class="changelog-link">[View Full Changelog]</a></li>
             </ul>
         </div>
-
-        <a href="index.html" class="back-link">← Back to main page</a>
     </div>
     <div class="footer">
-        Novel DR — old versions archive. All APKs are original builds, signed with the same key.<br>
+        Novel DR — old versions archive. All APKs are original builds.<br>
         No tracking, no ads. <strong>#FOSS</strong>
     </div>
 </div>
 <script>
-    // Optional: Replace placeholder APK links with real URLs
-    const links = document.querySelectorAll('.download-link');
-    links.forEach(link => {
+    // Make all download links work
+    document.querySelectorAll('.download-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Replace with actual APK URL for ' + link.closest('tr')?.cells[0]?.innerText);
-            // window.location.href = 'https://your-storage.com/noveldr-v1.3.apk';
+            const url = link.getAttribute('data-url');
+            if (url) window.location.href = url;
+            else alert('APK URL not set. Replace data-url with real link.');
         });
     });
 </script>
