@@ -2,56 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novel DR · About</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: #e9f0f5;
+            background: #1a2a3a url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQYV2NkYGBoYmBg+M8ABYxMTEwM////Z2RkZAAAuQQEAeqJBkwAAAAASUVORK5CYII=');
             font-family: 'Lucida Grande', 'Segoe UI', Tahoma, Arial, sans-serif;
-            font-size: 13px;
-            line-height: 1.4;
-            color: #222;
             padding: 30px 20px;
         }
         .wrapper {
-            max-width: 960px;
+            max-width: 900px;
             margin: 0 auto;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border: 1px solid #c0d0dc;
+            background: linear-gradient(145deg, #f5f9ff 0%, #e2ebf3 100%);
+            border-radius: 24px 24px 20px 20px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.8);
+            border: 1px solid #b7c9e2;
             overflow: hidden;
         }
         .header {
-            background: linear-gradient(135deg, #2c5f8a, #1e3e5c);
-            padding: 20px 30px;
+            background: linear-gradient(90deg, #0a2f6c, #1e4a8a);
+            padding: 16px 25px;
             border-bottom: 3px solid #ffb347;
             color: white;
-            text-shadow: 1px 1px 0 #0a2a3a;
+            text-shadow: 1px 1px 0 #0a2f3f;
         }
         .header h1 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: normal;
-            display: inline-block;
-            margin-right: 20px;
-        }
-        .header .tagline {
-            font-size: 16px;
-            display: inline-block;
-            border-left: 1px solid #6a9bc2;
-            padding-left: 18px;
-            margin-left: 10px;
-            color: #e0f0ff;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="28px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>') no-repeat left center;
+            background-size: 28px;
+            padding-left: 38px;
         }
         .nav {
             background: #f4f7fa;
             padding: 8px 20px;
             border-bottom: 1px solid #d0dee5;
-            box-shadow: inset 0 1px 0 #ffffff;
         }
         .nav a {
             display: inline-block;
@@ -64,33 +49,14 @@
             font-size: 12px;
             margin-right: 12px;
             border: 1px solid #bcccd6;
-            box-shadow: 0 1px 1px rgba(0,0,0,0.05);
         }
-        .nav a:hover {
-            background: #d1dfea;
-            border-color: #9aafbf;
-        }
-        .content {
-            padding: 30px 30px;
-        }
+        .content { padding: 25px 30px; }
         .about-section {
             margin-bottom: 28px;
             border-bottom: 1px dashed #cbdbe0;
             padding-bottom: 20px;
         }
-        .about-section:last-child {
-            border-bottom: none;
-        }
-        .about-section h2 {
-            color: #1c4b73;
-            font-size: 22px;
-            margin-bottom: 12px;
-            letter-spacing: -0.3px;
-        }
-        .about-section p {
-            margin: 10px 0;
-            color: #2a4055;
-        }
+        .about-section h2 { color: #1c4b73; font-size: 22px; margin-bottom: 12px; }
         .author-card {
             background: #fafcfd;
             border: 1px solid #dce6ed;
@@ -98,87 +64,65 @@
             padding: 16px;
             margin: 15px 0;
         }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            background: #e2eaf1;
-            padding: 6px 14px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            color: #1e4663;
-            border: 1px solid #bcccd6;
-        }
         .footer {
-            background: #eef3f8;
-            padding: 16px 25px;
+            background: linear-gradient(135deg, #dbe8e8, #c2d2d2);
+            padding: 14px 25px;
             font-size: 11px;
-            color: #5f7e9a;
-            border-top: 1px solid #cbdbe0;
             text-align: center;
+            border-top: 1px solid #f0f6fa;
         }
-        @media (max-width: 700px) {
-            .header .tagline { display: block; border-left: none; padding-left: 0; margin-top: 8px; }
+        marquee {
+            background: #fffaec;
+            padding: 5px;
+            border-radius: 40px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 <div class="wrapper">
-    <div class="header">
-        <h1>📘 Novel DR</h1>
-        <div class="tagline">about · site & app</div>
-    </div>
+    <div class="header"><h1>📘 Novel DR</h1></div>
     <div class="nav">
         <a href="index.html">🏠 Home</a>
-        <a href="old_versions.html">📦 Old Versions</a>
         <a href="downloads.html">📥 Download</a>
+        <a href="about.html">ℹ️ About</a>
+        <a href="old_versions.html">📦 Archive</a>
     </div>
     <div class="content">
+        <marquee scrollamount="3">📖 Offline Wuxia/Xianxia reader • 100% free • No ads • Since 2025 📖</marquee>
+
         <div class="about-section">
             <h2>📖 About this site</h2>
             <p>This is the official homepage of <strong>Novel DR</strong> – a free, open‑source Android app for downloading and reading Wuxia, Xianxia, and light novels offline. The site is designed with a nostalgic 2005–2012 web aesthetic (gradients, rounded corners, old‑school buttons) to celebrate the golden era of personal blogs and early indie software.</p>
-            <p>The website provides the latest APK, a full feature list, an archive of old versions, visitor counters, and links to the source code. No trackers, no cookies – just pure HTML/CSS/JS.</p>
         </div>
-
         <div class="about-section">
             <h2>📱 About the App (Novel DR)</h2>
-            <p><strong>Novel DR</strong> is an offline novel reader for Android. You can download complete novels from three supported websites (ReadNovelFull, NovelFull, FreeWebNovel) and read them anywhere without an internet connection.</p>
-            <ul style="margin-left: 25px; margin-top: 8px; color: #2a4055;">
+            <ul style="margin-left: 25px;">
                 <li>✔ Download entire novels chapter by chapter</li>
                 <li>✔ Customizable font size (14–22pt) and line spacing</li>
                 <li>✔ Three themes: Dark, Light, Sepia</li>
                 <li>✔ Auto‑scroll mode with adjustable speed</li>
-                <li>✔ Reading progress saved per chapter (scroll position)</li>
-                <li>✔ Table of contents with current chapter highlight</li>
+                <li>✔ Reading progress saved per chapter</li>
                 <li>✔ Backup & restore library metadata (JSON)</li>
                 <li>✔ Update novels – fetch only new chapters</li>
                 <li>✔ 100% free, no ads, no tracking</li>
             </ul>
-            <p>The app is built with React Native (Expo) and targets Android 8.0+.</p>
         </div>
-
         <div class="about-section">
             <h2>🧑‍💻 About the Author</h2>
             <div class="author-card">
-                <p><strong>👤 Developer:</strong> Independent creator and open‑source enthusiast. Passionate about web development, mobile apps, and Chinese web novels (Wuxia/Xianxia).</p>
-                <p><strong>📧 Contact:</strong> <a href="mailto:demiurgegravedigger@gmail.com" style="color:#2c6b9e;">demiurgegravedigger@gmail.com</a></p>
-                <p><strong>🐙 GitHub:</strong> <a href="https://github.com/Moggle-Khraum" style="color:#2c6b9e;">Moggle Khraum</a></p>
-                <p><strong>☕ Support:</strong> If you like Novel DR, consider sharing the site or app with fellow readers.</p>
+                <p><strong>👤 Developer:</strong> Independent creator, open‑source enthusiast.</p>
+                <p><strong>📧 Contact:</strong> <a href="mailto:demiurgegravedigger@gmail.com">demiurgegravedigger@gmail.com</a></p>
+                <p><strong>🐙 GitHub:</strong> <a href="https://github.com/Moggle-Khraum">Moggle Khraum</a></p>
             </div>
-            <p>The app was born out of frustration with bloated reading apps and the need for a simple, offline‑first solution for long Xianxia novels (often 2000+ chapters). No cloud, no subscriptions – just you and your books.</p>
         </div>
-
         <div class="about-section">
             <h2>📜 Tech & credits</h2>
-            <p><strong>Tech stack (app):</strong> React Native (Expo), TypeScript, AsyncStorage, React Navigation, Expo Haptics, FileSystem, and more.</p>
-            <p><strong>Website:</strong> Pure HTML/CSS/JS, retro style, FlagCounter & CountAPI for visitor stats.</p>
-            <p><strong>Thanks to:</strong> All open‑source contributors, the Wuxia/Xianxia community, and early testers.</p>
+            <p>React Native (Expo), TypeScript, AsyncStorage. Website: pure HTML/CSS/JS, retro style.</p>
         </div>
-
-        <a href="index.html" class="back-link">← Back to home</a>
     </div>
     <div class="footer">
-        Novel DR — made with ☕ for novel lovers. No ads, no spyware, just reading.<br>
+        Novel DR — made with ☕ for novel lovers. No ads, no spyware.<br>
         <span style="font-size:10px;">Last updated: April 2025</span>
     </div>
 </div>
