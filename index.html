@@ -167,6 +167,34 @@
                 transform: translateY(0);
             }
         }
+        /* Modern announcement ticker (replaces marquee) */
+        .announcement {
+            background: var(--warning-bg);
+            border-radius: 2rem;
+            padding: 0.6rem 1rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            border: 1px solid var(--warning-border);
+        }
+        .announcement-content {
+            display: inline-block;
+            animation: scrollAnnouncement 20s linear infinite;
+            padding-left: 100%;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        @keyframes scrollAnnouncement {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .announcement:hover .announcement-content {
+            animation-play-state: paused;
+        }
+        @media (max-width: 768px) {
+            .announcement-content { animation-duration: 12s; }
+        }
         /* Cards & components */
         .download-card {
             background: var(--card-bg);
@@ -286,7 +314,13 @@
         a { color: var(--accent); text-decoration: none; }
         .reset-link { cursor: pointer; color: var(--accent); text-decoration: underline; margin-top: 0.5rem; display: inline-block; }
         .download-link { cursor: pointer; color: var(--accent); font-weight: 500; }
-        marquee { background: var(--warning-bg); padding: 0.5rem; border-radius: 2rem; margin-bottom: 1rem; font-size: 0.8rem; }
+        .nav-link-style {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-size: inherit;
+        }
     </style>
 </head>
 <body>
@@ -309,6 +343,9 @@
 
         <!-- HOME PAGE -->
         <div id="page-home" class="page">
+            <div class="announcement">
+                <div class="announcement-content">✔️ 100% virus free • Compatible with Android 8+ • No tracking • Open source ✔️</div>
+            </div>
             <div class="download-card">
                 <div style="font-size: 2rem;">📱 Novel DR v1.3</div>
                 <p style="margin: 0.5rem 0;">Android 8.0+ · 100% free · no ads</p>
@@ -324,7 +361,6 @@
                 <div class="feature-item">💾 Backup & restore library</div>
                 <div class="feature-item">🔄 Chapter updates</div>
             </div>
-            <marquee scrollamount="3">✔️ 100% virus free • Compatible with Android 8+ • No tracking • Open source ✔️</marquee>
             <div style="background: var(--card-bg); border-radius: 1rem; padding: 1rem; margin-top: 1rem;">
                 <h3>📊 Stats & facts</h3>
                 <table class="info-table">
@@ -344,7 +380,9 @@
 
         <!-- DOWNLOADS PAGE -->
         <div id="page-downloads" class="page">
-            <marquee scrollamount="3">✔️ Official APK • No ads • No tracking • Offline reader ✔️</marquee>
+            <div class="announcement">
+                <div class="announcement-content">✔️ Official APK • No ads • No tracking • Offline reader ✔️</div>
+            </div>
             <div class="countdown-container" id="countdownContainer" style="display: none;">
                 <div class="countdown-digit" id="countdownDisplay">5</div>
                 <div class="status-text" id="statusMsg">Starting download...</div>
@@ -373,7 +411,9 @@
 
         <!-- ABOUT PAGE -->
         <div id="page-about" class="page">
-            <marquee scrollamount="3">📖 Offline Wuxia/Xianxia reader • 100% free • No ads • Since 2025 📖</marquee>
+            <div class="announcement">
+                <div class="announcement-content">📖 Offline Wuxia/Xianxia reader • 100% free • No ads • Since 2025 📖</div>
+            </div>
             <div class="about-section">
                 <h2>📖 About this site</h2>
                 <p>Official homepage of <strong>Novel DR</strong> – a free, open‑source Android app for downloading and reading Wuxia, Xianxia, and light novels offline. Modern, clean design with light/dark themes.</p>
@@ -407,7 +447,9 @@
 
         <!-- OLD VERSIONS PAGE -->
         <div id="page-old_versions" class="page">
-            <marquee scrollamount="3">📜 Older versions – for compatibility or nostalgia 📜</marquee>
+            <div class="announcement">
+                <div class="announcement-content">📜 Older versions – for compatibility or nostalgia 📜</div>
+            </div>
             <h2>📜 Older APK builds</h2>
             <p>All historical versions. <strong>Latest stable: v1.3</strong> (recommended).</p>
             <table class="version-table">
@@ -422,17 +464,19 @@
             <div class="changelog">
                 <h3>📋 Changelog highlights</h3>
                 <ul>
-                    <li><strong>v1.3</strong> – Sepia theme, auto‑scroll presets, backup/restore. <button class="nav-link-style" data-page="changelog" data-anchor="v1.3" style="background:none; border:none; color:var(--accent); cursor:pointer;">[View Full]</button></li>
-                    <li><strong>v1.2</strong> – Font size presets, line spacing. <button class="nav-link-style" data-page="changelog" data-anchor="v1.2" style="background:none; border:none; color:var(--accent); cursor:pointer;">[View Full]</button></li>
-                    <li><strong>v1.1</strong> – Chapter updates, reading progress. <button class="nav-link-style" data-page="changelog" data-anchor="v1.1" style="background:none; border:none; color:var(--accent); cursor:pointer;">[View Full]</button></li>
-                    <li><strong>v1.0</strong> – Initial release. <button class="nav-link-style" data-page="changelog" data-anchor="v1.0" style="background:none; border:none; color:var(--accent); cursor:pointer;">[View Full]</button></li>
+                    <li><strong>v1.3</strong> – Sepia theme, auto‑scroll presets, backup/restore. <button class="nav-link-style" data-page="changelog" data-anchor="v1.3">[View Full]</button></li>
+                    <li><strong>v1.2</strong> – Font size presets, line spacing. <button class="nav-link-style" data-page="changelog" data-anchor="v1.2">[View Full]</button></li>
+                    <li><strong>v1.1</strong> – Chapter updates, reading progress. <button class="nav-link-style" data-page="changelog" data-anchor="v1.1">[View Full]</button></li>
+                    <li><strong>v1.0</strong> – Initial release. <button class="nav-link-style" data-page="changelog" data-anchor="v1.0">[View Full]</button></li>
                 </ul>
             </div>
         </div>
 
         <!-- FULL CHANGELOG PAGE -->
         <div id="page-changelog" class="page">
-            <marquee scrollamount="3">📝 Detailed history of every Novel DR release 📝</marquee>
+            <div class="announcement">
+                <div class="announcement-content">📝 Detailed history of every Novel DR release 📝</div>
+            </div>
             <div class="changelog-entry" id="v1.3">
                 <h2>🔖 Version 1.3</h2>
                 <div class="changelog-date">Released: April 8, 2025</div>
@@ -530,7 +574,7 @@
     window.addEventListener('hashchange', handleNavigation);
     handleNavigation();
 
-    // ---------- DOWNLOAD COUNTDOWN (same functionality) ----------
+    // ---------- DOWNLOAD COUNTDOWN ----------
     const APK_URL = "https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.3rev95/NovelDR.v1.0.3rev95.apk";
     let activeCountdown = null, activeProgress = null;
     let isLocked = false, countdownRunning = false;
@@ -633,7 +677,7 @@
     const mirrorLink = document.getElementById("mirrorLink");
     if(mirrorLink) mirrorLink.addEventListener("click", (e) => { e.preventDefault(); window.location.href = APK_URL; });
 
-    // old versions download links
+    // Old versions download links
     document.querySelectorAll('.download-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -641,7 +685,8 @@
             if(url) window.location.href = url;
         });
     });
-    // fake download counter
+
+    // Fake download counter
     let dCounter = 1284;
     setInterval(() => {
         dCounter++;
