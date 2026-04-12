@@ -6,12 +6,9 @@
     <title>Novel DR · Download APK</title>
     <meta name="description" content="Download Novel DR APK – read Wuxia & Xianxia novels offline, free and open source">
     <link rel="canonical" href="https://moggle.is-a-good.dev/">
+    <link rel="icon" type="image/png" href="app-icon.png">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: #f1f5f9;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -25,7 +22,6 @@
         .card {
             max-width: 600px;
             width: 100%;
-            margin: 0 auto;
             background: white;
             border-radius: 2rem;
             box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
@@ -38,23 +34,11 @@
             text-align: center;
             color: white;
         }
-        .header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-        .header p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        .content {
-            padding: 2rem;
-        }
-        .app-icon {
-            text-align: center;
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
+        .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem; }
+        .header p { font-size: 0.9rem; opacity: 0.8; }
+        .content { padding: 2rem; }
+        .app-icon { text-align: center; margin-bottom: 1rem; }
+        .app-icon img { width: 80px; height: 80px; border-radius: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .info {
             background: #f8fafc;
             border-radius: 1rem;
@@ -68,16 +52,9 @@
             padding: 0.5rem 0;
             border-bottom: 1px solid #e2e8f0;
         }
-        .info-row:last-child {
-            border-bottom: none;
-        }
-        .label {
-            font-weight: 600;
-            color: #334155;
-        }
-        .value {
-            color: #0f172a;
-        }
+        .info-row:last-child { border-bottom: none; }
+        .label { font-weight: 600; color: #334155; }
+        .value { color: #0f172a; }
         .download-btn {
             display: block;
             background: #3b82f6;
@@ -90,13 +67,8 @@
             text-decoration: none;
             transition: 0.2s;
             margin: 1.5rem 0 1rem;
-            border: none;
-            cursor: pointer;
         }
-        .download-btn:hover {
-            background: #2563eb;
-            transform: scale(1.01);
-        }
+        .download-btn:hover { background: #2563eb; transform: scale(1.01); }
         .warning {
             background: #fef3c7;
             border-left: 4px solid #f59e0b;
@@ -104,6 +76,24 @@
             border-radius: 0.75rem;
             font-size: 0.8rem;
             margin-top: 1rem;
+        }
+        .scan-result {
+            margin-top: 1.5rem;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+        }
+        .scan-result img {
+            max-width: 100%;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+        }
+        .scan-result p {
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            color: #475569;
         }
         .footer {
             background: #f1f5f9;
@@ -116,6 +106,7 @@
         @media (max-width: 500px) {
             body { padding: 1rem; }
             .content { padding: 1.5rem; }
+            .app-icon img { width: 64px; height: 64px; }
         }
     </style>
 </head>
@@ -126,7 +117,9 @@
         <p>offline · wuxia · xianxia</p>
     </div>
     <div class="content">
-        <div class="app-icon">📱</div>
+        <div class="app-icon">
+            <img src="app-icon.png" alt="Novel DR App Icon">
+        </div>
         <h2 style="text-align: center; margin-bottom: 1rem;">Download the APK</h2>
         <div class="info">
             <div class="info-row"><span class="label">Version</span><span class="value">1.3 (stable)</span></div>
@@ -139,6 +132,12 @@
         </a>
         <div class="warning">
             ⚠️ After download, open the file and allow "Install from unknown sources" if prompted. No ads, no tracking.
+        </div>
+
+        <!-- Antivirus scan result image -->
+        <div class="scan-result">
+            <img src="scan-result.png" alt="VirusTotal scan result: 0/70 security vendors flagged this file as malicious">
+            <p>✅ Verified by VirusTotal – 0 security vendors flagged this file as malicious</p>
         </div>
     </div>
     <div class="footer">
