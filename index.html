@@ -2,697 +2,148 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Novel DR · Modern Offline Reader</title>
-    <meta name="description" content="Download and read Wuxia, Xianxia novels offline – free, no ads, open source">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novel DR · Download APK</title>
+    <meta name="description" content="Download Novel DR APK – read Wuxia & Xianxia novels offline, free and open source">
     <link rel="canonical" href="https://moggle.is-a-good.dev/">
     <style>
-        /* ---------- CSS Variables for Light/Dark ---------- */
-        :root {
-            --bg-gradient-start: #f8fafc;
-            --bg-gradient-end: #e2e8f0;
-            --card-bg: rgba(255,255,255,0.9);
-            --text-primary: #0f172a;
-            --text-secondary: #334155;
-            --header-bg: linear-gradient(135deg, #1e293b, #0f172a);
-            --header-text: #f1f5f9;
-            --nav-bg: #f1f5f9;
-            --nav-text: #1e293b;
-            --nav-hover: #e2e8f0;
-            --border-color: #cbd5e1;
-            --accent: #3b82f6;
-            --accent-dark: #2563eb;
-            --success: #10b981;
-            --success-dark: #059669;
-            --warning-bg: #fef3c7;
-            --warning-border: #f59e0b;
-            --table-header: #f1f5f9;
-            --code-bg: #f1f5f9;
-            --footer-bg: #e2e8f0;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            --transition: all 0.2s ease;
-        }
-        body.dark {
-            --bg-gradient-start: #0f172a;
-            --bg-gradient-end: #1e293b;
-            --card-bg: rgba(30,41,59,0.95);
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --header-bg: linear-gradient(135deg, #020617, #0f172a);
-            --header-text: #f8fafc;
-            --nav-bg: #1e293b;
-            --nav-text: #cbd5e1;
-            --nav-hover: #334155;
-            --border-color: #334155;
-            --warning-bg: #451a03;
-            --warning-border: #d97706;
-            --table-header: #1e293b;
-            --code-bg: #0f172a;
-            --footer-bg: #0f172a;
-        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            color: var(--text-primary);
+            background: #f1f5f9;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.5;
-            transition: background 0.3s ease, color 0.2s ease;
+            padding: 1.5rem;
             min-height: 100vh;
-            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .container {
-            max-width: 1200px;
+        .card {
+            max-width: 600px;
+            width: 100%;
             margin: 0 auto;
-        }
-        /* Card / Wrapper */
-        .site-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(2px);
+            background: white;
             border-radius: 2rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
             overflow: hidden;
-            transition: var(--transition);
+            border: 1px solid #e2e8f0;
         }
-        /* Header */
         .header {
-            background: var(--header-bg);
-            padding: 1.25rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .logo p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-        .theme-toggle {
-            background: var(--nav-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 3rem;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-weight: 500;
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            transition: var(--transition);
-        }
-        .theme-toggle:hover {
-            transform: scale(1.02);
-            background: var(--nav-hover);
-        }
-        /* Navigation */
-        .nav {
-            background: var(--nav-bg);
-            padding: 0.75rem 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .nav-btn {
-            background: transparent;
-            border: none;
-            padding: 0.5rem 1.25rem;
-            border-radius: 2rem;
-            font-weight: 500;
-            color: var(--nav-text);
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.9rem;
-        }
-        .nav-btn:hover {
-            background: var(--nav-hover);
-            transform: translateY(-2px);
-        }
-        .nav-btn.active {
-            background: var(--accent);
+            background: #0f172a;
+            padding: 1.5rem;
+            text-align: center;
             color: white;
-            box-shadow: var(--shadow-sm);
         }
-        /* Pages */
-        .page {
-            display: none;
-            animation: fadeSlide 0.3s ease-out;
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .content {
             padding: 2rem;
         }
-        .page.active-page {
-            display: block;
-        }
-        @keyframes fadeSlide {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        /* Modern announcement ticker (replaces marquee) */
-        .announcement {
-            background: var(--warning-bg);
-            border-radius: 2rem;
-            padding: 0.6rem 1rem;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            border: 1px solid var(--warning-border);
-        }
-        .announcement-content {
-            display: inline-block;
-            animation: scrollAnnouncement 20s linear infinite;
-            padding-left: 100%;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        @keyframes scrollAnnouncement {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-        .announcement:hover .announcement-content {
-            animation-play-state: paused;
-        }
-        @media (max-width: 768px) {
-            .announcement-content { animation-duration: 12s; }
-        }
-        /* Cards & components */
-        .download-card {
-            background: var(--card-bg);
-            border-radius: 1.5rem;
-            padding: 1.5rem;
+        .app-icon {
             text-align: center;
-            box-shadow: var(--shadow-md);
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
+            font-size: 4rem;
+            margin-bottom: 1rem;
         }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            border: none;
-            padding: 0.75rem 2rem;
+        .info {
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #e2e8f0;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        .label {
+            font-weight: 600;
+            color: #334155;
+        }
+        .value {
+            color: #0f172a;
+        }
+        .download-btn {
+            display: block;
+            background: #3b82f6;
+            color: white;
+            text-align: center;
+            padding: 1rem;
             border-radius: 3rem;
             font-weight: 600;
-            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: 0.2s;
+            margin: 1.5rem 0 1rem;
+            border: none;
             cursor: pointer;
-            transition: var(--transition);
-            font-size: 1.1rem;
-            box-shadow: var(--shadow-sm);
         }
-        .btn-primary:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-md);
+        .download-btn:hover {
+            background: #2563eb;
+            transform: scale(1.01);
         }
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        .feature-item {
-            background: var(--card-bg);
-            padding: 0.75rem 1rem;
-            border-radius: 1rem;
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        /* Tables */
-        .info-table, .version-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
-            border-radius: 1rem;
-            overflow: hidden;
-            margin: 1rem 0;
-        }
-        .info-table td, .version-table td, .version-table th {
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .version-table th {
-            background: var(--table-header);
-            text-align: left;
-        }
-        /* Countdown */
-        .countdown-container {
-            background: var(--card-bg);
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-md);
-        }
-        .countdown-digit {
-            font-size: 4rem;
-            font-weight: 800;
-            font-family: monospace;
-            background: var(--accent);
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 2rem;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-        .progress-block {
-            background: var(--border-color);
-            border-radius: 1rem;
-            height: 0.75rem;
-            overflow: hidden;
-            margin: 0.5rem 0;
-        }
-        .progress-fill {
-            width: 0%;
-            height: 100%;
-            background: var(--success);
-            transition: width 0.1s linear;
-        }
-        .warning-box {
-            background: var(--warning-bg);
-            border-left: 4px solid var(--warning-border);
-            padding: 1rem;
-            border-radius: 1rem;
-            margin: 1rem 0;
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            font-size: 0.8rem;
+            margin-top: 1rem;
         }
         .footer {
-            background: var(--footer-bg);
-            padding: 1rem 2rem;
+            background: #f1f5f9;
+            padding: 1rem;
             text-align: center;
-            font-size: 0.75rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
+            font-size: 0.7rem;
+            color: #475569;
+            border-top: 1px solid #e2e8f0;
         }
-        /* Responsive */
-        @media (max-width: 768px) {
-            body { padding: 0.5rem; }
-            .page { padding: 1rem; }
-            .header { flex-direction: column; text-align: center; }
-            .nav { justify-content: center; }
-            .countdown-digit { font-size: 2.5rem; }
-        }
-        /* Misc */
-        a { color: var(--accent); text-decoration: none; }
-        .reset-link { cursor: pointer; color: var(--accent); text-decoration: underline; margin-top: 0.5rem; display: inline-block; }
-        .download-link { cursor: pointer; color: var(--accent); font-weight: 500; }
-        .nav-link-style {
-            background: none;
-            border: none;
-            color: var(--accent);
-            cursor: pointer;
-            font-size: inherit;
+        @media (max-width: 500px) {
+            body { padding: 1rem; }
+            .content { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="site-card">
-        <div class="header">
-            <div class="logo">
-                <h1>Novel DR</h1>
-                <p>offline · wuxia · xianxia</p>
-            </div>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌓 Dark/Light</button>
+<div class="card">
+    <div class="header">
+        <h1>Novel DR</h1>
+        <p>offline · wuxia · xianxia</p>
+    </div>
+    <div class="content">
+        <div class="app-icon">📱</div>
+        <h2 style="text-align: center; margin-bottom: 1rem;">Download the APK</h2>
+        <div class="info">
+            <div class="info-row"><span class="label">Version</span><span class="value">1.3 (stable)</span></div>
+            <div class="info-row"><span class="label">File size</span><span class="value">97.4 MB</span></div>
+            <div class="info-row"><span class="label">Android</span><span class="value">8.0+ (Oreo)</span></div>
+            <div class="info-row"><span class="label">Architecture</span><span class="value">arm64-v8a, armeabi-v7a</span></div>
         </div>
-        <div class="nav">
-            <button class="nav-btn" data-page="home">🏠 Home</button>
-            <button class="nav-btn" data-page="downloads">📥 Download</button>
-            <button class="nav-btn" data-page="about">ℹ️ About</button>
-            <button class="nav-btn" data-page="old_versions">📦 Archive</button>
-            <button class="nav-btn" data-page="changelog">📜 Changelog</button>
+        <a href="https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.3rev95/NovelDR.v1.0.3rev95.apk" class="download-btn" download>
+            ⬇️ DOWNLOAD APK
+        </a>
+        <div class="warning">
+            ⚠️ After download, open the file and allow "Install from unknown sources" if prompted. No ads, no tracking.
         </div>
-
-        <!-- HOME PAGE -->
-        <div id="page-home" class="page">
-            <div class="announcement">
-                <div class="announcement-content">✔️ 100% virus free • Compatible with Android 8+ • No tracking • Open source ✔️</div>
-            </div>
-            <div class="download-card">
-                <div style="font-size: 2rem;">📱 Novel DR v1.3</div>
-                <p style="margin: 0.5rem 0;">Android 8.0+ · 100% free · no ads</p>
-                <button class="btn-primary" data-page="downloads">⬇ Download APK</button>
-                <div><span class="version-badge" style="background: var(--warning-bg); padding: 0.2rem 0.8rem; border-radius: 2rem; font-size: 0.7rem;">latest: 2025.04.03</span></div>
-            </div>
-            <h2>✦ Read wuxia & xianxia novels, no internet needed</h2>
-            <div class="feature-grid">
-                <div class="feature-item">📖 Download full novels</div>
-                <div class="feature-item">🎨 Custom font & spacing</div>
-                <div class="feature-item">🌙 3 themes (Dark/Light/Sepia)</div>
-                <div class="feature-item">⏩ Auto-scroll mode</div>
-                <div class="feature-item">💾 Backup & restore library</div>
-                <div class="feature-item">🔄 Chapter updates</div>
-            </div>
-            <div style="background: var(--card-bg); border-radius: 1rem; padding: 1rem; margin-top: 1rem;">
-                <h3>📊 Stats & facts</h3>
-                <table class="info-table">
-                    <tr><td>📚 Max Chapters</td><td><strong>2800+</strong></td></tr>
-                    <tr><td>📀 APK Size</td><td>~92.8 MB</td></tr>
-                    <tr><td>🎨 Themes</td><td>3 (Light, Dark, Sepia)</td></tr>
-                    <tr><td>🔁 Backup System</td><td>JSON Export/Import</td></tr>
-                </table>
-                <div class="counter-box" style="text-align: center;">
-                    <h3>🌍 Visitors</h3>
-                    <a href="https://info.flagcounter.com/G8tC"><img src="https://s01.flagcounter.com/count2/G8tC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter"></a>
-                    <h3>📟 Total Hits</h3>
-                    <img src="https://hitwebcounter.com/counter/counter.php?page=21488685&style=0005&nbdigits=5&type=page&initCount=0" alt="Hits">
-                </div>
-            </div>
-        </div>
-
-        <!-- DOWNLOADS PAGE -->
-        <div id="page-downloads" class="page">
-            <div class="announcement">
-                <div class="announcement-content">✔️ Official APK • No ads • No tracking • Offline reader ✔️</div>
-            </div>
-            <div class="countdown-container" id="countdownContainer" style="display: none;">
-                <div class="countdown-digit" id="countdownDisplay">5</div>
-                <div class="status-text" id="statusMsg">Starting download...</div>
-                <div class="prog-area" id="progressArea" style="display: none;">
-                    <div class="progress-block"><div class="progress-fill" id="progressFill"></div></div>
-                    <div class="prog-percent" id="progressPercent">0% complete</div>
-                </div>
-            </div>
-            <button class="btn-primary" id="downloadBtn" style="width:100%;">⬇️ DOWNLOAD APK v1.3 ⬇️</button>
-            <div class="reset-link" id="resetAction" style="display: none;">⟳ Cancel / Reset</div>
-            <h2>📋 APK details</h2>
-            <table class="info-table">
-                <tr><td>Version</td><td><strong>1.3</strong> (stable)</td></tr>
-                <tr><td>File size</td><td>97.40 MB</td></tr>
-                <tr><td>Min. Android</td><td>8.0 (Oreo)</td></tr>
-                <tr><td>Architecture</td><td>arm64-v8a, armeabi-v7a</td></tr>
-                <tr><td>Package</td><td>com.noveldr.app</td></tr>
-            </table>
-            <div class="warning-box">
-                <strong>⚠️ Important:</strong> Storage permission required. After download, install manually (enable "Unknown sources" if needed).<br>
-                The download starts after a 5‑second countdown + progress bar.
-            </div>
-            <h3>🔗 Alternative mirrors</h3>
-            <ul><li><a href="#" id="mirrorLink">GitHub Releases</a> (direct)</li></ul>
-        </div>
-
-        <!-- ABOUT PAGE -->
-        <div id="page-about" class="page">
-            <div class="announcement">
-                <div class="announcement-content">📖 Offline Wuxia/Xianxia reader • 100% free • No ads • Since 2025 📖</div>
-            </div>
-            <div class="about-section">
-                <h2>📖 About this site</h2>
-                <p>Official homepage of <strong>Novel DR</strong> – a free, open‑source Android app for downloading and reading Wuxia, Xianxia, and light novels offline. Modern, clean design with light/dark themes.</p>
-            </div>
-            <div class="about-section">
-                <h2>📱 About the App</h2>
-                <ul style="margin-left: 1.5rem;">
-                    <li>✔ Download entire novels chapter by chapter</li>
-                    <li>✔ Customizable font size (14–22pt) and line spacing</li>
-                    <li>✔ Three themes: Dark, Light, Sepia</li>
-                    <li>✔ Auto‑scroll mode with adjustable speed</li>
-                    <li>✔ Reading progress saved per chapter</li>
-                    <li>✔ Backup & restore library metadata (JSON)</li>
-                    <li>✔ Update novels – fetch only new chapters</li>
-                    <li>✔ 100% free, no ads, no tracking</li>
-                </ul>
-            </div>
-            <div class="about-section">
-                <h2>🧑‍💻 About the Author</h2>
-                <div class="author-card" style="background: var(--card-bg); padding: 1rem; border-radius: 1rem;">
-                    <p><strong>👤 Developer:</strong> Independent creator, open‑source enthusiast.</p>
-                    <p><strong>📧 Contact:</strong> <a href="mailto:demiurgegravedigger@gmail.com">demiurgegravedigger@gmail.com</a></p>
-                    <p><strong>🐙 GitHub:</strong> <a href="https://github.com/Moggle-Khraum">Moggle Khraum</a></p>
-                </div>
-            </div>
-            <div class="about-section">
-                <h2>📜 Tech & credits</h2>
-                <p>React Native (Expo), TypeScript, AsyncStorage. Website: HTML/CSS/JS with dynamic theming.</p>
-            </div>
-        </div>
-
-        <!-- OLD VERSIONS PAGE -->
-        <div id="page-old_versions" class="page">
-            <div class="announcement">
-                <div class="announcement-content">📜 Older versions – for compatibility or nostalgia 📜</div>
-            </div>
-            <h2>📜 Older APK builds</h2>
-            <p>All historical versions. <strong>Latest stable: v1.3</strong> (recommended).</p>
-            <table class="version-table">
-                <thead><tr><th>Version</th><th>Release</th><th>Size</th><th>Download</th></tr></thead>
-                <tbody>
-                    <tr><td><strong>v1.3</strong></td><td>2025.04.08</td><td>25 MB</td><td><a class="download-link" data-url="https://raw.githubusercontent.com/Moggle-Khraum/noveldr-site/main/NovelDR-v1.3.apk">⬇ APK</a></td></tr>
-                    <tr><td>v1.2</td><td>2025.02.18</td><td>24 MB</td><td><a class="download-link" data-url="https://raw.githubusercontent.com/Moggle-Khraum/noveldr-site/main/NovelDR-v1.2.apk">⬇ APK</a></td></tr>
-                    <tr><td>v1.1</td><td>2025.01.05</td><td>23 MB</td><td><a class="download-link" data-url="https://raw.githubusercontent.com/Moggle-Khraum/noveldr-site/main/NovelDR-v1.1.apk">⬇ APK</a></td></tr>
-                    <tr><td>v1.0</td><td>2024.12.12</td><td>22 MB</td><td><a class="download-link" data-url="https://raw.githubusercontent.com/Moggle-Khraum/noveldr-site/main/NovelDR-v1.0.apk">⬇ APK</a></td></tr>
-                </tbody>
-            </table>
-            <div class="changelog">
-                <h3>📋 Changelog highlights</h3>
-                <ul>
-                    <li><strong>v1.3</strong> – Sepia theme, auto‑scroll presets, backup/restore. <button class="nav-link-style" data-page="changelog" data-anchor="v1.3">[View Full]</button></li>
-                    <li><strong>v1.2</strong> – Font size presets, line spacing. <button class="nav-link-style" data-page="changelog" data-anchor="v1.2">[View Full]</button></li>
-                    <li><strong>v1.1</strong> – Chapter updates, reading progress. <button class="nav-link-style" data-page="changelog" data-anchor="v1.1">[View Full]</button></li>
-                    <li><strong>v1.0</strong> – Initial release. <button class="nav-link-style" data-page="changelog" data-anchor="v1.0">[View Full]</button></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- FULL CHANGELOG PAGE -->
-        <div id="page-changelog" class="page">
-            <div class="announcement">
-                <div class="announcement-content">📝 Detailed history of every Novel DR release 📝</div>
-            </div>
-            <div class="changelog-entry" id="v1.3">
-                <h2>🔖 Version 1.3</h2>
-                <div class="changelog-date">Released: April 8, 2025</div>
-                <ul><li><strong>Added</strong> – Sepia reading theme.</li><li><strong>Added</strong> – Auto‑scroll speed presets.</li><li><strong>Added</strong> – Backup & restore library metadata.</li><li><strong>Added</strong> – Batch delete novels.</li><li><strong>Improved</strong> – Download stability for 2000+ chapters.</li><li><strong>Fixed</strong> – Crash on background resume.</li></ul>
-            </div>
-            <div class="changelog-entry" id="v1.2">
-                <h2>🔖 Version 1.2</h2>
-                <div class="changelog-date">Released: February 18, 2025</div>
-                <ul><li><strong>Added</strong> – Font size presets (14–22pt).</li><li><strong>Added</strong> – Line spacing options.</li><li><strong>Added</strong> – Download logs.</li><li><strong>Changed</strong> – Minimum Android 8.0.</li></ul>
-            </div>
-            <div class="changelog-entry" id="v1.1">
-                <h2>🔖 Version 1.1</h2>
-                <div class="changelog-date">Released: January 5, 2025</div>
-                <ul><li><strong>Added</strong> – Update novels (new chapters only).</li><li><strong>Added</strong> – Table of contents modal.</li><li><strong>Added</strong> – Reading progress per chapter.</li></ul>
-            </div>
-            <div class="changelog-entry" id="v1.0">
-                <h2>🔖 Version 1.0</h2>
-                <div class="changelog-date">Released: December 12, 2024</div>
-                <ul><li><strong>Initial stable release.</strong> Download novels from 3 sites, offline reader, light/dark themes.</li></ul>
-            </div>
-            <button class="btn-primary" data-page="old_versions" style="margin-top:1rem;">← Back to Archive</button>
-        </div>
-
-        <div class="footer">
-            Novel DR — made with ☕ for novel lovers. No ads, no spyware.<br>
-            <span style="font-family: monospace;">📟 Total downloads: <span id="downloadCounter">1284</span></span>
-        </div>
+    </div>
+    <div class="footer">
+        Free & open source · Made for novel lovers
     </div>
 </div>
-
-<noscript>
-    <div style="position: fixed; top: 0; left: 0; right: 0; background: #dc2626; color: white; text-align: center; padding: 1rem; z-index: 9999;">
-        ⚠️ JavaScript is required for full functionality (download countdown, theme switching, navigation). Please enable JavaScript.
-    </div>
-</noscript>
-
-<script>
-    // ---------- THEME MANAGEMENT ----------
-    const themeToggle = document.getElementById('themeToggle');
-    const setTheme = (theme) => {
-        if (theme === 'dark') document.body.classList.add('dark');
-        else document.body.classList.remove('dark');
-        localStorage.setItem('theme', theme);
-    };
-    const loadTheme = () => {
-        const saved = localStorage.getItem('theme');
-        if (saved) setTheme(saved);
-        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
-        else setTheme('light');
-    };
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.body.classList.contains('dark');
-        setTheme(isDark ? 'light' : 'dark');
-    });
-    loadTheme();
-
-    // ---------- SINGLE PAGE NAVIGATION ----------
-    const pages = document.querySelectorAll('.page');
-    const navBtns = document.querySelectorAll('.nav-btn');
-    function showPage(pageId, anchorId = null) {
-        pages.forEach(p => p.classList.remove('active-page'));
-        const target = document.getElementById('page-' + pageId);
-        if (target) target.classList.add('active-page');
-        navBtns.forEach(btn => {
-            if (btn.getAttribute('data-page') === pageId) btn.classList.add('active');
-            else btn.classList.remove('active');
-        });
-        if (anchorId) {
-            setTimeout(() => {
-                const el = document.getElementById(anchorId);
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 150);
-        }
-        history.pushState(null, '', '#' + pageId);
-    }
-    function handleNavigation() {
-        let hash = window.location.hash.substring(1);
-        if (!hash || !document.getElementById('page-' + hash)) hash = 'home';
-        showPage(hash);
-    }
-    navBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const pageId = btn.getAttribute('data-page');
-            showPage(pageId);
-        });
-    });
-    document.querySelectorAll('[data-page]').forEach(el => {
-        if (el.classList && el.classList.contains('nav-btn')) return;
-        el.addEventListener('click', (e) => {
-            const pageId = el.getAttribute('data-page');
-            const anchor = el.getAttribute('data-anchor');
-            if (pageId) showPage(pageId, anchor);
-        });
-    });
-    window.addEventListener('hashchange', handleNavigation);
-    handleNavigation();
-
-    // ---------- DOWNLOAD COUNTDOWN ----------
-    const APK_URL = "https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.3rev95/NovelDR.v1.0.3rev95.apk";
-    let activeCountdown = null, activeProgress = null;
-    let isLocked = false, countdownRunning = false;
-    let secondsLeft = 5;
-    const countdownContainer = document.getElementById("countdownContainer");
-    const countdownDisplay = document.getElementById("countdownDisplay");
-    const statusMsg = document.getElementById("statusMsg");
-    const progressArea = document.getElementById("progressArea");
-    const progressFill = document.getElementById("progressFill");
-    const progressPercent = document.getElementById("progressPercent");
-    const downloadBtn = document.getElementById("downloadBtn");
-    const resetAction = document.getElementById("resetAction");
-
-    function clearAllTimers() {
-        if (activeCountdown) { clearInterval(activeCountdown); activeCountdown = null; }
-        if (activeProgress) { clearInterval(activeProgress); activeProgress = null; }
-    }
-    function resetUI(manual = false) {
-        clearAllTimers();
-        isLocked = false;
-        countdownRunning = false;
-        secondsLeft = 5;
-        if(countdownDisplay) countdownDisplay.innerText = secondsLeft;
-        if(progressArea) progressArea.style.display = "none";
-        if(progressFill) progressFill.style.width = "0%";
-        if(progressPercent) progressPercent.innerText = "0% complete";
-        if(downloadBtn) { downloadBtn.disabled = false; downloadBtn.style.opacity = "1"; }
-        if(statusMsg) statusMsg.innerText = "Starting download...";
-        if(countdownContainer) countdownContainer.style.display = "none";
-        if(resetAction) resetAction.style.display = "none";
-        if(manual && downloadBtn) {
-            const orig = downloadBtn.innerText;
-            downloadBtn.innerText = "⬇️ TRY AGAIN ⬇️";
-            setTimeout(() => { if(!isLocked && downloadBtn) downloadBtn.innerText = orig; }, 1500);
-        }
-    }
-    function triggerRealDownload() {
-        const link = document.createElement('a');
-        link.href = APK_URL;
-        link.download = '';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        if(statusMsg) statusMsg.innerText = "✅ Download started! Check your browser.";
-    }
-    function startProgressSimulation() {
-        let progress = 0;
-        if(progressFill) progressFill.style.width = "0%";
-        if(progressPercent) progressPercent.innerText = "0% complete";
-        activeProgress = setInterval(() => {
-            if (progress >= 100) {
-                clearInterval(activeProgress);
-                activeProgress = null;
-                if(statusMsg) statusMsg.innerText = "⚡ Initiating download...";
-                setTimeout(() => { triggerRealDownload(); }, 200);
-                return;
-            }
-            progress += Math.floor(Math.random() * 9) + 4;
-            if (progress > 100) progress = 100;
-            if(progressFill) progressFill.style.width = `${progress}%`;
-            if(progressPercent) progressPercent.innerText = `${progress}% complete`;
-        }, 70);
-    }
-    function startCountdown() {
-        if (countdownRunning || isLocked) return;
-        if(!countdownContainer || !downloadBtn) return;
-        countdownContainer.style.display = "block";
-        if(resetAction) resetAction.style.display = "block";
-        countdownRunning = true;
-        isLocked = true;
-        downloadBtn.disabled = true;
-        downloadBtn.style.opacity = "0.6";
-        if(progressArea) progressArea.style.display = "none";
-        secondsLeft = 5;
-        if(countdownDisplay) countdownDisplay.innerText = secondsLeft;
-        if(statusMsg) statusMsg.innerText = `⏳ Download starts in ${secondsLeft} seconds...`;
-        activeCountdown = setInterval(() => {
-            if (secondsLeft <= 1) {
-                clearInterval(activeCountdown);
-                activeCountdown = null;
-                countdownRunning = false;
-                if(statusMsg) statusMsg.innerText = "📀 Preparing file...";
-                if(countdownDisplay) countdownDisplay.innerText = "0";
-                if(progressArea) progressArea.style.display = "block";
-                startProgressSimulation();
-            } else {
-                secondsLeft--;
-                if(countdownDisplay) countdownDisplay.innerText = secondsLeft;
-                if(statusMsg) statusMsg.innerText = `⏳ Download starts in ${secondsLeft} second${secondsLeft !== 1 ? 's' : ''}...`;
-            }
-        }, 1000);
-    }
-    if(downloadBtn) {
-        downloadBtn.addEventListener("click", () => {
-            if (isLocked) { if(statusMsg) statusMsg.innerText = "⏰ Already preparing. Wait or reset."; return; }
-            startCountdown();
-        });
-    }
-    if(resetAction) resetAction.addEventListener("click", () => { resetUI(true); });
-    const mirrorLink = document.getElementById("mirrorLink");
-    if(mirrorLink) mirrorLink.addEventListener("click", (e) => { e.preventDefault(); window.location.href = APK_URL; });
-
-    // Old versions download links
-    document.querySelectorAll('.download-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const url = link.getAttribute('data-url');
-            if(url) window.location.href = url;
-        });
-    });
-
-    // Fake download counter
-    let dCounter = 1284;
-    setInterval(() => {
-        dCounter++;
-        const span = document.getElementById("downloadCounter");
-        if(span) span.innerText = dCounter;
-    }, 30000);
-</script>
 </body>
 </html>
