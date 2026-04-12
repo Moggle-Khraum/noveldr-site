@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novel DR · Read Wuxia & Xianxia offline</title>
+    <!-- Canonical tag: prefer root domain over /index.html -->
+    <link rel="canonical" href="https://YOUR_DOMAIN.is-a-good.dev/">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -179,7 +181,8 @@
         <div class="tagline">offline · wuxia · xianxia</div>
     </div>
     <div class="nav">
-        <a href="index.html">🏠 Home</a>
+        <!-- Clean link: home points to root instead of index.html -->
+        <a href="/">🏠 Home</a>
         <a href="downloads.html">📥 Download</a>
         <a href="about.html">ℹ️ About</a>
         <a href="old_versions.html">📦 Archive</a>
@@ -207,7 +210,7 @@
         <div class="right-col">
             <h3 style="background:#e2edf7; padding:8px; border-radius:30px; text-align:center;">📊 Stats & facts</h3>
             <table class="stats-table">
-                <tr><td>📚 Max Chapters </td><td><strong>2800+</strong></td></tr>
+                <tr><td>📚 Max Chapters</td><td><strong>2800+</strong></td></tr>
                 <tr><td>📀 APK Size</td><td>~92.8 MB</td></tr>
                 <tr><td>🎨 Themes</td><td>3 (Light, Dark, & Sepia)</td></tr>
                 <tr><td>🔁 Backup System</td><td>JSON Export/Import</td></tr>
@@ -234,6 +237,12 @@
         No tracking, no ads, just pure offline reading. <strong>#FOSS</strong>
     </div>
 </div>
+<script>
+    // Method 2: JavaScript redirect – if URL ends with /index.html, redirect to clean root
+    if (window.location.pathname.endsWith('/index.html')) {
+        window.location.replace(window.location.pathname.replace(/\/index\.html$/, '/'));
+    }
+</script>
 <script>
     fetch('https://api.countapi.xyz/hit/noveldr-site/visits')
         .then(res => res.json())
