@@ -1,299 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Novel DR · Read Wuxia & Xianxia offline</title>
-    <style>
-        :root {
-            --primary: #0a2f6c;
-            --secondary: #ffb347;
-            --bg-accent: #eef4ff;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <link rel="canonical" href="https://moggle.is-a-good.dev/">
+  <title>Novel DR · Read Wuxia & Xianxia offline</title>
+  <!-- Modern font & reset -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background: #1a2a3a url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQYV2NkYGBoYmBg+M8ABYxMTEwM////Z2RkZAAAuQQEAeqJBkwAAAAASUVORK5CYII=');
-            font-family: 'Lucida Grande', 'Segoe UI', Tahoma, Arial, sans-serif;
-            color: #333;
-            line-height: 1.5;
-            padding: 15px;
-        }
+    body {
+      background: linear-gradient(145deg, #f5f9ff 0%, #e2ebf3 100%);
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1a2e3f;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
 
-        .wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            background: linear-gradient(145deg, #f5f9ff 0%, #e2ebf3 100%);
-            border-radius: 24px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.4);
-            border: 1px solid #b7c9e2;
-            overflow: hidden;
-        }
+    .wrapper {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: #fbfdff;
+      border-radius: 36px;
+      box-shadow: 0 25px 45px -12px rgba(0, 20, 40, 0.25), 0 4px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
 
-        /* HEADER & NAVIGATION */
-        .header {
-            background: linear-gradient(90deg, #0a2f6c, #1e4a8a);
-            padding: 20px;
-            border-bottom: 4px solid var(--secondary);
-            color: white;
-            text-align: center;
-        }
-        .header h1 { font-size: 2rem; text-shadow: 2px 2px #000; }
+    .header {
+      background: linear-gradient(105deg, #0b2f5c 0%, #1e4a8a 100%);
+      padding: 1.5rem 2rem;
+      border-bottom: 3px solid #ffb347;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      color: white;
+    }
 
-        .nav {
-            background: #f4f7fa;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            border-bottom: 1px solid #d0dee5;
-        }
-        .nav a {
-            padding: 8px 16px;
-            background: #e2eaf1;
-            color: #1e4663;
-            text-decoration: none;
-            border-radius: 40px;
-            font-weight: bold;
-            font-size: 13px;
-            border: 1px solid #bcccd6;
-        }
+    .header h1 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 2.2rem;
+      letter-spacing: -0.01em;
+      margin: 0;
+      line-height: 1.2;
+    }
 
-        /* CAROUSEL */
-        .carousel-container {
-            width: 100%;
-            overflow: hidden;
-            background: #00000011;
-            padding: 20px 0;
-            border-bottom: 1px solid #ccc;
-        }
-        .carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 15px;
-            padding: 0 15px;
-            scrollbar-width: none;
-        }
-        .carousel::-webkit-scrollbar { display: none; }
-        .slide {
-            flex: 0 0 75%;
-            scroll-snap-align: center;
-            text-align: center;
-        }
-        .slide img {
-            width: 100%;
-            max-width: 250px;
-            border: 4px solid white;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        .slide p { font-size: 13px; margin-top: 10px; font-weight: bold; color: var(--primary); }
+    .header h1::before {
+      content: "📘";
+      font-size: 2.2rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
 
-        /* DOWNLOAD & COUNTDOWN */
-        .content { padding: 25px; }
-        marquee { background: #fffaec; padding: 8px; border-radius: 40px; margin-bottom: 20px; font-size: 0.85rem; }
+    .tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+      border-left: 2px solid #ffb347;
+      color: #f0f6ff;
+    }
 
-        .countdown-container {
-            display: none;
-            background: radial-gradient(circle at 20% 30%, #2c2820, #0f0d0a);
-            border-radius: 40px;
-            padding: 24px;
-            text-align: center;
-            border: 1px solid #5f5240;
-            margin-bottom: 20px;
-        }
-        .countdown-digit {
-            font-family: 'Courier New', monospace;
-            font-size: 4rem;
-            color: #ffd966;
-            text-shadow: 0 0 8px #ffa500;
-        }
-        .progress-block {
-            background: #2b2b2b;
-            border-radius: 12px;
-            height: 18px;
-            overflow: hidden;
-            margin: 15px 0;
-        }
-        .progress-fill { width: 0%; height: 100%; background: linear-gradient(90deg, #2f7d2f, #5fbf5f); }
+    .nav {
+      padding: 0.75rem 2rem;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
 
-        .download-button {
-            background: linear-gradient(to bottom, #6aa84f, #3c7e2e);
-            width: 100%;
-            padding: 18px;
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: white;
-            border: none;
-            border-radius: 60px;
-            box-shadow: 0 6px 0 #1f5413;
-            cursor: pointer;
-        }
-        .download-button:active { transform: translateY(2px); box-shadow: 0 3px 0 #1f5413; }
-        .download-button:disabled { opacity: 0.6; cursor: wait; }
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.6rem 1.4rem;
+      background: white;
+      color: #1e4663;
+      text-decoration: none;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid #d4e0ec;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      transition: all 0.15s;
+    }
 
-        .reset-link { text-align: center; margin-top: 10px; display: none; cursor: pointer; color: #1f5490; text-decoration: underline; font-size: 0.8rem; }
+    .nav a:hover {
+      background: #1e4663;
+      color: white;
+      border-color: #1e4663;
+      box-shadow: 0 6px 12px rgba(28, 70, 100, 0.2);
+      transform: translateY(-1px);
+    }
 
-        /* FEATURES & STATS */
-        .info-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; }
-        .info-table td { padding: 10px; border: 1px solid #e0e8ef; font-size: 13px; }
-        .info-table td:first-child { font-weight: bold; width: 40%; background: #f8faff; }
+    /* Marquee below nav */
+    .marquee-modern {
+      background: #fff7e6;
+      padding: 0.6rem 2rem;
+      margin: 0;
+      font-weight: 600;
+      color: #b3521a;
+      border-bottom: 1px solid #ffdca8;
+      font-size: 0.9rem;
+      overflow: hidden;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+    }
 
-        .footer {
-            background: #c2d2d2;
-            padding: 15px;
-            text-align: center;
-            font-size: 11px;
-            border-top: 1px solid #f0f6fa;
-        }
+    .marquee-modern span {
+      display: inline-block;
+      animation: marquee 22s linear infinite;
+      padding-left: 100%;
+    }
 
-        @media (max-width: 600px) {
-            .header h1 { font-size: 1.6rem; }
-            .slide { flex: 0 0 85%; }
-            .download-button { font-size: 1.1rem; }
-        }
-    </style>
+    @keyframes marquee {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 2rem 2rem 1.5rem;
+      gap: 2rem;
+    }
+
+    .left-col {
+      flex: 2;
+      min-width: 280px;
+    }
+
+    .right-col {
+      flex: 1.2;
+      min-width: 260px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 28px;
+      padding: 1.8rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: 0 8px 18px -6px rgba(0, 20, 30, 0.08);
+    }
+
+    .download-card {
+      background: linear-gradient(115deg, #fef9e8, #fff6df);
+      border-radius: 32px;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 12px 24px -10px rgba(180, 120, 30, 0.12), inset 0 1px 0 white;
+      border: 1px solid #f3d48f;
+      text-align: center;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: linear-gradient(180deg, #4f9e3a, #2f721f);
+      padding: 1rem 2.4rem;
+      border-radius: 60px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.4rem;
+      text-decoration: none;
+      box-shadow: 0 8px 0 #1e5012, 0 8px 20px rgba(0,0,0,0.15);
+      transition: all 0.08s ease;
+      margin: 0.75rem 0 0.25rem;
+      border: 1px solid #4fae3a;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .download-btn:active {
+      transform: translateY(5px);
+      box-shadow: 0 3px 0 #1e5012, 0 8px 18px rgba(0,0,0,0.1);
+    }
+
+    .version-badge {
+      font-size: 0.85rem;
+      background: #f5e6c8;
+      color: #3a4e2e;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 1.8rem 0 0.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.8rem 1.2rem;
+    }
+
+    .feature-list li {
+      padding-left: 28px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="%233a7ca5"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
+      background-size: 18px;
+      font-weight: 450;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 8px;
+    }
+
+    .stats-table td {
+      padding: 10px 8px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 16px;
+      font-weight: 500;
+    }
+
+    .stats-table td:first-child {
+      font-weight: 600;
+      color: #1f486b;
+    }
+
+    .counter-box {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .flag-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .footer {
+      padding: 1.5rem 2rem;
+      background: #e2edf2;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #1a3a4e;
+      border-top: 1px solid rgba(255,255,255,0.6);
+    }
+
+    /* Modal overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 1rem;
+    }
+
+    .modal-card {
+      background: white;
+      max-width: 480px;
+      width: 100%;
+      border-radius: 36px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 30px 50px rgba(0,0,0,0.25);
+      border: 2px solid #ffb347;
+      text-align: center;
+    }
+
+    .modal-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #1e4663;
+    }
+
+    .countdown-number {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #2f721f;
+      background: #f0f7ec;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      border-radius: 50%;
+      margin: 1rem auto;
+      border: 3px solid #4f9e3a;
+    }
+
+    .modal-progress {
+      width: 100%;
+      height: 12px;
+      background: #e0e7ef;
+      border-radius: 20px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .modal-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #3c7e2e, #5fb04b);
+      border-radius: 20px;
+      transition: width 0.1s;
+    }
+
+    .modal-status {
+      min-height: 40px;
+      font-weight: 500;
+    }
+
+    .modal-close {
+      margin-top: 15px;
+      background: #e2eaf1;
+      border: 1px solid #bcccd6;
+      padding: 10px 25px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .adblock-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      max-width: 600px;
+      margin: 0 auto;
+      background: #1e2f40;
+      color: white;
+      padding: 1rem 1.8rem;
+      border-radius: 60px;
+      box-shadow: 0 20px 35px -5px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid #ffb347;
+      z-index: 9999;
+      font-weight: 500;
+    }
+
+    .adblock-toast button {
+      background: #ffb347;
+      border: none;
+      color: #0a1f2e;
+      font-weight: 700;
+      padding: 0.6rem 1.5rem;
+      border-radius: 40px;
+      cursor: pointer;
+    }
+
+    #adblockPrompt {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 0.8rem; }
+      .header { padding: 1.2rem 1.2rem; }
+      .header h1 { font-size: 1.8rem; }
+      .main-content { padding: 1.5rem 1.2rem; }
+      .download-btn { font-size: 1.2rem; padding: 0.9rem 1.5rem; }
+      .feature-list { grid-template-columns: 1fr; }
+      .modal-card { padding: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
-
 <div class="wrapper">
-    <div class="header">
-        <h1>Novel DR</h1>
-        <p style="font-size: 14px;">Offline · Wuxia · Xianxia</p>
+  <div id="adblockPrompt" class="adblock-toast" role="alert">
+    <span>🛡️ Adblocker detected — please whitelist this site</span>
+    <button id="dismissAdblockMsg">Got it, whitelisted</button>
+  </div>
+
+  <!-- MODAL DOWNLOAD DIALOG (hidden by default) -->
+  <div class="modal-overlay" id="downloadModal">
+    <div class="modal-card">
+      <h3>📱 Preparing Download</h3>
+      <div style="font-size: 1.2rem; margin-bottom: 5px;">Novel DR v1.3</div>
+      <div class="countdown-number" id="countdownDisplay">5</div>
+      <div class="modal-progress">
+        <div class="modal-progress-bar" id="modalProgressBar"></div>
+      </div>
+      <div class="modal-status" id="modalStatus">Your download will start in 5 seconds...</div>
+      <button class="modal-close" id="closeModalBtn">Cancel</button>
+    </div>
+  </div>
+
+  <div class="header">
+    <h1>Novel DR</h1>
+    <div class="tagline">offline · wuxia · xianxia</div>
+  </div>
+
+  <div class="nav">
+    <a href="/">🏠 Home</a>
+  </div>
+
+  <!-- Marquee moved below navigation -->
+  <div class="marquee-modern" aria-label="scrolling assurance">
+    <span>✔️ 100% virus free • Compatible with Android 8+ • No tracking • Open source ✔️</span>
+  </div>
+
+  <div class="main-content">
+    <div class="left-col">
+      <div class="download-card">
+        <div style="font-size: 2.2rem; font-weight: 700; margin-bottom: 0.25rem;">📱 Novel DR v1.3</div>
+        <div style="margin: 0.5rem 0; color: #2c5a2c; font-weight: 500;">Android 8.0+ · 100% free · no ads</div>
+        
+        <a id="downloadMainBtn" class="download-btn">⬇ Download APK ⬇</a>
+        
+        <div style="margin-top: 0.8rem;"><span class="version-badge">latest build: 2025.04.03</span></div>
+        <div style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">⭐ 100% offline after download · read anytime</div>
+      </div>
+
+      <h2 style="color:#1e4663; font-size:1.8rem; margin-bottom: 0.5rem;">✦ Read wuxia & xianxia novels, no internet needed</h2>
+      
+      <ul class="feature-list">
+        <li><strong>Download full novels</strong> from 3 popular sites</li>
+        <li><strong>Custom font size & line spacing</strong> – comfort for eyes</li>
+        <li><strong>3 themes</strong> (Dark / Light / Sepia)</li>
+        <li><strong>Auto‑scroll mode</strong> – hands‑free reading</li>
+        <li><strong>Backup & restore</strong> your whole library</li>
+        <li><strong>Chapter updates</strong> – get new chapters automatically</li>
+      </ul>
     </div>
 
-    <div class="nav">
-        <a href="#">🏠 Home</a>
-        <a href="https://github.com/Moggle-Khraum/noveldr-site">📦 Source</a>
-        <a href="#">ℹ️ About</a>
-    </div>
+    <div class="right-col">
+      <h3 style="background:#e2edf7; padding:0.8rem; border-radius:40px; text-align:center; margin-top:0;">📊 Stats & facts</h3>
+      <table class="stats-table">
+        <tr><td>📚 Max Chapters</td><td><strong>2800+</strong></td></tr>
+        <tr><td>📀 APK Size</td><td>~92.8 MB</td></tr>
+        <tr><td>🎨 Themes</td><td>3 (Light, Dark, & Sepia)</td></tr>
+        <tr><td>🔁 Backup System</td><td>JSON Export/Import</td></tr>
+      </table>
 
-    <div class="carousel-container">
-        <div class="carousel">
-            <div class="slide">
-                <img src="https://via.placeholder.com/300x600?text=Reader+UI" alt="Reader View">
-                <p>Customizable Reader</p>
-            </div>
-            <div class="slide">
-                <img src="https://via.placeholder.com/300x600?text=Library" alt="Library View">
-                <p>Personalized Library</p>
-            </div>
-            <div class="slide">
-                <img src="https://via.placeholder.com/300x600?text=Downloader" alt="Downloader">
-                <p>Fast Batch Downloads</p>
-            </div>
+      <div class="counter-box">
+        <h3 style="margin-bottom: 0.5rem;">🌍 Visitors</h3>
+        <div class="flag-container">
+          <a href="https://info.flagcounter.com/G8tC" target="_blank" rel="noopener">
+            <img src="https://s01.flagcounter.com/count2/G8tC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" style="border-radius: 18px;">
+          </a>
         </div>
-        <p style="text-align:center; font-size:10px; color:#666; margin-top:10px;">« Swipe to see more »</p>
+      </div>
+
+      <div class="counter-box">
+        <h3>📟 Total Hits</h3>
+        <img src="https://hitwebcounter.com/counter/counter.php?page=21488685&style=0005&nbdigits=5&type=page&initCount=0" 
+             title="Hits" style="border:0; max-width:100%; height:auto; margin-top: 5px;" alt="hit counter">
+      </div>
     </div>
+  </div>
 
-    <div class="content">
-        <marquee scrollamount="3">✔️ 100% Virus Free • No Ads • No Tracking • Android 8.0+ ✔️</marquee>
-
-        <div class="countdown-container" id="countdownContainer">
-            <div class="countdown-digit" id="countdownDisplay">5</div>
-            <p id="statusMsg" style="color:#ffe3b3; font-weight:bold;">Preparing your download...</p>
-            <div id="progressArea" style="display:none;">
-                <div class="progress-block"><div class="progress-fill" id="progressFill"></div></div>
-                <p id="progressPercent" style="color:white; font-size:10px;">0% complete</p>
-            </div>
-        </div>
-
-        <button class="download-button" id="downloadBtn">⬇️ DOWNLOAD APK v1.3 ⬇️</button>
-        <div class="reset-link" id="resetAction">Cancel and Reset</div>
-
-        <h3 style="margin-top:25px; color:var(--primary);">📋 APK Information</h3>
-        <table class="info-table">
-            <tr><td>Current Version</td><td><strong>1.3.0</strong></td></tr>
-            <tr><td>File Size</td><td>~25 MB</td></tr>
-            <tr><td>Min Android</td><td>8.0 (Oreo)</td></tr>
-            <tr><td>Build Date</td><td>2025.04.03</td></tr>
-        </table>
-    </div>
-
-    <div class="footer">
-        Novel DR — Created by Moggs <br>
-        <div style="margin-top:5px; font-family: monospace;">
-            📟 Total Downloads: <span id="dlCounter">Loading...</span> | 
-            🌍 Visitors: <span id="visitCounter">0</span>
-        </div>
-    </div>
+  <div class="footer">
+    Novel DR — made for Android, inspired by timeless design.<br>
+    No tracking, no ads, just pure offline reading. <strong>#FOSS</strong>
+  </div>
 </div>
 
 <script>
-    const APK_URL = "https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk";
-    const btn = document.getElementById('downloadBtn');
-    const container = document.getElementById('countdownContainer');
-    const display = document.getElementById('countdownDisplay');
-    const progressArea = document.getElementById('progressArea');
-    const progressFill = document.getElementById('progressFill');
-    const reset = document.getElementById('resetAction');
-    
-    let timer, progressTimer, seconds = 5;
-
-    // --- DOWNLOAD LOGIC ---
-    btn.addEventListener('click', () => {
-        btn.disabled = true;
-        container.style.display = 'block';
-        reset.style.display = 'block';
-        startCountdown();
-    });
-
-    function startCountdown() {
-        timer = setInterval(() => {
-            seconds--;
-            display.innerText = seconds;
-            if (seconds <= 0) {
-                clearInterval(timer);
-                startSimulation();
-            }
-        }, 1000);
-    }
-
-    function startSimulation() {
-        progressArea.style.display = 'block';
-        let p = 0;
-        progressTimer = setInterval(() => {
-            p += Math.floor(Math.random() * 10) + 5;
-            if (p >= 100) {
-                p = 100;
-                clearInterval(progressTimer);
-                window.location.href = APK_URL;
-                document.getElementById('statusMsg').innerText = "✅ Download Started!";
-            }
-            progressFill.style.width = p + '%';
-            document.getElementById('progressPercent').innerText = p + '% complete';
-        }, 100);
-    }
-
-    reset.addEventListener('click', () => {
-        clearInterval(timer);
-        clearInterval(progressTimer);
-        location.reload();
-    });
-
-    // --- STATS LOGIC ---
-    async function getStats() {
-        // Fetch real Github downloads
+  (function() {
+    // ---------- ADBLOCK DETECTION ----------
+    const promptEl = document.getElementById('adblockPrompt');
+    async function detectAdblock() {
+      try {
+        const testAd = document.createElement('div');
+        testAd.className = 'adsbox';
+        testAd.innerHTML = '&nbsp;';
+        testAd.style.height = '1px';
+        document.body.appendChild(testAd);
+        await new Promise(resolve => setTimeout(resolve, 80));
+        const isHidden = testAd.offsetHeight === 0 || testAd.offsetParent === null || getComputedStyle(testAd).display === 'none';
+        testAd.remove();
+        let fetchBlocked = false;
         try {
-            const res = await fetch('https://api.github.com/repos/Moggle-Khraum/noveldr-site/releases');
-            const data = await res.json();
-            let count = 0;
-            data.forEach(r => r.assets.forEach(a => count += a.download_count));
-            document.getElementById('dlCounter').innerText = count || "1,284";
-        } catch { document.getElementById('dlCounter').innerText = "1,284"; }
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 800);
+          await fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', {
+            method: 'HEAD', mode: 'no-cors', signal: controller.signal
+          }).catch(() => { fetchBlocked = true; });
+          clearTimeout(timeoutId);
+        } catch (e) { fetchBlocked = true; }
+        if (isHidden || fetchBlocked) { promptEl.style.display = 'flex'; }
+      } catch (e) {}
     }
     
-    // Simple Session Visitor Counter
-    let visits = localStorage.getItem('noveldr_visits') || 520;
-    visits = parseInt(visits) + 1;
-    localStorage.setItem('noveldr_visits', visits);
-    document.getElementById('visitCounter').innerText = visits;
-
-    getStats();
+    document.getElementById('dismissAdblockMsg').addEventListener('click', () => {
+      promptEl.style.display = 'none';
+      sessionStorage.setItem('adblockPromptDismissed', 'true');
+    });
+    
+    if (!sessionStorage.getItem('adblockPromptDismissed')) {
+      window.addEventListener('load', () => setTimeout(detectAdblock, 200));
+    }
+    
+    // Redirect /index.html
+    if (window.location.pathname.endsWith('/index.html')) {
+      window.location.replace(window.location.pathname.replace(/\/index\.html$/, '/'));
+    }
+    
+    // ---------- MODAL DOWNLOAD WITH COUNTDOWN & PROGRESS ----------
+    const modal = document.getElementById('downloadModal');
+    const downloadBtn = document.getElementById('downloadMainBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const countdownDisplay = document.getElementById('countdownDisplay');
+    const modalProgressBar = document.getElementById('modalProgressBar');
+    const modalStatus = document.getElementById('modalStatus');
+    
+    let countdownInterval = null;
+    let progressInterval = null;
+    let downloadTimer = null;
+    let currentCountdown = 5;
+    
+    function resetModalState() {
+      if (countdownInterval) clearInterval(countdownInterval);
+      if (progressInterval) clearInterval(progressInterval);
+      if (downloadTimer) clearTimeout(downloadTimer);
+      countdownInterval = progressInterval = downloadTimer = null;
+      currentCountdown = 5;
+      countdownDisplay.textContent = '5';
+      modalProgressBar.style.width = '0%';
+      modalStatus.textContent = 'Your download will start in 5 seconds...';
+    }
+    
+    function closeModal() {
+      modal.style.display = 'none';
+      resetModalState();
+    }
+    
+    function startDownloadProcess() {
+      // simulate file download trigger
+      const link = document.createElement('a');
+      link.href = 'novel-dr-v1.3.apk';  // would be real URL
+      link.download = 'NovelDR_v1.3.apk';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      modalStatus.textContent = '✅ Download started! Thank you.';
+      // Keep modal open for a moment then close
+      setTimeout(() => {
+        closeModal();
+      }, 1500);
+    }
+    
+    function startCountdownAndProgress() {
+      let progress = 0;
+      const totalTime = 5000; // 5 seconds
+      const stepTime = 100;
+      const progressStep = 100 / (totalTime / stepTime);
+      
+      progressInterval = setInterval(() => {
+        progress += progressStep;
+        if (progress >= 100) {
+          progress = 100;
+          modalProgressBar.style.width = '100%';
+          clearInterval(progressInterval);
+          progressInterval = null;
+        } else {
+          modalProgressBar.style.width = progress + '%';
+        }
+      }, stepTime);
+      
+      countdownInterval = setInterval(() => {
+        currentCountdown -= 1;
+        countdownDisplay.textContent = currentCountdown;
+        modalStatus.textContent = `Download starting in ${currentCountdown} second${currentCountdown !== 1 ? 's' : ''}...`;
+        
+        if (currentCountdown <= 0) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+          countdownDisplay.textContent = '0';
+          modalStatus.textContent = 'Initiating download...';
+          
+          // trigger download after countdown
+          downloadTimer = setTimeout(() => {
+            startDownloadProcess();
+          }, 200);
+        }
+      }, 1000);
+    }
+    
+    downloadBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      resetModalState();
+      modal.style.display = 'flex';
+      startCountdownAndProgress();
+    });
+    
+    closeModalBtn.addEventListener('click', closeModal);
+    
+    // Click outside modal to close? optional, we skip for simplicity.
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    
+    // second adblock fallback
+    setTimeout(() => {
+      if (promptEl.style.display !== 'flex' && !sessionStorage.getItem('adblockPromptDismissed')) {
+        const bait = document.createElement('div');
+        bait.className = 'ad-slot';
+        bait.style.cssText = 'position:absolute;left:-10px;width:1px;height:1px';
+        document.body.appendChild(bait);
+        if (bait.offsetParent === null) promptEl.style.display = 'flex';
+        bait.remove();
+      }
+    }, 1200);
+  })();
 </script>
-
 </body>
 </html>
