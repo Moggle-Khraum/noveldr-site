@@ -336,6 +336,29 @@
       align-self: center;
     }
 
+    .version-changelog-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .version-changelog-list li {
+      padding: 8px 0 8px 24px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%232f721f"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
+      background-size: 16px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .version-changelog-list li:last-child {
+      border-bottom: none;
+    }
+
+    .changelog-date {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
     /* Modal Overlay */
     .modal-overlay {
       position: fixed;
@@ -534,7 +557,7 @@
     <button id="back-to-home-changelog" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600;">← Back to Home</button>
   </div>
 
-  <!-- ARCHIVES PAGE (Table Format) -->
+  <!-- ARCHIVES PAGE (Table Format with Changelogs) -->
   <div id="archives-page">
     <h2 style="color:#1e4663; margin-bottom: 1.5rem;">📦 App Archives</h2>
     
@@ -543,6 +566,7 @@
         <tr>
           <th>App Name</th>
           <th>Version</th>
+          <th>Changelog</th>
           <th>Size</th>
           <th>Download Links</th>
         </tr>
@@ -551,6 +575,9 @@
         <tr>
           <td><strong>Novel DR</strong></td>
           <td>v1.3.8rev118</td>
+          <td>
+            <a href="#" onclick="showVersionChangelog('1.3.8rev118'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a>
+          </td>
           <td>92.9 MB</td>
           <td>
             <div class="download-links">
@@ -558,15 +585,18 @@
               <span>/</span>
               <a href="https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk" target="_blank">Github</a>
               <span>/</span>
-              <a href="https://www.mediafire.com/file/2s903l8txenzshy/NovelDR+v1.3.8rev118.apk/file" target="_blank">Mediafire</a>
+              <a href="#" onclick="downloadVersion('1.3.8rev118', 'mediafire'); return false;">Mediafire</a>
               <span>/</span>
-              <a href="https://fileport.io/SMvNMTePyLbX" target="_blank">Fileport</a>
+              <a href="#" onclick="downloadVersion('1.3.8rev118', 'fileport'); return false;">Fileport</a>
             </div>
           </td>
         </tr>
         <tr>
           <td><strong>Novel DR</strong></td>
           <td>v1.3.0rev95</td>
+          <td>
+            <a href="#" onclick="showVersionChangelog('1.3.0rev95'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a>
+          </td>
           <td>91.2 MB</td>
           <td>
             <div class="download-links">
@@ -583,6 +613,9 @@
         <tr>
           <td><strong>Novel DR</strong></td>
           <td>v1.2.5rev80</td>
+          <td>
+            <a href="#" onclick="showVersionChangelog('1.2.5rev80'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a>
+          </td>
           <td>89.8 MB</td>
           <td>
             <div class="download-links">
@@ -599,6 +632,9 @@
         <tr>
           <td><strong>Novel DR</strong></td>
           <td>v1.1.0rev62</td>
+          <td>
+            <a href="#" onclick="showVersionChangelog('1.1.0rev62'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a>
+          </td>
           <td>87.5 MB</td>
           <td>
             <div class="download-links">
@@ -615,6 +651,9 @@
         <tr>
           <td><strong>Novel DR</strong></td>
           <td>v1.0.7rev60</td>
+          <td>
+            <a href="#" onclick="showVersionChangelog('1.0.7rev60'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a>
+          </td>
           <td>85.0 MB</td>
           <td>
             <div class="download-links">
@@ -632,6 +671,19 @@
     </table>
     
     <button id="back-to-home-archives" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600;">← Back to Home</button>
+  </div>
+  
+  <!-- VERSION CHANGELOG MODAL -->
+  <div class="modal-overlay" id="versionChangelogModal">
+    <div class="modal-card" style="max-width: 500px; text-align: left;">
+      <h3 style="color: #1e4663; margin-bottom: 0.5rem; text-align: center;">
+        📋 Changelog: <span id="modalVersionTitle">v1.3.8rev118</span>
+      </h3>
+      <div id="modalChangelogContent" style="margin: 1.5rem 0;">
+        <!-- Content will be populated dynamically -->
+      </div>
+      <button id="closeVersionChangelogBtn" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600; width: 100%;">Close</button>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -797,6 +849,102 @@
       modal.style.display = 'none';
     }
   });
+
+  // Version Changelog Modal
+  const versionChangelogModal = document.getElementById('versionChangelogModal');
+  const modalVersionTitle = document.getElementById('modalVersionTitle');
+  const modalChangelogContent = document.getElementById('modalChangelogContent');
+  const closeVersionChangelogBtn = document.getElementById('closeVersionChangelogBtn');
+
+  // Changelog data for each version
+  const versionChangelogs = {
+    '1.3.8rev118': {
+      date: 'April 2026',
+      changes: [
+        'Added support for LightNovelWorld',
+        'Improved download stability and resume capability',
+        'Fixed UI scaling on small devices',
+        'Optimized memory usage during chapter loading',
+        'Added auto-scroll speed presets'
+      ]
+    },
+    '1.3.0rev95': {
+      date: 'March 2026',
+      changes: [
+        'Initial release of Backup & Restore system',
+        'Added Sepia reading mode',
+        'Performance improvements for large novels',
+        'Fixed chapter update detection',
+        'Added JSON import/export functionality'
+      ]
+    },
+    '1.2.5rev80': {
+      date: 'February 2026',
+      changes: [
+        'Added NovelBin support',
+        'Fixed download queue issues',
+        'UI refinements and better dark mode',
+        'Improved search functionality',
+        'Bug fixes for Android 14'
+      ]
+    },
+    '1.1.0rev62': {
+      date: 'January 2026',
+      changes: [
+        'Added FreeWebNovel source',
+        'Custom font size presets',
+        'Chapter bookmark system',
+        'Fixed scrolling lag on older devices',
+        'Added reading progress indicator'
+      ]
+    },
+    '1.0.7rev60': {
+      date: 'December 2025',
+      changes: [
+        'Initial public release',
+        'ReadNovelFull support',
+        'Basic download functionality',
+        'Dark and Light themes',
+        'Offline reading mode'
+      ]
+    }
+  };
+
+  // Function to show version changelog
+  function showVersionChangelog(version) {
+    const changelog = versionChangelogs[version];
+    
+    if (changelog) {
+      modalVersionTitle.textContent = version;
+      
+      let html = `<div class="changelog-date">${changelog.date}</div>`;
+      html += '<ul class="version-changelog-list">';
+      changelog.changes.forEach(change => {
+        html += `<li>${change}</li>`;
+      });
+      html += '</ul>';
+      
+      modalChangelogContent.innerHTML = html;
+      versionChangelogModal.style.display = 'flex';
+    } else {
+      alert('Changelog not available for this version.');
+    }
+  }
+
+  // Make function globally available
+  window.showVersionChangelog = showVersionChangelog;
+
+  // Close version changelog modal
+  closeVersionChangelogBtn.addEventListener('click', () => {
+    versionChangelogModal.style.display = 'none';
+  });
+
+  versionChangelogModal.addEventListener('click', (e) => {
+    if (e.target === versionChangelogModal) {
+      versionChangelogModal.style.display = 'none';
+    }
+  });
+
 </script>
 </body>
 </html>
