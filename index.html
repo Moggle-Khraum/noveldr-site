@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   
   <!-- Easy Comment System -->
-  <script src="https://auth.goygoyengine.com/api/easycomment/v1/embed.js"></script>
+  <script src="https://goygoyengine.com/api/easycomment/v1/embed.js"></script>
   
   <style>
     * {
@@ -272,7 +272,7 @@
 
     .comments-grid {
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
 
@@ -302,33 +302,17 @@
       padding: 1.5rem;
       border: 1px solid #d4e0ec;
       box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-      max-height: 500px;
-      overflow-y: auto;
     }
 
     .comments-display-box h3 {
       color: #1e4663;
       margin-bottom: 1rem;
       font-size: 1.3rem;
-      position: sticky;
-      top: 0;
-      background: white;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #ffb347;
     }
 
+    /* Easy Comment System Customization */
     #gdb-comments {
-      min-height: 200px;
-    }
-
-    /* Customize Easy Comment System appearance */
-    .gdb-comment {
-      padding: 12px 0 !important;
-      border-bottom: 1px solid #eef2f5 !important;
-    }
-
-    .gdb-comment:last-child {
-      border-bottom: none !important;
+      min-height: 300px;
     }
 
     .stats-table {
@@ -649,38 +633,17 @@
       </div>
     </div>
 
-    <!-- Comments Section -->
-    <div class="comments-section">
-      <div class="comments-title">
-        💬 Community Suggestions
-        <span style="font-size: 1rem; background: #ffb34720; padding: 0.2rem 1rem; border-radius: 20px; color: #b3521a;">No Login Required</span>
-      </div>
-      <div class="comments-subtitle">
-        Share your ideas, report bugs, or suggest features. Guest comments are welcome!
-      </div>
+    <!-- Comments Section with Easy Comment System -->
+    <!-- Left: Comment Form & Display -->
+    <div class="comment-form-box">
+      <h3>📝 Leave a Suggestion</h3>
+      <p>Your feedback helps improve Novel DR. All comments are public.</p>
       
-      <div class="comments-grid">
-        <!-- Left: Comment Form -->
-        <div class="comment-form-box">
-          <h3>📝 Leave a Suggestion</h3>
-          <p>Your feedback helps improve Novel DR. All comments are public.</p>
-          <div id="gdb-comments"></div>
-        </div>
-        
-        <!-- Right: Comments Display Info -->
-        <div class="comments-display-box">
-          <h3>💬 Recent Suggestions</h3>
-          <p style="color: #6a8a9e; font-size: 0.9rem; margin-bottom: 1rem;">
-            Comments appear here and are visible to all visitors.
-          </p>
-          <div style="padding: 1rem; background: #f8fafc; border-radius: 12px; text-align: center;">
-            <p style="color: #1e4663;">✨ Your comment will appear in the feed above ✨</p>
-            <p style="color: #6a8a9e; font-size: 0.85rem; margin-top: 0.5rem;">
-              No account needed — just enter your name and message!
-            </p>
-          </div>
-        </div>
-      </div>
+      <!-- begin www.htmlcommentbox.com -->
+      <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...</div>
+      <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+      <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16798&num=10&ts=1776642184240");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+      <!-- end www.htmlcommentbox.com -->
     </div>
   </div>
 
@@ -773,11 +736,10 @@
     <button id="back-to-home-archives" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600;">← Back to Home</button>
   </div>
   
-  <!-- VERSION CHANGELOG MODAL (SCROLLABLE) -->
+  <!-- VERSION CHANGELOG MODAL -->
   <div class="modal-overlay" id="versionChangelogModal">
     <div class="modal-card" style="text-align: left;">
       <h3 style="color: #1e4663; margin-bottom: 0.25rem; text-align: center;">📋 Changelog: <span id="modalVersionTitle">v1.3.8rev118</span></h3>
-      <!-- Scrollable content wrapper -->
       <div class="modal-scrollable-content" id="modalScrollableContent">
         <div id="modalChangelogContent"></div>
       </div>
@@ -793,15 +755,6 @@
 </div>
 
 <script>
-  // Initialize Easy Comment System
-  window.addEventListener('load', function() {
-    if (typeof GDBComments !== 'undefined') {
-      GDBComments.init({
-        container: '#gdb-comments',
-        theme: 'light'
-      });
-    }
-  });
 
   // DOM Elements
   const homePage = document.getElementById('home-page');
@@ -870,7 +823,7 @@
   }
   window.downloadVersion = downloadVersion;
 
-  // Version Changelog Modal (Scrollable container, adaptive height)
+  // Version Changelog Modal
   const versionChangelogModal = document.getElementById('versionChangelogModal');
   const modalVersionTitle = document.getElementById('modalVersionTitle');
   const modalChangelogContent = document.getElementById('modalChangelogContent');
@@ -892,7 +845,6 @@
       html += '</ul>';
       modalChangelogContent.innerHTML = html;
       versionChangelogModal.style.display = 'flex';
-      // ensure scroll position at top each time modal opens
       const scrollContainer = document.getElementById('modalScrollableContent');
       if(scrollContainer) scrollContainer.scrollTop = 0;
     } else {
