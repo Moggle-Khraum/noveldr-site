@@ -339,6 +339,7 @@
     .version-changelog-list {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     .version-changelog-list li {
@@ -373,12 +374,42 @@
 
     .modal-card {
       background: white;
-      max-width: 480px;
+      max-width: 520px;
       width: 90%;
       border-radius: 36px;
-      padding: 2.2rem;
+      padding: 2rem;
       text-align: center;
       border: 2px solid #ffb347;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.25);
+    }
+
+    /* Scrollable content area inside modal */
+    .modal-scrollable-content {
+      max-height: 55vh;
+      overflow-y: auto;
+      margin: 1rem 0 1.5rem 0;
+      padding-right: 6px;
+      scrollbar-width: thin;
+      border-top: 1px solid #eef2f5;
+      border-bottom: 1px solid #eef2f5;
+    }
+    
+    .modal-scrollable-content::-webkit-scrollbar {
+      width: 5px;
+    }
+    
+    .modal-scrollable-content::-webkit-scrollbar-track {
+      background: #e9eef3;
+      border-radius: 10px;
+    }
+    
+    .modal-scrollable-content::-webkit-scrollbar-thumb {
+      background: #b9c4ce;
+      border-radius: 10px;
+    }
+    
+    .modal-scrollable-content::-webkit-scrollbar-thumb:hover {
+      background: #8f9eab;
     }
 
     .countdown-number {
@@ -428,6 +459,13 @@
       .download-links {
         flex-wrap: nowrap;
       }
+      
+      .modal-card {
+        padding: 1.5rem;
+      }
+      .modal-scrollable-content {
+        max-height: 50vh;
+      }
     }
 
     @media (max-width: 640px) {
@@ -448,7 +486,7 @@
       <div class="countdown-number" id="countdownDisplay">5</div>
       <div class="modal-progress"><div class="modal-progress-bar" id="modalProgressBar"></div></div>
       <div class="modal-status" id="modalStatus">Your download will start in 5 seconds...</div>
-      <button class="modal-close" id="closeModalBtn" style="margin-top:20px; padding:10px 20px; border-radius:30px; cursor:pointer;">Cancel</button>
+      <button class="modal-close" id="closeModalBtn" style="margin-top:20px; padding:10px 20px; border-radius:30px; cursor:pointer; background:#f1f3f5; border:none; font-weight:600;">Cancel</button>
     </div>
   </div>
 
@@ -504,11 +542,11 @@
           <tr><td>🏷️ Build Number:</td><td><strong>V1.3.8rev118</strong></td></tr>
           <tr style="cursor: pointer;" onclick="window.open('https://virusscan.jotti.org/en-US/filescanjob/1ewgandeya', '_blank')">
             <td>🛡️ Jotti's Malware Scan:</td><td><strong>Clean ✓ (0/15)</strong></td>
-           </tr>
+          </tr>
           <tr style="cursor: pointer;" onclick="window.open('https://github.com/Moggle-Khraum/noveldr-site/releases', '_blank')">
             <td>📢 Github Release:</td><td><strong>Official Release</strong></td>
-           </tr>
-         </table>
+          </tr>
+        </table>
 
         <div style="margin-top:2rem; text-align:center;">
           <h3 style="margin-bottom:10px;">🌍 Visitors</h3>
@@ -536,12 +574,12 @@
         <li>[IMPROVEMENTS] Skipper Code functionality</li>
         <li>[IMPROVEMENTS] Increased value presets for AutoScroll, Line Spacing, and Font Size </li>
         <li>[IMPROVEMENTS] Download Tab now downloads cover locally for offline display</li>
-        <li>[IMPROVEMENTS] Improved the scraper for the LightNovelWorld
+        <li>[IMPROVEMENTS] Improved the scraper for the LightNovelWorld</li>
         <li>[NEEDS FIXING] 'Delete Tab' only deletes one file even after selection</li>
-        <li>[NEEDS FIXING] Add 'Starting Chapter' field to the 'Update' tab
-        <li>[NEEDS FIXING] Add 'Fetcher' to the 'Update' tab when downloading Chapters.
-        <li>[NEEDS FIXING] Resolve the dysfunctional 'Restore' system in the Import function
-        <li>[NEEDS FIXING] Make 'Batch Restore' the default for restoring files from Imported Backup
+        <li>[NEEDS FIXING] Add 'Starting Chapter' field to the 'Update' tab</li>
+        <li>[NEEDS FIXING] Add 'Fetcher' to the 'Update' tab when downloading Chapters.</li>
+        <li>[NEEDS FIXING] Resolve the dysfunctional 'Restore' system in the Import function</li>
+        <li>[NEEDS FIXING] Make 'Batch Restore' the default for restoring files from Imported Backup</li>
         <li>[NEEDS FIXING] Minor bugs and performance issues</li>
       </ul>
     </div>
@@ -589,15 +627,12 @@
         <li>[NEW] Added 'Reader Settings' which houses adjustable Font Size, & Line Spacing.</li>
       </ul>
     </div>
-
-    
     <button id="back-to-home-changelog" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600;">← Back to Home</button>
   </div>
 
-  <!-- ARCHIVES PAGE (Table Format with Changelogs) -->
+  <!-- ARCHIVES PAGE -->
   <div id="archives-page">
     <h2 style="color:#1e4663; margin-bottom: 1.5rem;">📦 App Archives</h2>
-    
     <table class="archives-table">
       <thead>
         <tr><th>App Name</th><th>Version</th><th>Changelog</th><th>Size</th><th>Download Links</th></tr>
@@ -609,16 +644,18 @@
         <tr><td><strong>Novel DR</strong></td><td>v1.0.1rev16</td><td><a href="#" onclick="showVersionChangelog('1.0.1rev16'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.86 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.1rev16', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'itch'); return false;">Itch.io</a></div></td></tr>
       </tbody>
     </table>
-    
     <button id="back-to-home-archives" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600;">← Back to Home</button>
   </div>
   
-  <!-- VERSION CHANGELOG MODAL -->
+  <!-- VERSION CHANGELOG MODAL (SCROLLABLE) -->
   <div class="modal-overlay" id="versionChangelogModal">
-    <div class="modal-card" style="max-width: 500px; text-align: left;">
-      <h3 style="color: #1e4663; margin-bottom: 0.5rem; text-align: center;">📋 Changelog: <span id="modalVersionTitle">v1.3.8rev118</span></h3>
-      <div id="modalChangelogContent" style="margin: 1.5rem 0;"></div>
-      <button id="closeVersionChangelogBtn" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600; width: 100%;">Close</button>
+    <div class="modal-card" style="text-align: left;">
+      <h3 style="color: #1e4663; margin-bottom: 0.25rem; text-align: center;">📋 Changelog: <span id="modalVersionTitle">v1.3.8rev118</span></h3>
+      <!-- Scrollable content wrapper -->
+      <div class="modal-scrollable-content" id="modalScrollableContent">
+        <div id="modalChangelogContent"></div>
+      </div>
+      <button id="closeVersionChangelogBtn" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600; width: 100%; margin-top: 0.5rem;">Close</button>
     </div>
   </div>
 
@@ -630,7 +667,7 @@
 </div>
 
 <script>
-  // --- DOM Elements ---
+  // DOM Elements
   const homePage = document.getElementById('home-page');
   const changelogPage = document.getElementById('changelog-page');
   const archivesPage = document.getElementById('archives-page');
@@ -638,221 +675,76 @@
   const navChangelog = document.getElementById('nav-changelog');
   const navArchives = document.getElementById('nav-archives');
 
-  // Helper function to update active nav class
   function setActiveNav(activeElement) {
     [navHome, navChangelog, navArchives].forEach(el => el.classList.remove('active'));
     activeElement.classList.add('active');
   }
 
-  // --- Navigation Functions ---
-  function showHome() {
-    homePage.style.display = 'block';
-    changelogPage.style.display = 'none';
-    archivesPage.style.display = 'none';
-    setActiveNav(navHome);
-    window.scrollTo(0, 0);
-  }
+  function showHome() { homePage.style.display = 'block'; changelogPage.style.display = 'none'; archivesPage.style.display = 'none'; setActiveNav(navHome); window.scrollTo(0,0); }
+  function showChangelog() { homePage.style.display = 'none'; changelogPage.style.display = 'block'; archivesPage.style.display = 'none'; setActiveNav(navChangelog); window.scrollTo(0,0); }
+  function showArchives() { homePage.style.display = 'none'; changelogPage.style.display = 'none'; archivesPage.style.display = 'block'; setActiveNav(navArchives); window.scrollTo(0,0); }
 
-  function showChangelog() {
-    homePage.style.display = 'none';
-    changelogPage.style.display = 'block';
-    archivesPage.style.display = 'none';
-    setActiveNav(navChangelog);
-    window.scrollTo(0, 0);
-  }
-
-  function showArchives() {
-    homePage.style.display = 'none';
-    changelogPage.style.display = 'none';
-    archivesPage.style.display = 'block';
-    setActiveNav(navArchives);
-    window.scrollTo(0, 0);
-  }
-
-  // --- Event Listeners for Navigation ---
   navHome.addEventListener('click', showHome);
   navChangelog.addEventListener('click', showChangelog);
   navArchives.addEventListener('click', showArchives);
-  
-  // Links from text
-  const linkToChangelog = document.getElementById('link-to-changelog');
-  const linkToArchives = document.getElementById('link-to-archives');
-  if (linkToChangelog) linkToChangelog.addEventListener('click', showChangelog);
-  if (linkToArchives) linkToArchives.addEventListener('click', showArchives);
-  
-  // Back buttons
-  const backToHomeChangelog = document.getElementById('back-to-home-changelog');
-  const backToHomeArchives = document.getElementById('back-to-home-archives');
-  if (backToHomeChangelog) backToHomeChangelog.addEventListener('click', showHome);
-  if (backToHomeArchives) backToHomeArchives.addEventListener('click', showHome);
+  document.getElementById('link-to-changelog')?.addEventListener('click', showChangelog);
+  document.getElementById('link-to-archives')?.addEventListener('click', showArchives);
+  document.getElementById('back-to-home-changelog')?.addEventListener('click', showHome);
+  document.getElementById('back-to-home-archives')?.addEventListener('click', showHome);
 
-  // --- Download Modal Logic (Same as original, but verified) ---
+  // Download Modal Logic
   const modal = document.getElementById('downloadModal');
   const downloadBtn = document.getElementById('downloadMainBtn');
   const closeModalBtn = document.getElementById('closeModalBtn');
   const countdownDisplay = document.getElementById('countdownDisplay');
   const modalProgressBar = document.getElementById('modalProgressBar');
   const modalStatus = document.getElementById('modalStatus');
-
   let countdownInterval, progressInterval, currentCountdown = 5;
 
   function resetModal() {
-    clearInterval(countdownInterval);
-    clearInterval(progressInterval);
-    currentCountdown = 5;
-    countdownDisplay.textContent = '5';
-    modalProgressBar.style.width = '0%';
-    modalStatus.textContent = 'Your download will start in 5 seconds...';
+    clearInterval(countdownInterval); clearInterval(progressInterval);
+    currentCountdown = 5; countdownDisplay.textContent = '5'; modalProgressBar.style.width = '0%'; modalStatus.textContent = 'Your download will start in 5 seconds...';
   }
-
   downloadBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    resetModal();
-    modal.style.display = 'flex';
-    
+    e.preventDefault(); resetModal(); modal.style.display = 'flex';
     let progress = 0;
-    progressInterval = setInterval(() => {
-      progress += 2;
-      modalProgressBar.style.width = progress + '%';
-      if (progress >= 100) clearInterval(progressInterval);
-    }, 100);
-
+    progressInterval = setInterval(() => { progress += 2; modalProgressBar.style.width = progress + '%'; if (progress >= 100) clearInterval(progressInterval); }, 100);
     countdownInterval = setInterval(() => {
-      currentCountdown--;
-      countdownDisplay.textContent = currentCountdown;
-      modalStatus.textContent = `Download starting in ${currentCountdown} seconds...`;
+      currentCountdown--; countdownDisplay.textContent = currentCountdown; modalStatus.textContent = `Download starting in ${currentCountdown} seconds...`;
       if (currentCountdown <= 0) {
-        clearInterval(countdownInterval);
-        modalStatus.textContent = "✅ Starting Download...";
+        clearInterval(countdownInterval); modalStatus.textContent = "✅ Starting Download...";
         window.location.href = 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk';
         setTimeout(() => modal.style.display = 'none', 2000);
       }
     }, 1000);
   });
+  closeModalBtn.addEventListener('click', () => { resetModal(); modal.style.display = 'none'; });
+  modal.addEventListener('click', (e) => { if (e.target === modal) { resetModal(); modal.style.display = 'none'; } });
 
-  closeModalBtn.addEventListener('click', () => {
-    resetModal();
-    modal.style.display = 'none';
-  });
-  
-  modal.addEventListener('click', (e) => { 
-    if (e.target === modal) {
-      resetModal();
-      modal.style.display = 'none';
-    }
-  });
-
-  // --- Archive Download Function (Same as original) ---
+  // Archive Download
   function downloadVersion(version, source) {
     const downloadUrls = {
-      '1.3.8rev118': {
-        site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk',
-        github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk',
-        mediafire: 'https://download1326.mediafire.com/ac4tlso09zkgsglTb4JbR6Ne2XvsdNrhblXz-sZDl3gFZTzzbs1UTnAZbbQfBSM1Ym_kbdinDjSct946WQMnlgdbRwCbM9ViGlqDor6SDbyAwDfmdzVvUzgV_EwXqC-uChO-fvLy9gpM51rBSvdy2JZhJXbby5VOwYg_77L38-As3ok/2s903l8txenzshy/NovelDR+v1.3.8rev118.apk',
-        itch: '#'
-      },
-      
-      '1.0.3rev055': { 
-        site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', 
-        github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', 
-        mediafire: 'https://download1588.mediafire.com/zq8r7i8doqlgJM5Hf43LK5QdYbykhR2hy9iXrQWSQ9fVEaqHh-2deGoxoLSsjm2qLue0ub1X1k84UYoq42ffN_KywIyBQhhNi7DdGxjOr_iGmScdBn3jE0l_5owGfeQWf8Tu1ixWleCH9irkQB5jPnAwopiVqljH33xS727ukWtfaw/y99wdh734uyhzxt/NovelDR+v1.0.3rev055.apk', 
-        itch: '#' },
-      
-      '1.0.2rev36': { 
-        site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', 
-        github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', 
-        mediafire: 'https://download1590.mediafire.com/fp02lggtg5igYi2B4Z-ND5PaioBimZMEpqc-f-M-y1gGnTPW1rasrkKiXzoNorw5pRnS2vZi5aNUrwebmHh7_GO_VJ6AutAN5z-FNBKDPGPXWW_qfdqLpgWbkOHuKi_3LT9oF1GK93kCOT68pUV4WW74hjY6HtzR9V2fgMkhRadIHw/2ml2qrqdi595eqe/NovelDR+v1.0.2rev36.apk', 
-        itch: '#' },
-      
-      '1.0.1rev16': {
-        site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk',
-        github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk',
-        mediafire: 'https://download1323.mediafire.com/9jeliri9fefgZ_lHHO1wJM7yGf4fVaPAfDLognU0qX_tu_N51TvvIcpM4OWVUEXyYkkRsEt6Nra4_aOt4bZOgY_rvUlbOvTS0ZrY8anpHCZJxy0Lf-X8gTMqniqF-VtxavWiKCIAfn8jT-56sa3yyZ0LQwApsJBsFPdJyrr-iAacq7Q/p4fgkrzjvxl8a44/NovelDR-Build-16.apk',
-        itch: '#'
-      }
+      '1.3.8rev118': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', mediafire: 'https://download1326.mediafire.com/ac4tlso09zkgsglTb4JbR6Ne2XvsdNrhblXz-sZDl3gFZTzzbs1UTnAZbbQfBSM1Ym_kbdinDjSct946WQMnlgdbRwCbM9ViGlqDor6SDbyAwDfmdzVvUzgV_EwXqC-uChO-fvLy9gpM51rBSvdy2JZhJXbby5VOwYg_77L38-As3ok/2s903l8txenzshy/NovelDR+v1.3.8rev118.apk', itch: '#' },
+      '1.0.3rev055': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', mediafire: 'https://download1588.mediafire.com/zq8r7i8doqlgJM5Hf43LK5QdYbykhR2hy9iXrQWSQ9fVEaqHh-2deGoxoLSsjm2qLue0ub1X1k84UYoq42ffN_KywIyBQhhNi7DdGxjOr_iGmScdBn3jE0l_5owGfeQWf8Tu1ixWleCH9irkQB5jPnAwopiVqljH33xS727ukWtfaw/y99wdh734uyhzxt/NovelDR+v1.0.3rev055.apk', itch: '#' },
+      '1.0.2rev36': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', mediafire: 'https://download1590.mediafire.com/fp02lggtg5igYi2B4Z-ND5PaioBimZMEpqc-f-M-y1gGnTPW1rasrkKiXzoNorw5pRnS2vZi5aNUrwebmHh7_GO_VJ6AutAN5z-FNBKDPGPXWW_qfdqLpgWbkOHuKi_3LT9oF1GK93kCOT68pUV4WW74hjY6HtzR9V2fgMkhRadIHw/2ml2qrqdi595eqe/NovelDR+v1.0.2rev36.apk', itch: '#' },
+      '1.0.1rev16': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', mediafire: 'https://download1323.mediafire.com/9jeliri9fefgZ_lHHO1wJM7yGf4fVaPAfDLognU0qX_tu_N51TvvIcpM4OWVUEXyYkkRsEt6Nra4_aOt4bZOgY_rvUlbOvTS0ZrY8anpHCZJxy0Lf-X8gTMqniqF-VtxavWiKCIAfn8jT-56sa3yyZ0LQwApsJBsFPdJyrr-iAacq7Q/p4fgkrzjvxl8a44/NovelDR-Build-16.apk', itch: '#' }
     };
-    
     const url = downloadUrls[version]?.[source];
-    if (url && url !== '#') {
-      window.open(url, '_blank');
-    } else {
-      alert(`Download for ${version} from ${source} is not available yet.`);
-    }
+    if (url && url !== '#') { window.open(url, '_blank'); } else { alert(`Download for ${version} from ${source} is not available yet.`); }
   }
   window.downloadVersion = downloadVersion;
 
-  // --- Version Changelog Modal Logic ---
+  // Version Changelog Modal (Scrollable container, adaptive height)
   const versionChangelogModal = document.getElementById('versionChangelogModal');
   const modalVersionTitle = document.getElementById('modalVersionTitle');
   const modalChangelogContent = document.getElementById('modalChangelogContent');
   const closeVersionChangelogBtn = document.getElementById('closeVersionChangelogBtn');
-
+  
   const versionChangelogs = {
-    '1.3.8rev118': {
-      date: 'April 15, 2026',
-      changes: [
-        '[NEW] Added support for LightNovelWorld',
-        'Added scraper for Author, Cover, Synopsis, and Chapter Content',
-        'Added About Developer tab',
-        'Added Github link in the Developer tab',
-        'Added Website Link in the Developer tab',
-        'Added auto-scroll speed presets',
-        'Added "Import File" function to the Backup System',
-        'Improved Skipper Code functionality',
-        'Increased value presets for AutoScroll, Line Spacing, and Font Size',
-        'Download Tab now downloads cover locally for offline display',
-        'Improved the scraper for the LightNovelWorld',
-        '[NEEDS FIXING] "Delete Tab" only deletes one file even after selection',
-        '[NEEDS FIXING] To add "Starting Chapter" field to the "Update" tab',
-        '[NEEDS FIXING] To add "Fetcher" to the "Update" tab when downloading Chapters.',
-        '[NEEDS FIXING] Resolve the dysfunctional "Restore" system in the Import system',
-        '[NEEDS FIXING] Make "Batch Restore" the default for restoring files from Imported Backup',
-        'Minor bugs and performance issues'
-        
-      ]
-      
-    },
-    '1.0.3rev055': {
-      date: 'April 13, 2026',
-      changes: [
-        'NovelBin and FreeWebNovel now fully supported',
-        'Library filters: All, Unread, Reading, Completed',
-        'Library search, and batch delete (via ⋮ menu)',
-        'Long press novel cover to update reading status',
-        'AutoScroll with presets',
-        'Updates tab now has search function',
-        'Skipper (skip existing chapters) and Traverser (resume downloads)',
-        'Backup & Restore system',
-        '2-prompt warning when deleting a novel',
-        'Better Download tab stability',
-        'FreeWebNovel now shows author, cover, and synopsis'
-      ]
-      
-    },
-    '1.0.2rev36': {
-      date: 'March 27, 2026',
-      changes: [
-        'Activity Logs are now visible.',
-        'Progress bar is now visible',
-        'Stabilized downloader & update lifeline code',
-        '[NEEDS FIXING] Modify the icon of the Update tab.',
-        '[NEEDS FIXING] Full FreeWebNovel site support',
-        '[NEEDS FIXING] Improved Author & Synopsis extraction'
-      ]
-      
-    },
-    '1.0.1rev16': {
-      date: 'March 27, 2026',
-      changes: [
-        'Initial public release',
-        'ReadNovelFull, NovelFull support',
-        'Partial FreeWebNovelSupport',
-        'Basic download & update functionality',
-        'Dark, Light, Sepia themes',
-        'Reader Settings presets: Line Spacing & Font Size',
-        'Added Delete novel by long-pressing the novel cover'
-      ]
-    }
+    '1.3.8rev118': { date: 'April 15, 2026', changes: ['[NEW] Added support for LightNovelWorld','Added scraper for Author, Cover, Synopsis, and Chapter Content','Added About Developer tab','Added Github link in the Developer tab','Added Website Link in the Developer tab','Added auto-scroll speed presets','Added "Import File" function to the Backup System','Improved Skipper Code functionality','Increased value presets for AutoScroll, Line Spacing, and Font Size','Download Tab now downloads cover locally for offline display','Improved the scraper for the LightNovelWorld','[NEEDS FIXING] "Delete Tab" only deletes one file even after selection','[NEEDS FIXING] To add "Starting Chapter" field to the "Update" tab','[NEEDS FIXING] To add "Fetcher" to the "Update" tab when downloading Chapters.','[NEEDS FIXING] Resolve the dysfunctional "Restore" system in the Import system','[NEEDS FIXING] Make "Batch Restore" the default for restoring files from Imported Backup','Minor bugs and performance issues'] },
+    '1.0.3rev055': { date: 'April 13, 2026', changes: ['NovelBin and FreeWebNovel now fully supported','Library filters: All, Unread, Reading, Completed','Library search, and batch delete (via ⋮ menu)','Long press novel cover to update reading status','AutoScroll with presets','Updates tab now has search function','Skipper (skip existing chapters) and Traverser (resume downloads)','Backup & Restore system','2-prompt warning when deleting a novel','Better Download tab stability','FreeWebNovel now shows author, cover, and synopsis'] },
+    '1.0.2rev36': { date: 'March 27, 2026', changes: ['Activity Logs are now visible.','Progress bar is now visible','Stabilized downloader & update lifeline code','[NEEDS FIXING] Modify the icon of the Update tab.','[NEEDS FIXING] Full FreeWebNovel site support','[NEEDS FIXING] Improved Author & Synopsis extraction'] },
+    '1.0.1rev16': { date: 'March 27, 2026', changes: ['Initial public release','ReadNovelFull, NovelFull support','Partial FreeWebNovelSupport','Basic download & update functionality','Dark, Light, Sepia themes','Reader Settings presets: Line Spacing & Font Size','Added Delete novel by long-pressing the novel cover'] }
   };
 
   function showVersionChangelog(version) {
@@ -864,6 +756,9 @@
       html += '</ul>';
       modalChangelogContent.innerHTML = html;
       versionChangelogModal.style.display = 'flex';
+      // ensure scroll position at top each time modal opens
+      const scrollContainer = document.getElementById('modalScrollableContent');
+      if(scrollContainer) scrollContainer.scrollTop = 0;
     } else {
       alert('Changelog not available for this version.');
     }
@@ -872,7 +767,6 @@
 
   closeVersionChangelogBtn.addEventListener('click', () => { versionChangelogModal.style.display = 'none'; });
   versionChangelogModal.addEventListener('click', (e) => { if (e.target === versionChangelogModal) versionChangelogModal.style.display = 'none'; });
-
 </script>
 </body>
 </html>
