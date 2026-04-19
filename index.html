@@ -315,6 +315,21 @@
       min-height: 300px;
     }
 
+    /* Hide Email me replies checkbox */
+    #HCB_comment_box .hcb-email-me,
+    #HCB_comment_box label[for*="email"],
+    #HCB_comment_box .email-me-container,
+    #HCB_comment_box .hcb-form-group:has(input[type="checkbox"]) {
+      display: none !important;
+    }
+    
+    /* Hide Settings link */
+    #HCB_comment_box .hcb-settings-link,
+    #HCB_comment_box a[href*="settings"],
+    #HCB_comment_box .hcb-footer a:contains("Settings") {
+      display: none !important;
+    }
+
     .stats-table {
       width: 100%;
       border-collapse: separate;
