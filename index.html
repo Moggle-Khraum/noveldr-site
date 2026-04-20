@@ -14,9 +14,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   
-  <!-- Easy Comment System -->
-  <script src="https://goygoyengine.com/api/easycomment/v1/embed.js"></script>
-  
   <style>
     * {
       margin: 0;
@@ -310,7 +307,7 @@
       font-size: 1.3rem;
     }
 
-    /* Easy Comment System Customization */
+    
     #gdb-comments {
       min-height: 300px;
     }
@@ -327,6 +324,14 @@
     
     /* Hide "Settings" link */
     #hcb_settings {
+      display: none !important;
+    }
+
+    /* Hide RSS link/icon */
+    #HCB_comment_box a[href*="rss"],
+    #HCB_comment_box .hcb-rss,
+    #HCB_comment_box img[alt*="rss"],
+    #HCB_comment_box a[title*="RSS"] {
       display: none !important;
     }
 
