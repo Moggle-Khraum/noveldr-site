@@ -81,7 +81,6 @@
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
 
-
     .tagline {
       font-size: 1rem;
       font-weight: 500;
@@ -428,42 +427,85 @@
       margin-bottom: 10px;
     }
 
-    /* Simple Download Toast (replaces modal) */
-    .download-toast {
+    /* Modal Overlay */
+    .modal-overlay {
       position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      background: #1a2e3f;
-      color: white;
-      padding: 16px 28px;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      z-index: 10000;
-      transition: transform 0.3s ease;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      display: flex;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+      display: none;
       align-items: center;
-      gap: 12px;
-      pointer-events: none;
+      justify-content: center;
+      z-index: 10000;
+    }
+
+    .modal-card {
+      background: white;
+      max-width: 520px;
+      width: 90%;
+      border-radius: 36px;
+      padding: 2rem;
+      text-align: center;
+      border: 2px solid #ffb347;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.25);
+    }
+
+    /* Scrollable content area inside modal */
+    .modal-scrollable-content {
+      max-height: 55vh;
+      overflow-y: auto;
+      margin: 1rem 0 1.5rem 0;
+      padding-right: 6px;
+      scrollbar-width: thin;
+      border-top: 1px solid #eef2f5;
+      border-bottom: 1px solid #eef2f5;
     }
     
-    .download-toast.show {
-      transform: translateX(-50%) translateY(0);
+    .modal-scrollable-content::-webkit-scrollbar {
+      width: 5px;
     }
     
-    .download-toast .spinner {
-      width: 20px;
-      height: 20px;
-      border: 2px solid rgba(255,255,255,0.3);
-      border-top-color: white;
+    .modal-scrollable-content::-webkit-scrollbar-track {
+      background: #e9eef3;
+      border-radius: 10px;
+    }
+    
+    .modal-scrollable-content::-webkit-scrollbar-thumb {
+      background: #b9c4ce;
+      border-radius: 10px;
+    }
+    
+    .modal-scrollable-content::-webkit-scrollbar-thumb:hover {
+      background: #8f9eab;
+    }
+
+    .countdown-number {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #2f721f;
+      background: #f0f7ec;
+      width: 110px;
+      height: 110px;
+      line-height: 110px;
       border-radius: 50%;
-      animation: spin 0.6s linear infinite;
+      margin: 1.5rem auto;
+      border: 3px solid #4f9e3a;
     }
-    
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+
+    .modal-progress {
+      width: 100%;
+      height: 12px;
+      background: #e0e7ef;
+      border-radius: 20px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .modal-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #3c7e2e, #5fb04b);
+      transition: width 0.1s;
     }
 
     .footer {
@@ -488,6 +530,13 @@
       .download-links {
         flex-wrap: nowrap;
       }
+      
+      .modal-card {
+        padding: 1.5rem;
+      }
+      .modal-scrollable-content {
+        max-height: 50vh;
+      }
     }
 
     @media (max-width: 640px) {
@@ -495,6 +544,7 @@
       .header h1 { font-size: 1.8rem; }
       .main-content { padding: 1.2rem; }
       .feature-list { grid-template-columns: 1fr; }
+      .comments-section { padding: 1.5rem; }
     }
     
     .clickable {
@@ -578,11 +628,11 @@
           <tr><td>🏷️ Build Number:</td><td><strong>V1.3.9rev128</strong></td></tr>
           <tr style="cursor: pointer;" onclick="window.open('https://virusscan.jotti.org/en-US/search/hash/99d3604ecb93ada30a9a9c781079983d62323923', '_blank')">
             <td>🛡️ Jotti's Malware Scan:</td><td><strong>Clean ✓ (0/15)</strong></td>
-           </tr>
+          </tr>
           <tr style="cursor: pointer;" onclick="window.open('https://github.com/Moggle-Khraum/noveldr-site/releases', '_blank')">
             <td>📢 Github Release:</td><td><strong>Official Release</strong></td>
-           </tr>
-         </table>
+          </tr>
+        </table>
 
         <div style="margin-top:2rem; text-align:center;">
           <h3 style="margin-bottom:10px;">🌍 Visitors</h3>
@@ -617,7 +667,7 @@
     </div>
 
     <div class="changelog-entry">
-      <h3>v1.3.8rev118</h3>
+      <h3 style="color: #2f721f;">v1.3.8rev118</h3>
       <p style="font-size: 0.85rem; color: #666;">Apr 15, 2026 Update</p>
       <ul style="margin-top: 10px; padding-left: 20px;">
         <li>[NEW] Added support for LightNovelWorld</li>
@@ -701,21 +751,22 @@
         <tr><td><strong>Novel DR</strong></td><td>v1.3.9rev128</td><td><a href="#" onclick="showVersionChangelog('1.3.9rev128'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.93 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.3.9rev128', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'itch'); return false;">Itch.io</a></div></td></tr>
         <tr><td><strong>Novel DR</strong></td><td>v1.3.8rev118</td><td><a href="#" onclick="showVersionChangelog('1.3.8rev118'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.9 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.3.8rev118', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'itch'); return false;">Itch.io</a></div></td></tr>
         <tr><td><strong>Novel DR</strong></td><td>v1.0.3rev055</td><td><a href="#" onclick="showVersionChangelog('1.0.3rev055'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.9 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.3rev055', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'itch'); return false;">Itch.io</a></div></td></tr>
-        <tr><td><strong>Novel DR</strong></td><td>v1.0.2rev36</td><td><a href="#" onclick="showVersionChangelog('1.0.2rev36'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.87 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.2rev36', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'itch'); return false;">Itch.io</a></div></td></tr>
+        <tr><td><strong>Novel DR</strong></td><td>v1.0.2rev36</td><td><a href="#" onclick="showVersionChangelog('1.0.2rev36'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.87 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.2rev36', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'itch'); return false;">Itch.io</a></div></td>
+        </tr>
         <tr><td><strong>Novel DR</strong></td><td>v1.0.1rev16</td><td><a href="#" onclick="showVersionChangelog('1.0.1rev16'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.86 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.1rev16', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'itch'); return false;">Itch.io</a></div></td></tr>
       </tbody>
     </table>
     <button id="back-to-home-archives" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600;">← Back to Home</button>
   </div>
   
-  <!-- VERSION CHANGELOG MODAL (simple version that works) -->
-  <div id="versionChangelogModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); align-items: center; justify-content: center; z-index: 10000;">
-    <div style="background: white; max-width: 520px; width: 90%; border-radius: 36px; padding: 2rem; border: 2px solid #ffb347; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.25);">
+  <!-- VERSION CHANGELOG MODAL -->
+  <div class="modal-overlay" id="versionChangelogModal">
+    <div class="modal-card" style="text-align: left;">
       <h3 style="color: #1e4663; margin-bottom: 0.25rem; text-align: center;">📋 Changelog: <span id="modalVersionTitle">v1.3.9rev128</span></h3>
-      <div id="modalScrollableContent" style="max-height: 55vh; overflow-y: auto; margin: 1rem 0 1.5rem 0; padding-right: 6px;">
+      <div class="modal-scrollable-content" id="modalScrollableContent">
         <div id="modalChangelogContent"></div>
       </div>
-      <button id="closeVersionChangelogBtn" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600; width: 100%;">Close</button>
+      <button id="closeVersionChangelogBtn" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600; width: 100%; margin-top: 0.5rem;">Close</button>
     </div>
   </div>
 
@@ -734,16 +785,6 @@
   const navHome = document.getElementById('nav-home');
   const navChangelog = document.getElementById('nav-changelog');
   const navArchives = document.getElementById('nav-archives');
-  const toast = document.getElementById('downloadToast');
-
-  function showToast(message, isError = false) {
-    const toastMsg = document.getElementById('toastMessage');
-    toastMsg.textContent = message;
-    toast.classList.add('show');
-    setTimeout(() => {
-      toast.classList.remove('show');
-    }, 3000);
-  }
 
   function setActiveNav(activeElement) {
     [navHome, navChangelog, navArchives].forEach(el => el.classList.remove('active'));
@@ -768,25 +809,61 @@
   if (backHomeChangelog) backHomeChangelog.addEventListener('click', showHome);
   if (backHomeArchives) backHomeArchives.addEventListener('click', showHome);
 
-  // Simple download function (no modal, just toast and direct download)
-  function startDownload(url) {
-    if (!url || url === '#') {
-      showToast('❌ Download not available yet', true);
-      return;
-    }
-    showToast('⬇️ Starting download...');
-    setTimeout(() => {
-      window.open(url, '_blank');
-    }, 500);
+  // Download Modal Logic (Fixed for Brave)
+  const modal = document.getElementById('downloadModal');
+  const downloadBtn = document.getElementById('downloadMainBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const countdownDisplay = document.getElementById('countdownDisplay');
+  const modalProgressBar = document.getElementById('modalProgressBar');
+  const modalStatus = document.getElementById('modalStatus');
+  let countdownInterval, progressInterval, currentCountdown = 5;
+  let downloadUrl = 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk';
+
+  function resetModal() {
+    if (countdownInterval) clearInterval(countdownInterval);
+    if (progressInterval) clearInterval(progressInterval);
+    currentCountdown = 5;
+    if (countdownDisplay) countdownDisplay.textContent = '5';
+    if (modalProgressBar) modalProgressBar.style.width = '0%';
+    if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...';
   }
 
-  // Main download button
-  const downloadBtn = document.getElementById('downloadMainBtn');
+  function startCountdown() {
+    resetModal();
+    modal.style.display = 'flex';
+    let progress = 0;
+    progressInterval = setInterval(() => { 
+      progress += 2; 
+      if (modalProgressBar) modalProgressBar.style.width = progress + '%'; 
+      if (progress >= 100) clearInterval(progressInterval); 
+    }, 100);
+    
+    countdownInterval = setInterval(() => {
+      currentCountdown--;
+      if (countdownDisplay) countdownDisplay.textContent = currentCountdown;
+      if (modalStatus) modalStatus.textContent = `Download starting in ${currentCountdown} seconds...`;
+      if (currentCountdown <= 0) {
+        clearInterval(countdownInterval);
+        if (modalStatus) modalStatus.textContent = "✅ Starting Download...";
+        window.open(downloadUrl, '_blank');
+        setTimeout(() => { modal.style.display = 'none'; resetModal(); }, 2000);
+      }
+    }, 1000);
+  }
+
   if (downloadBtn) {
     downloadBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      startDownload('https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk');
+      startCountdown();
     });
+  }
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', () => { resetModal(); modal.style.display = 'none'; });
+  }
+  
+  if (modal) {
+    modal.addEventListener('click', (e) => { if (e.target === modal) { resetModal(); modal.style.display = 'none'; } });
   }
 
   // Archive Download
@@ -800,10 +877,11 @@
 
   function downloadVersion(version, source) {
     const url = downloadUrls[version]?.[source];
-    if (url && url !== '#') { 
-      startDownload(url);
+    if (url && url !== '#') {
+      downloadUrl = url;
+      startCountdown();
     } else { 
-      showToast(`Download for ${version} from ${source} not available`, true);
+      alert(`Download for ${version} from ${source} is not available yet.`);
     }
   }
   window.downloadVersion = downloadVersion;
@@ -834,7 +912,7 @@
       const scrollContainer = document.getElementById('modalScrollableContent');
       if(scrollContainer) scrollContainer.scrollTop = 0;
     } else {
-      showToast('Changelog not available for this version', true);
+      alert('Changelog not available for this version.');
     }
   }
   window.showVersionChangelog = showVersionChangelog;
@@ -843,11 +921,13 @@
     closeVersionChangelogBtn.addEventListener('click', () => { versionChangelogModal.style.display = 'none'; });
   }
   
-  versionChangelogModal.addEventListener('click', (e) => { 
-    if (e.target === versionChangelogModal) versionChangelogModal.style.display = 'none'; 
-  });
+  if (versionChangelogModal) {
+    versionChangelogModal.addEventListener('click', (e) => { 
+      if (e.target === versionChangelogModal) versionChangelogModal.style.display = 'none'; 
+    });
+  }
 
-  
 </script>
 </body>
 </html>
+
