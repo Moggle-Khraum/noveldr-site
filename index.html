@@ -909,7 +909,27 @@
   const closeVersionChangelogBtn = document.getElementById('closeVersionChangelogBtn');
   
   const versionChangelogs = {
-    '1.3.9rev128': {date: 'April 21, 2026', changes: ['STILL IN THE WORKS, PLEASE WAIT...']},
+    '1.3.9rev128': {date: 'April 21, 2026', changes: [
+    '[NEW] Updates tab now downloads and saves novel covers locally',
+    '[NEW] Refreshes cover images if changed on source website',
+    '[NEW] System Action Required" warning card is now clickable',
+    '[NEW] Tapping opens Android settings directly to manage unused apps',
+    '[NEW] Batch delete confirmation with item count display',
+    '[NEW] Added "Starting Chapter" input field next to "Max Chapters"',
+    '[NEW] Updates tab now checks and updates author if changed',
+    '[NEW] Refreshes synopsis when source is updated',
+    '[IMPROVEMENT] Allows "SKIPPER" to skipped chapters smoothly and starting downloads from specific chapter',
+    '[IMPROVEMENT] Improved error handling during updates',
+    '[IMPROVEMENT] Enhanced chapter skipping logic for better performance',
+    '[IMPROVEMENT] Better duplicate detection when merging chapters',
+    '[IMPROVEMENT] Added dedicated batch delete operation',
+    '[IMPROVEMENT] Ensures all selected novels are removed properly during deletion',
+    '[FIXED] Make "Batch Restore" the default for restoring files from Imported Backup',
+    '[FIXED] Resolve the dysfunctional "Restore" system in the Import function',
+    '[FIXED] Add "Fetcher" to the "Update" tab when downloading Chapters',
+    '[FIXED] Add "Starting Chapter" field to the "Update" tab',
+    '[FIXED] Delete Tab only deletes one file even after selection'
+]},
     '1.3.8rev118': { date: 'April 15, 2026', changes: ['[NEW] Added support for LightNovelWorld','Added scraper for Author, Cover, Synopsis, and Chapter Content','Added About Developer tab','Added Github link in the Developer tab','Added Website Link in the Developer tab','Added auto-scroll speed presets','Added "Import File" function to the Backup System','Improved Skipper Code functionality','Increased value presets for AutoScroll, Line Spacing, and Font Size','Download Tab now downloads cover locally for offline display','Improved the scraper for the LightNovelWorld','[NEEDS FIXING] "Delete Tab" only deletes one file even after selection','[NEEDS FIXING] To add "Starting Chapter" field to the "Update" tab','[NEEDS FIXING] To add "Fetcher" to the "Update" tab when downloading Chapters.','[NEEDS FIXING] Resolve the dysfunctional "Restore" system in the Import system','[NEEDS FIXING] Make "Batch Restore" the default for restoring files from Imported Backup','Minor bugs and performance issues'] },
     '1.0.3rev055': { date: 'April 13, 2026', changes: ['NovelBin and FreeWebNovel now fully supported','Library filters: All, Unread, Reading, Completed','Library search, and batch delete (via ⋮ menu)','Long press novel cover to update reading status','AutoScroll with presets','Updates tab now has search function','Skipper (skip existing chapters) and Traverser (resume downloads)','Backup & Restore system','2-prompt warning when deleting a novel','Better Download tab stability','FreeWebNovel now shows author, cover, and synopsis'] },
     '1.0.2rev36': { date: 'March 27, 2026', changes: ['Activity Logs are now visible.','Progress bar is now visible','Stabilized downloader & update lifeline code','[NEEDS FIXING] Modify the icon of the Update tab.','[NEEDS FIXING] Full FreeWebNovel site support','[NEEDS FIXING] Improved Author & Synopsis extraction'] },
