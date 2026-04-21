@@ -70,10 +70,17 @@
     }
 
     .header h1::before {
-      content: "📚";
+      content: "";
       display: inline-block;
-      font-size: 2rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-image: url('app-icon.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
+
 
     .tagline {
       font-size: 1rem;
@@ -508,10 +515,15 @@
 <body>
 
 <div class="wrapper">
-  <!-- Simple Toast Notification (replaces modal that was breaking in Brave) -->
-  <div class="download-toast" id="downloadToast">
-    <div class="spinner"></div>
-    <span id="toastMessage">Starting download...</span>
+  <!-- Download Modal -->
+  <div class="modal-overlay" id="downloadModal">
+    <div class="modal-card">
+      <h3>💾 Preparing Download</h3>
+      <div class="countdown-number" id="countdownDisplay">5</div>
+      <div class="modal-progress"><div class="modal-progress-bar" id="modalProgressBar"></div></div>
+      <div class="modal-status" id="modalStatus">Your download will start in 5 seconds...</div>
+      <button class="modal-close" id="closeModalBtn" style="margin-top:20px; padding:10px 20px; border-radius:30px; cursor:pointer; background:#f1f3f5; border:none; font-weight:600;">Cancel</button>
+    </div>
   </div>
 
   <!-- Header -->
