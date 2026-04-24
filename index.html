@@ -738,7 +738,7 @@
     </div>
 
     <!-- LIVE DEMO PHONES SECTION -->
-    <div class="live-demo-section" id="liveDemo">
+    <div class="live-demo-section" >
         <div class="section-heading">
             <i class="fas fa-mobile-alt"></i>
             <span>Live Demo</span>
@@ -876,7 +876,7 @@
     </div>
     
     <!-- DOWNLOAD CTA BOX -->
-    <div class="download-cta-box">
+    <div class="download-cta-box" id="downloadNow">
         <h3>Download the App Now</h3>
         <p>Start reading your webnovel today and anywhere. Available on Android only.</p>
         <button class="download-cta-btn">
@@ -1083,7 +1083,7 @@
 
         // CTA button scroll
         document.getElementById('downloadButton').addEventListener('click', () => {
-            document.getElementById('liveDemo').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            document.getElementById('downloadNow').scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
 
         // Download CTA button
