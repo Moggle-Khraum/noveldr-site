@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NovelDR · read anywhere, offline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <link rel="canonical" href="https://moggle.is-a-good.dev/">
+    <link rel="icon" type="image/png" href="app-icon.png">
+    <link rel="apple-touch-icon" href="app-icon.png">
+    
+    <title>Novel DR · Read Wuxia & Xianxia offline</title>
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -655,9 +659,9 @@
         <div class="hero-text">
             <span class="badge"><i class="far fa-sparkles" style="margin-right: 6px;"></i>NovelDR · read offline</span>
             <h1>Download novels.<br><span class="gradient-text">Read anywhere.</span></h1>
-            <p class="hero-desc">NovelDR lets you download your favorite novels and read them offline, anytime. Smart library, background downloads, and always in sync.</p>
-            <div class="cta-button" id="exploreButton">
-                <i class="fas fa-cloud-download-alt"></i> Explore NovelDR
+            <p class="hero-desc">NovelDR lets you download webnovels from supported sources like FreeWebNovel & LightNovelWorld. Easy novel updates just by two taps, and customizable reading experience.</p>
+            <div class="cta-button" id="downloadButton">
+                <i class="fas fa-cloud-download-alt"></i> Download the App
             </div>
         </div>
         <div class="phone-mock-wrapper">
@@ -727,10 +731,10 @@
 
     <!-- FEATURE GRID -->
     <div class="feature-grid">
-        <div class="feature-card"><i class="fas fa-bookmark"></i><h4>Offline Library</h4><p>Download once, read anywhere — no internet needed.</p></div>
-        <div class="feature-card"><i class="fas fa-cloud-arrow-down"></i><h4>Smart Downloads</h4><p>Background fetch, queue management, Wi-Fi only mode.</p></div>
-        <div class="feature-card"><i class="fas fa-bolt"></i><h4>Auto Updates</h4><p>New chapters download automatically when available.</p></div>
-        <div class="feature-card"><i class="fas fa-mobile-alt"></i><h4>Offline First</h4><p>Designed for readers on the go — plane, train, or anywhere.</p></div>
+        <div class="feature-card"><i class="fas fa-bookmark"></i><h4>Dynamic Library</h4><p>Webnovel search by using the tag-filters [All, Unread, Reading, Complete] and delete novels using batch selection.</p></div>
+        <div class="feature-card"><i class="fas fa-cloud-arrow-down"></i><h4>Powerful Download Tab</h4><p>Supports 5 webnovel sources: ReadNovelFull, NovelFull, Novelbin, FreeWebNovel, & LightNovelWorld. Intuitive interface that lets you download a webnovel by 3 steps: Paste link, Fill the fields [Starting Chapter & Max Chapters], and hit Download!.</p></div>
+        <div class="feature-card"><i class="fas fa-bolt"></i><h4>Smart Updates</h4><p>Update your novel just by selecting a novel listed, fill the fields [Starting Chapter & Max Chapters], and Hit the Update button.</p></div>
+        <div class="feature-card"><i class="fas fa-mobile-alt"></i><h4>Systematic Functions</h4><p>[AutoScroll, Fontsize, Line-spacing] for comfy/hands-free reading. [Dark, Light, Sepia] built-in themes, [New Backup, Restore, Import] for data security and backup</p></div>
     </div>
 
     <!-- LIVE DEMO PHONES SECTION -->
@@ -769,7 +773,7 @@
                     <div class="demo-home-indicator"></div>
                 </div>
                 <p style="font-size: 0.85rem; color: #6e5b52; text-align: center; max-width: 230px;">
-                    Browse your collection, filter by genre, and see reading progress at a glance.
+                    Browse your collection, filter by tag, see reading progress at a glance, and delete by batch selection.
                 </p>
             </div>
             
@@ -801,7 +805,7 @@
                     <div class="demo-home-indicator"></div>
                 </div>
                 <p style="font-size: 0.85rem; color: #6e5b52; text-align: center; max-width: 230px;">
-                    Smart background downloads with progress tracking and queue management.
+                    Capable downloader supporting 5 sources with simple to use interface.
                 </p>
             </div>
             
@@ -833,7 +837,7 @@
                     <div class="demo-home-indicator"></div>
                 </div>
                 <p style="font-size: 0.85rem; color: #6e5b52; text-align: center; max-width: 230px;">
-                    Auto-download new chapters and get notified when your favorite authors release.
+                    Easy to update your library by selecting a novel, fillup the fields, and juts hit 'Check for Updates' 
                 </p>
             </div>
 
@@ -865,7 +869,7 @@
                     <div class="demo-home-indicator"></div>
                 </div>
                 <p style="font-size: 0.85rem; color: #6e5b52; text-align: center; max-width: 230px;">
-                    Customize your reading experience with themes, fonts, and sync preferences.
+                    Customize your reading experience with themes, see your library statistics, create backup to secure data, click the Beer icon for a surprise.
                 </p>
             </div>
         </div>
@@ -874,7 +878,7 @@
     <!-- DOWNLOAD CTA BOX -->
     <div class="download-cta-box">
         <h3>Download the App Now</h3>
-        <p>Start your offline reading journey today. Available on all platforms.</p>
+        <p>Start reading your webnovel today and anywhere. Available on Android only.</p>
         <button class="download-cta-btn">
             <i class="fas fa-download"></i>
             Download NovelDR
@@ -892,7 +896,7 @@
     </div> -->
     
     <div class="footer-note">
-        <i class="fas fa-book" style="color: #b16e5c; margin-right: 6px;"></i> NovelDR · download novels, read offline
+        <i class="fas fa-book" style="color: #b16e5c; margin-right: 6px;"></i> Novel DR · Read Anywhere & Everywhere
     </div>
 </div>
 
@@ -1078,7 +1082,7 @@
         });
 
         // CTA button scroll
-        document.getElementById('exploreButton').addEventListener('click', () => {
+        document.getElementById('downloadButton').addEventListener('click', () => {
             document.getElementById('liveDemo').scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
 
