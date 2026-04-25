@@ -26,6 +26,19 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: background 0.6s ease, color 0.6s ease;
+        }
+
+        /* DARK THEME - Whole Page */
+        body.theme-dark {
+            background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%);
+            color: #e0d8d0;
+        }
+
+        /* SEPIA THEME - Whole Page */
+        body.theme-sepia {
+            background: linear-gradient(145deg, #f4ecd8 0%, #e8dcc0 100%);
+            color: #5c4a3a;
         }
 
         .container {
@@ -61,6 +74,20 @@
             color: #5a3e36;
             border: 1px solid rgba(180, 140, 120, 0.2);
             margin-bottom: 1.2rem;
+            transition: all 0.6s ease;
+        }
+
+        /* Dark theme overrides */
+        body.theme-dark .badge {
+            background: rgba(180, 160, 150, 0.15);
+            color: #c9b8ae;
+            border-color: rgba(180, 160, 150, 0.2);
+        }
+
+        body.theme-sepia .badge {
+            background: rgba(180, 160, 120, 0.25);
+            color: #8b7a60;
+            border-color: rgba(180, 160, 120, 0.3);
         }
 
         h1 {
@@ -70,6 +97,15 @@
             letter-spacing: -0.02em;
             color: #2c211c;
             margin-bottom: 1.2rem;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark h1 {
+            color: #f0e8e0;
+        }
+
+        body.theme-sepia h1 {
+            color: #5c4a3a;
         }
 
         .gradient-text {
@@ -79,11 +115,32 @@
             color: transparent;
         }
 
+        body.theme-dark .gradient-text {
+            background: linear-gradient(135deg, #c9a99a 0%, #a08070 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        body.theme-sepia .gradient-text {
+            background: linear-gradient(135deg, #8f6e4e 0%, #6e4e3e 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
         .hero-desc {
             font-size: 1.2rem;
             color: #4d3e37;
             max-width: 500px;
             margin-bottom: 2rem;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .hero-desc {
+            color: #b0a098;
+        }
+
+        body.theme-sepia .hero-desc {
+            color: #7a6a5a;
         }
 
         .cta-button {
@@ -96,11 +153,21 @@
             font-size: 1.1rem;
             cursor: pointer;
             box-shadow: 0 12px 18px -8px rgba(44, 33, 28, 0.12);
-            transition: transform 0.1s ease;
+            transition: transform 0.1s ease, background 0.6s ease, color 0.6s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        body.theme-dark .cta-button {
+            background: #4a3830;
+            color: #f0e8e0;
+        }
+
+        body.theme-sepia .cta-button {
+            background: #5c4a3a;
+            color: #f4ecd8;
         }
 
         .cta-button i {
@@ -110,6 +177,14 @@
         .cta-button:hover {
             transform: scale(1.01);
             background: #3f302a;
+        }
+
+        body.theme-dark .cta-button:hover {
+            background: #5a4a43;
+        }
+
+        body.theme-sepia .cta-button:hover {
+            background: #6e5a4a;
         }
 
         .cta-button:active {
@@ -141,7 +216,7 @@
             position: relative;
             width: 300px;
             backdrop-filter: blur(2px);
-            transition: all 0.4s ease;
+            transition: all 0.6s ease;
         }
 
         /* Theme styles for phone frame */
@@ -168,7 +243,7 @@
             position: relative;
             box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
             touch-action: pan-y;
-            transition: background 0.4s ease;
+            transition: background 0.6s ease;
         }
 
         /* Status Bar */
@@ -182,7 +257,7 @@
             font-weight: 600;
             color: #1e1b1a;
             border-bottom: 1px solid #f0e4dc;
-            transition: all 0.4s ease;
+            transition: all 0.6s ease;
         }
 
         .status-left {
@@ -208,7 +283,7 @@
             background: #1e1b1a;
             border-radius: 3px;
             position: relative;
-            transition: background 0.4s ease;
+            transition: background 0.6s ease;
         }
 
         .battery-level::after {
@@ -220,7 +295,7 @@
             height: 6px;
             background: #1e1b1a;
             border-radius: 1px;
-            transition: background 0.4s ease;
+            transition: background 0.6s ease;
         }
 
         .battery-fill {
@@ -254,7 +329,7 @@
             flex-direction: column;
             background: transparent;
             user-select: none;
-            transition: background 0.4s ease;
+            transition: background 0.6s ease;
         }
 
         .slide-image {
@@ -262,6 +337,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: opacity 0.3s ease;
         }
 
         .phone-notch {
@@ -301,6 +377,15 @@
             background: #ece5de;
             border-radius: 30px;
             padding: 4px;
+            transition: background 0.6s ease;
+        }
+
+        body.theme-dark .theme-buttons {
+            background: #333;
+        }
+
+        body.theme-sepia .theme-buttons {
+            background: #d4c5a0;
         }
 
         .theme-btn {
@@ -315,14 +400,40 @@
             color: #5a4a43;
         }
 
+        body.theme-dark .theme-btn {
+            color: #a09088;
+        }
+
+        body.theme-sepia .theme-btn {
+            color: #8b7a60;
+        }
+
         .theme-btn.active-theme {
             background: #fffbf9;
             color: #2c211c;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
+        body.theme-dark .theme-btn.active-theme {
+            background: #444;
+            color: #f0e8e0;
+        }
+
+        body.theme-sepia .theme-btn.active-theme {
+            background: #f4ecd8;
+            color: #5c4a3a;
+        }
+
         .theme-btn:hover {
             background: rgba(255,255,255,0.6);
+        }
+
+        body.theme-dark .theme-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        body.theme-sepia .theme-btn:hover {
+            background: rgba(255,255,255,0.4);
         }
 
         /* DARK THEME - Mocked phone */
@@ -379,18 +490,62 @@
             backdrop-filter: blur(4px);
             border: 1px solid #e5d5ca;
             box-shadow: 0 8px 0 #dccfc6;
+            transition: all 0.6s ease;
+        }
+
+        body.theme-dark .feature-card {
+            background: #252525;
+            border-color: #3a3a3a;
+            box-shadow: 0 8px 0 #1a1a1a;
+        }
+
+        body.theme-sepia .feature-card {
+            background: #f4ecd8;
+            border-color: #d4c5a0;
+            box-shadow: 0 8px 0 #c4b590;
         }
 
         .feature-card i {
             font-size: 2.2rem;
             color: #8f5e4e;
             margin-bottom: 1rem;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .feature-card i {
+            color: #c9a99a;
+        }
+
+        body.theme-sepia .feature-card i {
+            color: #8f6e4e;
         }
 
         .feature-card h4 {
             font-weight: 600;
             margin-bottom: 8px;
             color: #2e231f;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .feature-card h4 {
+            color: #e0d8d0;
+        }
+
+        body.theme-sepia .feature-card h4 {
+            color: #5c4a3a;
+        }
+
+        .feature-card p {
+            color: #5a4a43;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .feature-card p {
+            color: #a09088;
+        }
+
+        body.theme-sepia .feature-card p {
+            color: #7a6a5a;
         }
 
         /* LIVE DEMO PHONES SECTION */
@@ -406,10 +561,28 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .section-heading {
+            color: #f0e8e0;
+        }
+
+        body.theme-sepia .section-heading {
+            color: #5c4a3a;
         }
 
         .section-heading i {
             color: #8f5e4e;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .section-heading i {
+            color: #c9a99a;
+        }
+
+        body.theme-sepia .section-heading i {
+            color: #8f6e4e;
         }
 
         .demo-phones-wrap {
@@ -424,6 +597,19 @@
             border-radius: 48px;
             border: 1px solid #e5d8cf;
             box-shadow: 0 20px 35px -10px rgba(60, 40, 30, 0.08);
+            transition: all 0.6s ease;
+        }
+
+        body.theme-dark .demo-phones-wrap {
+            background: rgba(30, 30, 30, 0.7);
+            border-color: #3a3a3a;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        body.theme-sepia .demo-phones-wrap {
+            background: rgba(244, 236, 216, 0.7);
+            border-color: #d4c5a0;
+            box-shadow: 0 20px 35px -10px rgba(60, 40, 20, 0.15);
         }
 
         .demo-phone {
@@ -440,10 +626,28 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .demo-phone-label {
+            color: #e0d8d0;
+        }
+
+        body.theme-sepia .demo-phone-label {
+            color: #5c4a3a;
         }
 
         .demo-phone-label i {
             color: #8f5e4e;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .demo-phone-label i {
+            color: #c9a99a;
+        }
+
+        body.theme-sepia .demo-phone-label i {
+            color: #8f6e4e;
         }
 
         /* Realistic Demo Phone Frame */
@@ -456,6 +660,21 @@
                 0 0 0 6px #ece5de,
                 inset 0 0 0 2px #4a3b35;
             width: 230px;
+            transition: all 0.6s ease;
+        }
+
+        body.theme-dark .demo-phone-frame {
+            box-shadow: 
+                0 20px 35px -10px rgba(0,0,0,0.5),
+                0 0 0 6px #2a2522,
+                inset 0 0 0 2px #5a4a43;
+        }
+
+        body.theme-sepia .demo-phone-frame {
+            box-shadow: 
+                0 20px 35px -10px rgba(60, 40, 20, 0.3),
+                0 0 0 6px #d4c5a0,
+                inset 0 0 0 2px #8b7a60;
         }
 
         .demo-phone-notch {
@@ -473,6 +692,7 @@
             aspect-ratio: 9 / 17.3;
             width: 100%;
             box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+            transition: background 0.6s ease;
         }
 
         .demo-status-bar {
@@ -484,6 +704,7 @@
             font-size: 11px;
             font-weight: 600;
             color: #1e1b1a;
+            transition: color 0.6s ease;
         }
 
         .demo-status-left {
@@ -503,6 +724,7 @@
             background: #1e1b1a;
             border-radius: 2px;
             position: relative;
+            transition: background 0.6s ease;
         }
 
         .demo-battery-level::after {
@@ -514,6 +736,7 @@
             height: 5px;
             background: #1e1b1a;
             border-radius: 1px;
+            transition: background 0.6s ease;
         }
 
         .demo-battery-fill {
@@ -536,6 +759,7 @@
             background: #cfbcb2;
             margin: 8px auto 2px;
             border-radius: 16px;
+            transition: background 0.6s ease;
         }
 
         /* Download CTA Box */
@@ -547,6 +771,19 @@
             text-align: center;
             box-shadow: 0 20px 35px -10px rgba(60, 40, 30, 0.2);
             border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.6s ease;
+        }
+
+        body.theme-dark .download-cta-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-color: rgba(255,255,255,0.05);
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4);
+        }
+
+        body.theme-sepia .download-cta-box {
+            background: linear-gradient(135deg, #5c4a3a 0%, #7a6a5a 100%);
+            border-color: rgba(255,255,255,0.08);
+            box-shadow: 0 20px 35px -10px rgba(60, 40, 20, 0.3);
         }
 
         .download-cta-box h3 {
@@ -554,12 +791,22 @@
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 0.8rem;
+            transition: color 0.6s ease;
         }
 
         .download-cta-box p {
             color: #c9b8ae;
             font-size: 1rem;
             margin-bottom: 1.5rem;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .download-cta-box p {
+            color: #8a7a70;
+        }
+
+        body.theme-sepia .download-cta-box p {
+            color: #d4c5a0;
         }
 
         .download-cta-btn {
@@ -587,41 +834,33 @@
             transform: scale(0.97);
         }
 
-        .store-badges {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .store-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 16px;
-            color: #faf6f2;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .store-badge:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .store-badge i {
-            font-size: 1.2rem;
-        }
-
         .footer-note {
             margin-top: 5rem;
             text-align: center;
             color: #6e5b52;
             font-size: 0.9rem;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .footer-note {
+            color: #8a7a70;
+        }
+
+        body.theme-sepia .footer-note {
+            color: #8b7a60;
+        }
+
+        /* Demo phone text */
+        .demo-phone p {
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .demo-phone p {
+            color: #a09088 !important;
+        }
+
+        body.theme-sepia .demo-phone p {
+            color: #7a6a5a !important;
         }
 
         /* responsive */
@@ -883,17 +1122,7 @@
             <i class="fas fa-download"></i>
             Download NovelDR
         </button>
-        <!--<div class="store-badges">
-            <div class="store-badge">
-                <i class="fab fa-apple"></i>
-                App Store
-            </div>
-            <div class="store-badge">
-                <i class="fab fa-google-play"></i>
-                Google Play
-            </div>
-        </div>
-    </div> -->
+    </div>
     
     <div class="footer-note">
         <i class="fas fa-book" style="color: #b16e5c; margin-right: 6px;"></i> Novel DR · Read Anywhere & Everywhere
@@ -907,28 +1136,38 @@
         // ---------- THEMED IMAGES ----------
         const themeImages = {
             light: [
-                "assets/Light_Library.png",   // Library
-                "assets/Light_Download.png",   // Downloads
-                "assets/Light_Updates.png",   // Updates
-                "assets/Light_Settings.png"    // Settings
+                "assets/Light_Library.png",
+                "assets/Light_Download.png",
+                "assets/Light_Updates.png",
+                "assets/Light_Settings.png"
             ],
             dark: [
-                "assets/Dark_Library.png",   // Library
-                "assets/Dark_Download.png",   // Downloads
-                "assets/Dark_Updates.png",   // Updates
-                "assets/Dark_Settings.png"    // Settings
+                "assets/Dark_Library.png",
+                "assets/Dark_Download.png",
+                "assets/Dark_Updates.png",
+                "assets/Dark_Settings.png"
             ],
             sepia: [
-                "assets/Sepia_Library.png",   // Library
-                "assets/Sepia_Download.png",   // Downloads
-                "assets/Sepia_Updates.png",   // Updates
-                "assets/Sepia_Settings.png"    // Settings
+                "assets/Sepia_Library.png",
+                "assets/Sepia_Download.png",
+                "assets/Sepia_Updates.png",
+                "assets/Sepia_Settings.png"
             ]
         };
 
-        // ---------- PHONE CAROUSEL (standard looping) ----------
+        // Preload all images
+        function preloadImages() {
+            for (const theme in themeImages) {
+                themeImages[theme].forEach(src => {
+                    const img = new Image();
+                    img.src = src;
+                });
+            }
+        }
+        preloadImages();
+
+        // ---------- PHONE CAROUSEL ----------
         const slides = document.getElementById('carouselSlides');
-        const dots = document.querySelectorAll('#carouselDots .dot');
         const totalSlides = 4;
         let currentIndex = 0;
         let isDragging = false;
@@ -951,16 +1190,6 @@
             slides.style.transform = `translateX(${offset}%)`;
             currentTranslate = offset;
             prevTranslate = offset;
-            
-          
-            
-        }
-
-        function goToSlide(index) {
-            if (index < 0 || index >= totalSlides) return;
-            currentIndex = index;
-            updateCarousel(currentIndex, true);
-            resetAutoPlay();
         }
 
         function nextSlide() {
@@ -974,8 +1203,6 @@
             autoPlayInterval = setInterval(nextSlide, 4000);
         }
 
-
-        // Dragging
         const phoneScreen = document.getElementById('phoneScreen');
         
         function handleDragStart(e) {
@@ -1052,18 +1279,36 @@
             for (let i = 0; i < totalSlides; i++) {
                 const img = document.getElementById('slideImg' + i);
                 if (img) {
-                    img.src = images[i];
+                    img.style.opacity = '0';
+                    setTimeout(() => {
+                        img.src = images[i];
+                        img.onload = () => {
+                            img.style.opacity = '1';
+                        };
+                        setTimeout(() => { img.style.opacity = '1'; }, 100);
+                    }, 150);
                 }
             }
         }
 
         function applyThemeToPhone(theme) {
             phoneFrame.classList.remove('theme-dark', 'theme-sepia');
-            
             if (theme === 'dark') {
                 phoneFrame.classList.add('theme-dark');
             } else if (theme === 'sepia') {
                 phoneFrame.classList.add('theme-sepia');
+            }
+        }
+
+        function applyThemeToPage(theme) {
+            // Remove all theme classes from body
+            document.body.classList.remove('theme-dark', 'theme-sepia');
+            
+            // Apply new theme class to body
+            if (theme === 'dark') {
+                document.body.classList.add('theme-dark');
+            } else if (theme === 'sepia') {
+                document.body.classList.add('theme-sepia');
             }
         }
 
@@ -1073,6 +1318,7 @@
                 
                 updateSlideImages(theme);
                 applyThemeToPhone(theme);
+                applyThemeToPage(theme);  // 🥚 Easter Egg: Changes the whole page!
                 
                 themeButtons.forEach(b => b.classList.remove('active-theme'));
                 btn.classList.add('active-theme');
