@@ -46,6 +46,7 @@
             margin: 0 auto;
             padding: 2rem 1.5rem;
             width: 100%;
+            flex: 1;
         }
 
         /* header & intro */
@@ -863,7 +864,255 @@
             color: #7a6a5a !important;
         }
 
-        /* responsive */
+        /* NEW: Enhanced Footer Styles - matches requested design */
+        .novel-footer {
+            width: 100%;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            background: rgba(255, 250, 245, 0.96);
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+            transition: background 0.6s ease, border-color 0.6s ease;
+        }
+
+        body.theme-dark .novel-footer {
+            background: #1c1c1c;
+            border-top-color: rgba(255,255,255,0.05);
+        }
+
+        body.theme-sepia .novel-footer {
+            background: #f0e6d4;
+            border-top-color: rgba(100, 70, 40, 0.15);
+        }
+
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-logo-area {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            text-decoration: none;
+        }
+
+        .footer-icon {
+            width: 38px;
+            height: 38px;
+            background: #8f5e4e;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+            transition: background 0.6s ease;
+        }
+
+        .footer-icon {
+            background: #8f5e4e;
+            border-radius: 12px;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .footer-app-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Theme support for the icon box */
+        body.theme-dark .footer-icon {
+            background: #c9a99a;
+        }
+        
+        body.theme-sepia .footer-icon {
+            background: #8f6e4e;
+        }
+        
+        /* Make sure the brand link styles are correct */
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            text-decoration: none;
+        }
+        
+        .footer-brand span {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+            color: #2c211c;
+            transition: color 0.6s ease;
+        }
+        
+        body.theme-dark .footer-brand span {
+            color: #f0e8e0;
+        }
+        
+        body.theme-sepia .footer-brand span {
+            color: #5c4a3a;
+        }
+
+        body.theme-dark .footer-icon {
+            background: #c9a99a;
+            color: #1a1a1a;
+        }
+
+        body.theme-sepia .footer-icon {
+            background: #8f6e4e;
+        }
+
+        .footer-brand span {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+            color: #2c211c;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .footer-brand span {
+            color: #f0e8e0;
+        }
+
+        body.theme-sepia .footer-brand span {
+            color: #5c4a3a;
+        }
+
+        .footer-description {
+            color: #6e5b52;
+            max-width: 280px;
+            font-size: 0.9rem;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .footer-description {
+            color: #a09088;
+        }
+
+        body.theme-sepia .footer-description {
+            color: #7a6a5a;
+        }
+
+        .footer-heading {
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: #2c211c;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .footer-heading {
+            color: #e0d8d0;
+        }
+
+        body.theme-sepia .footer-heading {
+            color: #5c4a3a;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: #6e5b52;
+            transition: color 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        body.theme-dark .footer-link {
+            color: #a09088;
+        }
+
+        body.theme-sepia .footer-link {
+            color: #7a6a5a;
+        }
+
+        .footer-link:hover {
+            color: #8f5e4e;
+        }
+
+        body.theme-dark .footer-link:hover {
+            color: #c9a99a;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(0,0,0,0.08);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: #6e5b52;
+            transition: border-color 0.6s ease, color 0.6s ease;
+        }
+
+        body.theme-dark .footer-bottom {
+            border-top-color: rgba(255,255,255,0.08);
+            color: #8a7a70;
+        }
+
+        body.theme-sepia .footer-bottom {
+            border-top-color: rgba(100, 70, 40, 0.2);
+            color: #8b7a60;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        .footer-legal a:hover {
+            color: #8f5e4e;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 2rem;
+            }
+            .footer-bottom {
+                flex-direction: row;
+            }
+        }
+
         @media (max-width: 800px) {
             h1 { font-size: 2.5rem; }
             .hero { gap: 1rem; }
@@ -927,39 +1176,20 @@
                         
                         <div class="carousel-container" id="mainCarousel">
                             <div class="carousel-slides" id="carouselSlides">
-                                <!-- SLIDE 1: Library -->
-                                <div class="slide">
-                                    <img class="slide-image" id="slideImg0" src="assets/Light_Library.png" alt="Library">
-                                </div>
-                                <!-- SLIDE 2: Download -->
-                                <div class="slide">
-                                    <img class="slide-image" id="slideImg1" src="assets/Light_Download.png" alt="Downloads">
-                                </div>
-                                <!-- SLIDE 3: Updates -->
-                                <div class="slide">
-                                    <img class="slide-image" id="slideImg2" src="assets/Light_Updates.png" alt="Updates">
-                                </div>
-                                <!-- SLIDE 4: Settings -->
-                                <div class="slide">
-                                    <img class="slide-image" id="slideImg3" src="assets/Light_Settings.png" alt="Settings">
-                                </div>
+                                <div class="slide"><img class="slide-image" id="slideImg0" src="assets/Light_Library.png" alt="Library"></div>
+                                <div class="slide"><img class="slide-image" id="slideImg1" src="assets/Light_Download.png" alt="Downloads"></div>
+                                <div class="slide"><img class="slide-image" id="slideImg2" src="assets/Light_Updates.png" alt="Updates"></div>
+                                <div class="slide"><img class="slide-image" id="slideImg3" src="assets/Light_Settings.png" alt="Settings"></div>
                             </div>
                         </div>
                         
-                        <!-- Carousel Dots -->
                         <div class="carousel-dots" id="carouselDots">
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
+                            <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
                         </div>
                     </div>
-                    <!-- home indicator -->
                     <div style="width: 120px; height: 4px; background: #cfbcb2; margin: 10px auto 2px; border-radius: 20px;"></div>
                 </div>
             </div>
-            
-            <!-- Theme Buttons -->
             <div class="theme-buttons">
                 <button class="theme-btn active-theme" data-theme="light">☀️ Light</button>
                 <button class="theme-btn" data-theme="dark">🌙 Dark</button>
@@ -968,7 +1198,6 @@
         </div>
     </div>
 
-    <!-- FEATURE GRID -->
     <div class="feature-grid">
         <div class="feature-card"><i class="fas fa-bookmark"></i><h4>Dynamic Webnovel Library</h4><p>Easily organize your offline webnovel collection. Filter by All, Unread, Reading, or Complete tags. Use batch selection to delete multiple webnovels quickly.</p></div>
         <div class="feature-card"><i class="fas fa-cloud-arrow-down"></i><h4>Multi-Source Webnovel Downloader</h4><p>Download free webnovels from multiple sources. Simple 3-step process: paste your link, set starting chapter and max chapters, then download for offline reading.</p></div>
@@ -976,373 +1205,111 @@
         <div class="feature-card"><i class="fas fa-mobile-alt"></i><h4>Customizable Reading Experience</h4><p>Read comfortably with AutoScroll, adjustable font size, and line spacing. Switch between Dark, Light, and Sepia themes. Back up, restore, or import your webnovel collection for complete data security.</p></div>
     </div>
 
-    <!-- LIVE DEMO PHONES SECTION -->
     <div class="live-demo-section" >
-        <div class="section-heading">
-            <i class="fas fa-mobile-alt"></i>
-            <span>Live Demo</span>
-        </div>
-        
+        <div class="section-heading"><i class="fas fa-mobile-alt"></i><span>Live Demo</span></div>
         <div class="demo-phones-wrap">
-            <!-- Library Demo -->
-            <div class="demo-phone">
-                <div class="demo-phone-label">
-                    <i class="fas fa-book-open"></i> Library
-                </div>
-                <div class="demo-phone-frame">
-                    <div class="demo-phone-notch"></div>
-                    <div class="demo-phone-screen">
-                        <div class="demo-status-bar">
-                            <div class="demo-status-left">
-                                <span>9:41</span>
-                            </div>
-                            <div class="demo-status-right">
-                                <i class="fas fa-signal" style="font-size: 10px;"></i>
-                                <i class="fas fa-wifi" style="font-size: 10px;"></i>
-                                <div class="battery" style="gap: 2px;">
-                                    <span style="font-size: 9px;">85%</span>
-                                    <div class="demo-battery-level">
-                                        <div class="demo-battery-fill"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <img class="demo-phone-image" src="https://images2.imgbox.com/0b/55/fO3lh8QK_o.png" alt="NovelDR Library Screen" loading="lazy">
-                    </div>
-                    <div class="demo-home-indicator"></div>
-                </div>
-                <p style="font-size: 0.85rem; color: #6e5b52; text-align: center; max-width: 230px;">
-                    Browse your collection, filter by tag, see reading progress at a glance, and delete by batch selection.
-                </p>
-            </div>
-            
-            <!-- Downloads Demo -->
-            <div class="demo-phone">
-                <div class="demo-phone-label">
-                    <i class="fas fa-download"></i> Downloads
-                </div>
-                <div class="demo-phone-frame">
-                    <div class="demo-phone-notch"></div>
-                    <div class="demo-phone-screen">
-                        <div class="demo-status-bar">
-                            <div class="demo-status-left">
-                                <span>9:42</span>
-                            </div>
-                            <div class="demo-status-right">
-                                <i class="fas fa-signal" style="font-size: 10px;"></i>
-                                <i class="fas fa-wifi" style="font-size: 10px;"></i>
-                                <div class="battery" style="gap: 2px;">
-                                    <span style="font-size: 9px;">82%</span>
-                                    <div class="demo-battery-level">
-                                        <div class="demo-battery-fill"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <img class="demo-phone-image" src="https://images2.imgbox.com/be/08/v893cMq0_o.png" alt="NovelDR Downloads Screen" loading="lazy">
-                    </div>
-                    <div class="demo-home-indicator"></div>
-                </div>
-                <p style="font-size: 0.85rem; color: #6e5b52; text-align: center; max-width: 230px;">
-                    Capable downloader supporting 5 sources with simple to use interface.
-                </p>
-            </div>
-            
-            <!-- Updates Demo -->
-            <div class="demo-phone">
-                <div class="demo-phone-label">
-                    <i class="fas fa-sync-alt"></i> Updates
-                </div>
-                <div class="demo-phone-frame">
-                    <div class="demo-phone-notch"></div>
-                    <div class="demo-phone-screen">
-                        <div class="demo-status-bar">
-                            <div class="demo-status-left">
-                                <span>9:43</span>
-                            </div>
-                            <div class="demo-status-right">
-                                <i class="fas fa-signal" style="font-size: 10px;"></i>
-                                <i class="fas fa-wifi" style="font-size: 10px;"></i>
-                                <div class="battery" style="gap: 2px;">
-                                    <span style="font-size: 9px;">78%</span>
-                                    <div class="demo-battery-level">
-                                        <div class="demo-battery-fill"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <img class="demo-phone-image" src="https://images2.imgbox.com/67/f6/Zog4eh87_o.png" alt="NovelDR Updates Screen" loading="lazy">
-                    </div>
-                    <div class="demo-home-indicator"></div>
-                </div>
-                <p style="font-size: 0.85rem; color: #6e5b52; text-align: center; max-width: 230px;">
-                    Easy to update your library by selecting a novel, fillup the fields, and juts hit 'Check for Updates' 
-                </p>
-            </div>
-
-            <!-- Settings Demo -->
-            <div class="demo-phone">
-                <div class="demo-phone-label">
-                    <i class="fas fa-sliders-h"></i> Settings
-                </div>
-                <div class="demo-phone-frame">
-                    <div class="demo-phone-notch"></div>
-                    <div class="demo-phone-screen">
-                        <div class="demo-status-bar">
-                            <div class="demo-status-left">
-                                <span>9:44</span>
-                            </div>
-                            <div class="demo-status-right">
-                                <i class="fas fa-signal" style="font-size: 10px;"></i>
-                                <i class="fas fa-wifi" style="font-size: 10px;"></i>
-                                <div class="battery" style="gap: 2px;">
-                                    <span style="font-size: 9px;">80%</span>
-                                    <div class="demo-battery-level">
-                                        <div class="demo-battery-fill"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <img class="demo-phone-image" src="https://images2.imgbox.com/93/b7/hobibXCn_o.png" alt="NovelDR Settings Screen" loading="lazy">
-                    </div>
-                    <div class="demo-home-indicator"></div>
-                </div>
-                <p style="font-size: 0.85rem; color: #6e5b52; text-align: center; max-width: 230px;">
-                    Customize your reading experience with themes, see your library statistics, create backup to secure data, click the Beer icon for a surprise.
-                </p>
-            </div>
+            <div class="demo-phone"><div class="demo-phone-label"><i class="fas fa-book-open"></i> Library</div><div class="demo-phone-frame"><div class="demo-phone-notch"></div><div class="demo-phone-screen"><div class="demo-status-bar"><div class="demo-status-left"><span>9:41</span></div><div class="demo-status-right"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><div class="battery"><span>85%</span><div class="demo-battery-level"><div class="demo-battery-fill"></div></div></div></div></div><img class="demo-phone-image" src="https://images2.imgbox.com/0b/55/fO3lh8QK_o.png" alt="Library"></div><div class="demo-home-indicator"></div></div><p>Browse your collection, filter by tag, see reading progress at a glance, and delete by batch selection.</p></div>
+            <div class="demo-phone"><div class="demo-phone-label"><i class="fas fa-download"></i> Downloads</div><div class="demo-phone-frame"><div class="demo-phone-notch"></div><div class="demo-phone-screen"><div class="demo-status-bar"><div class="demo-status-left"><span>9:42</span></div><div class="demo-status-right"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><div class="battery"><span>82%</span><div class="demo-battery-level"><div class="demo-battery-fill"></div></div></div></div></div><img class="demo-phone-image" src="https://images2.imgbox.com/be/08/v893cMq0_o.png" alt="Downloads"></div><div class="demo-home-indicator"></div></div><p>Capable downloader supporting 5 sources with simple to use interface.</p></div>
+            <div class="demo-phone"><div class="demo-phone-label"><i class="fas fa-sync-alt"></i> Updates</div><div class="demo-phone-frame"><div class="demo-phone-notch"></div><div class="demo-phone-screen"><div class="demo-status-bar"><div class="demo-status-left"><span>9:43</span></div><div class="demo-status-right"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><div class="battery"><span>78%</span><div class="demo-battery-level"><div class="demo-battery-fill"></div></div></div></div></div><img class="demo-phone-image" src="https://images2.imgbox.com/67/f6/Zog4eh87_o.png" alt="Updates"></div><div class="demo-home-indicator"></div></div><p>Easy to update your library by selecting a novel, fillup the fields, and juts hit 'Check for Updates'</p></div>
+            <div class="demo-phone"><div class="demo-phone-label"><i class="fas fa-sliders-h"></i> Settings</div><div class="demo-phone-frame"><div class="demo-phone-notch"></div><div class="demo-phone-screen"><div class="demo-status-bar"><div class="demo-status-left"><span>9:44</span></div><div class="demo-status-right"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><div class="battery"><span>80%</span><div class="demo-battery-level"><div class="demo-battery-fill"></div></div></div></div></div><img class="demo-phone-image" src="https://images2.imgbox.com/93/b7/hobibXCn_o.png" alt="Settings"></div><div class="demo-home-indicator"></div></div><p>Customize your reading experience with themes, see your library statistics, create backup to secure data, click the Beer icon for a surprise.</p></div>
         </div>
     </div>
     
-    <!-- DOWNLOAD CTA BOX -->
     <div class="download-cta-box" id="downloadNow">
         <h3>Download the App Now</h3>
         <p>Start reading your webnovel today and anywhere. Available on Android only.</p>
-        <button class="download-cta-btn">
-            <i class="fas fa-download"></i>
-            Download NovelDR
-        </button>
-    </div>
-    
-    <div class="footer-note">
-        <i class="fas fa-book" style="color: #b16e5c; margin-right: 6px;"></i> Novel DR · Read Anywhere & Everywhere
+        <button class="download-cta-btn"><i class="fas fa-download"></i> Download NovelDR</button>
     </div>
 </div>
+
+<!-- NEW FOOTER (as per request) -->
+<footer class="novel-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-logo-area">
+                <a href="#" class="footer-brand">
+                    <div class="footer-icon">
+                        <img src="app-icon.png" alt="NovelDR" class="footer-app-icon">
+                    </div>
+                    <span>NovelDR</span>
+                </a>
+                <p class="footer-description">
+                    Your ultimate companion for immersive reading experiences. 
+                    Designed for Android, optimized for your eyes.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Home</a></li>
+                    <li><a href="./download.html" class="footer-link">Download</a></li>
+                    <li><a href="#" class="footer-link">Archive</a></li>
+                    <li><a href="#" class="footer-link">Changelog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">Community</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Discord</a></li>
+                    <li><a href="#" class="footer-link">Twitter</a></li>
+                    <li><a href="#" class="footer-link">Telegram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 NovelDR. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script>
     (function(){
         "use strict";
-
-        // ---------- THEMED IMAGES ----------
         const themeImages = {
-            light: [
-                "assets/Light_Library.png",
-                "assets/Light_Download.png",
-                "assets/Light_Updates.png",
-                "assets/Light_Settings.png"
-            ],
-            dark: [
-                "assets/Dark_Library.png",
-                "assets/Dark_Download.png",
-                "assets/Dark_Updates.png",
-                "assets/Dark_Settings.png"
-            ],
-            sepia: [
-                "assets/Sepia_Library.png",
-                "assets/Sepia_Download.png",
-                "assets/Sepia_Updates.png",
-                "assets/Sepia_Settings.png"
-            ]
+            light: ["assets/Light_Library.png","assets/Light_Download.png","assets/Light_Updates.png","assets/Light_Settings.png"],
+            dark: ["assets/Dark_Library.png","assets/Dark_Download.png","assets/Dark_Updates.png","assets/Dark_Settings.png"],
+            sepia: ["assets/Sepia_Library.png","assets/Sepia_Download.png","assets/Sepia_Updates.png","assets/Sepia_Settings.png"]
         };
-
-        // Preload all images
-        function preloadImages() {
-            for (const theme in themeImages) {
-                themeImages[theme].forEach(src => {
-                    const img = new Image();
-                    img.src = src;
-                });
-            }
-        }
+        function preloadImages() { for (const theme in themeImages) themeImages[theme].forEach(src => new Image().src = src); }
         preloadImages();
 
-        // ---------- PHONE CAROUSEL ----------
         const slides = document.getElementById('carouselSlides');
         const totalSlides = 4;
-        let currentIndex = 0;
-        let isDragging = false;
-        let startX = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
-        let autoPlayInterval;
+        let currentIndex = 0, isDragging = false, startX = 0, currentTranslate = 0, prevTranslate = 0, autoPlayInterval;
         let currentTheme = 'light';
-
         function updateCarousel(index, animate = true) {
-            if (!slides) return;
-            
-            if (!animate) {
-                slides.style.transition = 'none';
-            } else {
-                slides.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-            }
-            
+            if(!slides) return;
+            slides.style.transition = animate ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
             const offset = -index * 100;
             slides.style.transform = `translateX(${offset}%)`;
-            currentTranslate = offset;
-            prevTranslate = offset;
+            currentTranslate = offset; prevTranslate = offset;
         }
-
-        function nextSlide() {
-            if (isDragging) return;
-            currentIndex = (currentIndex + 1) % totalSlides;
-            updateCarousel(currentIndex, true);
-        }
-
-        function resetAutoPlay() {
-            if (autoPlayInterval) clearInterval(autoPlayInterval);
-            autoPlayInterval = setInterval(nextSlide, 4000);
-        }
-
+        function nextSlide() { if (!isDragging) { currentIndex = (currentIndex + 1) % totalSlides; updateCarousel(currentIndex, true); } }
+        function resetAutoPlay() { if(autoPlayInterval) clearInterval(autoPlayInterval); autoPlayInterval = setInterval(nextSlide, 4000); }
         const phoneScreen = document.getElementById('phoneScreen');
-        
-        function handleDragStart(e) {
-            if (e.type === 'mousedown') e.preventDefault();
-            isDragging = true;
-            startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            slides.style.transition = 'none';
-            clearInterval(autoPlayInterval);
-        }
-
-        function handleDragMove(e) {
-            if (!isDragging) return;
-            e.preventDefault();
-            const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            const diff = currentX - startX;
-            const slideWidth = phoneScreen.offsetWidth;
-            
-            let newTranslate = prevTranslate + (diff / slideWidth) * 100;
-            newTranslate = Math.min(0, Math.max(-((totalSlides - 1) * 100), newTranslate));
-            
-            slides.style.transform = `translateX(${newTranslate}%)`;
-            currentTranslate = newTranslate;
-        }
-
-        function handleDragEnd() {
-            if (!isDragging) return;
-            isDragging = false;
-            slides.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-            
-            const movedBy = currentTranslate - prevTranslate;
-            const threshold = 20;
-            
-            if (movedBy < -threshold) {
-                currentIndex = Math.min(totalSlides - 1, currentIndex + 1);
-            } else if (movedBy > threshold) {
-                currentIndex = Math.max(0, currentIndex - 1);
-            }
-            
-            updateCarousel(currentIndex, true);
-            
-            window.removeEventListener('mousemove', handleDragMove);
-            window.removeEventListener('touchmove', handleDragMove);
-            window.removeEventListener('mouseup', handleDragEnd);
-            window.removeEventListener('touchend', handleDragEnd);
-            
-            resetAutoPlay();
-        }
-
-        phoneScreen.addEventListener('mousedown', (e) => {
-            handleDragStart(e);
-            window.addEventListener('mousemove', handleDragMove);
-            window.addEventListener('mouseup', handleDragEnd);
-        });
-        
-        phoneScreen.addEventListener('touchstart', (e) => {
-            handleDragStart(e);
-            window.addEventListener('touchmove', handleDragMove, { passive: false });
-            window.addEventListener('touchend', handleDragEnd);
-        }, { passive: false });
-        
-        phoneScreen.addEventListener('contextmenu', (e) => e.preventDefault());
-
+        function handleDragStart(e) { e.preventDefault(); isDragging = true; startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX; slides.style.transition = 'none'; clearInterval(autoPlayInterval); }
+        function handleDragMove(e) { if (!isDragging) return; e.preventDefault(); const diff = (e.type.includes('mouse') ? e.pageX : e.touches[0].clientX) - startX; const slideWidth = phoneScreen.offsetWidth; let newTranslate = prevTranslate + (diff / slideWidth) * 100; newTranslate = Math.min(0, Math.max(-((totalSlides - 1) * 100), newTranslate)); slides.style.transform = `translateX(${newTranslate}%)`; currentTranslate = newTranslate; }
+        function handleDragEnd() { if(!isDragging) return; isDragging = false; slides.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; const movedBy = currentTranslate - prevTranslate; if (movedBy < -20) currentIndex = Math.min(totalSlides-1, currentIndex+1); else if (movedBy > 20) currentIndex = Math.max(0, currentIndex-1); updateCarousel(currentIndex, true); window.removeEventListener('mousemove', handleDragMove); window.removeEventListener('touchmove', handleDragMove); window.removeEventListener('mouseup', handleDragEnd); window.removeEventListener('touchend', handleDragEnd); resetAutoPlay(); }
+        phoneScreen.addEventListener('mousedown', (e) => { handleDragStart(e); window.addEventListener('mousemove', handleDragMove); window.addEventListener('mouseup', handleDragEnd); });
+        phoneScreen.addEventListener('touchstart', (e) => { handleDragStart(e); window.addEventListener('touchmove', handleDragMove, { passive: false }); window.addEventListener('touchend', handleDragEnd); }, { passive: false });
         resetAutoPlay();
+        document.getElementById('phoneFrame')?.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+        document.getElementById('phoneFrame')?.addEventListener('mouseleave', resetAutoPlay);
 
-        const phoneFrame = document.getElementById('phoneFrame');
-        phoneFrame.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-        phoneFrame.addEventListener('mouseleave', resetAutoPlay);
-
-        // ---------- THEME SWITCHING ----------
-        const themeButtons = document.querySelectorAll('.theme-btn');
-
-        function updateSlideImages(theme) {
-            const images = themeImages[theme];
-            for (let i = 0; i < totalSlides; i++) {
-                const img = document.getElementById('slideImg' + i);
-                if (img) {
-                    img.style.opacity = '0';
-                    setTimeout(() => {
-                        img.src = images[i];
-                        img.onload = () => {
-                            img.style.opacity = '1';
-                        };
-                        setTimeout(() => { img.style.opacity = '1'; }, 100);
-                    }, 150);
-                }
-            }
-        }
-
-        function applyThemeToPhone(theme) {
-            phoneFrame.classList.remove('theme-dark', 'theme-sepia');
-            if (theme === 'dark') {
-                phoneFrame.classList.add('theme-dark');
-            } else if (theme === 'sepia') {
-                phoneFrame.classList.add('theme-sepia');
-            }
-        }
-
-        function applyThemeToPage(theme) {
-            // Remove all theme classes from body
-            document.body.classList.remove('theme-dark', 'theme-sepia');
-            
-            // Apply new theme class to body
-            if (theme === 'dark') {
-                document.body.classList.add('theme-dark');
-            } else if (theme === 'sepia') {
-                document.body.classList.add('theme-sepia');
-            }
-        }
-
-        themeButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const theme = btn.getAttribute('data-theme');
-                
-                updateSlideImages(theme);
-                applyThemeToPhone(theme);
-                applyThemeToPage(theme);  // 🥚 Easter Egg: Changes the whole page!
-                
-                themeButtons.forEach(b => b.classList.remove('active-theme'));
-                btn.classList.add('active-theme');
-                
-                currentTheme = theme;
-            });
-        });
-
-        // CTA button scroll
-        document.getElementById('downloadButton').addEventListener('click', () => {
-            document.getElementById('downloadNow').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-
-        // Download CTA button
-        document.querySelector('.download-cta-btn').addEventListener('click', () => {
-             window.location.href = './download.html';
-        });
-
+        function updateSlideImages(theme) { const images = themeImages[theme]; for (let i=0; i<totalSlides; i++) { const img = document.getElementById('slideImg'+i); if(img) { img.style.opacity = '0'; setTimeout(() => { img.src = images[i]; img.onload = () => img.style.opacity = '1'; setTimeout(()=> img.style.opacity='1', 100); }, 150); } } }
+        function applyThemeToPhone(theme) { const frame = document.getElementById('phoneFrame'); frame.classList.remove('theme-dark', 'theme-sepia'); if(theme==='dark') frame.classList.add('theme-dark'); else if(theme==='sepia') frame.classList.add('theme-sepia'); }
+        function applyThemeToPage(theme) { document.body.classList.remove('theme-dark','theme-sepia'); if(theme==='dark') document.body.classList.add('theme-dark'); else if(theme==='sepia') document.body.classList.add('theme-sepia'); }
+        document.querySelectorAll('.theme-btn').forEach(btn => { btn.addEventListener('click', () => { const theme = btn.getAttribute('data-theme'); updateSlideImages(theme); applyThemeToPhone(theme); applyThemeToPage(theme); document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active-theme')); btn.classList.add('active-theme'); currentTheme = theme; }); });
+        document.getElementById('downloadButton')?.addEventListener('click', () => document.getElementById('downloadNow')?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+        document.querySelector('.download-cta-btn')?.addEventListener('click', () => window.location.href = './download.html');
         window.addEventListener('blur', () => { if(autoPlayInterval) clearInterval(autoPlayInterval); });
-        window.addEventListener('focus', () => { 
-            if(autoPlayInterval) clearInterval(autoPlayInterval);
-            if (!isDragging) autoPlayInterval = setInterval(nextSlide, 4000);
-        });
+        window.addEventListener('focus', () => { if(autoPlayInterval) clearInterval(autoPlayInterval); if (!isDragging) autoPlayInterval = setInterval(nextSlide, 4000); });
     })();
 </script>
 </body>
 </html>
+
