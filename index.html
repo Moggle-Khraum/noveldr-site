@@ -29,13 +29,11 @@
             transition: background 0.6s ease, color 0.6s ease;
         }
 
-        /* DARK THEME - Whole Page */
         body.theme-dark {
             background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%);
             color: #e0d8d0;
         }
 
-        /* SEPIA THEME - Whole Page */
         body.theme-sepia {
             background: linear-gradient(145deg, #f4ecd8 0%, #e8dcc0 100%);
             color: #5c4a3a;
@@ -49,7 +47,7 @@
             flex: 1;
         }
 
-        /* header & intro */
+        /* Header & Intro */
         .hero {
             display: flex;
             flex-wrap: wrap;
@@ -66,19 +64,16 @@
             display: inline-block;
             background: rgba(216, 180, 160, 0.25);
             backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
             padding: 0.4rem 1.2rem;
             border-radius: 40px;
             font-size: 0.9rem;
             font-weight: 500;
-            letter-spacing: 0.3px;
             color: #5a3e36;
             border: 1px solid rgba(180, 140, 120, 0.2);
             margin-bottom: 1.2rem;
             transition: all 0.6s ease;
         }
 
-        /* Dark theme overrides */
         body.theme-dark .badge {
             background: rgba(180, 160, 150, 0.15);
             color: #c9b8ae;
@@ -192,7 +187,7 @@
             transform: scale(0.98);
         }
 
-        /* MOCKED PHONE — main hero phone */
+        /* Phone Mock */
         .phone-mock-wrapper {
             flex: 0 0 360px;
             display: flex;
@@ -210,29 +205,19 @@
             background: #171311;
             border-radius: 42px;
             padding: 12px 6px;
-            box-shadow: 
-                0 30px 50px -15px rgba(0,0,0,0.3),
-                0 0 0 8px #ece5de,
-                inset 0 0 0 2px #4a3b35;
+            box-shadow: 0 30px 50px -15px rgba(0,0,0,0.3), 0 0 0 8px #ece5de, inset 0 0 0 2px #4a3b35;
             position: relative;
             width: 300px;
             backdrop-filter: blur(2px);
             transition: all 0.6s ease;
         }
 
-        /* Theme styles for phone frame */
         .phone-frame.theme-dark {
-            box-shadow: 
-                0 30px 50px -15px rgba(0,0,0,0.5),
-                0 0 0 8px #2a2522,
-                inset 0 0 0 2px #5a4a43;
+            box-shadow: 0 30px 50px -15px rgba(0,0,0,0.5), 0 0 0 8px #2a2522, inset 0 0 0 2px #5a4a43;
         }
 
         .phone-frame.theme-sepia {
-            box-shadow: 
-                0 30px 50px -15px rgba(60, 40, 20, 0.35),
-                0 0 0 8px #d4c5a0,
-                inset 0 0 0 2px #8b7a60;
+            box-shadow: 0 30px 50px -15px rgba(60, 40, 20, 0.35), 0 0 0 8px #d4c5a0, inset 0 0 0 2px #8b7a60;
         }
 
         .phone-screen {
@@ -247,7 +232,6 @@
             transition: background 0.6s ease;
         }
 
-        /* Status Bar */
         .status-bar {
             display: flex;
             justify-content: space-between;
@@ -261,22 +245,9 @@
             transition: all 0.6s ease;
         }
 
-        .status-left {
-            display: flex;
-            gap: 2px;
-        }
-
-        .status-right {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .battery {
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
+        .status-left { display: flex; gap: 2px; }
+        .status-right { display: flex; align-items: center; gap: 6px; }
+        .battery { display: flex; align-items: center; gap: 3px; }
 
         .battery-level {
             width: 20px;
@@ -299,12 +270,7 @@
             transition: background 0.6s ease;
         }
 
-        .battery-fill {
-            width: 75%;
-            height: 100%;
-            background: #4caf50;
-            border-radius: 2px;
-        }
+        .battery-fill { width: 75%; height: 100%; background: #4caf50; border-radius: 2px; }
 
         .carousel-container {
             width: 100%;
@@ -330,7 +296,6 @@
             flex-direction: column;
             background: transparent;
             user-select: none;
-            transition: background 0.6s ease;
         }
 
         .slide-image {
@@ -349,7 +314,6 @@
             border-radius: 20px;
         }
 
-        /* Carousel Dots */
         .carousel-dots {
             display: flex;
             justify-content: center;
@@ -371,7 +335,6 @@
             background: #8f5e4e;
         }
 
-        /* Theme Buttons */
         .theme-buttons {
             display: flex;
             gap: 8px;
@@ -381,13 +344,8 @@
             transition: background 0.6s ease;
         }
 
-        body.theme-dark .theme-buttons {
-            background: #333;
-        }
-
-        body.theme-sepia .theme-buttons {
-            background: #d4c5a0;
-        }
+        body.theme-dark .theme-buttons { background: #333; }
+        body.theme-sepia .theme-buttons { background: #d4c5a0; }
 
         .theme-btn {
             padding: 8px 18px;
@@ -401,13 +359,8 @@
             color: #5a4a43;
         }
 
-        body.theme-dark .theme-btn {
-            color: #a09088;
-        }
-
-        body.theme-sepia .theme-btn {
-            color: #8b7a60;
-        }
+        body.theme-dark .theme-btn { color: #a09088; }
+        body.theme-sepia .theme-btn { color: #8b7a60; }
 
         .theme-btn.active-theme {
             background: #fffbf9;
@@ -425,57 +378,24 @@
             color: #5c4a3a;
         }
 
-        .theme-btn:hover {
-            background: rgba(255,255,255,0.6);
-        }
+        .theme-btn:hover { background: rgba(255,255,255,0.6); }
+        body.theme-dark .theme-btn:hover { background: rgba(255,255,255,0.1); }
+        body.theme-sepia .theme-btn:hover { background: rgba(255,255,255,0.4); }
 
-        body.theme-dark .theme-btn:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        body.theme-sepia .theme-btn:hover {
-            background: rgba(255,255,255,0.4);
-        }
-
-        /* DARK THEME - Mocked phone */
-        .phone-frame.theme-dark .phone-screen {
-            background: #1a1a1a;
-        }
-        .phone-frame.theme-dark .status-bar {
-            color: #e0d8d0;
-            border-bottom-color: #333;
-        }
+        .phone-frame.theme-dark .phone-screen { background: #1a1a1a; }
+        .phone-frame.theme-dark .status-bar { color: #e0d8d0; border-bottom-color: #333; }
         .phone-frame.theme-dark .battery-level,
-        .phone-frame.theme-dark .battery-level::after {
-            background: #e0d8d0;
-        }
-        .phone-frame.theme-dark .carousel-dots .dot {
-            background: #555;
-        }
-        .phone-frame.theme-dark .carousel-dots .dot.active {
-            background: #c9a99a;
-        }
+        .phone-frame.theme-dark .battery-level::after { background: #e0d8d0; }
+        .phone-frame.theme-dark .carousel-dots .dot { background: #555; }
+        .phone-frame.theme-dark .carousel-dots .dot.active { background: #c9a99a; }
 
-        /* SEPIA THEME - Mocked phone */
-        .phone-frame.theme-sepia .phone-screen {
-            background: #f4ecd8;
-        }
-        .phone-frame.theme-sepia .status-bar {
-            color: #5c4a3a;
-            border-bottom-color: #d4c5a0;
-        }
+        .phone-frame.theme-sepia .phone-screen { background: #f4ecd8; }
+        .phone-frame.theme-sepia .status-bar { color: #5c4a3a; border-bottom-color: #d4c5a0; }
         .phone-frame.theme-sepia .battery-level,
-        .phone-frame.theme-sepia .battery-level::after {
-            background: #5c4a3a;
-        }
-        .phone-frame.theme-sepia .carousel-dots .dot {
-            background: #c4b590;
-        }
-        .phone-frame.theme-sepia .carousel-dots .dot.active {
-            background: #8f6e4e;
-        }
+        .phone-frame.theme-sepia .battery-level::after { background: #5c4a3a; }
+        .phone-frame.theme-sepia .carousel-dots .dot { background: #c4b590; }
+        .phone-frame.theme-sepia .carousel-dots .dot.active { background: #8f6e4e; }
 
-        /* features grid */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -513,13 +433,8 @@
             transition: color 0.6s ease;
         }
 
-        body.theme-dark .feature-card i {
-            color: #c9a99a;
-        }
-
-        body.theme-sepia .feature-card i {
-            color: #8f6e4e;
-        }
+        body.theme-dark .feature-card i { color: #c9a99a; }
+        body.theme-sepia .feature-card i { color: #8f6e4e; }
 
         .feature-card h4 {
             font-weight: 600;
@@ -528,28 +443,17 @@
             transition: color 0.6s ease;
         }
 
-        body.theme-dark .feature-card h4 {
-            color: #e0d8d0;
-        }
-
-        body.theme-sepia .feature-card h4 {
-            color: #5c4a3a;
-        }
+        body.theme-dark .feature-card h4 { color: #e0d8d0; }
+        body.theme-sepia .feature-card h4 { color: #5c4a3a; }
 
         .feature-card p {
             color: #5a4a43;
             transition: color 0.6s ease;
         }
 
-        body.theme-dark .feature-card p {
-            color: #a09088;
-        }
+        body.theme-dark .feature-card p { color: #a09088; }
+        body.theme-sepia .feature-card p { color: #7a6a5a; }
 
-        body.theme-sepia .feature-card p {
-            color: #7a6a5a;
-        }
-
-        /* LIVE DEMO PHONES SECTION */
         .live-demo-section {
             margin: 4rem 0 2rem;
         }
@@ -565,26 +469,16 @@
             transition: color 0.6s ease;
         }
 
-        body.theme-dark .section-heading {
-            color: #f0e8e0;
-        }
-
-        body.theme-sepia .section-heading {
-            color: #5c4a3a;
-        }
+        body.theme-dark .section-heading { color: #f0e8e0; }
+        body.theme-sepia .section-heading { color: #5c4a3a; }
 
         .section-heading i {
             color: #8f5e4e;
             transition: color 0.6s ease;
         }
 
-        body.theme-dark .section-heading i {
-            color: #c9a99a;
-        }
-
-        body.theme-sepia .section-heading i {
-            color: #8f6e4e;
-        }
+        body.theme-dark .section-heading i { color: #c9a99a; }
+        body.theme-sepia .section-heading i { color: #8f6e4e; }
 
         .demo-phones-wrap {
             display: flex;
@@ -594,7 +488,6 @@
             padding: 2rem 1rem;
             background: rgba(255, 250, 245, 0.7);
             backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             border-radius: 48px;
             border: 1px solid #e5d8cf;
             box-shadow: 0 20px 35px -10px rgba(60, 40, 30, 0.08);
@@ -630,52 +523,29 @@
             transition: color 0.6s ease;
         }
 
-        body.theme-dark .demo-phone-label {
-            color: #e0d8d0;
-        }
-
-        body.theme-sepia .demo-phone-label {
-            color: #5c4a3a;
-        }
+        body.theme-dark .demo-phone-label { color: #e0d8d0; }
+        body.theme-sepia .demo-phone-label { color: #5c4a3a; }
 
         .demo-phone-label i {
             color: #8f5e4e;
             transition: color 0.6s ease;
         }
 
-        body.theme-dark .demo-phone-label i {
-            color: #c9a99a;
-        }
-
-        body.theme-sepia .demo-phone-label i {
-            color: #8f6e4e;
-        }
-
-        /* Realistic Demo Phone Frame */
         .demo-phone-frame {
             background: #171311;
             border-radius: 32px;
             padding: 10px 5px;
-            box-shadow: 
-                0 20px 35px -10px rgba(0,0,0,0.25),
-                0 0 0 6px #ece5de,
-                inset 0 0 0 2px #4a3b35;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.25), 0 0 0 6px #ece5de, inset 0 0 0 2px #4a3b35;
             width: 230px;
             transition: all 0.6s ease;
         }
 
         body.theme-dark .demo-phone-frame {
-            box-shadow: 
-                0 20px 35px -10px rgba(0,0,0,0.5),
-                0 0 0 6px #2a2522,
-                inset 0 0 0 2px #5a4a43;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.5), 0 0 0 6px #2a2522, inset 0 0 0 2px #5a4a43;
         }
 
         body.theme-sepia .demo-phone-frame {
-            box-shadow: 
-                0 20px 35px -10px rgba(60, 40, 20, 0.3),
-                0 0 0 6px #d4c5a0,
-                inset 0 0 0 2px #8b7a60;
+            box-shadow: 0 20px 35px -10px rgba(60, 40, 20, 0.3), 0 0 0 6px #d4c5a0, inset 0 0 0 2px #8b7a60;
         }
 
         .demo-phone-notch {
@@ -706,17 +576,6 @@
             font-weight: 600;
             color: #1e1b1a;
             transition: color 0.6s ease;
-        }
-
-        .demo-status-left {
-            display: flex;
-            gap: 2px;
-        }
-
-        .demo-status-right {
-            display: flex;
-            align-items: center;
-            gap: 4px;
         }
 
         .demo-battery-level {
@@ -763,7 +622,6 @@
             transition: background 0.6s ease;
         }
 
-        /* Download CTA Box */
         .download-cta-box {
             margin-top: 2rem;
             background: linear-gradient(135deg, #2c211c 0%, #4a3830 100%);
@@ -802,14 +660,6 @@
             transition: color 0.6s ease;
         }
 
-        body.theme-dark .download-cta-box p {
-            color: #8a7a70;
-        }
-
-        body.theme-sepia .download-cta-box p {
-            color: #d4c5a0;
-        }
-
         .download-cta-btn {
             display: inline-flex;
             align-items: center;
@@ -831,40 +681,203 @@
             background: #fff;
         }
 
-        .download-cta-btn:active {
-            transform: scale(0.97);
-        }
-
-        .footer-note {
-            margin-top: 5rem;
-            text-align: center;
-            color: #6e5b52;
-            font-size: 0.9rem;
-            transition: color 0.6s ease;
-        }
-
-        body.theme-dark .footer-note {
-            color: #8a7a70;
-        }
-
-        body.theme-sepia .footer-note {
-            color: #8b7a60;
-        }
-
-        /* Demo phone text */
         .demo-phone p {
             transition: color 0.6s ease;
         }
+        body.theme-dark .demo-phone p { color: #a09088 !important; }
+        body.theme-sepia .demo-phone p { color: #7a6a5a !important; }
 
-        body.theme-dark .demo-phone p {
-            color: #a09088 !important;
+        /* Modal / Popup Overlay Styles */
+        .legal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        body.theme-sepia .demo-phone p {
-            color: #7a6a5a !important;
+        .legal-overlay.active {
+            display: flex;
+            opacity: 1;
         }
 
-        /* NEW: Enhanced Footer Styles - matches requested design */
+        .legal-modal {
+            background: linear-gradient(145deg, #f9f5f0 0%, #f0ede8 100%);
+            border-radius: 32px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(180, 140, 120, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        body.theme-dark .legal-modal {
+            background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%);
+            border-color: rgba(180, 160, 150, 0.3);
+        }
+
+        body.theme-sepia .legal-modal {
+            background: linear-gradient(145deg, #f4ecd8 0%, #e8dcc0 100%);
+            border-color: rgba(180, 160, 120, 0.3);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .legal-modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e5d5ca;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body.theme-dark .legal-modal-header {
+            border-bottom-color: #3a3a3a;
+        }
+
+        body.theme-sepia .legal-modal-header {
+            border-bottom-color: #d4c5a0;
+        }
+
+        .legal-modal-header h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c211c;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .legal-modal-header h2 {
+            color: #f0e8e0;
+        }
+
+        body.theme-sepia .legal-modal-header h2 {
+            color: #5c4a3a;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #6e5b52;
+            transition: color 0.2s;
+            line-height: 1;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-modal:hover {
+            color: #8f5e4e;
+            background: rgba(143, 94, 78, 0.1);
+        }
+
+        .legal-modal-content {
+            padding: 2rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .legal-modal-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.2rem 0 0.8rem;
+            color: #3d2e28;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .legal-modal-content h3 {
+            color: #c9b8ae;
+        }
+
+        body.theme-sepia .legal-modal-content h3 {
+            color: #6e5a4a;
+        }
+
+        .legal-modal-content p {
+            margin-bottom: 1rem;
+            color: #4d3e37;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .legal-modal-content p {
+            color: #b0a098;
+        }
+
+        body.theme-sepia .legal-modal-content p {
+            color: #6e5a4a;
+        }
+
+        .legal-modal-content ul, .legal-modal-content ol {
+            margin: 1rem 0 1rem 2rem;
+            color: #4d3e37;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .legal-modal-content ul,
+        body.theme-dark .legal-modal-content ol {
+            color: #b0a098;
+        }
+
+        body.theme-sepia .legal-modal-content ul,
+        body.theme-sepia .legal-modal-content ol {
+            color: #6e5a4a;
+        }
+
+        .legal-modal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-modal-content hr {
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background: #e5d5ca;
+            transition: background 0.6s ease;
+        }
+
+        body.theme-dark .legal-modal-content hr {
+            background: #3a3a3a;
+        }
+
+        body.theme-sepia .legal-modal-content hr {
+            background: #d4c5a0;
+        }
+
+        .contact-email {
+            background: rgba(143, 94, 78, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Footer Styles */
         .novel-footer {
             width: 100%;
             border-top: 1px solid rgba(0,0,0,0.08);
@@ -910,20 +923,6 @@
         }
 
         .footer-icon {
-            width: 38px;
-            height: 38px;
-            background: #8f5e4e;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: white;
-            transition: background 0.6s ease;
-        }
-
-        .footer-icon {
             background: #8f5e4e;
             border-radius: 12px;
             width: 38px;
@@ -933,57 +932,17 @@
             justify-content: center;
             overflow: hidden;
             flex-shrink: 0;
-            padding: 6px;  /* Adds space inside the box */
+            padding: 6px;
         }
-        
+
         .footer-app-icon {
             width: 100%;
             height: 100%;
-            object-fit: contain;  /* Shows entire icon without cropping */
-        }
-        
-        /* Theme support for the icon box */
-        body.theme-dark .footer-icon {
-            background: #c9a99a;
-        }
-        
-        body.theme-sepia .footer-icon {
-            background: #8f6e4e;
-        }
-        
-        /* Make sure the brand link styles are correct */
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 1rem;
-            text-decoration: none;
-        }
-        
-        .footer-brand span {
-            font-weight: 700;
-            font-size: 1.5rem;
-            letter-spacing: -0.02em;
-            color: #2c211c;
-            transition: color 0.6s ease;
-        }
-        
-        body.theme-dark .footer-brand span {
-            color: #f0e8e0;
-        }
-        
-        body.theme-sepia .footer-brand span {
-            color: #5c4a3a;
+            object-fit: contain;
         }
 
-        body.theme-dark .footer-icon {
-            background: #c9a99a;
-            color: #1a1a1a;
-        }
-
-        body.theme-sepia .footer-icon {
-            background: #8f6e4e;
-        }
+        body.theme-dark .footer-icon { background: #c9a99a; }
+        body.theme-sepia .footer-icon { background: #8f6e4e; }
 
         .footer-brand span {
             font-weight: 700;
@@ -993,13 +952,8 @@
             transition: color 0.6s ease;
         }
 
-        body.theme-dark .footer-brand span {
-            color: #f0e8e0;
-        }
-
-        body.theme-sepia .footer-brand span {
-            color: #5c4a3a;
-        }
+        body.theme-dark .footer-brand span { color: #f0e8e0; }
+        body.theme-sepia .footer-brand span { color: #5c4a3a; }
 
         .footer-description {
             color: #6e5b52;
@@ -1008,13 +962,8 @@
             transition: color 0.6s ease;
         }
 
-        body.theme-dark .footer-description {
-            color: #a09088;
-        }
-
-        body.theme-sepia .footer-description {
-            color: #7a6a5a;
-        }
+        body.theme-dark .footer-description { color: #a09088; }
+        body.theme-sepia .footer-description { color: #7a6a5a; }
 
         .footer-heading {
             font-weight: 700;
@@ -1024,13 +973,8 @@
             transition: color 0.6s ease;
         }
 
-        body.theme-dark .footer-heading {
-            color: #e0d8d0;
-        }
-
-        body.theme-sepia .footer-heading {
-            color: #5c4a3a;
-        }
+        body.theme-dark .footer-heading { color: #e0d8d0; }
+        body.theme-sepia .footer-heading { color: #5c4a3a; }
 
         .footer-links {
             list-style: none;
@@ -1047,22 +991,14 @@
             color: #6e5b52;
             transition: color 0.2s ease;
             font-size: 0.9rem;
+            cursor: pointer;
         }
 
-        body.theme-dark .footer-link {
-            color: #a09088;
-        }
-
-        body.theme-sepia .footer-link {
-            color: #7a6a5a;
-        }
+        body.theme-dark .footer-link { color: #a09088; }
+        body.theme-sepia .footer-link { color: #7a6a5a; }
 
         .footer-link:hover {
             color: #8f5e4e;
-        }
-
-        body.theme-dark .footer-link:hover {
-            color: #c9a99a;
         }
 
         .footer-bottom {
@@ -1098,6 +1034,7 @@
             text-decoration: none;
             color: inherit;
             transition: color 0.2s;
+            cursor: pointer;
         }
 
         .footer-legal a:hover {
@@ -1119,25 +1056,17 @@
             .hero { gap: 1rem; }
             .phone-mock-wrapper { flex-basis: 100%; }
             .phone-frame { width: 270px; }
-            .demo-phones-wrap {
-                gap: 20px;
-            }
-            .demo-phone-frame {
-                width: 200px;
-            }
-            .download-cta-box {
-                padding: 2rem 1.5rem;
-            }
-            .download-cta-box h3 {
-                font-size: 1.4rem;
-            }
+            .demo-phones-wrap { gap: 20px; }
+            .demo-phone-frame { width: 200px; }
+            .download-cta-box { padding: 2rem 1.5rem; }
+            .download-cta-box h3 { font-size: 1.4rem; }
+            .legal-modal { width: 95%; max-height: 90vh; }
+            .legal-modal-header h2 { font-size: 1.4rem; }
+            .legal-modal-content { padding: 1rem; }
         }
 
         @media (max-width: 600px) {
-            .demo-phones-wrap {
-                flex-direction: column;
-                align-items: center;
-            }
+            .demo-phones-wrap { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -1158,23 +1087,17 @@
                 <div class="phone-frame" id="phoneFrame">
                     <div class="phone-notch"></div>
                     <div class="phone-screen" id="phoneScreen">
-                        <!-- Status Bar -->
                         <div class="status-bar">
-                            <div class="status-left">
-                                <span>9:41</span>
-                            </div>
+                            <div class="status-left"><span>9:41</span></div>
                             <div class="status-right">
                                 <i class="fas fa-signal" style="font-size: 12px;"></i>
                                 <i class="fas fa-wifi" style="font-size: 12px;"></i>
                                 <div class="battery">
                                     <span style="font-size: 11px;">75%</span>
-                                    <div class="battery-level">
-                                        <div class="battery-fill"></div>
-                                    </div>
+                                    <div class="battery-level"><div class="battery-fill"></div></div>
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="carousel-container" id="mainCarousel">
                             <div class="carousel-slides" id="carouselSlides">
                                 <div class="slide"><img class="slide-image" id="slideImg0" src="assets/Light_Library.png" alt="Library"></div>
@@ -1183,7 +1106,6 @@
                                 <div class="slide"><img class="slide-image" id="slideImg3" src="assets/Light_Settings.png" alt="Settings"></div>
                             </div>
                         </div>
-                        
                         <div class="carousel-dots" id="carouselDots">
                             <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
                         </div>
@@ -1206,7 +1128,7 @@
         <div class="feature-card"><i class="fas fa-mobile-alt"></i><h4>Customizable Reading Experience</h4><p>Read comfortably with AutoScroll, adjustable font size, and line spacing. Switch between Dark, Light, and Sepia themes. Back up, restore, or import your webnovel collection for complete data security.</p></div>
     </div>
 
-    <div class="live-demo-section" >
+    <div class="live-demo-section">
         <div class="section-heading"><i class="fas fa-mobile-alt"></i><span>Live Demo</span></div>
         <div class="demo-phones-wrap">
             <div class="demo-phone"><div class="demo-phone-label"><i class="fas fa-book-open"></i> Library</div><div class="demo-phone-frame"><div class="demo-phone-notch"></div><div class="demo-phone-screen"><div class="demo-status-bar"><div class="demo-status-left"><span>9:41</span></div><div class="demo-status-right"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><div class="battery"><span>85%</span><div class="demo-battery-level"><div class="demo-battery-fill"></div></div></div></div></div><img class="demo-phone-image" src="https://images2.imgbox.com/0b/55/fO3lh8QK_o.png" alt="Library"></div><div class="demo-home-indicator"></div></div><p>Browse your collection, filter by tag, see reading progress at a glance, and delete by batch selection.</p></div>
@@ -1223,7 +1145,122 @@
     </div>
 </div>
 
-<!-- NEW FOOTER (as per request) -->
+<!-- PRIVACY POLICY MODAL (separate div) -->
+<div id="privacyModal" class="legal-overlay">
+    <div class="legal-modal">
+        <div class="legal-modal-header">
+            <h2><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
+            <button class="close-modal" onclick="closePrivacyModal()">&times;</button>
+        </div>
+        <div class="legal-modal-content">
+            <p><strong>Last Updated: April 26, 2026</strong></p>
+            <p>NovelDR ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our Android application NovelDR.</p>
+
+            <h3>1. Information We Collect</h3>
+            <p><strong>No Personal Data Collection:</strong> NovelDR does not collect, store, or share any personal information. The app operates entirely offline once installed, and all your reading data (downloaded novels, reading progress, settings) are stored locally on your device only.</p>
+            <p><strong>No Account Required:</strong> You can use NovelDR without creating an account. No registration, email, or personal information is ever requested.</p>
+
+            <h3>2. How We Use Information</h3>
+            <p>Since we do not collect any personal information, we do not use, process, or share your data with any third parties. All features work locally on your device.</p>
+
+            <h3>3. Data Storage</h3>
+            <p>All novel files, reading progress, and app settings are stored exclusively on your device's internal storage. You have full control over this data and can delete it at any time by uninstalling the app or manually removing files.</p>
+
+            <h3>4. Third-Party Services</h3>
+            <p>NovelDR does not integrate with any analytics services, crash reporting tools, advertising networks, or any third-party SDKs that could collect data. The app functions completely offline.</p>
+
+            <h3>5. Internet Permissions</h3>
+            <p>NovelDR requires internet permission solely for downloading novel chapters from web sources you explicitly choose. After download, no further internet connection is required for reading. The app does not transmit any data to our servers.</p>
+
+            <h3>6. Storage Permissions</h3>
+            <p>Storage permissions are required to save downloaded novels and reading preferences on your device. This data never leaves your device.</p>
+
+            <h3>7. Children's Privacy</h3>
+            <p>NovelDR does not knowingly collect any personal information from children under 13. As we collect no data whatsoever, there is no risk of unauthorized collection.</p>
+
+            <h3>8. Changes to This Privacy Policy</h3>
+            <p>We may update this Privacy Policy from time to time. Any changes will be posted within the app. Your continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+            <h3>9. Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy, please contact us at: <span class="contact-email">support@noveldr.com</span></p>
+
+            <hr>
+
+            <p><strong>Summary:</strong> NovelDR is designed with your privacy as a priority. We collect absolutely no personal data. The app works offline, stores everything locally on your device, and gives you complete control over your reading experience.</p>
+        </div>
+    </div>
+</div>
+
+<!-- TERMS OF SERVICE MODAL (separate div) -->
+<div id="termsModal" class="legal-overlay">
+    <div class="legal-modal">
+        <div class="legal-modal-header">
+            <h2><i class="fas fa-file-contract"></i> Terms of Service</h2>
+            <button class="close-modal" onclick="closeTermsModal()">&times;</button>
+        </div>
+        <div class="legal-modal-content">
+            <p><strong>Last Updated: April 26, 2026</strong></p>
+            <p>By downloading, installing, or using NovelDR ("the App"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the App.</p>
+
+            <h3>1. License to Use</h3>
+            <p>NovelDR is provided for personal, non-commercial use only. We grant you a limited, non-exclusive, non-transferable, revocable license to install and use the App on your personal Android device(s).</p>
+
+            <h3>2. User Responsibilities</h3>
+            <p>You are solely responsible for:</p>
+            <ul>
+                <li>Ensuring you have the legal right to download and read content from any source you choose</li>
+                <li>Complying with all applicable laws and copyright regulations</li>
+                <li>Respecting intellectual property rights of novel authors and publishers</li>
+                <li>Using the App only for lawful purposes</li>
+            </ul>
+
+            <h3>3. Content Disclaimer</h3>
+            <p>NovelDR is a tool that allows users to download content from publicly available web sources. We do not host, store, or distribute any copyrighted content on our servers. We have no control over the content you choose to download and cannot guarantee the accuracy, legality, or quality of such content.</p>
+            <p><strong>Important:</strong> You are responsible for ensuring that downloading and reading any novel through the App complies with copyright laws in your jurisdiction. We strongly encourage supporting authors by purchasing official releases when available.</p>
+
+            <h3>4. Prohibited Activities</h3>
+            <p>You may not:</p>
+            <ul>
+                <li>Use the App for any illegal purpose</li>
+                <li>Modify, reverse engineer, decompile, or disassemble the App</li>
+                <li>Remove any copyright or proprietary notices from the App</li>
+                <li>Use the App to distribute malware or harmful content</li>
+                <li>Circumvent any technical limitations of the App</li>
+                <li>Sell, rent, or sublicense the App to third parties</li>
+            </ul>
+
+            <h3>5. Intellectual Property</h3>
+            <p>The App itself (including code, design, and graphics) is owned by NovelDR and protected by copyright laws. You may not copy, modify, or create derivative works of the App. All novel content downloaded through the App remains the property of its respective copyright holders.</p>
+
+            <h3>6. Disclaimer of Warranties</h3>
+            <p>The App is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, either express or implied. We do not warrant that the App will function uninterrupted, be error-free, or compatible with all devices. Use of the App is at your sole risk.</p>
+
+            <h3>7. Limitation of Liability</h3>
+            <p>To the maximum extent permitted by law, NovelDR shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the App. This includes loss of data, device damage, or any other damages.</p>
+
+            <h3>8. Indemnification</h3>
+            <p>You agree to indemnify and hold harmless NovelDR and its developers from any claims, damages, losses, or expenses (including legal fees) arising from your violation of these Terms or your use of the App.</p>
+
+            <h3>9. Changes to Terms</h3>
+            <p>We reserve the right to modify these Terms at any time. Continued use of the App after changes constitutes acceptance of the new Terms. We will notify users of significant changes through the App or our website.</p>
+
+            <h3>10. Termination</h3>
+            <p>We may terminate or suspend your access to the App immediately, without prior notice, for any violation of these Terms. Upon termination, you must cease using the App and delete it from your device.</p>
+
+            <h3>11. Governing Law</h3>
+            <p>These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law provisions.</p>
+
+            <h3>12. Contact Information</h3>
+            <p>For questions about these Terms, please contact us at: <span class="contact-email">support@noveldr.com</span></p>
+
+            <hr>
+
+            <p><strong>Acknowledgment:</strong> By using NovelDR, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
 <footer class="novel-footer">
     <div class="footer-container">
         <div class="footer-grid">
@@ -1260,8 +1297,8 @@
         <div class="footer-bottom">
             <p>© 2026 NovelDR. All rights reserved.</p>
             <div class="footer-legal">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <a onclick="openPrivacyModal()">Privacy Policy</a>
+                <a onclick="openTermsModal()">Terms of Service</a>
             </div>
         </div>
     </div>
@@ -1282,6 +1319,7 @@
         const totalSlides = 4;
         let currentIndex = 0, isDragging = false, startX = 0, currentTranslate = 0, prevTranslate = 0, autoPlayInterval;
         let currentTheme = 'light';
+        
         function updateCarousel(index, animate = true) {
             if(!slides) return;
             slides.style.transition = animate ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
@@ -1289,12 +1327,15 @@
             slides.style.transform = `translateX(${offset}%)`;
             currentTranslate = offset; prevTranslate = offset;
         }
+        
         function nextSlide() { if (!isDragging) { currentIndex = (currentIndex + 1) % totalSlides; updateCarousel(currentIndex, true); } }
         function resetAutoPlay() { if(autoPlayInterval) clearInterval(autoPlayInterval); autoPlayInterval = setInterval(nextSlide, 4000); }
+        
         const phoneScreen = document.getElementById('phoneScreen');
         function handleDragStart(e) { e.preventDefault(); isDragging = true; startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX; slides.style.transition = 'none'; clearInterval(autoPlayInterval); }
         function handleDragMove(e) { if (!isDragging) return; e.preventDefault(); const diff = (e.type.includes('mouse') ? e.pageX : e.touches[0].clientX) - startX; const slideWidth = phoneScreen.offsetWidth; let newTranslate = prevTranslate + (diff / slideWidth) * 100; newTranslate = Math.min(0, Math.max(-((totalSlides - 1) * 100), newTranslate)); slides.style.transform = `translateX(${newTranslate}%)`; currentTranslate = newTranslate; }
         function handleDragEnd() { if(!isDragging) return; isDragging = false; slides.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; const movedBy = currentTranslate - prevTranslate; if (movedBy < -20) currentIndex = Math.min(totalSlides-1, currentIndex+1); else if (movedBy > 20) currentIndex = Math.max(0, currentIndex-1); updateCarousel(currentIndex, true); window.removeEventListener('mousemove', handleDragMove); window.removeEventListener('touchmove', handleDragMove); window.removeEventListener('mouseup', handleDragEnd); window.removeEventListener('touchend', handleDragEnd); resetAutoPlay(); }
+        
         phoneScreen.addEventListener('mousedown', (e) => { handleDragStart(e); window.addEventListener('mousemove', handleDragMove); window.addEventListener('mouseup', handleDragEnd); });
         phoneScreen.addEventListener('touchstart', (e) => { handleDragStart(e); window.addEventListener('touchmove', handleDragMove, { passive: false }); window.addEventListener('touchend', handleDragEnd); }, { passive: false });
         resetAutoPlay();
@@ -1304,13 +1345,53 @@
         function updateSlideImages(theme) { const images = themeImages[theme]; for (let i=0; i<totalSlides; i++) { const img = document.getElementById('slideImg'+i); if(img) { img.style.opacity = '0'; setTimeout(() => { img.src = images[i]; img.onload = () => img.style.opacity = '1'; setTimeout(()=> img.style.opacity='1', 100); }, 150); } } }
         function applyThemeToPhone(theme) { const frame = document.getElementById('phoneFrame'); frame.classList.remove('theme-dark', 'theme-sepia'); if(theme==='dark') frame.classList.add('theme-dark'); else if(theme==='sepia') frame.classList.add('theme-sepia'); }
         function applyThemeToPage(theme) { document.body.classList.remove('theme-dark','theme-sepia'); if(theme==='dark') document.body.classList.add('theme-dark'); else if(theme==='sepia') document.body.classList.add('theme-sepia'); }
+        
         document.querySelectorAll('.theme-btn').forEach(btn => { btn.addEventListener('click', () => { const theme = btn.getAttribute('data-theme'); updateSlideImages(theme); applyThemeToPhone(theme); applyThemeToPage(theme); document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active-theme')); btn.classList.add('active-theme'); currentTheme = theme; }); });
+        
         document.getElementById('downloadButton')?.addEventListener('click', () => document.getElementById('downloadNow')?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
         document.querySelector('.download-cta-btn')?.addEventListener('click', () => window.location.href = './download.html');
+        
         window.addEventListener('blur', () => { if(autoPlayInterval) clearInterval(autoPlayInterval); });
         window.addEventListener('focus', () => { if(autoPlayInterval) clearInterval(autoPlayInterval); if (!isDragging) autoPlayInterval = setInterval(nextSlide, 4000); });
     })();
+
+    // Modal functions for Privacy Policy and Terms of Service
+    function openPrivacyModal() {
+        document.getElementById('privacyModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePrivacyModal() {
+        document.getElementById('privacyModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function openTermsModal() {
+        document.getElementById('termsModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeTermsModal() {
+        document.getElementById('termsModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close modals when clicking outside
+    document.getElementById('privacyModal').addEventListener('click', function(e) {
+        if (e.target === this) closePrivacyModal();
+    });
+
+    document.getElementById('termsModal').addEventListener('click', function(e) {
+        if (e.target === this) closeTermsModal();
+    });
+
+    // Close modals with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closePrivacyModal();
+            closeTermsModal();
+        }
+    });
 </script>
 </body>
 </html>
-
