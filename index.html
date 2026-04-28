@@ -188,6 +188,7 @@
         }
 
         /* Phone Mock (main carousel) */
+        /* Phone Mock (main carousel) */
         .phone-mock-wrapper {
             flex: 0 0 360px;
             display: flex;
@@ -210,14 +211,6 @@
             width: 300px;
             backdrop-filter: blur(2px);
             transition: all 0.6s ease;
-        }
-
-        .phone-frame.theme-dark {
-            box-shadow: 0 30px 50px -15px rgba(0,0,0,0.5), 0 0 0 8px #2a2522, inset 0 0 0 2px #5a4a43;
-        }
-
-        .phone-frame.theme-sepia {
-            box-shadow: 0 30px 50px -15px rgba(60, 40, 20, 0.35), 0 0 0 8px #d4c5a0, inset 0 0 0 2px #8b7a60;
         }
 
         .phone-screen {
@@ -278,6 +271,37 @@
             background: #171311;
             margin: 0 auto 6px;
             border-radius: 20px;
+            transition: background 0.6s ease;
+        }
+
+        .phone-home-bar {
+            width: 120px;
+            height: 4px;
+            background: #cfbcb2;
+            margin: 10px auto;
+            border-radius: 20px;
+            transition: background 0.6s ease;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 0 4px;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            background: #cfbcb2;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            width: 20px;
+            background: #8f5e4e;
         }
 
         .theme-buttons {
@@ -287,6 +311,137 @@
             border-radius: 30px;
             padding: 4px;
             transition: background 0.6s ease;
+        }
+
+        /* Dark Theme Overrides */
+        body.theme-dark .phone-frame {
+            background: #0f0f0f;
+            box-shadow: 0 30px 50px -15px rgba(0,0,0,0.5), 0 0 0 8px #2a2522, inset 0 0 0 2px #5a4a43;
+        }
+
+        body.theme-dark .phone-screen {
+            background: #1a1a1a;
+        }
+
+        body.theme-dark .status-bar {
+            color: #e0d8d0;
+            border-bottom-color: #333;
+        }
+
+        body.theme-dark .phone-notch {
+            background: #0f0f0f;
+        }
+
+        body.theme-dark .phone-home-bar {
+            background: #5a4a43;
+        }
+
+        body.theme-dark .carousel-dots .dot {
+            background: #555;
+        }
+
+        body.theme-dark .carousel-dots .dot.active {
+            background: #c9a99a;
+        }
+
+        body.theme-dark .theme-buttons {
+            background: #333;
+        }
+
+        body.theme-dark .theme-btn {
+            color: #a09088;
+        }
+
+        body.theme-dark .theme-btn.active-theme {
+            background: #444;
+            color: #f0e8e0;
+        }
+
+        /* Sepia Theme Overrides */
+        body.theme-sepia .phone-frame {
+            background: #1a140e;
+            box-shadow: 0 30px 50px -15px rgba(60, 40, 20, 0.35), 0 0 0 8px #d4c5a0, inset 0 0 0 2px #8b7a60;
+        }
+
+        body.theme-sepia .phone-screen {
+            background: #f4ecd8;
+        }
+
+        body.theme-sepia .status-bar {
+            color: #5c4a3a;
+            border-bottom-color: #d4c5a0;
+        }
+
+        body.theme-sepia .phone-notch {
+            background: #1a140e;
+        }
+
+        body.theme-sepia .phone-home-bar {
+            background: #c4b590;
+        }
+
+        body.theme-sepia .carousel-dots .dot {
+            background: #c4b590;
+        }
+
+        body.theme-sepia .carousel-dots .dot.active {
+            background: #8f6e4e;
+        }
+
+        body.theme-sepia .theme-buttons {
+            background: #d4c5a0;
+        }
+
+        body.theme-sepia .theme-btn {
+            color: #8b7a60;
+        }
+
+        body.theme-sepia .theme-btn.active-theme {
+            background: #f4ecd8;
+            color: #5c4a3a;
+        }
+
+        /* Battery icon styling for themes */
+        .battery-level {
+            width: 20px;
+            height: 10px;
+            background: #1e1b1a;
+            border-radius: 3px;
+            position: relative;
+            transition: background 0.6s ease;
+        }
+
+        .battery-level::after {
+            content: '';
+            position: absolute;
+            right: -3px;
+            top: 2px;
+            width: 3px;
+            height: 6px;
+            background: #1e1b1a;
+            border-radius: 1px;
+            transition: background 0.6s ease;
+        }
+
+        .battery-fill {
+            width: 75%;
+            height: 100%;
+            background: #4caf50;
+            border-radius: 2px;
+        }
+
+        body.theme-dark .battery-level,
+        body.theme-dark .battery-level::after {
+            background: #e0d8d0;
+        }
+
+        body.theme-sepia .battery-level,
+        body.theme-sepia .battery-level::after {
+            background: #5c4a3a;
+        }
+
+        body.theme-sepia .battery-fill {
+            background: #6b8c5c;
         }
 
         body.theme-dark .theme-buttons { background: #333; }
