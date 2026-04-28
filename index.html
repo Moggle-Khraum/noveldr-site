@@ -187,7 +187,7 @@
             transform: scale(0.98);
         }
 
-        /* Phone Mock */
+        /* Phone Mock (main carousel) */
         .phone-mock-wrapper {
             flex: 0 0 360px;
             display: flex;
@@ -228,7 +228,6 @@
             width: 100%;
             position: relative;
             box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
-            touch-action: pan-y;
             transition: background 0.6s ease;
         }
 
@@ -245,38 +244,10 @@
             transition: all 0.6s ease;
         }
 
-        .status-left { display: flex; gap: 2px; }
-        .status-right { display: flex; align-items: center; gap: 6px; }
-        .battery { display: flex; align-items: center; gap: 3px; }
-
-        .battery-level {
-            width: 20px;
-            height: 10px;
-            background: #1e1b1a;
-            border-radius: 3px;
-            position: relative;
-            transition: background 0.6s ease;
-        }
-
-        .battery-level::after {
-            content: '';
-            position: absolute;
-            right: -3px;
-            top: 2px;
-            width: 3px;
-            height: 6px;
-            background: #1e1b1a;
-            border-radius: 1px;
-            transition: background 0.6s ease;
-        }
-
-        .battery-fill { width: 75%; height: 100%; background: #4caf50; border-radius: 2px; }
-
         .carousel-container {
             width: 100%;
             flex: 1;
             position: relative;
-            touch-action: pan-y;
             overflow: hidden;
         }
 
@@ -286,16 +257,11 @@
             height: 100%;
             transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             will-change: transform;
-            touch-action: pan-y;
         }
 
         .slide {
             flex: 0 0 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            background: transparent;
-            user-select: none;
         }
 
         .slide-image {
@@ -312,27 +278,6 @@
             background: #171311;
             margin: 0 auto 6px;
             border-radius: 20px;
-        }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            padding: 8px 0 4px;
-        }
-
-        .dot {
-            width: 7px;
-            height: 7px;
-            background: #cfbcb2;
-            border-radius: 20px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .dot.active {
-            width: 20px;
-            background: #8f5e4e;
         }
 
         .theme-buttons {
@@ -378,29 +323,44 @@
             color: #5c4a3a;
         }
 
-        .theme-btn:hover { background: rgba(255,255,255,0.6); }
-        body.theme-dark .theme-btn:hover { background: rgba(255,255,255,0.1); }
-        body.theme-sepia .theme-btn:hover { background: rgba(255,255,255,0.4); }
+        /* Section header component (reusable style) */
+        .section-header {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #2c211c;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.6s ease;
+        }
 
-        .phone-frame.theme-dark .phone-screen { background: #1a1a1a; }
-        .phone-frame.theme-dark .status-bar { color: #e0d8d0; border-bottom-color: #333; }
-        .phone-frame.theme-dark .battery-level,
-        .phone-frame.theme-dark .battery-level::after { background: #e0d8d0; }
-        .phone-frame.theme-dark .carousel-dots .dot { background: #555; }
-        .phone-frame.theme-dark .carousel-dots .dot.active { background: #c9a99a; }
+        body.theme-dark .section-header {
+            color: #f0e8e0;
+        }
 
-        .phone-frame.theme-sepia .phone-screen { background: #f4ecd8; }
-        .phone-frame.theme-sepia .status-bar { color: #5c4a3a; border-bottom-color: #d4c5a0; }
-        .phone-frame.theme-sepia .battery-level,
-        .phone-frame.theme-sepia .battery-level::after { background: #5c4a3a; }
-        .phone-frame.theme-sepia .carousel-dots .dot { background: #c4b590; }
-        .phone-frame.theme-sepia .carousel-dots .dot.active { background: #8f6e4e; }
+        body.theme-sepia .section-header {
+            color: #5c4a3a;
+        }
+
+        .section-header i {
+            color: #8f5e4e;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .section-header i {
+            color: #c9a99a;
+        }
+
+        body.theme-sepia .section-header i {
+            color: #8f6e4e;
+        }
 
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1.5rem;
-            margin: 4rem 0 2rem;
+            margin: 1.5rem 0 2rem;
         }
 
         .feature-card {
@@ -454,172 +414,309 @@
         body.theme-dark .feature-card p { color: #a09088; }
         body.theme-sepia .feature-card p { color: #7a6a5a; }
 
+        /* Live Demo Section - using the interactive 3-column layout */
         .live-demo-section {
             margin: 4rem 0 2rem;
         }
 
-        .section-heading {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #2c211c;
-            margin-bottom: 2rem;
+        .demo-wrap {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: color 0.6s ease;
-        }
-
-        body.theme-dark .section-heading { color: #f0e8e0; }
-        body.theme-sepia .section-heading { color: #5c4a3a; }
-
-        .section-heading i {
-            color: #8f5e4e;
-            transition: color 0.6s ease;
-        }
-
-        body.theme-dark .section-heading i { color: #c9a99a; }
-        body.theme-sepia .section-heading i { color: #8f6e4e; }
-
-        .demo-phones-wrap {
-            display: flex;
-            gap: 32px;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 2rem 1rem;
+            gap: 0;
+            align-items: flex-start;
+            padding: 1.5rem;
             background: rgba(255, 250, 245, 0.7);
             backdrop-filter: blur(8px);
             border-radius: 48px;
             border: 1px solid #e5d8cf;
             box-shadow: 0 20px 35px -10px rgba(60, 40, 30, 0.08);
             transition: all 0.6s ease;
+            flex-wrap: wrap;
         }
 
-        body.theme-dark .demo-phones-wrap {
+        body.theme-dark .demo-wrap {
             background: rgba(30, 30, 30, 0.7);
             border-color: #3a3a3a;
             box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.3);
         }
 
-        body.theme-sepia .demo-phones-wrap {
+        body.theme-sepia .demo-wrap {
             background: rgba(244, 236, 216, 0.7);
             border-color: #d4c5a0;
             box-shadow: 0 20px 35px -10px rgba(60, 40, 20, 0.15);
         }
 
-        .demo-phone {
+        .phone-col {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
+            padding-right: 1.5rem;
+            border-right: 0.5px solid #e5d8cf;
+            order: 1;
         }
 
-        .demo-phone-label {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #2c211c;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.6s ease;
+        body.theme-dark .phone-col {
+            border-right-color: #3a3a3a;
         }
 
-        body.theme-dark .demo-phone-label { color: #e0d8d0; }
-        body.theme-sepia .demo-phone-label { color: #5c4a3a; }
-
-        .demo-phone-label i {
-            color: #8f5e4e;
-            transition: color 0.6s ease;
+        body.theme-sepia .phone-col {
+            border-right-color: #d4c5a0;
         }
 
-        .demo-phone-frame {
+        .p-frame {
             background: #171311;
-            border-radius: 32px;
-            padding: 10px 5px;
-            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.25), 0 0 0 6px #ece5de, inset 0 0 0 2px #4a3b35;
-            width: 230px;
+            border-radius: 38px;
+            padding: 10px 5px 14px;
+            box-shadow: 0 0 0 7px #ece5de, 0 0 0 9px #c9b8ae40, inset 0 0 0 2px #4a3b35;
+            width: 220px;
+            flex-shrink: 0;
             transition: all 0.6s ease;
         }
 
-        body.theme-dark .demo-phone-frame {
-            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.5), 0 0 0 6px #2a2522, inset 0 0 0 2px #5a4a43;
+        body.theme-dark .p-frame {
+            box-shadow: 0 0 0 7px #2a2522, 0 0 0 9px #5a4a4340, inset 0 0 0 2px #5a4a43;
         }
 
-        body.theme-sepia .demo-phone-frame {
-            box-shadow: 0 20px 35px -10px rgba(60, 40, 20, 0.3), 0 0 0 6px #d4c5a0, inset 0 0 0 2px #8b7a60;
+        body.theme-sepia .p-frame {
+            box-shadow: 0 0 0 7px #d4c5a0, 0 0 0 9px #8b7a6040, inset 0 0 0 2px #8b7a60;
         }
 
-        .demo-phone-notch {
+        .p-notch {
             width: 80px;
-            height: 20px;
+            height: 18px;
             background: #171311;
-            margin: 0 auto 5px;
-            border-radius: 16px;
+            margin: 0 auto 4px;
+            border-radius: 14px;
         }
 
-        .demo-phone-screen {
+        .p-screen {
             background: #fff9f5;
-            border-radius: 26px;
+            border-radius: 28px;
             overflow: hidden;
             aspect-ratio: 9 / 17.3;
             width: 100%;
-            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
-            transition: background 0.6s ease;
-        }
-
-        .demo-status-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 6px 12px 3px;
-            background: transparent;
-            font-size: 11px;
-            font-weight: 600;
-            color: #1e1b1a;
-            transition: color 0.6s ease;
-        }
-
-        .demo-battery-level {
-            width: 16px;
-            height: 8px;
-            background: #1e1b1a;
-            border-radius: 2px;
             position: relative;
             transition: background 0.6s ease;
         }
 
-        .demo-battery-level::after {
-            content: '';
-            position: absolute;
-            right: -2px;
-            top: 1.5px;
-            width: 2px;
-            height: 5px;
-            background: #1e1b1a;
-            border-radius: 1px;
-            transition: background 0.6s ease;
+        body.theme-dark .p-screen {
+            background: #1a1a1a;
         }
 
-        .demo-battery-fill {
-            width: 80%;
-            height: 100%;
-            background: #4caf50;
-            border-radius: 2px;
+        body.theme-sepia .p-screen {
+            background: #f4ecd8;
         }
 
-        .demo-phone-image {
+        .p-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 12px 3px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #1e1b1a;
+            border-bottom: 0.5px solid #f0e4dc;
+            transition: color 0.6s ease, border-color 0.6s ease;
+        }
+
+        body.theme-dark .p-status {
+            color: #e0d8d0;
+            border-bottom-color: #333;
+        }
+
+        body.theme-sepia .p-status {
+            color: #5c4a3a;
+            border-bottom-color: #d4c5a0;
+        }
+
+        .p-img {
             width: 100%;
-            height: calc(100% - 24px);
+            height: calc(100% - 26px);
             object-fit: cover;
             display: block;
+            transition: opacity 0.3s ease;
         }
 
-        .demo-home-indicator {
-            width: 90px;
+        .p-home {
+            width: 80px;
             height: 3px;
             background: #cfbcb2;
-            margin: 8px auto 2px;
-            border-radius: 16px;
+            margin: 8px auto 0;
+            border-radius: 10px;
             transition: background 0.6s ease;
+        }
+
+        body.theme-dark .p-home {
+            background: #5a4a43;
+        }
+
+        body.theme-sepia .p-home {
+            background: #c4b590;
+        }
+
+        .tab-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            min-width: 110px;
+            padding: 0 1.5rem;
+            border-right: 0.5px solid #e5d8cf;
+            order: 2;
+        }
+
+        body.theme-dark .tab-col {
+            border-right-color: #3a3a3a;
+        }
+
+        body.theme-sepia .tab-col {
+            border-right-color: #d4c5a0;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            color: #6e5b52;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        body.theme-dark .tab-btn {
+            color: #a09088;
+        }
+
+        body.theme-sepia .tab-btn {
+            color: #7a6a5a;
+        }
+
+        .tab-btn.active {
+            background: #b16e5c;
+            color: #fff;
+        }
+
+        body.theme-dark .tab-btn.active {
+            background: #c9a99a;
+            color: #1a1a1a;
+        }
+
+        body.theme-sepia .tab-btn.active {
+            background: #8f6e4e;
+            color: #f4ecd8;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: rgba(0, 0, 0, 0.05);
+            color: #2c211c;
+        }
+
+        body.theme-dark .tab-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0d8d0;
+        }
+
+        body.theme-sepia .tab-btn:hover:not(.active) {
+            background: rgba(100, 70, 40, 0.1);
+            color: #5c4a3a;
+        }
+
+        .content-col {
+            flex: 1;
+            padding-left: 1.5rem;
+            min-width: 0;
+            order: 3;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .feat-item {
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            border: 0.5px solid #e5d8cf;
+            font-size: 13px;
+            font-weight: 500;
+            color: #2c211c;
+            cursor: pointer;
+            transition: border-color 0.15s, box-shadow 0.15s, background 0.6s ease;
+        }
+
+        body.theme-dark .feat-item {
+            background: rgba(30, 30, 30, 0.5);
+            border-color: #3a3a3a;
+            color: #e0d8d0;
+        }
+
+        body.theme-sepia .feat-item {
+            background: rgba(244, 236, 216, 0.5);
+            border-color: #d4c5a0;
+            color: #5c4a3a;
+        }
+
+        .feat-item.active {
+            border-color: #b16e5c;
+            box-shadow: 0 0 0 1.5px #b16e5c;
+            color: #b16e5c;
+        }
+
+        body.theme-dark .feat-item.active {
+            border-color: #c9a99a;
+            box-shadow: 0 0 0 1.5px #c9a99a;
+            color: #c9a99a;
+        }
+
+        body.theme-sepia .feat-item.active {
+            border-color: #8f6e4e;
+            box-shadow: 0 0 0 1.5px #8f6e4e;
+            color: #8f6e4e;
+        }
+
+        .feat-item:hover:not(.active) {
+            border-color: #c9b8ae;
+        }
+
+        .feat-desc {
+            font-size: 12px;
+            color: #6e5b52;
+            margin-top: 4px;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .feat-desc {
+            color: #a09088;
+        }
+
+        body.theme-sepia .feat-desc {
+            color: #8b7a60;
+        }
+
+        .col-label, .feat-label {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #8f7a6a;
+            padding: 10px 14px 4px;
+            transition: color 0.6s ease;
+        }
+
+        body.theme-dark .col-label, body.theme-dark .feat-label {
+            color: #8a7a70;
+        }
+
+        body.theme-sepia .col-label, body.theme-sepia .feat-label {
+            color: #a09078;
+        }
+
+        .feat-label {
+            padding: 0 0 8px 2px;
         }
 
         .download-cta-box {
@@ -636,13 +733,11 @@
         body.theme-dark .download-cta-box {
             background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
             border-color: rgba(255,255,255,0.05);
-            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4);
         }
 
         body.theme-sepia .download-cta-box {
             background: linear-gradient(135deg, #5c4a3a 0%, #7a6a5a 100%);
             border-color: rgba(255,255,255,0.08);
-            box-shadow: 0 20px 35px -10px rgba(60, 40, 20, 0.3);
         }
 
         .download-cta-box h3 {
@@ -650,14 +745,12 @@
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 0.8rem;
-            transition: color 0.6s ease;
         }
 
         .download-cta-box p {
             color: #c9b8ae;
             font-size: 1rem;
             margin-bottom: 1.5rem;
-            transition: color 0.6s ease;
         }
 
         .download-cta-btn {
@@ -672,7 +765,6 @@
             font-weight: 600;
             font-size: 1.1rem;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             transition: all 0.2s;
         }
 
@@ -681,714 +773,223 @@
             background: #fff;
         }
 
-        .demo-phone p {
-            transition: color 0.6s ease;
-        }
-        body.theme-dark .demo-phone p { color: #a09088 !important; }
-        body.theme-sepia .demo-phone p { color: #7a6a5a !important; }
-
-        /* Modal / Popup Overlay Styles */
-        .legal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .legal-overlay.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .legal-modal {
-            background: linear-gradient(145deg, #f9f5f0 0%, #f0ede8 100%);
-            border-radius: 32px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 85vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(180, 140, 120, 0.3);
-            animation: modalSlideIn 0.3s ease;
-        }
-
-        body.theme-dark .legal-modal {
-            background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%);
-            border-color: rgba(180, 160, 150, 0.3);
-        }
-
-        body.theme-sepia .legal-modal {
-            background: linear-gradient(145deg, #f4ecd8 0%, #e8dcc0 100%);
-            border-color: rgba(180, 160, 120, 0.3);
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                transform: translateY(-30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .legal-modal-header {
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid #e5d5ca;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        body.theme-dark .legal-modal-header {
-            border-bottom-color: #3a3a3a;
-        }
-
-        body.theme-sepia .legal-modal-header {
-            border-bottom-color: #d4c5a0;
-        }
-
-        .legal-modal-header h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #2c211c;
-            transition: color 0.6s ease;
-        }
-
-        body.theme-dark .legal-modal-header h2 {
-            color: #f0e8e0;
-        }
-
-        body.theme-sepia .legal-modal-header h2 {
-            color: #5c4a3a;
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #6e5b52;
-            transition: color 0.2s;
-            line-height: 1;
-            padding: 0;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        .close-modal:hover {
-            color: #8f5e4e;
-            background: rgba(143, 94, 78, 0.1);
-        }
-
-        .legal-modal-content {
-            padding: 2rem;
-            overflow-y: auto;
-            flex: 1;
-        }
-
-        .legal-modal-content h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin: 1.2rem 0 0.8rem;
-            color: #3d2e28;
-            transition: color 0.6s ease;
-        }
-
-        body.theme-dark .legal-modal-content h3 {
-            color: #c9b8ae;
-        }
-
-        body.theme-sepia .legal-modal-content h3 {
-            color: #6e5a4a;
-        }
-
-        .legal-modal-content p {
-            margin-bottom: 1rem;
-            color: #4d3e37;
-            transition: color 0.6s ease;
-        }
-
-        body.theme-dark .legal-modal-content p {
-            color: #b0a098;
-        }
-
-        body.theme-sepia .legal-modal-content p {
-            color: #6e5a4a;
-        }
-
-        .legal-modal-content ul, .legal-modal-content ol {
-            margin: 1rem 0 1rem 2rem;
-            color: #4d3e37;
-            transition: color 0.6s ease;
-        }
-
-        body.theme-dark .legal-modal-content ul,
-        body.theme-dark .legal-modal-content ol {
-            color: #b0a098;
-        }
-
-        body.theme-sepia .legal-modal-content ul,
-        body.theme-sepia .legal-modal-content ol {
-            color: #6e5a4a;
-        }
-
-        .legal-modal-content li {
-            margin-bottom: 0.5rem;
-        }
-
-        .legal-modal-content hr {
-            margin: 2rem 0;
-            border: none;
-            height: 1px;
-            background: #e5d5ca;
-            transition: background 0.6s ease;
-        }
-
-        body.theme-dark .legal-modal-content hr {
-            background: #3a3a3a;
-        }
-
-        body.theme-sepia .legal-modal-content hr {
-            background: #d4c5a0;
-        }
-
-        .contact-email {
-            background: rgba(143, 94, 78, 0.1);
-            padding: 0.2rem 0.5rem;
-            border-radius: 8px;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-
-        /* Footer Styles */
-        .novel-footer {
-            width: 100%;
-            border-top: 1px solid rgba(0,0,0,0.08);
-            background: rgba(255, 250, 245, 0.96);
-            padding: 3rem 0 2rem;
-            margin-top: 3rem;
-            transition: background 0.6s ease, border-color 0.6s ease;
-        }
-
-        body.theme-dark .novel-footer {
-            background: #1c1c1c;
-            border-top-color: rgba(255,255,255,0.05);
-        }
-
-        body.theme-sepia .novel-footer {
-            background: #f0e6d4;
-            border-top-color: rgba(100, 70, 40, 0.15);
-        }
-
-        .footer-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 2rem;
-        }
-
-        .footer-logo-area {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 1rem;
-            text-decoration: none;
-        }
-
-        .footer-icon {
-            background: #8f5e4e;
-            border-radius: 12px;
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            flex-shrink: 0;
-            padding: 6px;
-        }
-
-        .footer-app-icon {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        body.theme-dark .footer-icon { background: #c9a99a; }
-        body.theme-sepia .footer-icon { background: #8f6e4e; }
-
-        .footer-brand span {
-            font-weight: 700;
-            font-size: 1.5rem;
-            letter-spacing: -0.02em;
-            color: #2c211c;
-            transition: color 0.6s ease;
-        }
-
+        /* Footer */
+        .novel-footer { width: 100%; border-top: 1px solid rgba(0,0,0,0.08); background: rgba(255,250,245,0.96); padding: 3rem 0 2rem; margin-top: 3rem; transition: all 0.6s ease; }
+        body.theme-dark .novel-footer { background: #1c1c1c; border-top-color: rgba(255,255,255,0.05); }
+        body.theme-sepia .novel-footer { background: #f0e6d4; border-top-color: rgba(100,70,40,0.15); }
+        .footer-container { max-width: 1300px; margin: 0 auto; padding: 0 1.5rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+        .footer-logo-area { display: flex; flex-direction: column; }
+        .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; text-decoration: none; }
+        .footer-icon { background: #8f5e4e; border-radius: 12px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 6px; }
+        .footer-app-icon { width: 100%; height: 100%; object-fit: contain; }
+        .footer-brand span { font-weight: 700; font-size: 1.5rem; color: #2c211c; transition: color 0.6s ease; }
         body.theme-dark .footer-brand span { color: #f0e8e0; }
         body.theme-sepia .footer-brand span { color: #5c4a3a; }
-
-        .footer-description {
-            color: #6e5b52;
-            max-width: 280px;
-            font-size: 0.9rem;
-            transition: color 0.6s ease;
-        }
-
-        body.theme-dark .footer-description { color: #a09088; }
-        body.theme-sepia .footer-description { color: #7a6a5a; }
-
-        .footer-heading {
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
-            color: #2c211c;
-            transition: color 0.6s ease;
-        }
-
-        body.theme-dark .footer-heading { color: #e0d8d0; }
-        body.theme-sepia .footer-heading { color: #5c4a3a; }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.6rem;
-        }
-
-        .footer-link {
-            text-decoration: none;
-            color: #6e5b52;
-            transition: color 0.2s ease;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        body.theme-dark .footer-link { color: #a09088; }
-        body.theme-sepia .footer-link { color: #7a6a5a; }
-
-        .footer-link:hover {
-            color: #8f5e4e;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(0,0,0,0.08);
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.8rem;
-            color: #6e5b52;
-            transition: border-color 0.6s ease, color 0.6s ease;
-        }
-
-        body.theme-dark .footer-bottom {
-            border-top-color: rgba(255,255,255,0.08);
-            color: #8a7a70;
-        }
-
-        body.theme-sepia .footer-bottom {
-            border-top-color: rgba(100, 70, 40, 0.2);
-            color: #8b7a60;
-        }
-
-        .footer-legal {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-legal a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.2s;
-            cursor: pointer;
-        }
-
-        .footer-legal a:hover {
-            color: #8f5e4e;
-        }
-
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 2fr 1fr 1fr;
-                gap: 2rem;
-            }
-            .footer-bottom {
-                flex-direction: row;
-            }
-        }
-
-        @media (max-width: 800px) {
-            h1 { font-size: 2.5rem; }
-            .hero { gap: 1rem; }
-            .phone-mock-wrapper { flex-basis: 100%; }
-            .phone-frame { width: 270px; }
-            .demo-phones-wrap { gap: 20px; }
-            .demo-phone-frame { width: 200px; }
-            .download-cta-box { padding: 2rem 1.5rem; }
-            .download-cta-box h3 { font-size: 1.4rem; }
-            .legal-modal { width: 95%; max-height: 90vh; }
-            .legal-modal-header h2 { font-size: 1.4rem; }
-            .legal-modal-content { padding: 1rem; }
-        }
-
-        @media (max-width: 600px) {
-            .demo-phones-wrap { flex-direction: column; align-items: center; }
-        }
+        .footer-description { color: #6e5b52; max-width: 280px; font-size: 0.9rem; }
+        .footer-heading { font-weight: 700; margin-bottom: 1.2rem; font-size: 1.1rem; color: #2c211c; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 0.6rem; }
+        .footer-link { text-decoration: none; color: #6e5b52; cursor: pointer; font-size: 0.9rem; }
+        .footer-link:hover { color: #8f5e4e; }
+        .footer-bottom { border-top: 1px solid rgba(0,0,0,0.08); margin-top: 2rem; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #6e5b52; }
+        .footer-legal { display: flex; gap: 1.5rem; }
+        .footer-legal a { text-decoration: none; color: inherit; cursor: pointer; }
+        .footer-legal a:hover { color: #8f5e4e; }
+        @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr; } .demo-wrap { flex-direction: column; align-items: center; gap: 20px; } .phone-col { border-right: none; padding-right: 0; } .tab-col { border-right: none; padding: 0; flex-direction: row; flex-wrap: wrap; justify-content: center; } .content-col { padding-left: 0; margin-top: 15px; width: 100%; } .tab-btn { text-align: center; } .feature-list { width: 100%; } .section-header { font-size: 1.8rem; } }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- HERO + PHONE CAROUSEL -->
     <div class="hero">
         <div class="hero-text">
-            <span class="badge"><i class="far fa-sparkles" style="margin-right: 6px;"></i>NovelDR · read offline</span>
+            <span class="badge"><i class="far fa-sparkles"></i> NovelDR · read offline</span>
             <h1>Download novels.<br><span class="gradient-text">Read anywhere.</span></h1>
-            <p class="hero-desc">NovelDR lets you download webnovels from supported sources like FreeWebNovel & LightNovelWorld. Easy novel updates just by 3 steps, and customizable reading experience.</p>
-            <div class="cta-button" id="downloadButton">
-                <i class="fas fa-cloud-download-alt"></i> Download the App
-            </div>
+            <p class="hero-desc">NovelDR lets you download webnovels from supported sources. Easy updates, customizable reading.</p>
+            <div class="cta-button" id="downloadButton"><i class="fas fa-cloud-download-alt"></i> Download the App</div>
         </div>
         <div class="phone-mock-wrapper">
-            <div class="phone-mock">
-                <div class="phone-frame" id="phoneFrame">
-                    <div class="phone-notch"></div>
-                    <div class="phone-screen" id="phoneScreen">
-                        <div class="status-bar">
-                            <div class="status-left"><span>9:41</span></div>
-                            <div class="status-right">
-                                <i class="fas fa-signal" style="font-size: 12px;"></i>
-                                <i class="fas fa-wifi" style="font-size: 12px;"></i>
-                                <div class="battery">
-                                    <span style="font-size: 11px;">75%</span>
-                                    <div class="battery-level"><div class="battery-fill"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-container" id="mainCarousel">
-                            <div class="carousel-slides" id="carouselSlides">
-                                <div class="slide"><img class="slide-image" id="slideImg0" src="assets/Light_Library.png" alt="Library"></div>
-                                <div class="slide"><img class="slide-image" id="slideImg1" src="assets/Light_Download.png" alt="Downloads"></div>
-                                <div class="slide"><img class="slide-image" id="slideImg2" src="assets/Light_Updates.png" alt="Updates"></div>
-                                <div class="slide"><img class="slide-image" id="slideImg3" src="assets/Light_Settings.png" alt="Settings"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="width: 120px; height: 4px; background: #cfbcb2; margin: 10px auto 2px; border-radius: 20px;"></div>
-                </div>
-            </div>
-            <div class="theme-buttons">
-                <button class="theme-btn active-theme" data-theme="light">☀️ Light</button>
-                <button class="theme-btn" data-theme="dark">🌙 Dark</button>
-                <button class="theme-btn" data-theme="sepia">📜 Sepia</button>
-            </div>
+            <div class="phone-mock"><div class="phone-frame" id="phoneFrame"><div class="phone-notch"></div><div class="phone-screen" id="phoneScreen"><div class="status-bar"><span>9:41</span><span><i class="fas fa-signal"></i> <i class="fas fa-wifi"></i> 75%</span></div><div class="carousel-container"><div class="carousel-slides" id="carouselSlides"><div class="slide"><img class="slide-image" id="slideImg0" src="assets/Light_Library.png"></div><div class="slide"><img class="slide-image" id="slideImg1" src="assets/Light_Download.png"></div><div class="slide"><img class="slide-image" id="slideImg2" src="assets/Light_Updates.png"></div><div class="slide"><img class="slide-image" id="slideImg3" src="assets/Light_Settings.png"></div></div></div></div><div style="width:120px; height:4px; background:#cfbcb2; margin:10px auto; border-radius:20px;"></div></div></div>
+            <div class="theme-buttons"><button class="theme-btn active-theme" data-theme="light">☀️ Light</button><button class="theme-btn" data-theme="dark">🌙 Dark</button><button class="theme-btn" data-theme="sepia">📜 Sepia</button></div>
         </div>
+    </div>
+
+    <!-- POWERFUL FEATURES SECTION with matching header style -->
+    <div class="section-header">
+        <i class="fas fa-star-of-life"></i>
+        <span>Powerful Features</span>
     </div>
 
     <div class="feature-grid">
-        <div class="feature-card"><i class="fas fa-bookmark"></i><h4>Dynamic Webnovel Library</h4><p>Easily organize your offline webnovel collection. Filter by All, Unread, Reading, or Complete tags. Use batch selection to delete multiple webnovels quickly.</p></div>
-        <div class="feature-card"><i class="fas fa-cloud-arrow-down"></i><h4>Multi-Source Webnovel Downloader</h4><p>Download free webnovels from multiple sources. Simple 3-step process: paste your link, set starting chapter and max chapters, then download for offline reading.</p></div>
-        <div class="feature-card"><i class="fas fa-bolt"></i><h4>One-Tap Novel Updates</h4><p>Update your downloaded webnovels effortlessly. Select a novel from your library, enter the starting chapter and max chapters, and tap Update to fetch new chapters.</p></div>
-        <div class="feature-card"><i class="fas fa-mobile-alt"></i><h4>Customizable Reading Experience</h4><p>Read comfortably with AutoScroll, adjustable font size, and line spacing. Switch between Dark, Light, and Sepia themes. Back up, restore, or import your webnovel collection for complete data security.</p></div>
+        <div class="feature-card"><i class="fas fa-bookmark"></i><h4>Dynamic Library</h4><p>Organize your collection, filter by tags, batch delete.</p></div>
+        <div class="feature-card"><i class="fas fa-cloud-arrow-down"></i><h4>Multi-Source Downloader</h4><p>Paste link, set range, download for offline reading.</p></div>
+        <div class="feature-card"><i class="fas fa-bolt"></i><h4>One-Tap Updates</h4><p>Update novels effortlessly with new chapters.</p></div>
+        <div class="feature-card"><i class="fas fa-mobile-alt"></i><h4>Customizable Reader</h4><p>Themes, font controls, backup & restore.</p></div>
     </div>
 
+    <!-- LIVE DEMO with interactive 3-column layout -->
     <div class="live-demo-section">
-        <div class="section-heading"><i class="fas fa-mobile-alt"></i><span>Live Demo</span></div>
-        <div class="demo-phones-wrap">
-            <div class="demo-phone"><div class="demo-phone-label"><i class="fas fa-book-open"></i> Library</div><div class="demo-phone-frame"><div class="demo-phone-notch"></div><div class="demo-phone-screen"><div class="demo-status-bar"><div class="demo-status-left"><span>9:41</span></div><div class="demo-status-right"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><div class="battery"><span>85%</span><div class="demo-battery-level"><div class="demo-battery-fill"></div></div></div></div></div><img class="demo-phone-image" src="https://images2.imgbox.com/0b/55/fO3lh8QK_o.png" alt="Library"></div><div class="demo-home-indicator"></div></div><p>Browse your collection, filter by tag, see reading progress at a glance, and delete by batch selection.</p></div>
-            <div class="demo-phone"><div class="demo-phone-label"><i class="fas fa-download"></i> Downloads</div><div class="demo-phone-frame"><div class="demo-phone-notch"></div><div class="demo-phone-screen"><div class="demo-status-bar"><div class="demo-status-left"><span>9:42</span></div><div class="demo-status-right"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><div class="battery"><span>82%</span><div class="demo-battery-level"><div class="demo-battery-fill"></div></div></div></div></div><img class="demo-phone-image" src="https://images2.imgbox.com/be/08/v893cMq0_o.png" alt="Downloads"></div><div class="demo-home-indicator"></div></div><p>Capable downloader supporting 5 sources with simple to use interface.</p></div>
-            <div class="demo-phone"><div class="demo-phone-label"><i class="fas fa-sync-alt"></i> Updates</div><div class="demo-phone-frame"><div class="demo-phone-notch"></div><div class="demo-phone-screen"><div class="demo-status-bar"><div class="demo-status-left"><span>9:43</span></div><div class="demo-status-right"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><div class="battery"><span>78%</span><div class="demo-battery-level"><div class="demo-battery-fill"></div></div></div></div></div><img class="demo-phone-image" src="https://images2.imgbox.com/67/f6/Zog4eh87_o.png" alt="Updates"></div><div class="demo-home-indicator"></div></div><p>Easy to update your library by selecting a novel, fillup the fields, and juts hit 'Check for Updates'</p></div>
-            <div class="demo-phone"><div class="demo-phone-label"><i class="fas fa-sliders-h"></i> Settings</div><div class="demo-phone-frame"><div class="demo-phone-notch"></div><div class="demo-phone-screen"><div class="demo-status-bar"><div class="demo-status-left"><span>9:44</span></div><div class="demo-status-right"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><div class="battery"><span>80%</span><div class="demo-battery-level"><div class="demo-battery-fill"></div></div></div></div></div><img class="demo-phone-image" src="https://images2.imgbox.com/93/b7/hobibXCn_o.png" alt="Settings"></div><div class="demo-home-indicator"></div></div><p>Customize your reading experience with themes, see your library statistics, create backup to secure data, click the Beer icon for a surprise.</p></div>
+        <div class="section-header">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Live Demo</span>
         </div>
-    </div>
-    
-    <div class="download-cta-box" id="downloadNow">
-        <h3>Download the App Now</h3>
-        <p>Start reading your webnovel today and anywhere. Available on Android only.</p>
-        <button class="download-cta-btn"><i class="fas fa-download"></i> Download NovelDR</button>
-    </div>
-</div>
-
-<!-- PRIVACY POLICY MODAL (separate div) -->
-<div id="privacyModal" class="legal-overlay">
-    <div class="legal-modal">
-        <div class="legal-modal-header">
-            <h2><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
-            <button class="close-modal" onclick="closePrivacyModal()">&times;</button>
-        </div>
-        <div class="legal-modal-content">
-            <p><strong>Last Updated: April 26, 2026</strong></p>
-            <p>NovelDR ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our Android application NovelDR.</p>
-
-            <h3>1. Information We Collect</h3>
-            <p><strong>No Personal Data Collection:</strong> NovelDR does not collect, store, or share any personal information. The app operates entirely offline once installed, and all your reading data (downloaded novels, reading progress, settings) are stored locally on your device only.</p>
-            <p><strong>No Account Required:</strong> You can use NovelDR without creating an account. No registration, email, or personal information is ever requested.</p>
-
-            <h3>2. How We Use Information</h3>
-            <p>Since we do not collect any personal information, we do not use, process, or share your data with any third parties. All features work locally on your device.</p>
-
-            <h3>3. Data Storage</h3>
-            <p>All novel files, reading progress, and app settings are stored exclusively on your device's internal storage. You have full control over this data and can delete it at any time by uninstalling the app or manually removing files.</p>
-
-            <h3>4. Third-Party Services</h3>
-            <p>NovelDR does not integrate with any analytics services, crash reporting tools, advertising networks, or any third-party SDKs that could collect data. The app functions completely offline.</p>
-
-            <h3>5. Internet Permissions</h3>
-            <p>NovelDR requires internet permission solely for downloading novel chapters from web sources you explicitly choose. After download, no further internet connection is required for reading. The app does not transmit any data to our servers.</p>
-
-            <h3>6. Storage Permissions</h3>
-            <p>Storage permissions are required to save downloaded novels and reading preferences on your device. This data never leaves your device.</p>
-
-            <h3>7. Children's Privacy</h3>
-            <p>NovelDR does not knowingly collect any personal information from children under 13. As we collect no data whatsoever, there is no risk of unauthorized collection.</p>
-
-            <h3>8. Changes to This Privacy Policy</h3>
-            <p>We may update this Privacy Policy from time to time. Any changes will be posted within the app. Your continued use of the app after changes constitutes acceptance of the updated policy.</p>
-
-            <h3>9. Contact Us</h3>
-            <p>If you have any questions about this Privacy Policy, please contact us at: <span class="contact-email">support@noveldr.com</span></p>
-
-            <hr>
-
-            <p><strong>Summary:</strong> NovelDR is designed with your privacy as a priority. We collect absolutely no personal data. The app works offline, stores everything locally on your device, and gives you complete control over your reading experience.</p>
-        </div>
-    </div>
-</div>
-
-<!-- TERMS OF SERVICE MODAL (separate div) -->
-<div id="termsModal" class="legal-overlay">
-    <div class="legal-modal">
-        <div class="legal-modal-header">
-            <h2><i class="fas fa-file-contract"></i> Terms of Service</h2>
-            <button class="close-modal" onclick="closeTermsModal()">&times;</button>
-        </div>
-        <div class="legal-modal-content">
-            <p><strong>Last Updated: April 26, 2026</strong></p>
-            <p>By downloading, installing, or using NovelDR ("the App"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the App.</p>
-
-            <h3>1. License to Use</h3>
-            <p>NovelDR is provided for personal, non-commercial use only. We grant you a limited, non-exclusive, non-transferable, revocable license to install and use the App on your personal Android device(s).</p>
-
-            <h3>2. User Responsibilities</h3>
-            <p>You are solely responsible for:</p>
-            <ul>
-                <li>Ensuring you have the legal right to download and read content from any source you choose</li>
-                <li>Complying with all applicable laws and copyright regulations</li>
-                <li>Respecting intellectual property rights of novel authors and publishers</li>
-                <li>Using the App only for lawful purposes</li>
-            </ul>
-
-            <h3>3. Content Disclaimer</h3>
-            <p>NovelDR is a tool that allows users to download content from publicly available web sources. We do not host, store, or distribute any copyrighted content on our servers. We have no control over the content you choose to download and cannot guarantee the accuracy, legality, or quality of such content.</p>
-            <p><strong>Important:</strong> You are responsible for ensuring that downloading and reading any novel through the App complies with copyright laws in your jurisdiction. We strongly encourage supporting authors by purchasing official releases when available.</p>
-
-            <h3>4. Prohibited Activities</h3>
-            <p>You may not:</p>
-            <ul>
-                <li>Use the App for any illegal purpose</li>
-                <li>Modify, reverse engineer, decompile, or disassemble the App</li>
-                <li>Remove any copyright or proprietary notices from the App</li>
-                <li>Use the App to distribute malware or harmful content</li>
-                <li>Circumvent any technical limitations of the App</li>
-                <li>Sell, rent, or sublicense the App to third parties</li>
-            </ul>
-
-            <h3>5. Intellectual Property</h3>
-            <p>The App itself (including code, design, and graphics) is owned by NovelDR and protected by copyright laws. You may not copy, modify, or create derivative works of the App. All novel content downloaded through the App remains the property of its respective copyright holders.</p>
-
-            <h3>6. Disclaimer of Warranties</h3>
-            <p>The App is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, either express or implied. We do not warrant that the App will function uninterrupted, be error-free, or compatible with all devices. Use of the App is at your sole risk.</p>
-
-            <h3>7. Limitation of Liability</h3>
-            <p>To the maximum extent permitted by law, NovelDR shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the App. This includes loss of data, device damage, or any other damages.</p>
-
-            <h3>8. Indemnification</h3>
-            <p>You agree to indemnify and hold harmless NovelDR and its developers from any claims, damages, losses, or expenses (including legal fees) arising from your violation of these Terms or your use of the App.</p>
-
-            <h3>9. Changes to Terms</h3>
-            <p>We reserve the right to modify these Terms at any time. Continued use of the App after changes constitutes acceptance of the new Terms. We will notify users of significant changes through the App or our website.</p>
-
-            <h3>10. Termination</h3>
-            <p>We may terminate or suspend your access to the App immediately, without prior notice, for any violation of these Terms. Upon termination, you must cease using the App and delete it from your device.</p>
-
-            <h3>11. Governing Law</h3>
-            <p>These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law provisions.</p>
-
-            <h3>12. Contact Information</h3>
-            <p>For questions about these Terms, please contact us at: <span class="contact-email">support@noveldr.com</span></p>
-
-            <hr>
-
-            <p><strong>Acknowledgment:</strong> By using NovelDR, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
-        </div>
-    </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="novel-footer">
-    <div class="footer-container">
-        <div class="footer-grid">
-            <div class="footer-logo-area">
-                <a href="#" class="footer-brand">
-                    <div class="footer-icon">
-                        <img src="app-icon.png" alt="NovelDR" class="footer-app-icon">
+        <div class="demo-wrap">
+            <div class="phone-col">
+                <div class="p-frame">
+                    <div class="p-notch"></div>
+                    <div class="p-screen">
+                        <div class="p-status"><span>9:41</span><span>📶 🔋 75%</span></div>
+                        <img class="p-img" id="phoneImg" src="https://images2.imgbox.com/0b/55/fO3lh8QK_o.png" alt="App screen">
                     </div>
-                    <span>NovelDR</span>
-                </a>
-                <p class="footer-description">
-                    Your ultimate companion for immersive reading experiences. 
-                    Designed for Android, optimized for your eyes.
-                </p>
+                    <div class="p-home"></div>
+                </div>
             </div>
-            <div>
-                <h4 class="footer-heading">Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="#" class="footer-link">Home</a></li>
-                    <li><a href="./download.html" class="footer-link">Download</a></li>
-                    <li><a href="#" class="footer-link">Archive</a></li>
-                    <li><a href="#" class="footer-link">Changelog</a></li>
-                </ul>
+            <div class="tab-col">
+                <div class="col-label">Screens</div>
+                <button class="tab-btn active" data-tab="library">Library</button>
+                <button class="tab-btn" data-tab="download">Download</button>
+                <button class="tab-btn" data-tab="update">Update</button>
+                <button class="tab-btn" data-tab="settings">Settings</button>
             </div>
-            <div>
-                <h4 class="footer-heading">Community</h4>
-                <ul class="footer-links">
-                    <li><a href="#" class="footer-link">Discord</a></li>
-                    <li><a href="#" class="footer-link">Twitter</a></li>
-                    <li><a href="#" class="footer-link">Telegram</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 NovelDR. All rights reserved.</p>
-            <div class="footer-legal">
-                <a onclick="openPrivacyModal()">Privacy Policy</a>
-                <a onclick="openTermsModal()">Terms of Service</a>
-            </div>
+            <div class="content-col" id="contentCol"></div>
         </div>
     </div>
-</footer>
+
+    <div class="download-cta-box" id="downloadNow"><h3>Download the App Now</h3><p>Start reading your webnovel today. Available on Android.</p><button class="download-cta-btn"><i class="fas fa-download"></i> Download NovelDR</button></div>
+</div>
+
+<footer class="novel-footer"><div class="footer-container"><div class="footer-grid"><div class="footer-logo-area"><a href="#" class="footer-brand"><div class="footer-icon"><img src="app-icon.png" class="footer-app-icon"></div><span>NovelDR</span></a><p class="footer-description">Your ultimate companion for immersive reading.</p></div><div><h4 class="footer-heading">Quick Links</h4><ul class="footer-links"><li><a href="#" class="footer-link">Home</a></li><li><a href="#" class="footer-link">Download</a></li></ul></div><div><h4 class="footer-heading">Community</h4><ul class="footer-links"><li><a href="#" class="footer-link">Discord</a></li><li><a href="#" class="footer-link">Twitter</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 NovelDR.</p><div class="footer-legal"><a onclick="alert('Privacy Policy shown here')">Privacy Policy</a><a onclick="alert('Terms of Service shown here')">Terms of Service</a></div></div></div></footer>
 
 <script>
-    (function(){
-        "use strict";
-        const themeImages = {
-            light: ["assets/Light_Library.png","assets/Light_Download.png","assets/Light_Updates.png","assets/Light_Settings.png"],
-            dark: ["assets/Dark_Library.png","assets/Dark_Download.png","assets/Dark_Updates.png","assets/Dark_Settings.png"],
-            sepia: ["assets/Sepia_Library.png","assets/Sepia_Download.png","assets/Sepia_Updates.png","assets/Sepia_Settings.png"]
-        };
-        function preloadImages() { for (const theme in themeImages) themeImages[theme].forEach(src => new Image().src = src); }
-        preloadImages();
-
-        const slides = document.getElementById('carouselSlides');
-        const totalSlides = 4;
-        let currentIndex = 0, isDragging = false, startX = 0, currentTranslate = 0, prevTranslate = 0, autoPlayInterval;
-        let currentTheme = 'light';
+    // Image assets for live demo phone (reliable mockups)
+    const fallbackImages = {
+        library: "https://images2.imgbox.com/0b/55/fO3lh8QK_o.png",
+        download: "https://images2.imgbox.com/be/08/v893cMq0_o.png",
+        update: "https://images2.imgbox.com/67/f6/Zog4eh87_o.png",
+        settings: "https://images2.imgbox.com/93/b7/hobibXCn_o.png"
+    };
+    
+    const tabsData = {
+        library: { features: [{ label: "Search feature", desc: "Find any novel instantly by title or author.", imgKey: "library" }, { label: "Batch delete", desc: "Select multiple novels and remove them at once.", imgKey: "library" }, { label: "Read novel", desc: "Open any downloaded novel and start reading offline.", imgKey: "library" }], defaultImgKey: "library" },
+        download: { features: [{ label: "Paste novel URL", desc: "Drop a link from supported sources like FreeWebNovel.", imgKey: "download" }, { label: "Set chapter range", desc: "Choose the starting chapter and how many to fetch.", imgKey: "download" }, { label: "Download offline", desc: "Save chapters to your device for offline reading.", imgKey: "download" }], defaultImgKey: "download" },
+        update: { features: [{ label: "Select novel", desc: "Pick a novel already in your library to update.", imgKey: "update" }, { label: "Set new range", desc: "Enter starting chapter and max chapters to fetch.", imgKey: "update" }, { label: "Check for updates", desc: "Tap once and new chapters download automatically.", imgKey: "update" }], defaultImgKey: "update" },
+        settings: { features: [{ label: "Reading themes", desc: "Switch between Light, Dark, and Sepia reading modes.", imgKey: "settings" }, { label: "Backup & restore", desc: "Export your library or restore from a backup file.", imgKey: "settings" }, { label: "Library stats", desc: "See total novels, chapters read, and storage used.", imgKey: "settings" }], defaultImgKey: "settings" }
+    };
+    
+    let currentTab = 'library';
+    let currentActiveFeatureImgKey = 'library';
+    const phoneImg = document.getElementById('phoneImg');
+    
+    function setPhoneImg(imgKey) {
+        const newSrc = fallbackImages[imgKey] || fallbackImages.library;
+        phoneImg.style.opacity = '0';
+        setTimeout(() => { 
+            phoneImg.src = newSrc; 
+            phoneImg.style.opacity = '1';
+        }, 150);
+    }
+    
+    function renderContent() {
+        const data = tabsData[currentTab];
+        const contentCol = document.getElementById('contentCol');
+        contentCol.innerHTML = '';
+        const label = document.createElement('div'); 
+        label.className = 'feat-label'; 
+        label.textContent = 'Features'; 
+        contentCol.appendChild(label);
+        const list = document.createElement('div'); 
+        list.className = 'feature-list';
         
-        function updateCarousel(index, animate = true) {
-            if(!slides) return;
-            slides.style.transition = animate ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
-            const offset = -index * 100;
-            slides.style.transform = `translateX(${offset}%)`;
-            currentTranslate = offset; prevTranslate = offset;
+        data.features.forEach((f, i) => {
+            const item = document.createElement('div'); 
+            item.className = 'feat-item';
+            item.innerHTML = `<div>${f.label}</div><div class="feat-desc">${f.desc}</div>`;
+            item.addEventListener('click', () => { 
+                document.querySelectorAll('.feat-item').forEach(el => el.classList.remove('active')); 
+                item.classList.add('active'); 
+                currentActiveFeatureImgKey = f.imgKey;
+                setPhoneImg(f.imgKey);
+            });
+            if(i === 0) { 
+                item.classList.add('active'); 
+                currentActiveFeatureImgKey = f.imgKey;
+                setPhoneImg(f.imgKey);
+            }
+            list.appendChild(item);
+        });
+        contentCol.appendChild(list);
+    }
+    
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentTab = btn.dataset.tab;
+            renderContent();
+        });
+    });
+    
+    // Main carousel for hero phone
+    const slides = document.getElementById('carouselSlides');
+    const total = 4;
+    let idx = 0, interval;
+    const heroImages = {
+        light: ["assets/Light_Library.png","assets/Light_Download.png","assets/Light_Updates.png","assets/Light_Settings.png"],
+        dark: ["assets/Dark_Library.png","assets/Dark_Download.png","assets/Dark_Updates.png","assets/Dark_Settings.png"],
+        sepia: ["assets/Sepia_Library.png","assets/Sepia_Download.png","assets/Sepia_Updates.png","assets/Sepia_Settings.png"]
+    };
+    
+    function updateHeroSlide() { 
+        if(slides) slides.style.transform = `translateX(-${idx * 100}%)`; 
+    }
+    function nextHeroSlide() { idx = (idx+1)%total; updateHeroSlide(); }
+    interval = setInterval(nextHeroSlide, 4000);
+    document.getElementById('phoneFrame')?.addEventListener('mouseenter',()=>clearInterval(interval));
+    document.getElementById('phoneFrame')?.addEventListener('mouseleave',()=>{ interval = setInterval(nextHeroSlide,4000); });
+    updateHeroSlide();
+    
+    // Theme switching
+    let currentGlobalTheme = 'light';
+    function setGlobalTheme(theme) {
+        currentGlobalTheme = theme;
+        document.body.classList.remove('theme-dark', 'theme-sepia');
+        if(theme === 'dark') document.body.classList.add('theme-dark');
+        else if(theme === 'sepia') document.body.classList.add('theme-sepia');
+        
+        const frame = document.getElementById('phoneFrame');
+        frame.classList.remove('theme-dark', 'theme-sepia');
+        if(theme === 'dark') frame.classList.add('theme-dark');
+        else if(theme === 'sepia') frame.classList.add('theme-sepia');
+        
+        const imgs = heroImages[theme];
+        for(let i = 0; i < 4; i++) { 
+            const img = document.getElementById('slideImg'+i); 
+            if(img) { 
+                img.style.opacity = '0'; 
+                setTimeout(() => { 
+                    img.src = imgs[i]; 
+                    img.onload = () => img.style.opacity = '1'; 
+                }, 100); 
+            } 
         }
         
-        function nextSlide() { if (!isDragging) { currentIndex = (currentIndex + 1) % totalSlides; updateCarousel(currentIndex, true); } }
-        function resetAutoPlay() { if(autoPlayInterval) clearInterval(autoPlayInterval); autoPlayInterval = setInterval(nextSlide, 4000); }
-        
-        const phoneScreen = document.getElementById('phoneScreen');
-        function handleDragStart(e) { e.preventDefault(); isDragging = true; startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX; slides.style.transition = 'none'; clearInterval(autoPlayInterval); }
-        function handleDragMove(e) { if (!isDragging) return; e.preventDefault(); const diff = (e.type.includes('mouse') ? e.pageX : e.touches[0].clientX) - startX; const slideWidth = phoneScreen.offsetWidth; let newTranslate = prevTranslate + (diff / slideWidth) * 100; newTranslate = Math.min(0, Math.max(-((totalSlides - 1) * 100), newTranslate)); slides.style.transform = `translateX(${newTranslate}%)`; currentTranslate = newTranslate; }
-        function handleDragEnd() { if(!isDragging) return; isDragging = false; slides.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; const movedBy = currentTranslate - prevTranslate; if (movedBy < -20) currentIndex = Math.min(totalSlides-1, currentIndex+1); else if (movedBy > 20) currentIndex = Math.max(0, currentIndex-1); updateCarousel(currentIndex, true); window.removeEventListener('mousemove', handleDragMove); window.removeEventListener('touchmove', handleDragMove); window.removeEventListener('mouseup', handleDragEnd); window.removeEventListener('touchend', handleDragEnd); resetAutoPlay(); }
-        
-        phoneScreen.addEventListener('mousedown', (e) => { handleDragStart(e); window.addEventListener('mousemove', handleDragMove); window.addEventListener('mouseup', handleDragEnd); });
-        phoneScreen.addEventListener('touchstart', (e) => { handleDragStart(e); window.addEventListener('touchmove', handleDragMove, { passive: false }); window.addEventListener('touchend', handleDragEnd); }, { passive: false });
-        resetAutoPlay();
-        document.getElementById('phoneFrame')?.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-        document.getElementById('phoneFrame')?.addEventListener('mouseleave', resetAutoPlay);
-
-        function updateSlideImages(theme) { const images = themeImages[theme]; for (let i=0; i<totalSlides; i++) { const img = document.getElementById('slideImg'+i); if(img) { img.style.opacity = '0'; setTimeout(() => { img.src = images[i]; img.onload = () => img.style.opacity = '1'; setTimeout(()=> img.style.opacity='1', 100); }, 150); } } }
-        function applyThemeToPhone(theme) { const frame = document.getElementById('phoneFrame'); frame.classList.remove('theme-dark', 'theme-sepia'); if(theme==='dark') frame.classList.add('theme-dark'); else if(theme==='sepia') frame.classList.add('theme-sepia'); }
-        function applyThemeToPage(theme) { document.body.classList.remove('theme-dark','theme-sepia'); if(theme==='dark') document.body.classList.add('theme-dark'); else if(theme==='sepia') document.body.classList.add('theme-sepia'); }
-        
-        document.querySelectorAll('.theme-btn').forEach(btn => { btn.addEventListener('click', () => { const theme = btn.getAttribute('data-theme'); updateSlideImages(theme); applyThemeToPhone(theme); applyThemeToPage(theme); document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active-theme')); btn.classList.add('active-theme'); currentTheme = theme; }); });
-        
-        document.getElementById('downloadButton')?.addEventListener('click', () => document.getElementById('downloadNow')?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
-        document.querySelector('.download-cta-btn')?.addEventListener('click', () => window.location.href = './download.html');
-        
-        window.addEventListener('blur', () => { if(autoPlayInterval) clearInterval(autoPlayInterval); });
-        window.addEventListener('focus', () => { if(autoPlayInterval) clearInterval(autoPlayInterval); if (!isDragging) autoPlayInterval = setInterval(nextSlide, 4000); });
-    })();
-
-    // Modal functions for Privacy Policy and Terms of Service
-    function openPrivacyModal() {
-        document.getElementById('privacyModal').classList.add('active');
-        document.body.style.overflow = 'hidden';
+        const currentImgKey = currentActiveFeatureImgKey;
+        setPhoneImg(currentImgKey);
     }
-
-    function closePrivacyModal() {
-        document.getElementById('privacyModal').classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    function openTermsModal() {
-        document.getElementById('termsModal').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeTermsModal() {
-        document.getElementById('termsModal').classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Close modals when clicking outside
-    document.getElementById('privacyModal').addEventListener('click', function(e) {
-        if (e.target === this) closePrivacyModal();
+    
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active-theme'));
+            btn.classList.add('active-theme');
+            setGlobalTheme(btn.dataset.theme);
+        });
     });
-
-    document.getElementById('termsModal').addEventListener('click', function(e) {
-        if (e.target === this) closeTermsModal();
-    });
-
-    // Close modals with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closePrivacyModal();
-            closeTermsModal();
-        }
-    });
+    
+    renderContent();
+    
+    document.getElementById('downloadButton')?.addEventListener('click',()=>document.getElementById('downloadNow')?.scrollIntoView({behavior:'smooth'}));
+    document.querySelector('.download-cta-btn')?.addEventListener('click',()=>alert('Download would start here (demo)'));
 </script>
 </body>
 </html>
