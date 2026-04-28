@@ -323,7 +323,7 @@
             color: #5c4a3a;
         }
 
-        /* Section header component (reusable style) */
+        /* Section header component */
         .section-header {
             font-size: 2.2rem;
             font-weight: 600;
@@ -414,7 +414,7 @@
         body.theme-dark .feature-card p { color: #a09088; }
         body.theme-sepia .feature-card p { color: #7a6a5a; }
 
-        /* Live Demo Section - using the interactive 3-column layout */
+        /* Live Demo Section */
         .live-demo-section {
             margin: 4rem 0 2rem;
         }
@@ -814,7 +814,7 @@
         </div>
     </div>
 
-    <!-- POWERFUL FEATURES SECTION with matching header style -->
+    <!-- POWERFUL FEATURES SECTION -->
     <div class="section-header">
         <i class="fas fa-cogs"></i>
         <span>Powerful Features</span>
@@ -827,7 +827,7 @@
         <div class="feature-card"><i class="fas fa-mobile-alt"></i><h4>Customizable Reader</h4><p>Themes, font controls, backup & restore.</p></div>
     </div>
 
-    <!-- LIVE DEMO with interactive 3-column layout -->
+    <!-- LIVE DEMO with theme-following images -->
     <div class="live-demo-section">
         <div class="section-header">
             <i class="fas fa-mobile-alt"></i>
@@ -839,7 +839,7 @@
                     <div class="p-notch"></div>
                     <div class="p-screen">
                         <div class="p-status"><span>9:41</span><span>📶 🔋 75%</span></div>
-                        <img class="p-img" id="phoneImg" src="https://images2.imgbox.com/0b/55/fO3lh8QK_o.png" alt="App screen">
+                        <img class="p-img" id="phoneImg" src="assets/Light_Library.png" alt="App screen">
                     </div>
                     <div class="p-home"></div>
                 </div>
@@ -861,27 +861,68 @@
 <footer class="novel-footer"><div class="footer-container"><div class="footer-grid"><div class="footer-logo-area"><a href="#" class="footer-brand"><div class="footer-icon"><img src="app-icon.png" class="footer-app-icon"></div><span>NovelDR</span></a><p class="footer-description">Your ultimate companion for immersive reading.</p></div><div><h4 class="footer-heading">Quick Links</h4><ul class="footer-links"><li><a href="#" class="footer-link">Home</a></li><li><a href="#" class="footer-link">Download</a></li></ul></div><div><h4 class="footer-heading">Community</h4><ul class="footer-links"><li><a href="#" class="footer-link">Discord</a></li><li><a href="#" class="footer-link">Twitter</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 NovelDR.</p><div class="footer-legal"><a onclick="alert('Privacy Policy shown here')">Privacy Policy</a><a onclick="alert('Terms of Service shown here')">Terms of Service</a></div></div></div></footer>
 
 <script>
-    // Image assets for live demo phone (reliable mockups)
-    const fallbackImages = {
-        library: "https://images2.imgbox.com/0b/55/fO3lh8QK_o.png",
-        download: "https://images2.imgbox.com/be/08/v893cMq0_o.png",
-        update: "https://images2.imgbox.com/67/f6/Zog4eh87_o.png",
-        settings: "https://images2.imgbox.com/93/b7/hobibXCn_o.png"
+    // Theme-specific image assets for Live Demo phone (using local assets)
+    const themeImageMap = {
+        light: {
+            library: "assets/Light_Library.png",
+            download: "assets/Light_Download.png",
+            update: "assets/Light_Updates.png",
+            settings: "assets/Light_Settings.png"
+        },
+        dark: {
+            library: "assets/Dark_Library.png",
+            download: "assets/Dark_Download.png",
+            update: "assets/Dark_Updates.png",
+            settings: "assets/Dark_Settings.png"
+        },
+        sepia: {
+            library: "assets/Sepia_Library.png",
+            download: "assets/Sepia_Download.png",
+            update: "assets/Sepia_Updates.png",
+            settings: "assets/Sepia_Settings.png"
+        }
     };
     
+    // Preload all theme images for faster switching
+    function preloadAllThemeImages() {
+        const themes = ['light', 'dark', 'sepia'];
+        themes.forEach(theme => {
+            const images = themeImageMap[theme];
+            Object.values(images).forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        });
+    }
+    preloadAllThemeImages();
+    
     const tabsData = {
-        library: { features: [{ label: "Search feature", desc: "Find any novel instantly by title or author.", imgKey: "library" }, { label: "Batch delete", desc: "Select multiple novels and remove them at once.", imgKey: "library" }, { label: "Read novel", desc: "Open any downloaded novel and start reading offline.", imgKey: "library" }], defaultImgKey: "library" },
-        download: { features: [{ label: "Paste novel URL", desc: "Drop a link from supported sources like FreeWebNovel.", imgKey: "download" }, { label: "Set chapter range", desc: "Choose the starting chapter and how many to fetch.", imgKey: "download" }, { label: "Download offline", desc: "Save chapters to your device for offline reading.", imgKey: "download" }], defaultImgKey: "download" },
-        update: { features: [{ label: "Select novel", desc: "Pick a novel already in your library to update.", imgKey: "update" }, { label: "Set new range", desc: "Enter starting chapter and max chapters to fetch.", imgKey: "update" }, { label: "Check for updates", desc: "Tap once and new chapters download automatically.", imgKey: "update" }], defaultImgKey: "update" },
-        settings: { features: [{ label: "Reading themes", desc: "Switch between Light, Dark, and Sepia reading modes.", imgKey: "settings" }, { label: "Backup & restore", desc: "Export your library or restore from a backup file.", imgKey: "settings" }, { label: "Library stats", desc: "See total novels, chapters read, and storage used.", imgKey: "settings" }], defaultImgKey: "settings" }
+        library: { features: [{ label: "Search feature", desc: "Find any novel instantly by title or author.", screen: "library" }, { label: "Batch delete", desc: "Select multiple novels and remove them at once.", screen: "library" }, { label: "Read novel", desc: "Open any downloaded novel and start reading offline.", screen: "library" }], defaultScreen: "library" },
+        download: { features: [{ label: "Paste novel URL", desc: "Drop a link from supported sources like FreeWebNovel.", screen: "download" }, { label: "Set chapter range", desc: "Choose the starting chapter and how many to fetch.", screen: "download" }, { label: "Download offline", desc: "Save chapters to your device for offline reading.", screen: "download" }], defaultScreen: "download" },
+        update: { features: [{ label: "Select novel", desc: "Pick a novel already in your library to update.", screen: "update" }, { label: "Set new range", desc: "Enter starting chapter and max chapters to fetch.", screen: "update" }, { label: "Check for updates", desc: "Tap once and new chapters download automatically.", screen: "update" }], defaultScreen: "update" },
+        settings: { features: [{ label: "Reading themes", desc: "Switch between Light, Dark, and Sepia reading modes.", screen: "settings" }, { label: "Backup & restore", desc: "Export your library or restore from a backup file.", screen: "settings" }, { label: "Library stats", desc: "See total novels, chapters read, and storage used.", screen: "settings" }], defaultScreen: "settings" }
     };
     
     let currentTab = 'library';
-    let currentActiveFeatureImgKey = 'library';
+    let currentActiveScreen = 'library';
+    let currentGlobalTheme = 'light';
     const phoneImg = document.getElementById('phoneImg');
     
-    function setPhoneImg(imgKey) {
-        const newSrc = fallbackImages[imgKey] || fallbackImages.library;
+    function getImageForScreen(screenKey) {
+        return themeImageMap[currentGlobalTheme][screenKey] || themeImageMap[currentGlobalTheme].library;
+    }
+    
+    function setPhoneImg(screenKey) {
+        const newSrc = getImageForScreen(screenKey);
+        phoneImg.style.opacity = '0';
+        setTimeout(() => { 
+            phoneImg.src = newSrc; 
+            phoneImg.style.opacity = '1';
+        }, 150);
+    }
+    
+    function updatePhoneImageForCurrentTheme() {
+        const newSrc = getImageForScreen(currentActiveScreen);
         phoneImg.style.opacity = '0';
         setTimeout(() => { 
             phoneImg.src = newSrc; 
@@ -907,13 +948,13 @@
             item.addEventListener('click', () => { 
                 document.querySelectorAll('.feat-item').forEach(el => el.classList.remove('active')); 
                 item.classList.add('active'); 
-                currentActiveFeatureImgKey = f.imgKey;
-                setPhoneImg(f.imgKey);
+                currentActiveScreen = f.screen;
+                setPhoneImg(f.screen);
             });
             if(i === 0) { 
                 item.classList.add('active'); 
-                currentActiveFeatureImgKey = f.imgKey;
-                setPhoneImg(f.imgKey);
+                currentActiveScreen = f.screen;
+                setPhoneImg(f.screen);
             }
             list.appendChild(item);
         });
@@ -949,19 +990,22 @@
     document.getElementById('phoneFrame')?.addEventListener('mouseleave',()=>{ interval = setInterval(nextHeroSlide,4000); });
     updateHeroSlide();
     
-    // Theme switching
-    let currentGlobalTheme = 'light';
+    // Global theme switching - affects BOTH hero carousel AND live demo phone
     function setGlobalTheme(theme) {
         currentGlobalTheme = theme;
+        
+        // Update body class
         document.body.classList.remove('theme-dark', 'theme-sepia');
         if(theme === 'dark') document.body.classList.add('theme-dark');
         else if(theme === 'sepia') document.body.classList.add('theme-sepia');
         
+        // Update hero phone frame styling
         const frame = document.getElementById('phoneFrame');
         frame.classList.remove('theme-dark', 'theme-sepia');
         if(theme === 'dark') frame.classList.add('theme-dark');
         else if(theme === 'sepia') frame.classList.add('theme-sepia');
         
+        // Update hero carousel images
         const imgs = heroImages[theme];
         for(let i = 0; i < 4; i++) { 
             const img = document.getElementById('slideImg'+i); 
@@ -974,10 +1018,11 @@
             } 
         }
         
-        const currentImgKey = currentActiveFeatureImgKey;
-        setPhoneImg(currentImgKey);
+        // Update live demo phone image to match new theme
+        updatePhoneImageForCurrentTheme();
     }
     
+    // Attach theme button events
     document.querySelectorAll('.theme-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active-theme'));
@@ -986,8 +1031,10 @@
         });
     });
     
+    // Initialize
     renderContent();
     
+    // Download button scroll
     document.getElementById('downloadButton')?.addEventListener('click',()=>document.getElementById('downloadNow')?.scrollIntoView({behavior:'smooth'}));
     document.querySelector('.download-cta-btn')?.addEventListener('click',()=>alert('Download would start here (demo)'));
 </script>
