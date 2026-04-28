@@ -1036,7 +1036,7 @@
     
     // Download button scroll
     document.getElementById('downloadButton')?.addEventListener('click',()=>document.getElementById('downloadNow')?.scrollIntoView({behavior:'smooth'}));
-    document.querySelector('.download-cta-btn')?.addEventListener('click',()=>alert('Download would start here (demo)'));
+    document.querySelector('.download-cta-btn')?.addEventListener('click', () => window.location.href = './download.html');
 </script>
 </body>
 </html>
