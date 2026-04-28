@@ -187,15 +187,6 @@
             transform: scale(0.98);
         }
 
-        /* Phone Mock (main carousel) */
-        .phone-mock-wrapper {
-            flex: 0 0 360px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-        }
-
         .phone-mock {
             display: flex;
             justify-content: center;
@@ -228,6 +219,7 @@
             width: 100%;
             position: relative;
             box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+            touch-action: pan-y;
             transition: background 0.6s ease;
         }
 
@@ -244,10 +236,38 @@
             transition: all 0.6s ease;
         }
 
+        .status-left { display: flex; gap: 2px; }
+        .status-right { display: flex; align-items: center; gap: 6px; }
+        .battery { display: flex; align-items: center; gap: 3px; }
+
+        .battery-level {
+            width: 20px;
+            height: 10px;
+            background: #1e1b1a;
+            border-radius: 3px;
+            position: relative;
+            transition: background 0.6s ease;
+        }
+
+        .battery-level::after {
+            content: '';
+            position: absolute;
+            right: -3px;
+            top: 2px;
+            width: 3px;
+            height: 6px;
+            background: #1e1b1a;
+            border-radius: 1px;
+            transition: background 0.6s ease;
+        }
+
+        .battery-fill { width: 75%; height: 100%; background: #4caf50; border-radius: 2px; }
+
         .carousel-container {
             width: 100%;
             flex: 1;
             position: relative;
+            touch-action: pan-y;
             overflow: hidden;
         }
 
@@ -257,11 +277,16 @@
             height: 100%;
             transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             will-change: transform;
+            touch-action: pan-y;
         }
 
         .slide {
             flex: 0 0 100%;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+            user-select: none;
         }
 
         .slide-image {
@@ -278,15 +303,6 @@
             background: #171311;
             margin: 0 auto 6px;
             border-radius: 20px;
-        }
-
-        .theme-buttons {
-            display: flex;
-            gap: 8px;
-            background: #ece5de;
-            border-radius: 30px;
-            padding: 4px;
-            transition: background 0.6s ease;
         }
 
         body.theme-dark .theme-buttons { background: #333; }
