@@ -928,6 +928,108 @@
             background: #fff;
         }
 
+                /* Modals */
+        .legal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .legal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .legal-modal {
+            background: linear-gradient(145deg, #f9f5f0 0%, #f0ede8 100%);
+            border-radius: 32px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(180, 140, 120, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .legal-modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e5d5ca;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .legal-modal-header h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c211c;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #6e5b52;
+            line-height: 1;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-modal:hover {
+            color: #8f5e4e;
+            background: rgba(143, 94, 78, 0.1);
+        }
+
+        .legal-modal-content {
+            padding: 2rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .legal-modal-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.2rem 0 0.8rem;
+            color: #3d2e28;
+        }
+
+        .legal-modal-content p,
+        .legal-modal-content li {
+            color: #4d3e37;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-email {
+            background: rgba(143, 94, 78, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
         /* Footer */
        /* Footer */
         .novel-footer { width: 100%; border-top: 1px solid rgba(0,0,0,0.08); background: rgba(255,250,245,0.96); padding: 3rem 0 2rem; margin-top: 3rem; transition: all 0.6s ease; }
@@ -1045,9 +1147,104 @@
     <div class="download-cta-box" id="downloadNow"><h3>Download the App Now</h3><p>Start reading your webnovel today. Available on Android.</p><button class="download-cta-btn"><i class="fas fa-download"></i> Download NovelDR</button></div>
 </div>
 
-<footer class="novel-footer"><div class="footer-container"><div class="footer-grid"><div class="footer-logo-area"><a href="#" class="footer-brand"><div class="footer-icon"><img src="app-icon.png" class="footer-app-icon"></div><span>NovelDR</span></a><p class="footer-description">Your ultimate companion for immersive reading.</p></div><div><h4 class="footer-heading">Quick Links</h4><ul class="footer-links"><li><a href="#" class="footer-link">Home</a></li><li><a href="#" class="footer-link">Download</a></li></ul></div><div><h4 class="footer-heading">Community</h4><ul class="footer-links"><li><a href="#" class="footer-link">Discord</a></li><li><a href="#" class="footer-link">Twitter</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 NovelDR.</p><div class="footer-legal"><a onclick="alert('Privacy Policy shown here')">Privacy Policy</a><a onclick="alert('Terms of Service shown here')">Terms of Service</a></div></div></div></footer>
+<footer class="novel-footer"><div class="footer-container">
+  <div class="footer-grid">
+    <div class="footer-logo-area"><a href="#" class="footer-brand">
+    <div class="footer-icon"><img src="app-icon.png" class="footer-app-icon"></div>
+      <span>NovelDR</span></a>
+      <p class="footer-description">Your ultimate companion for immersive reading.</p>
+    </div>
+    <div><h4 class="footer-heading">Quick Links</h4><ul class="footer-links"><li><a href="#" class="footer-link">Home</a></li>
+      <li><a href="#" class="footer-link">Download</a></li></ul></div>
+      <div><h4 class="footer-heading">Community</h4><ul class="footer-links"><li><a href="#" class="footer-link">Discord</a>
+      </li><li><a href="#" class="footer-link">Twitter</a></li></ul></div></div>
+      <div class="footer-bottom"><p>© 2026 NovelDR.</p><div class="footer-legal">
+        <a onclick="openPrivacyModal()">Privacy Policy</a>
+        <a onclick="openTermsModal()">Terms of Service</a>
+
+        </div>
+      </div>
+    </div>
+</footer>
+
+
+
+<!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="legal-overlay">
+        <div class="legal-modal">
+            <div class="legal-modal-header">
+                <h2><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
+                <button class="close-modal" onclick="closePrivacyModal()">&times;</button>
+            </div>
+            <div class="legal-modal-content">
+                <p><strong>Last Updated: April 26, 2026</strong></p>
+                <p>NovelDR does not collect personal data. All reading data stays on your device.</p>
+                <h3>1. Information We Collect</h3>
+                <p>No personal data collection. The app works offline.</p>
+                <h3>2. Data Storage</h3>
+                <p>All novels and settings are stored locally on your device.</p>
+                <h3>3. Contact</h3>
+                <p>Email: <span class="contact-email">support@noveldr.com</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="legal-overlay">
+        <div class="legal-modal">
+            <div class="legal-modal-header">
+                <h2><i class="fas fa-file-contract"></i> Terms of Service</h2>
+                <button class="close-modal" onclick="closeTermsModal()">&times;</button>
+            </div>
+            <div class="legal-modal-content">
+                <p><strong>Last Updated: April 26, 2026</strong></p>
+                <p>By using NovelDR you agree to these terms. The app is for personal use only.</p>
+                <h3>1. License</h3>
+                <p>Personal, non-commercial use only.</p>
+                <h3>2. Content</h3>
+                <p>You are responsible for the content you download.</p>
+                <h3>3. Contact</h3>
+                <p><span class="contact-email">support@noveldr.com</span></p>
+            </div>
+        </div>
+    </div>
+
+
 
 <script>
+
+  // Modal functions
+        function openPrivacyModal() {
+            document.getElementById('privacyModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closePrivacyModal() {
+            document.getElementById('privacyModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function openTermsModal() {
+            document.getElementById('termsModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeTermsModal() {
+            document.getElementById('termsModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('privacyModal').addEventListener('click', function(e) {
+            if (e.target === this) closePrivacyModal();
+        });
+        document.getElementById('termsModal').addEventListener('click', function(e) {
+            if (e.target === this) closeTermsModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePrivacyModal();
+                closeTermsModal();
+            }
+        });
+
+
     // Theme-specific image assets for Live Demo phone (using local assets)
     const themeImageMap = {
         light: {
