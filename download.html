@@ -39,6 +39,12 @@
             text-align: center;
             max-width: 480px;
             width: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .maintenance-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 0 #dccfc6;
         }
 
         .maintenance-icon {
@@ -52,6 +58,7 @@
             color: #fff;
             font-size: 2rem;
             margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
 
         h1 {
@@ -65,6 +72,124 @@
         p {
             font-size: 1rem;
             color: #6e5b52;
+            margin-bottom: 2rem;
+        }
+
+        /* Button group container */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Base button styling */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.9rem 1.5rem;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            letter-spacing: -0.2px;
+        }
+
+        /* Primary button — elegant earthy accent */
+        .btn-primary {
+            background: #8f5e4e;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border: 1px solid #7c4e3f;
+        }
+
+        .btn-primary i {
+            font-size: 1.1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #7c4e3f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 14px rgba(0,0,0,0.08);
+        }
+
+        .btn-primary:active {
+            transform: translateY(1px);
+        }
+
+        /* Secondary button — outlined style with subtle warmth */
+        .btn-secondary {
+            background: transparent;
+            color: #7c4e3f;
+            border: 1.5px solid #e0cfc4;
+            backdrop-filter: blur(2px);
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+
+        .btn-secondary i {
+            font-size: 1.1rem;
+            color: #8f5e4e;
+            transition: transform 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: #f9ede5;
+            border-color: #cbb9ae;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(1px);
+        }
+
+        /* subtle divider or spacing */
+        .info-note {
+            margin-top: 1.8rem;
+            font-size: 0.75rem;
+            color: #aa998f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            border-top: 1px solid #eedfd5;
+            padding-top: 1.5rem;
+        }
+
+        .info-note i {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 460px) {
+            .maintenance-card {
+                padding: 2rem 1.5rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .btn {
+                padding: 0.75rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* subtle pulse animation on icon (optional) */
+        @keyframes softPulse {
+            0% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.02); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.95; }
+        }
+        .maintenance-icon {
+            animation: softPulse 2.5s infinite ease-in-out;
         }
     </style>
 </head>
@@ -75,6 +200,105 @@
         </div>
         <h1>Site is Under Maintenance</h1>
         <p>We'll be back shortly.</p>
+        
+        <!-- Two-button group: Alternative Downloads section -->
+        <div class="button-group">
+            <!-- Button 1: Alternative Download 1 (redirects to main site) -->
+            <a href="#" id="altDownloadBtn1" class="btn btn-primary">
+                <i class="fas fa-download"></i> 
+                Github Release · Primary
+            </a>
+            
+            <!-- Button 2: Alternative Download 2 (redirects to mirror / fallback site) -->
+            <a href="#" id="altDownloadBtn2" class="btn btn-secondary">
+                <i class="fas fa-cloud-download-alt"></i> 
+                Mediafire · Mirror
+            </a>
+        </div>
+
+        <div class="info-note">
+            <i class="fas fa-redo-alt"></i>
+            <span>Redirecting to official download sources</span>
+        </div>
     </div>
+
+    <script>
+        (function() {
+            // --------------------------------------------------------------
+            // CONFIGURATION: set your desired redirection URLs below.
+            // Both buttons will redirect the user to the sites you specify.
+            // --------------------------------------------------------------
+            
+            // 🔹 BUTTON 1: Primary alternative download site
+            // Replace this URL with your actual main website / download portal
+            const DOWNLOAD_URL_PRIMARY = "https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.11/NovelDR.v1.3.11rev137.apk";
+            
+            // 🔹 BUTTON 2: Secondary alternative download (mirror or fallback site)
+            // Replace with your actual mirror link or alternative page
+            const DOWNLOAD_URL_SECONDARY = "https://www.mediafire.com/file/qcqnjoqm828753c/NovelDR+v1.3.11rev137.apk/file";
+
+            // ----------------------
+            // Safety: if you prefer to use real site for testing, you can replace above URLs.
+            // For demonstration and to avoid dead links, we'll show a small console warning
+            // but still use the provided constants. In case you opened this locally and want test,
+            // we can also provide a friendly console hint. However production deployment must
+            // update these variables to real domains.
+            // 
+            // According to the requirement: "Alternative Downloads where clicking it will 
+            // redirect them to the site." → both buttons will redirect.
+            // ----------------------
+
+            // Get button elements
+            const btnPrimary = document.getElementById('altDownloadBtn1');
+            const btnSecondary = document.getElementById('altDownloadBtn2');
+
+            // Helper function to handle redirection and provide optional fallback/logic
+            function redirectTo(url, buttonName) {
+                if (!url || url === "#") {
+                    console.warn(`[${buttonName}] No valid redirect URL set. Please update DOWNLOAD_URL_PRIMARY / DOWNLOAD_URL_SECONDARY in script.`);
+                    // In case the demo URLs are placeholder "#", we show a small user-friendly alert
+                    // but ONLY for demonstration safety. In real scenario, replace with correct domains.
+                    if (url === "#" || url === "") {
+                        alert(`Redirect target not configured yet.\n\nPlease update "DOWNLOAD_URL_PRIMARY" and "DOWNLOAD_URL_SECONDARY" with actual site links.`);
+                        return false;
+                    }
+                }
+                // Security: ensure we navigate to valid external/internal location
+                // Use window.location.href for full navigation.
+                window.location.href = url;
+                return true;
+            }
+
+            // Add click event for Primary button
+            if (btnPrimary) {
+                btnPrimary.addEventListener('click', function(event) {
+                    event.preventDefault();  // prevent any default anchor jump
+                    redirectTo(DOWNLOAD_URL_PRIMARY, 'Primary Alternative');
+                });
+            } else {
+                console.error("Button with id 'altDownloadBtn1' not found");
+            }
+
+            // Add click event for Secondary button
+            if (btnSecondary) {
+                btnSecondary.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    redirectTo(DOWNLOAD_URL_SECONDARY, 'Secondary Mirror');
+                });
+            } else {
+                console.error("Button with id 'altDownloadBtn2' not found");
+            }
+
+            // Optional: provide developer hint when in browser console
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:') {
+                console.log(
+                    "ℹ️ [Novel DR Maintenance] Both alternative download buttons are active.\n" +
+                    `   Primary redirect URL: ${DOWNLOAD_URL_PRIMARY}\n` +
+                    `   Mirror redirect URL: ${DOWNLOAD_URL_SECONDARY}\n` +
+                    "   For production, replace these URLs with your actual site addresses inside the <script> tag."
+                );
+            }
+        })();
+    </script>
 </body>
 </html>
