@@ -1,914 +1,1070 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <link rel="canonical" href="https://moggle.is-a-good.dev/">
-  
-  <link rel="icon" type="image/png" href="app-icon.png">
-  <link rel="apple-touch-icon" href="app-icon.png">
-  
-  <title>Novel DR · Read Wuxia & Xianxia offline</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <link rel="canonical" href="https://moggle.is-a-good.dev/">
+    <link rel="icon" type="image/png" href="app-icon.png">
+    <link rel="apple-touch-icon" href="app-icon.png">
 
-    body {
-      background: linear-gradient(145deg, #f5f9ff 0%, #e2ebf3 100%);
-      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      color: #1a2e3f;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
+    <title>Novel DR · Read Wuxia & Xianxia offline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .wrapper {
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-      background: #fbfdff;
-      border-radius: 36px;
-      box-shadow: 0 25px 45px -12px rgba(0, 20, 40, 0.25), 0 4px 12px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      overflow: hidden;
-      transition: all 0.2s ease;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1e1b1a;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* Header Section */
-    .header {
-      background: linear-gradient(105deg, #0b2f5c 0%, #1e4a8a 100%);
-      padding: 1.5rem 2rem;
-      border-bottom: 3px solid #ffb347;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.5rem;
-      color: white;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            width: 100%;
+            flex: 1;
+        }
 
-    .header h1 {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 600;
-      font-size: 2.2rem;
-      letter-spacing: -0.01em;
-      margin: 0;
-      line-height: 1.2;
-    }
+        /* Header */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ece5de;
+        }
 
-    .header h1::before {
-      content: "";
-      display: inline-block;
-      width: 2.5rem;
-      height: 2.5rem;
-      background-image: url('app-icon.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      vertical-align: middle;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-    }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
 
-    .tagline {
-      font-size: 1rem;
-      font-weight: 500;
-      background: rgba(255, 255, 255, 0.12);
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      backdrop-filter: blur(4px);
-      border-left: 2px solid #ffb347;
-      color: #f0f6ff;
-    }
+        .logo-icon {
+            background: #8f5e4e;
+            border-radius: 12px;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 6px;
+        }
 
-    /* Navigation */
-    .nav {
-      padding: 0.75rem 2rem;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
 
-    .nav a {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 0.6rem 1.4rem;
-      background: white;
-      color: #1e4663;
-      text-decoration: none;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid #d4e0ec;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-      transition: all 0.15s;
-      cursor: pointer;
-      user-select: none;
-    }
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+            color: #2c211c;
+        }
 
-    .nav a:hover {
-      background: #f0f6ff;
-      border-color: #1e4663;
-      transform: translateY(-1px);
-    }
+        .tagline {
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: rgba(143, 94, 78, 0.1);
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            color: #5a3e36;
+            border: 1px solid rgba(180, 140, 120, 0.2);
+        }
 
-    .nav a.active {
-      background: #1e4663;
-      color: white;
-      border-color: #1e4663;
-      box-shadow: 0 4px 10px rgba(28, 70, 100, 0.15);
-    }
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
 
-    /* Views */
-    #home-page, #changelog-page, #archives-page {
-      animation: fadeIn 0.3s ease-in-out;
-    }
+        .nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.6rem 1.4rem;
+            background: #fbf6f1;
+            color: #5a4a43;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: all 0.15s;
+            cursor: pointer;
+            user-select: none;
+        }
 
-    #changelog-page, #archives-page {
-      display: none;
-      padding: 2.5rem;
-    }
+        .nav a:hover {
+            background: #f0e8e0;
+            border-color: #8f5e4e;
+            transform: translateY(-1px);
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        .nav a.active {
+            background: #8f5e4e;
+            color: white;
+            border-color: #8f5e4e;
+            box-shadow: 0 4px 10px rgba(143, 94, 78, 0.2);
+        }
 
-    /* Marquee */
-    .marquee-modern {
-      background: #fff7e6;
-      padding: 0.6rem 2rem;
-      font-weight: 600;
-      color: #b3521a;
-      border-bottom: 1px solid #ffdca8;
-      font-size: 0.9rem;
-      overflow: hidden;
-      white-space: nowrap;
-    }
+        /* Views */
+        #home-page, #changelog-page, #archives-page {
+            animation: fadeIn 0.3s ease-in-out;
+        }
 
-    .marquee-modern span {
-      display: inline-block;
-      animation: marquee 22s linear infinite;
-      padding-left: 100%;
-    }
+        #changelog-page, #archives-page {
+            display: none;
+        }
 
-    @keyframes marquee {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-100%, 0); }
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    /* Content Layout */
-    .main-content {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 2rem;
-      gap: 2rem;
-    }
+        /* Marquee */
+        .marquee-modern {
+            background: #fbf6f1;
+            padding: 0.7rem 0;
+            font-weight: 600;
+            color: #5a3e36;
+            border: 1px solid #e5d5ca;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-bottom: 1.5rem;
+        }
 
-    .left-col { flex: 2; min-width: 280px; }
-    
-    .right-col {
-      flex: 1.2;
-      min-width: 260px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 28px;
-      padding: 1.8rem 1.5rem;
-      border: 1px solid rgba(255,255,255,0.9);
-      box-shadow: 0 8px 18px -6px rgba(0, 20, 30, 0.08);
-    }
+        .marquee-modern span {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+            padding-left: 100%;
+        }
 
-    .download-card {
-      background: linear-gradient(115deg, #fef9e8, #fff6df);
-      border-radius: 32px;
-      padding: 2.2rem 1.8rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 12px 24px -10px rgba(180, 120, 30, 0.12);
-      border: 1px solid #f3d48f;
-      text-align: center;
-    }
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
 
-    .download-btn {
-      display: inline-block;
-      background: linear-gradient(180deg, #4f9e3a, #2f721f);
-      padding: 1rem 2.4rem;
-      border-radius: 60px;
-      color: white;
-      font-weight: 700;
-      font-size: 1.4rem;
-      text-decoration: none;
-      box-shadow: 0 8px 0 #1e5012, 0 8px 20px rgba(0,0,0,0.15);
-      transition: all 0.08s ease;
-      cursor: pointer;
-      border: none;
-    }
+        /* Content Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
 
-    .download-btn:active {
-      transform: translateY(5px);
-      box-shadow: 0 3px 0 #1e5012;
-    }
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
 
-    .version-badge {
-      font-size: 0.85rem;
-      background: #f5e6c8;
-      color: #3a4e2e;
-      padding: 0.25rem 1rem;
-      border-radius: 30px;
-      font-weight: 500;
-    }
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
 
-    .feature-list {
-      list-style: none;
-      margin: 1.8rem 0 0.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0.8rem 1.2rem;
-    }
+        .download-card {
+            background: #fbf6f1;
+            border-radius: 28px;
+            padding: 2.5rem 2rem;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 8px 0 #dccfc6;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
 
-    .feature-list li {
-      padding-left: 28px;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="%233a7ca5"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
-      background-size: 18px;
-    }
+        .download-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 0 #dccfc6, 0 12px 20px -8px rgba(80, 50, 30, 0.15);
+        }
 
-    .stats-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0 8px;
-    }
+        .download-card .app-icon-large {
+            background: #8f5e4e;
+            width: 80px;
+            height: 80px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
 
-    .stats-table td {
-      padding: 10px 12px;
-      background: rgba(255,255,255,0.6);
-      border-radius: 16px;
-    }
+        .download-card h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c211c;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
 
-    .stats-table td:first-child { font-weight: 600; color: #1f486b; }
+        .version-badge {
+            font-size: 0.85rem;
+            color: #8f5e4e;
+            background: rgba(143, 94, 78, 0.1);
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            font-weight: 500;
+            margin-bottom: 1.8rem;
+            display: inline-block;
+        }
 
-    .changelog-entry {
-      background: white;
-      border: 1px solid #d4e0ec;
-      border-radius: 24px;
-      padding: 1.5rem;
-      margin-bottom: 1.2rem;
-      transition: 0.2s;
-    }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #2c211c;
+            color: #faf6f2;
+            border: none;
+            padding: 1.1rem 3rem;
+            border-radius: 48px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 10px 24px rgba(44, 33, 28, 0.2);
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 1.5rem;
+        }
 
-    .changelog-entry:hover { 
-      border-color: #ffb347; 
-      transform: scale(1.01); 
-    }
+        .download-btn:hover {
+            background: #3f302a;
+            transform: scale(1.03);
+        }
 
-    /* Archives Table */
-    .archives-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
-    }
-    
-    .archives-table th {
-      background: #1e4663;
-      color: white;
-      padding: 14px 12px;
-      text-align: left;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-    
-    .archives-table td {
-      padding: 14px 12px;
-      border-bottom: 1px solid #e0e8ef;
-      font-size: 0.9rem;
-    }
-    
-    .archives-table tr:last-child td {
-      border-bottom: none;
-    }
-    
-    .archives-table tr:hover {
-      background: #f8fafc;
-    }
-    
-    .download-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px 8px;
-    }
-    
-    .download-links a {
-      color: #2f721f;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.85rem;
-      padding: 4px 10px;
-      border-radius: 20px;
-      background: #f0f7ec;
-      transition: all 0.15s;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    
-    .download-links a:hover {
-      background: #2f721f;
-      color: white;
-    }
-    
-    .download-links span {
-      color: #999;
-      font-size: 0.8rem;
-      align-self: center;
-    }
+        .download-btn:active {
+            transform: scale(0.97);
+        }
 
-    .version-changelog-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+        .card-links-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            font-size: 0.9rem;
+            align-items: center;
+            line-height: 1.3;
+        }
 
-    .version-changelog-list li {
-      padding: 8px 0 8px 24px;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%232f721f"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
-      background-size: 16px;
-      border-bottom: 1px solid #f0f0f0;
-    }
+        .card-links-row a {
+            color: #8f5e4e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
 
-    .version-changelog-list li:last-child {
-      border-bottom: none;
-    }
+        .card-links-row a:hover {
+            color: #5a3e36;
+        }
 
-    .changelog-date {
-      font-size: 0.85rem;
-      color: #666;
-      margin-bottom: 10px;
-    }
+        .card-links-row span {
+            color: #6e5b52;
+        }
 
-    /* Modal Overlay */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-    }
+        /* Feature List */
+        .features-panel {
+            background: #fbf6f1;
+            border-radius: 24px;
+            padding: 1.8rem;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 6px 0 #dccfc6;
+        }
 
-    .modal-card {
-      background: white;
-      max-width: 520px;
-      width: 90%;
-      border-radius: 36px;
-      padding: 2rem;
-      text-align: center;
-      border: 2px solid #ffb347;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.25);
-    }
+        .features-panel h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c211c;
+            margin-bottom: 1rem;
+        }
 
-    /* Scrollable content area inside modal */
-    .modal-scrollable-content {
-      max-height: 55vh;
-      overflow-y: auto;
-      margin: 1rem 0 1.5rem 0;
-      padding-right: 6px;
-      scrollbar-width: thin;
-      border-top: 1px solid #eef2f5;
-      border-bottom: 1px solid #eef2f5;
-    }
-    
-    .modal-scrollable-content::-webkit-scrollbar {
-      width: 5px;
-    }
-    
-    .modal-scrollable-content::-webkit-scrollbar-track {
-      background: #e9eef3;
-      border-radius: 10px;
-    }
-    
-    .modal-scrollable-content::-webkit-scrollbar-thumb {
-      background: #b9c4ce;
-      border-radius: 10px;
-    }
-    
-    .modal-scrollable-content::-webkit-scrollbar-thumb:hover {
-      background: #8f9eab;
-    }
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
+        }
 
-    .countdown-number {
-      font-size: 4rem;
-      font-weight: 800;
-      color: #2f721f;
-      background: #f0f7ec;
-      width: 110px;
-      height: 110px;
-      line-height: 110px;
-      border-radius: 50%;
-      margin: 1.5rem auto;
-      border: 3px solid #4f9e3a;
-    }
+        .feature-list li {
+            padding: 0.4rem 0 0.4rem 26px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%238f5e4e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
+            background-size: 16px;
+            font-size: 0.9rem;
+            color: #3d2e28;
+            border-bottom: 1px solid #f0e4dc;
+        }
 
-    .modal-progress {
-      width: 100%;
-      height: 12px;
-      background: #e0e7ef;
-      border-radius: 20px;
-      margin: 20px 0;
-      overflow: hidden;
-    }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
 
-    .modal-progress-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #3c7e2e, #5fb04b);
-      transition: width 0.1s;
-    }
+        .feature-list li strong {
+            color: #2c211c;
+        }
 
-    .footer {
-      padding: 1.5rem;
-      background: #e2edf2;
-      text-align: center;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255,255,255,0.6);
-    }
+        /* Info Panel */
+        .info-panel {
+            background: #fbf6f1;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 6px 0 #dccfc6;
+        }
 
-    @media (max-width: 700px) {
-      .comment-form-box {
-        margin: 0 1rem 1.5rem 1rem;
-      }
-      
-      .archives-table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-      }
-      
-      .download-links {
-        flex-wrap: nowrap;
-      }
-      
-      .modal-card {
-        padding: 1.5rem;
-      }
-      .modal-scrollable-content {
-        max-height: 50vh;
-      }
-    }
+        .info-panel h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c211c;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    @media (max-width: 640px) {
-      body { padding: 0.5rem; }
-      .header h1 { font-size: 1.8rem; }
-      .main-content { padding: 1.2rem; }
-      .feature-list { grid-template-columns: 1fr; }
-      .comments-section { padding: 1.5rem; }
-    }
-    
-    .clickable {
-      cursor: pointer;
-    }
-    
-    .inline-link {
-      color: inherit;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-    
-    .inline-link:hover {
-      color: #ffb347;
-    }
-  </style>
+        .info-panel h3 i {
+            color: #8f5e4e;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.45rem 0;
+            border-bottom: 1px solid #f0e4dc;
+            font-size: 0.85rem;
+            color: #3d2e28;
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: #5a3e36;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-value {
+            color: #2c211c;
+            font-weight: 500;
+        }
+
+        .clean-badge {
+            color: #4caf50;
+            font-weight: 600;
+        }
+
+        .clickable-stat {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .clickable-stat:hover {
+            color: #8f5e4e;
+        }
+
+        /* Visitors Panel */
+        .visitors-panel {
+            background: #fbf6f1;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 6px 0 #dccfc6;
+            text-align: center;
+        }
+
+        .visitors-panel h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c211c;
+            margin-bottom: 1rem;
+        }
+
+        .visitors-panel img {
+            max-width: 100%;
+            border-radius: 12px;
+        }
+
+        /* Changelog */
+        .changelog-entry {
+            background: #fbf6f1;
+            border: 1px solid #e5d5ca;
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 4px 0 #dccfc6;
+            transition: 0.2s;
+        }
+
+        .changelog-entry:hover {
+            border-color: #8f5e4e;
+            transform: scale(1.01);
+        }
+
+        .changelog-entry h3 {
+            color: #2c211c;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .changelog-date {
+            font-size: 0.85rem;
+            color: #8a7a70;
+            margin-bottom: 0.8rem;
+        }
+
+        .changelog-entry ul {
+            padding-left: 20px;
+            color: #3d2e28;
+        }
+
+        .changelog-entry li {
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .back-btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            border: 1px solid #e5d5ca;
+            background: #fbf6f1;
+            color: #5a4a43;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            box-shadow: 0 4px 0 #dccfc6;
+        }
+
+        .back-btn:hover {
+            background: #f0e8e0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #dccfc6;
+        }
+
+        /* Archives Table */
+        .archives-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fbf6f1;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 0 #dccfc6;
+            margin-bottom: 2rem;
+            border: 1px solid #e5d5ca;
+        }
+
+        .archives-table th {
+            background: #8f5e4e;
+            color: white;
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .archives-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #e5d5ca;
+            font-size: 0.9rem;
+            color: #3d2e28;
+        }
+
+        .archives-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .archives-table tr:hover {
+            background: #f0e8e0;
+        }
+
+        .download-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 8px;
+        }
+
+        .download-links a {
+            color: #8f5e4e;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(143, 94, 78, 0.08);
+            transition: all 0.15s;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .download-links a:hover {
+            background: #8f5e4e;
+            color: white;
+        }
+
+        .download-links span {
+            color: #b0a098;
+            font-size: 0.8rem;
+            align-self: center;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .modal-card {
+            background: #fbf6f1;
+            max-width: 520px;
+            width: 90%;
+            border-radius: 32px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-scrollable-content {
+            max-height: 55vh;
+            overflow-y: auto;
+            margin: 1rem 0 1.5rem 0;
+            padding-right: 6px;
+        }
+
+        .countdown-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #8f5e4e;
+            background: rgba(143, 94, 78, 0.1);
+            width: 110px;
+            height: 110px;
+            line-height: 110px;
+            border-radius: 50%;
+            margin: 1.5rem auto;
+            border: 3px solid #8f5e4e;
+        }
+
+        .modal-progress {
+            width: 100%;
+            height: 12px;
+            background: #e5d5ca;
+            border-radius: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .modal-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #8f5e4e, #b16e5c);
+            transition: width 0.1s;
+        }
+
+        /* Footer */
+        .novel-footer {
+            width: 100%;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 250, 245, 0.96);
+            padding: 2.5rem 0 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6e5b52;
+        }
+
+        @media (max-width: 800px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .download-card h2 {
+                font-size: 1.5rem;
+            }
+            .archives-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<div class="wrapper">
-  <!-- Download Modal -->
-  <div class="modal-overlay" id="downloadModal">
-    <div class="modal-card">
-      <h3>💾 Preparing Download</h3>
-      <div class="countdown-number" id="countdownDisplay">5</div>
-      <div class="modal-progress"><div class="modal-progress-bar" id="modalProgressBar"></div></div>
-      <div class="modal-status" id="modalStatus">Your download will start in 5 seconds...</div>
-      <button class="modal-close" id="closeModalBtn" style="margin-top:20px; padding:10px 20px; border-radius:30px; cursor:pointer; background:#f1f3f5; border:none; font-weight:600;">Cancel</button>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <div class="header">
-    <h1>Novel DR</h1>
-    <div class="tagline">offline · wuxia · xianxia</div>
-  </div>
-
-  <!-- Navigation -->
-  <div class="nav">
-    <a id="nav-home" class="active">🏠 Home</a>
-    <a id="nav-changelog">📜 Changelog</a>
-    <a id="nav-archives">📦 Archives</a>
-  </div>
-
-  <!-- Marquee -->
-  <div class="marquee-modern">
-    <span>✔️ 100% virus free • Compatible with Android 8+ • No ADS • No Login Required • Read Offline Anytime/Anywhere ✔️</span>
-  </div>
-
-  <!-- HOME PAGE -->
-  <div id="home-page">
-    <div class="main-content">
-      <div class="left-col">
-        <div class="download-card">
-          <div style="font-size: 2.2rem; font-weight: 700;">Novel DR v1.3.10</div>
-          <div style="margin: 0.5rem 0; color: #2c5a2c; font-weight: 500;"></div>
-          <a id="downloadMainBtn" class="download-btn">⬇ Download APK ⬇</a>
-          <div style="margin-top: 1rem;"><span class="version-badge">Build: v1.3.10rev131</span></div>
-          <div style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">
-            <p style="margin: 0 0 10px 0;">
-                <a id="link-to-changelog" class="inline-link">View detailed changelog</a>
-            </p>
-            <p style="margin: 0;">Looking for old versions? <a id="link-to-archives" class="inline-link">Browse here</a></p>
-          </div>
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header">
+            <a href="#" class="logo-area">
+                <div class="logo-icon">
+                    <img src="app-icon.png" alt="NovelDR icon">
+                </div>
+                <span class="logo-text">Novel DR</span>
+            </a>
+            <span class="tagline">offline · wuxia · xianxia</span>
         </div>
 
-        <h2 style="color:#1e4663; font-size:1.8rem; margin-bottom: 1rem;">✦ Powerful Features</h2>
-        <ul class="feature-list">
-          <li><strong>Supports 5+ sites:</strong> ReadNovelFull, NovelBin, NovelFull, FreeWebNovel, and LightNovelWorld.</li>
-          <li><strong>Reading Comfort:</strong> Adjustable Font size, Line spacing, and Auto-scroll.</li>
-          <li><strong>3 App Themes:</strong> Dark, Light, and Sepia.</li>
-          <li><strong>Data Control:</strong> JSON Backup, Restore & Import system.</li>
-          <li><strong>Stay Updated:</strong> Novel updates in just 2 taps: Select Novel, and tap Update.</li>
-        </ul>
-      </div>
-
-      <div class="right-col">
-        <h3 style="text-align:center; margin-bottom:1.5rem;">📋 App Stats</h3>
-        <table class="stats-table">
-          <tr><td>📦 APK Size:</td><td><strong>~92.93 MB</strong></td></tr>
-          <tr><td>🏷️ Build Number:</td><td><strong>V1.3.10rev131</strong></td></tr>
-          <tr style="cursor: pointer;" onclick="window.open('https://virusscan.jotti.org/en-US/search/hash/99d3604ecb93ada30a9a9c781079983d62323923', '_blank')">
-            <td>🛡️ Jotti's Malware Scan:</td><td><strong>Clean ✓ (0/15)</strong></td>
-          </tr>
-          <tr style="cursor: pointer;" onclick="window.open('https://github.com/Moggle-Khraum/noveldr-site/releases', '_blank')">
-            <td>📢 Github Release:</td><td><strong>Official Release</strong></td>
-          </tr>
-        </table>
-
-        <div style="margin-top:2rem; text-align:center;">
-          <h3 style="margin-bottom:10px;">🌍 Visitors</h3>
-          <a href="https://info.flagcounter.com/G8tC" target="_blank">
-            <img src="https://s01.flagcounter.com/count2/G8tC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" style="max-width:100%; border-radius:12px;">
-          </a>
+        <!-- Navigation -->
+        <div class="nav">
+            <a id="nav-home" class="active">🏠 Home</a>
+            <a id="nav-changelog">📜 Changelog</a>
+            <a id="nav-archives">📦 Archives</a>
         </div>
-      </div>
+
+        <!-- Marquee -->
+        <div class="marquee-modern">
+            <span>✔️ 100% virus free • Compatible with Android 8+ • No ADS • No Login Required • Read Offline Anytime/Anywhere ✔️</span>
+        </div>
+
+        <!-- HOME PAGE -->
+        <div id="home-page">
+            <div class="main-content">
+                <div class="left-col">
+                    <!-- Download Card -->
+                    <div class="download-card">
+                        <div class="app-icon-large">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <h2>Novel DR v1.3.11</h2>
+                        <span class="version-badge">Build: v1.3.11rev137</span>
+                        <a id="downloadMainBtn" class="download-btn">
+                            <i class="fas fa-download"></i> Download APK
+                        </a>
+                        <div class="card-links-row">
+                            <a id="link-to-changelog">View detailed changelog</a>
+                            <span>Looking for old versions? <a id="link-to-archives">Browse here</a></span>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="features-panel">
+                        <h3>✦ Powerful Features</h3>
+                        <ul class="feature-list">
+                            <li><strong>Supports 5+ sites:</strong> ReadNovelFull, NovelBin, NovelFull, FreeWebNovel, and LightNovelWorld.</li>
+                            <li><strong>Reading Comfort:</strong> Adjustable Font size, Line spacing, and Auto-scroll.</li>
+                            <li><strong>3 App Themes:</strong> Dark, Light, and Sepia.</li>
+                            <li><strong>Data Control:</strong> JSON Backup, Restore & Import system.</li>
+                            <li><strong>Stay Updated:</strong> Novel updates in just 2 taps: Select Novel, and tap Update.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right-col">
+                    <!-- App Stats -->
+                    <div class="info-panel">
+                        <h3><i class="fas fa-chart-bar"></i> App Stats</h3>
+                        <div class="stat-row">
+                            <span class="stat-label"><i class="fas fa-hdd"></i> APK Size:</span>
+                            <span class="stat-value">~92.93 MB</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label"><i class="fas fa-tag"></i> Build Number:</span>
+                            <span class="stat-value">V1.3.11rev137</span>
+                        </div>
+                        <div class="stat-row clickable-stat" onclick="window.open('https://virusscan.jotti.org/en-US/filescanjob/rr218ci9cs', '_blank')">
+                            <span class="stat-label"><i class="fas fa-shield-virus"></i> Jotti's Malware:</span>
+                            <span class="stat-value clean-badge">Clean ✓ (0/15)</span>
+                        </div>
+                        <div class="stat-row clickable-stat" onclick="window.open('https://github.com/Moggle-Khraum/noveldr-site/releases', '_blank')">
+                            <span class="stat-label"><i class="fab fa-github"></i> Github Release:</span>
+                            <span class="stat-value">Official Release</span>
+                        </div>
+                    </div>
+
+                    <!-- Visitors -->
+                    <div class="visitors-panel">
+                        <h3>🌍 Visitors</h3>
+                        <a href="https://info.flagcounter.com/G8tC" target="_blank">
+                            <img src="https://s01.flagcounter.com/count2/G8tC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHANGELOG PAGE -->
+        <div id="changelog-page">
+            <h2 style="color:#2c211c; margin-bottom: 1.5rem; font-size: 1.8rem;">📜 Version History</h2>
+            <div class="changelog-entry">
+                <h3>v1.3.10rev131</h3>
+                <p class="changelog-date">Apr 25, 2026 Update</p>
+                <ul>
+                    <li>[NEW] Added a 'Duplicity Guard' to the code, checks for existing novel in the library before downloading</li>
+                    <li>[IMPROVEMENT] Improved the scraping code for Novelbin by adding junk filters</li>
+                    <li>[IMPROVEMENT] Improved the code when downloading novels by streamlining and simplifying the title fetching.</li>
+                    <li>[BUGFIX] Fixed the 'Author' scraper for Novelbin during metadata fetching</li>
+                    <li>[BUGFIX] Fixed the download code to avoid freezing when downloading existing novel</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry">
+                <h3>v1.3.9rev128</h3>
+                <p class="changelog-date">Apr 21, 2026 Update</p>
+                <ul>
+                    <li>[NEW] Updates tab now downloads and saves novel covers locally</li>
+                    <li>[NEW] Refreshes cover images if changed on source website</li>
+                    <li>[NEW] System Action Required warning card is now clickable</li>
+                    <li>[NEW] Tapping opens Android settings directly to manage unused apps</li>
+                    <li>[NEW] Batch delete confirmation with item count display</li>
+                    <li>[NEW] Added "Starting Chapter" input field next to "Max Chapters"</li>
+                    <li>[NEW] Updates tab now checks and updates author if changed</li>
+                    <li>[NEW] Refreshes synopsis when source is updated</li>
+                    <li>[IMPROVEMENT] Allows 'SKIPPER' to skip chapters smoothly and starting downloads from specific chapter</li>
+                    <li>[IMPROVEMENT] Improved error handling during updates</li>
+                    <li>[IMPROVEMENT] Better duplicate detection when merging chapters</li>
+                    <li>[IMPROVEMENT] Ensures all selected novels are removed properly during deletion</li>
+                    <li>[FIXED] Make 'Batch Restore' the default for restoring files from Imported Backup</li>
+                    <li>[FIXED] Resolve the dysfunctional 'Restore' system in the Import function</li>
+                    <li>[FIXED] Added 'Fetcher' to the 'Update' tab when downloading Chapters.</li>
+                    <li>[FIXED] Added 'Starting Chapter' field to the 'Update' tab</li>
+                    <li>[FIXED] Delete Tab only deletes one file even after selection</li>
+                    <li>[FIXED] Minor bugs and performance issues</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry">
+                <h3>v1.3.8rev118</h3>
+                <p class="changelog-date">Apr 15, 2026 Update</p>
+                <ul>
+                    <li>[NEW] Added support for LightNovelWorld</li>
+                    <li>[NEW] Added scraper for Author, Cover, Synopsis, and Chapter Content</li>
+                    <li>[NEW] Added About Developer tab</li>
+                    <li>[NEW] Added Github link in the Developer tab</li>
+                    <li>[NEW] Added Website Link in the Developer tab</li>
+                    <li>[NEW] Added 'Import File' function to the Backup System</li>
+                    <li>[IMPROVEMENTS] Skipper Code functionality</li>
+                    <li>[IMPROVEMENTS] Increased value presets for AutoScroll, Line Spacing, and Font Size</li>
+                    <li>[IMPROVEMENTS] Download Tab now downloads cover locally for offline display</li>
+                    <li>[IMPROVEMENTS] Improved the scraper for the LightNovelWorld</li>
+                    <li>[NEEDS FIXING] 'Delete Tab' only deletes one file even after selection</li>
+                    <li>[NEEDS FIXING] Add 'Starting Chapter' field to the 'Update' tab</li>
+                    <li>[NEEDS FIXING] Add 'Fetcher' to the 'Update' tab when downloading Chapters.</li>
+                    <li>[NEEDS FIXING] Resolve the dysfunctional 'Restore' system in the Import function</li>
+                    <li>[NEEDS FIXING] Make 'Batch Restore' the default for restoring files from Imported Backup</li>
+                    <li>[NEEDS FIXING] Minor bugs and performance issues</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry">
+                <h3>v1.0.3rev055</h3>
+                <p class="changelog-date">Apr 13, 2026</p>
+                <ul>
+                    <li>[NEW] NovelBin and FreeWebNovel now fully supported</li>
+                    <li>[NEW] Library filters: All, Unread, Reading, Completed</li>
+                    <li>[NEW] Library search, and batch delete (via ⋮ menu)</li>
+                    <li>[NEW] Long press novel cover to update reading status</li>
+                    <li>[NEW] Added Website Link in the Developer tab</li>
+                    <li>[NEW] AutoScroll with presets</li>
+                    <li>[NEW] Updates tab now has search function</li>
+                    <li>[NEW] Added Skipper (skip existing chapters) and Traverser (resume downloads)</li>
+                    <li>[NEW] Backup & Restore system</li>
+                    <li>[NEW] 2-prompt warning when deleting a novel</li>
+                    <li>[IMPROVEMENT] Better Download tab stability</li>
+                    <li>[IMPROVEMENT] FreeWebNovel now shows author, cover, and synopsis</li>
+                    <li>[FIXED] Modify the icon of the Update tab</li>
+                    <li>[FIXED] Full FreeWebNovel site support.</li>
+                    <li>[FIXED] Improved Author & Synopsis extraction.</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry">
+                <h3>v1.0.2rev36</h3>
+                <p class="changelog-date">March 27, 2026</p>
+                <ul>
+                    <li>[NEW] Activity Logs are now visible.</li>
+                    <li>[IMPROVEMENTS] Stabilized downloader & update lifeline code</li>
+                    <li>[NEEDS FIXING] Modify the icon of the Update tab.</li>
+                    <li>[NEEDS FIXING] Full FreeWebNovel site support.</li>
+                    <li>[NEEDS FIXING] Improved Author & Synopsis extraction.</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry">
+                <h3>v1.0.1rev16</h3>
+                <p class="changelog-date">March 27, 2026</p>
+                <ul>
+                    <li>Initial release of the app, NovelDR</li>
+                    <li>[NEW] Added full support to 'ReadNovelFull' & 'NovelFull' site</li>
+                    <li>[NEW] Added partial support to 'FreeWebNovel' site</li>
+                    <li>[NEW] Added app themes: Dark, Light, Sepia</li>
+                    <li>[NEW] Added basic 'Download' and 'Updates' tab for downloading novel</li>
+                    <li>[NEW] Added 'Library Stats', showing the total chapters and novel in your library.</li>
+                    <li>[NEW] Added 'Delete Novel' by long-pressing the novel.</li>
+                    <li>[NEW] Added 'Reader Settings' which houses adjustable Font Size, & Line Spacing.</li>
+                </ul>
+            </div>
+            <button id="back-to-home-changelog" class="back-btn">← Back to Home</button>
+        </div>
+
+        <!-- ARCHIVES PAGE -->
+        <div id="archives-page">
+            <h2 style="color:#2c211c; margin-bottom: 1.5rem; font-size: 1.8rem;">📦 App Archives</h2>
+            <table class="archives-table">
+                <thead>
+                    <tr><th>App Name</th><th>Version</th><th>Changelog</th><th>Size</th><th>Download Links</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.3.10rev131</td><td><a href="#" onclick="showVersionChangelog('1.3.10rev131'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.99 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.3.10rev131', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.3.10rev131', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.3.10rev131', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.3.10rev131', 'itch'); return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.3.9rev128</td><td><a href="#" onclick="showVersionChangelog('1.3.9rev128'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.93 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.3.9rev128', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'itch'); return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.3.8rev118</td><td><a href="#" onclick="showVersionChangelog('1.3.8rev118'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.92 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.3.8rev118', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'itch'); return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.0.3rev055</td><td><a href="#" onclick="showVersionChangelog('1.0.3rev055'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.91 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.3rev055', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'itch'); return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.0.2rev36</td><td><a href="#" onclick="showVersionChangelog('1.0.2rev36'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.87 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.2rev36', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'itch'); return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.0.1rev16</td><td><a href="#" onclick="showVersionChangelog('1.0.1rev16'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.86 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.1rev16', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'itch'); return false;">Itch.io</a></div></td></tr>
+                </tbody>
+            </table>
+            <button id="back-to-home-archives" class="back-btn">← Back to Home</button>
+        </div>
+
+        <!-- VERSION CHANGELOG MODAL -->
+        <div class="modal-overlay" id="versionChangelogModal">
+            <div class="modal-card" style="text-align: left;">
+                <h3 style="color: #2c211c; margin-bottom: 0.25rem; text-align: center;">📋 Changelog: <span id="modalVersionTitle">v1.3.9rev128</span></h3>
+                <div class="modal-scrollable-content" id="modalScrollableContent">
+                    <div id="modalChangelogContent"></div>
+                </div>
+                <button id="closeVersionChangelogBtn" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #e5d5ca; background: #fbf6f1; font-weight: 600; width: 100%; margin-top: 0.5rem; color: #5a4a43;">Close</button>
+            </div>
+        </div>
+
+        <!-- Download Modal -->
+        <div class="modal-overlay" id="downloadModal">
+            <div class="modal-card">
+                <h3 style="color: #2c211c;">💾 Preparing Download</h3>
+                <div class="countdown-number" id="countdownDisplay">5</div>
+                <div class="modal-progress"><div class="modal-progress-bar" id="modalProgressBar"></div></div>
+                <div id="modalStatus" style="color: #5a4a43;">Your download will start in 5 seconds...</div>
+                <button id="closeModalBtn" style="margin-top:20px; padding:10px 20px; border-radius:30px; cursor:pointer; background:#fbf6f1; border:1px solid #e5d5ca; font-weight:600; color:#5a4a43;">Cancel</button>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- CHANGELOG PAGE -->
-  <div id="changelog-page">
-    <h2 style="color:#1e4663; margin-bottom: 1.5rem;">📜 Version History</h2>
-    <div class="changelog-entry">
-      <h3 style="color: #2f721f;">v1.3.10rev131</h3>
-      <p style="font-size: 0.85rem; color: #666;">Apr 25, 2026 Update</p>
-      <ul style="margin-top: 10px; padding-left: 20px;">
-        <li>[NEW] Added a 'Duplicity Guard' to the code, checks for existing novel in the library before downloading</li>
-        <li>[IMPROVEMENT] Improved the scraping code for Novelbin by adding junk filters</li>
-        <li>[IMPROVEMENT] Improved the code when downloading novels by streamlining and simplifying the title fetching.</li>
-        <li>[BUGFIX] Fixed the 'Author' scraper for Novelbin during metadata fetching</li>
-        <li>[BUGFIX] Fixed the download code to avoid freezing when downloading existing novel</li>
-      </ul>
-    </div>
+    <!-- Footer -->
+    <footer class="novel-footer">
+        Novel DR — made for Android.<br>
+        No tracking, no ads, just pure offline reading. <strong>#FOSS</strong>
+    </footer>
 
-    <div class="changelog-entry"> 
-      <h3>v1.3.9rev128</h3>
-      <p style="font-size: 0.85rem; color: #666;">Apr 21, 2026 Update</p>
-      <ul style="margin-top: 10px; padding-left: 20px;">
-        <li>[NEW] Updates tab now downloads and saves novel covers locally</li>
-        <li>[NEW] Refreshes cover images if changed on source website </li>
-        <li>[NEW] System Action Required" warning card is now clickable </li>
-        <li>[NEW] Tapping opens Android settings directly to manage unused apps </li>
-        <li>[NEW] Batch delete confirmation with item count display</li>
-        <li>[NEW] Added "Starting Chapter" input field next to "Max Chapters"</li>
-        <li>[NEW] Updates tab now checks and updates author if changed</li>
-        <li>[NEW] Refreshes synopsis when source is updated</li>
-        <li>[IMPROVEMENT] Allows 'SKIPPER' to skipped chapters smoothly and starting downloads from specific chapter</li>
-        <li>[IMPROVEMENT] Improved error handling during updates</li>
-        <li>[IMPROVEMENT] Better duplicate detection when merging chapters</li>
-        <li>[IMPROVEMENT] Ensures all selected novels are removed properly during deletion</li>
-        <li>[FIXED] Make 'Batch Restore' the default for restoring files from Imported Backup</li>
-        <li>[FIXED] Resolve the dysfunctional 'Restore' system in the Import function</li>
-        <li>[FIXED] Added 'Fetcher' to the 'Update' tab when downloading Chapters.</li>
-        <li>[FIXED] Added 'Starting Chapter' field to the 'Update' tab</li>
-        <li>[FIXED] Delete Tab' only deletes one file even after selection</li>
-        <li>[FIXED] Minor bugs and performance issues</li>
-      </ul>
-    </div>
+    <script>
+        // DOM Elements
+        const homePage = document.getElementById('home-page');
+        const changelogPage = document.getElementById('changelog-page');
+        const archivesPage = document.getElementById('archives-page');
+        const navHome = document.getElementById('nav-home');
+        const navChangelog = document.getElementById('nav-changelog');
+        const navArchives = document.getElementById('nav-archives');
 
-    <div class="changelog-entry">
-      <h3>v1.3.8rev118</h3>
-      <p style="font-size: 0.85rem; color: #666;">Apr 15, 2026 Update</p>
-      <ul style="margin-top: 10px; padding-left: 20px;">
-        <li>[NEW] Added support for LightNovelWorld</li>
-        <li>[NEW] Added scraper for Author, Cover, Synopsis, and Chapter Content</li>
-        <li>[NEW] Added About Developer tab</li>
-        <li>[NEW] Added Github link in the Developer tab</li>
-        <li>[NEW] Added Website Link in the Developer tab</li>
-        <li>[NEW] Added 'Import File' function to the Backup System</li>
-        <li>[IMPROVEMENTS] Skipper Code functionality</li>
-        <li>[IMPROVEMENTS] Increased value presets for AutoScroll, Line Spacing, and Font Size </li>
-        <li>[IMPROVEMENTS] Download Tab now downloads cover locally for offline display</li>
-        <li>[IMPROVEMENTS] Improved the scraper for the LightNovelWorld</li>
-        <li>[NEEDS FIXING] 'Delete Tab' only deletes one file even after selection</li>
-        <li>[NEEDS FIXING] Add 'Starting Chapter' field to the 'Update' tab</li>
-        <li>[NEEDS FIXING] Add 'Fetcher' to the 'Update' tab when downloading Chapters.</li>
-        <li>[NEEDS FIXING] Resolve the dysfunctional 'Restore' system in the Import function</li>
-        <li>[NEEDS FIXING] Make 'Batch Restore' the default for restoring files from Imported Backup</li>
-        <li>[NEEDS FIXING] Minor bugs and performance issues</li>
-      </ul>
-    </div>
-    
-    <div class="changelog-entry">
-      <h3>v1.0.3rev055</h3>
-      <p style="font-size: 0.85rem; color: #666;">Apr 13, 2026</p>
-      <ul style="margin-top: 10px; padding-left: 20px;">
-        <li>[NEW] NovelBin and FreeWebNovel now fully supported</li>
-        <li>[NEW] Library filters: All, Unread, Reading, Completed</li>
-        <li>[NEW] Library search, and batch delete (via ⋮ menu)</li>
-        <li>[NEW] Long press novel cover to update reading status</li>
-        <li>[NEW] Added Website Link in the Developer tab</li>
-        <li>[NEW] AutoScroll with presets</li>
-        <li>[NEW] Updates tab now has search function</li>
-        <li>[NEW] Added Skipper (skip existing chapters) and Traverser (resume downloads)</li>
-        <li>[NEW] Backup & Restore system</li>
-        <li>[NEW] 2-prompt warning when deleting a novel</li>
-        <li>[IMPROVEMENT] Better Download tab stability</li>
-        <li>[IMPROVEMENT] FreeWebNovel now shows author, cover, and synopsis</li>
-        <li>[FIXED] Modify the icon of the Update tab</li>
-        <li>[FIXED] Full FreeWebNovel site support.</li>
-        <li>[FIXED] Improved Author & Synopsis extraction.</li>
-      </ul>
-    </div>
-    
-    <div class="changelog-entry">
-      <h3>v1.0.2rev36</h3>
-      <p style="font-size: 0.85rem; color: #666;">March 27, 2026</p>
-      <ul style="margin-top: 10px; padding-left: 20px;">
-        <li>[NEW] Activity Logs are now visible.</li>
-        <li>[IMPROVEMENTS] Stabilized downloader & update lifeline code</li>
-        <li>[NEEDS FIXING] Modify the icon of the Update tab.</li>
-        <li>[NEEDS FIXING] Full FreeWebNovel site support.</li>
-        <li>[NEEDS FIXING] Improved Author & Synopsis extraction.</li>
-      </ul>
-    </div>
-    <div class="changelog-entry">
-      <h3>v1.0.1rev16</h3>
-      <p style="font-size: 0.85rem; color: #666;">March 27, 2026</p>
-      <ul style="margin-top: 10px; padding-left: 20px;">
-        <li>Initial release of the app, NovelDR</li>
-        <li>[NEW] Added full support to 'ReadNovelFull' & 'NovelFull' site</li>
-        <li>[NEW] Added partial support to 'FreeWebNovel' site</li>
-        <li>[NEW] Added app themes: Dark, Light, Sepia</li>
-        <li>[NEW] Added basic 'Download' and 'Updates' tab for downloading novel</li>
-        <li>[NEW] Added 'Library Stats', showing the total chapters and novel in your library.</li>
-        <li>[NEW] Added 'Delete Novel' by long-pressing the novel.</li>
-        <li>[NEW] Added 'Reader Settings' which houses adjustable Font Size, & Line Spacing.</li>
-      </ul>
-    </div>
-    <button id="back-to-home-changelog" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600;">← Back to Home</button>
-  </div>
+        function setActiveNav(activeElement) {
+            [navHome, navChangelog, navArchives].forEach(el => el.classList.remove('active'));
+            activeElement.classList.add('active');
+        }
 
-  <!-- ARCHIVES PAGE -->
-  <div id="archives-page">
-    <h2 style="color:#1e4663; margin-bottom: 1.5rem;">📦 App Archives</h2>
-    <table class="archives-table">
-      <thead>
-        <tr><th>App Name</th><th>Version</th><th>Changelog</th><th>Size</th><th>Download Links</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Novel DR</strong></td><td>v1.3.10rev131</td><td><a href="#" onclick="showVersionChangelog('1.3.10rev131'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.99 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.3.10rev131', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.3.10rev131', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.3.10rev131', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.3.10rev131', 'itch'); return false;">Itch.io</a></div></td></tr>
-        <tr><td><strong>Novel DR</strong></td><td>v1.3.9rev128</td><td><a href="#" onclick="showVersionChangelog('1.3.9rev128'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.93 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.3.9rev128', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'itch'); return false;">Itch.io</a></div></td></tr>
-        <tr><td><strong>Novel DR</strong></td><td>v1.3.8rev118</td><td><a href="#" onclick="showVersionChangelog('1.3.8rev118'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.92 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.3.8rev118', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'itch'); return false;">Itch.io</a></div></td></tr>
-        <tr><td><strong>Novel DR</strong></td><td>v1.0.3rev055</td><td><a href="#" onclick="showVersionChangelog('1.0.3rev055'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.91 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.3rev055', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'itch'); return false;">Itch.io</a></div></td></tr>
-        <tr><td><strong>Novel DR</strong></td><td>v1.0.2rev36</td><td><a href="#" onclick="showVersionChangelog('1.0.2rev36'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.87 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.2rev36', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'itch'); return false;">Itch.io</a></div></td>
-        </tr>
-        <tr><td><strong>Novel DR</strong></td><td>v1.0.1rev16</td><td><a href="#" onclick="showVersionChangelog('1.0.1rev16'); return false;" style="color: #2f721f; text-decoration: underline; font-weight: 500;">View</a></td><td>92.86 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.1rev16', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'itch'); return false;">Itch.io</a></div></td></tr>
-      </tbody>
-    </table>
-    <button id="back-to-home-archives" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600;">← Back to Home</button>
-  </div>
-  
-  <!-- VERSION CHANGELOG MODAL -->
-  <div class="modal-overlay" id="versionChangelogModal">
-    <div class="modal-card" style="text-align: left;">
-      <h3 style="color: #1e4663; margin-bottom: 0.25rem; text-align: center;">📋 Changelog: <span id="modalVersionTitle">v1.3.9rev128</span></h3>
-      <div class="modal-scrollable-content" id="modalScrollableContent">
-        <div id="modalChangelogContent"></div>
-      </div>
-      <button id="closeVersionChangelogBtn" style="padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #ccc; background: white; font-weight: 600; width: 100%; margin-top: 0.5rem;">Close</button>
-    </div>
-  </div>
+        function showHome() { homePage.style.display = 'block'; changelogPage.style.display = 'none'; archivesPage.style.display = 'none'; setActiveNav(navHome); window.scrollTo(0,0); }
+        function showChangelog() { homePage.style.display = 'none'; changelogPage.style.display = 'block'; archivesPage.style.display = 'none'; setActiveNav(navChangelog); window.scrollTo(0,0); }
+        function showArchives() { homePage.style.display = 'none'; changelogPage.style.display = 'none'; archivesPage.style.display = 'block'; setActiveNav(navArchives); window.scrollTo(0,0); }
 
-  <!-- Footer -->
-  <div class="footer">
-    Novel DR — made for Android.<br>
-    No tracking, no ads, just pure offline reading. <strong>#FOSS</strong>
-  </div>
-</div>
+        navHome.addEventListener('click', showHome);
+        navChangelog.addEventListener('click', showChangelog);
+        navArchives.addEventListener('click', showArchives);
 
-<script>
-  // DOM Elements
-  const homePage = document.getElementById('home-page');
-  const changelogPage = document.getElementById('changelog-page');
-  const archivesPage = document.getElementById('archives-page');
-  const navHome = document.getElementById('nav-home');
-  const navChangelog = document.getElementById('nav-changelog');
-  const navArchives = document.getElementById('nav-archives');
+        const linkToChangelog = document.getElementById('link-to-changelog');
+        const linkToArchives = document.getElementById('link-to-archives');
+        if (linkToChangelog) linkToChangelog.addEventListener('click', showChangelog);
+        if (linkToArchives) linkToArchives.addEventListener('click', showArchives);
 
-  function setActiveNav(activeElement) {
-    [navHome, navChangelog, navArchives].forEach(el => el.classList.remove('active'));
-    activeElement.classList.add('active');
-  }
+        const backHomeChangelog = document.getElementById('back-to-home-changelog');
+        const backHomeArchives = document.getElementById('back-to-home-archives');
+        if (backHomeChangelog) backHomeChangelog.addEventListener('click', showHome);
+        if (backHomeArchives) backHomeArchives.addEventListener('click', showHome);
 
-  function showHome() { homePage.style.display = 'block'; changelogPage.style.display = 'none'; archivesPage.style.display = 'none'; setActiveNav(navHome); window.scrollTo(0,0); }
-  function showChangelog() { homePage.style.display = 'none'; changelogPage.style.display = 'block'; archivesPage.style.display = 'none'; setActiveNav(navChangelog); window.scrollTo(0,0); }
-  function showArchives() { homePage.style.display = 'none'; changelogPage.style.display = 'none'; archivesPage.style.display = 'block'; setActiveNav(navArchives); window.scrollTo(0,0); }
+        // Download Modal
+        const modal = document.getElementById('downloadModal');
+        const downloadBtn = document.getElementById('downloadMainBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const countdownDisplay = document.getElementById('countdownDisplay');
+        const modalProgressBar = document.getElementById('modalProgressBar');
+        const modalStatus = document.getElementById('modalStatus');
+        let countdownInterval, progressInterval, currentCountdown = 5;
+        let downloadUrl = 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.11/NovelDR.v1.3.11rev137.apk';
 
-  navHome.addEventListener('click', showHome);
-  navChangelog.addEventListener('click', showChangelog);
-  navArchives.addEventListener('click', showArchives);
-  
-  const linkToChangelog = document.getElementById('link-to-changelog');
-  const linkToArchives = document.getElementById('link-to-archives');
-  if (linkToChangelog) linkToChangelog.addEventListener('click', showChangelog);
-  if (linkToArchives) linkToArchives.addEventListener('click', showArchives);
-  
-  const backHomeChangelog = document.getElementById('back-to-home-changelog');
-  const backHomeArchives = document.getElementById('back-to-home-archives');
-  if (backHomeChangelog) backHomeChangelog.addEventListener('click', showHome);
-  if (backHomeArchives) backHomeArchives.addEventListener('click', showHome);
+        function resetModal() {
+            if (countdownInterval) clearInterval(countdownInterval);
+            if (progressInterval) clearInterval(progressInterval);
+            currentCountdown = 5;
+            if (countdownDisplay) countdownDisplay.textContent = '5';
+            if (modalProgressBar) modalProgressBar.style.width = '0%';
+            if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...';
+        }
 
-  // Download Modal Logic (Fixed for Brave)
-  const modal = document.getElementById('downloadModal');
-  const downloadBtn = document.getElementById('downloadMainBtn');
-  const closeModalBtn = document.getElementById('closeModalBtn');
-  const countdownDisplay = document.getElementById('countdownDisplay');
-  const modalProgressBar = document.getElementById('modalProgressBar');
-  const modalStatus = document.getElementById('modalStatus');
-  let countdownInterval, progressInterval, currentCountdown = 5;
-  let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDRr/actions/runs/25038016280/artifacts/6678159013';
+        function startCountdown() {
+            resetModal();
+            modal.style.display = 'flex';
+            let progress = 0;
+            progressInterval = setInterval(() => {
+                progress += 2;
+                if (modalProgressBar) modalProgressBar.style.width = progress + '%';
+                if (progress >= 100) clearInterval(progressInterval);
+            }, 100);
 
-  function resetModal() {
-    if (countdownInterval) clearInterval(countdownInterval);
-    if (progressInterval) clearInterval(progressInterval);
-    currentCountdown = 5;
-    if (countdownDisplay) countdownDisplay.textContent = '5';
-    if (modalProgressBar) modalProgressBar.style.width = '0%';
-    if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...';
-  }
+            countdownInterval = setInterval(() => {
+                currentCountdown--;
+                if (countdownDisplay) countdownDisplay.textContent = currentCountdown;
+                if (modalStatus) modalStatus.textContent = `Download starting in ${currentCountdown} seconds...`;
+                if (currentCountdown <= 0) {
+                    clearInterval(countdownInterval);
+                    if (modalStatus) modalStatus.textContent = "✅ Starting Download...";
+                    window.open(downloadUrl, '_blank');
+                    setTimeout(() => { modal.style.display = 'none'; resetModal(); }, 2000);
+                }
+            }, 1000);
+        }
 
-  function startCountdown() {
-    resetModal();
-    modal.style.display = 'flex';
-    let progress = 0;
-    progressInterval = setInterval(() => { 
-      progress += 2; 
-      if (modalProgressBar) modalProgressBar.style.width = progress + '%'; 
-      if (progress >= 100) clearInterval(progressInterval); 
-    }, 100);
-    
-    countdownInterval = setInterval(() => {
-      currentCountdown--;
-      if (countdownDisplay) countdownDisplay.textContent = currentCountdown;
-      if (modalStatus) modalStatus.textContent = `Download starting in ${currentCountdown} seconds...`;
-      if (currentCountdown <= 0) {
-        clearInterval(countdownInterval);
-        if (modalStatus) modalStatus.textContent = "✅ Starting Download...";
-        window.open(downloadUrl, '_blank');
-        setTimeout(() => { modal.style.display = 'none'; resetModal(); }, 2000);
-      }
-    }, 1000);
-  }
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                startCountdown();
+            });
+        }
 
-  if (downloadBtn) {
-    downloadBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      startCountdown();
-    });
-  }
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', () => { resetModal(); modal.style.display = 'none'; });
+        }
 
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', () => { resetModal(); modal.style.display = 'none'; });
-  }
-  
-  if (modal) {
-    modal.addEventListener('click', (e) => { if (e.target === modal) { resetModal(); modal.style.display = 'none'; } });
-  }
+        if (modal) {
+            modal.addEventListener('click', (e) => { if (e.target === modal) { resetModal(); modal.style.display = 'none'; } });
+        }
 
-  // Archive Download
-  const downloadUrls = {
-    '1.3.10rev131': {site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.10/NovelDR.v1.3.10rev131.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.10/NovelDR.v1.3.10rev131.apk', mediafire: 'https://download1326.mediafire.com/7oqxsmgcojxgrBm7PR2rDTytGLAEteS6ayeiQ2Oo9YlxQXywPsoB8T_TMghg62LLGeRnk9ygrxUOkiZc2Jy3Q_gmia-_KHuqf_X6EizwfjYhQzKtrz5miQbST-e0rmqMwQWCdaSG4wRJ70XcRhIpRCadSHmW0RcMc0mcl1avOB8/o53v8sbw0agdt58/NovelDR+v1.3.10rev131.apk', itch: '#' },
-    '1.3.9rev128': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk', mediafire: 'https://download942.mediafire.com/ovm3g12s63rg4NzZbGHNe9AsZeeuzYFIWH-_LJdillgsJU6M0krIkx6PYIqfY9y-pv1m58pkuOJpfhhdaIxZYstqqga-zIlDKCVx0ZD3Kp9QtGsQ29ABrfGzyAv-bQ7n_8JR8MASXQPEKSKHqvtLFhqNknTWk5t61EQf3dtrrRNU7A/18j1mucp3nm2wq2/NovelDR+v1.3.9rev128.apk', itch: '#' },
-    '1.3.8rev118': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', mediafire: 'https://download1326.mediafire.com/ac4tlso09zkgsglTb4JbR6Ne2XvsdNrhblXz-sZDl3gFZTzzbs1UTnAZbbQfBSM1Ym_kbdinDjSct946WQMnlgdbRwCbM9ViGlqDor6SDbyAwDfmdzVvUzgV_EwXqC-uChO-fvLy9gpM51rBSvdy2JZhJXbby5VOwYg_77L38-As3ok/2s903l8txenzshy/NovelDR+v1.3.8rev118.apk', itch: '#' },
-    '1.0.3rev055': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', mediafire: 'https://download1588.mediafire.com/zq8r7i8doqlgJM5Hf43LK5QdYbykhR2hy9iXrQWSQ9fVEaqHh-2deGoxoLSsjm2qLue0ub1X1k84UYoq42ffN_KywIyBQhhNi7DdGxjOr_iGmScdBn3jE0l_5owGfeQWf8Tu1ixWleCH9irkQB5jPnAwopiVqljH33xS727ukWtfaw/y99wdh734uyhzxt/NovelDR+v1.0.3rev055.apk', itch: '#' },
-    '1.0.2rev36': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', mediafire: 'https://download1590.mediafire.com/fp02lggtg5igYi2B4Z-ND5PaioBimZMEpqc-f-M-y1gGnTPW1rasrkKiXzoNorw5pRnS2vZi5aNUrwebmHh7_GO_VJ6AutAN5z-FNBKDPGPXWW_qfdqLpgWbkOHuKi_3LT9oF1GK93kCOT68pUV4WW74hjY6HtzR9V2fgMkhRadIHw/2ml2qrqdi595eqe/NovelDR+v1.0.2rev36.apk', itch: '#' },
-    '1.0.1rev16': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', mediafire: 'https://download1323.mediafire.com/9jeliri9fefgZ_lHHO1wJM7yGf4fVaPAfDLognU0qX_tu_N51TvvIcpM4OWVUEXyYkkRsEt6Nra4_aOt4bZOgY_rvUlbOvTS0ZrY8anpHCZJxy0Lf-X8gTMqniqF-VtxavWiKCIAfn8jT-56sa3yyZ0LQwApsJBsFPdJyrr-iAacq7Q/p4fgkrzjvxl8a44/NovelDR-Build-16.apk', itch: '#' }
-  };
+        // Archive Download URLs
+        const downloadUrls = {
+            '1.3.10rev131': {site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.10/NovelDR.v1.3.10rev131.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.10/NovelDR.v1.3.10rev131.apk', mediafire: 'https://download1326.mediafire.com/7oqxsmgcojxgrBm7PR2rDTytGLAEteS6ayeiQ2Oo9YlxQXywPsoB8T_TMghg62LLGeRnk9ygrxUOkiZc2Jy3Q_gmia-_KHuqf_X6EizwfjYhQzKtrz5miQbST-e0rmqMwQWCdaSG4wRJ70XcRhIpRCadSHmW0RcMc0mcl1avOB8/o53v8sbw0agdt58/NovelDR+v1.3.10rev131.apk', itch: '#' },
+            '1.3.9rev128': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk', mediafire: 'https://download942.mediafire.com/ovm3g12s63rg4NzZbGHNe9AsZeeuzYFIWH-_LJdillgsJU6M0krIkx6PYIqfY9y-pv1m58pkuOJpfhhdaIxZYstqqga-zIlDKCVx0ZD3Kp9QtGsQ29ABrfGzyAv-bQ7n_8JR8MASXQPEKSKHqvtLFhqNknTWk5t61EQf3dtrrRNU7A/18j1mucp3nm2wq2/NovelDR+v1.3.9rev128.apk', itch: '#' },
+            '1.3.8rev118': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', mediafire: 'https://download1326.mediafire.com/ac4tlso09zkgsglTb4JbR6Ne2XvsdNrhblXz-sZDl3gFZTzzbs1UTnAZbbQfBSM1Ym_kbdinDjSct946WQMnlgdbRwCbM9ViGlqDor6SDbyAwDfmdzVvUzgV_EwXqC-uChO-fvLy9gpM51rBSvdy2JZhJXbby5VOwYg_77L38-As3ok/2s903l8txenzshy/NovelDR+v1.3.8rev118.apk', itch: '#' },
+            '1.0.3rev055': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', mediafire: 'https://download1588.mediafire.com/zq8r7i8doqlgJM5Hf43LK5QdYbykhR2hy9iXrQWSQ9fVEaqHh-2deGoxoLSsjm2qLue0ub1X1k84UYoq42ffN_KywIyBQhhNi7DdGxjOr_iGmScdBn3jE0l_5owGfeQWf8Tu1ixWleCH9irkQB5jPnAwopiVqljH33xS727ukWtfaw/y99wdh734uyhzxt/NovelDR+v1.0.3rev055.apk', itch: '#' },
+            '1.0.2rev36': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', mediafire: 'https://download1590.mediafire.com/fp02lggtg5igYi2B4Z-ND5PaioBimZMEpqc-f-M-y1gGnTPW1rasrkKiXzoNorw5pRnS2vZi5aNUrwebmHh7_GO_VJ6AutAN5z-FNBKDPGPXWW_qfdqLpgWbkOHuKi_3LT9oF1GK93kCOT68pUV4WW74hjY6HtzR9V2fgMkhRadIHw/2ml2qrqdi595eqe/NovelDR+v1.0.2rev36.apk', itch: '#' },
+            '1.0.1rev16': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', mediafire: 'https://download1323.mediafire.com/9jeliri9fefgZ_lHHO1wJM7yGf4fVaPAfDLognU0qX_tu_N51TvvIcpM4OWVUEXyYkkRsEt6Nra4_aOt4bZOgY_rvUlbOvTS0ZrY8anpHCZJxy0Lf-X8gTMqniqF-VtxavWiKCIAfn8jT-56sa3yyZ0LQwApsJBsFPdJyrr-iAacq7Q/p4fgkrzjvxl8a44/NovelDR-Build-16.apk', itch: '#' }
+        };
 
-  function downloadVersion(version, source) {
-    const url = downloadUrls[version]?.[source];
-    if (url && url !== '#') {
-      downloadUrl = url;
-      startCountdown();
-    } else { 
-      alert(`Download for ${version} from ${source} is not available yet.`);
-    }
-  }
-  window.downloadVersion = downloadVersion;
+        function downloadVersion(version, source) {
+            const url = downloadUrls[version]?.[source];
+            if (url && url !== '#') {
+                downloadUrl = url;
+                startCountdown();
+            } else {
+                alert(`Download for ${version} from ${source} is not available yet.`);
+            }
+        }
+        window.downloadVersion = downloadVersion;
 
-  // Version Changelog Modal
-  const versionChangelogModal = document.getElementById('versionChangelogModal');
-  const modalVersionTitle = document.getElementById('modalVersionTitle');
-  const modalChangelogContent = document.getElementById('modalChangelogContent');
-  const closeVersionChangelogBtn = document.getElementById('closeVersionChangelogBtn');
-  
-  const versionChangelogs = {
-    '1.3.10rev131': {date:'April 25, 2026', changes:[
-    '[NEW] Added a 'Duplicity Guard' to the code, checks for existing novel in the library before downloading',
-    '[IMPROVEMENT] Improved the scraping code for Novelbin by adding junk filters',
-    '[IMPROVEMENT] Improved the code when downloading novels by streamlining and simplifying the title fetching.',
-    '[BUGFIX] Fixed the 'Author' scraper for Novelbin during metadata fetching',
-    '[BUGFIX] Fixed the download code to avoid freezing when downloading existing novel'
-]},
-    
-    '1.3.9rev128': {date: 'April 21, 2026', changes: [
-    '[NEW] Updates tab now downloads and saves novel covers locally',
-    '[NEW] Refreshes cover images if changed on source website',
-    '[NEW] System Action Required" warning card is now clickable',
-    '[NEW] Tapping opens Android settings directly to manage unused apps',
-    '[NEW] Batch delete confirmation with item count display',
-    '[NEW] Added "Starting Chapter" input field next to "Max Chapters"',
-    '[NEW] Updates tab now checks and updates author if changed',
-    '[NEW] Refreshes synopsis when source is updated',
-    '[IMPROVEMENT] Allows "SKIPPER" to skipped chapters smoothly and starting downloads from specific chapter',
-    '[IMPROVEMENT] Improved error handling during updates',
-    '[IMPROVEMENT] Enhanced chapter skipping logic for better performance',
-    '[IMPROVEMENT] Better duplicate detection when merging chapters',
-    '[IMPROVEMENT] Added dedicated batch delete operation',
-    '[IMPROVEMENT] Ensures all selected novels are removed properly during deletion',
-    '[FIXED] Make "Batch Restore" the default for restoring files from Imported Backup',
-    '[FIXED] Resolve the dysfunctional "Restore" system in the Import function',
-    '[FIXED] Add "Fetcher" to the "Update" tab when downloading Chapters',
-    '[FIXED] Add "Starting Chapter" field to the "Update" tab',
-    '[FIXED] Delete Tab only deletes one file even after selection'
-]},
-    '1.3.8rev118': { date: 'April 15, 2026', changes: ['[NEW] Added support for LightNovelWorld','Added scraper for Author, Cover, Synopsis, and Chapter Content','Added About Developer tab','Added Github link in the Developer tab','Added Website Link in the Developer tab','Added auto-scroll speed presets','Added "Import File" function to the Backup System','Improved Skipper Code functionality','Increased value presets for AutoScroll, Line Spacing, and Font Size','Download Tab now downloads cover locally for offline display','Improved the scraper for the LightNovelWorld','[NEEDS FIXING] "Delete Tab" only deletes one file even after selection','[NEEDS FIXING] To add "Starting Chapter" field to the "Update" tab','[NEEDS FIXING] To add "Fetcher" to the "Update" tab when downloading Chapters.','[NEEDS FIXING] Resolve the dysfunctional "Restore" system in the Import system','[NEEDS FIXING] Make "Batch Restore" the default for restoring files from Imported Backup','Minor bugs and performance issues'] },
-    '1.0.3rev055': { date: 'April 13, 2026', changes: ['NovelBin and FreeWebNovel now fully supported','Library filters: All, Unread, Reading, Completed','Library search, and batch delete (via ⋮ menu)','Long press novel cover to update reading status','AutoScroll with presets','Updates tab now has search function','Skipper (skip existing chapters) and Traverser (resume downloads)','Backup & Restore system','2-prompt warning when deleting a novel','Better Download tab stability','FreeWebNovel now shows author, cover, and synopsis'] },
-    '1.0.2rev36': { date: 'March 27, 2026', changes: ['Activity Logs are now visible.','Progress bar is now visible','Stabilized downloader & update lifeline code','[NEEDS FIXING] Modify the icon of the Update tab.','[NEEDS FIXING] Full FreeWebNovel site support','[NEEDS FIXING] Improved Author & Synopsis extraction'] },
-    '1.0.1rev16': { date: 'March 27, 2026', changes: ['Initial public release','ReadNovelFull, NovelFull support','Partial FreeWebNovelSupport','Basic download & update functionality','Dark, Light, Sepia themes','Reader Settings presets: Line Spacing & Font Size','Added Delete novel by long-pressing the novel cover'] }
-  };
+        // Version Changelog Modal
+        const versionChangelogModal = document.getElementById('versionChangelogModal');
+        const modalVersionTitle = document.getElementById('modalVersionTitle');
+        const modalChangelogContent = document.getElementById('modalChangelogContent');
+        const closeVersionChangelogBtn = document.getElementById('closeVersionChangelogBtn');
 
-  function showVersionChangelog(version) {
-    const changelog = versionChangelogs[version];
-    if (changelog) {
-      modalVersionTitle.textContent = version;
-      let html = `<div class="changelog-date">📅 ${changelog.date}</div><ul class="version-changelog-list">`;
-      changelog.changes.forEach(change => { html += `<li>${change}</li>`; });
-      html += '</ul>';
-      modalChangelogContent.innerHTML = html;
-      versionChangelogModal.style.display = 'flex';
-      const scrollContainer = document.getElementById('modalScrollableContent');
-      if(scrollContainer) scrollContainer.scrollTop = 0;
-    } else {
-      alert('Changelog not available for this version.');
-    }
-  }
-  window.showVersionChangelog = showVersionChangelog;
+        const versionChangelogs = {
+            '1.3.10rev131': {date:'April 25, 2026', changes:[
+                "[NEW] Added a 'Duplicity Guard' to the code, checks for existing novel in the library before downloading",
+                '[IMPROVEMENT] Improved the scraping code for Novelbin by adding junk filters',
+                '[IMPROVEMENT] Improved the code when downloading novels by streamlining and simplifying the title fetching.',
+                "[BUGFIX] Fixed the 'Author' scraper for Novelbin during metadata fetching",
+                '[BUGFIX] Fixed the download code to avoid freezing when downloading existing novel'
+            ]},
+            '1.3.9rev128': {date: 'April 21, 2026', changes: [
+                '[NEW] Updates tab now downloads and saves novel covers locally',
+                '[NEW] Refreshes cover images if changed on source website',
+                '[NEW] System Action Required warning card is now clickable',
+                '[NEW] Tapping opens Android settings directly to manage unused apps',
+                '[NEW] Batch delete confirmation with item count display',
+                '[NEW] Added "Starting Chapter" input field next to "Max Chapters"',
+                '[NEW] Updates tab now checks and updates author if changed',
+                '[NEW] Refreshes synopsis when source is updated',
+                '[IMPROVEMENT] Allows "SKIPPER" to skip chapters smoothly and starting downloads from specific chapter',
+                '[IMPROVEMENT] Improved error handling during updates',
+                '[IMPROVEMENT] Better duplicate detection when merging chapters',
+                '[IMPROVEMENT] Ensures all selected novels are removed properly during deletion',
+                '[FIXED] Make "Batch Restore" the default for restoring files from Imported Backup',
+                '[FIXED] Resolve the dysfunctional "Restore" system in the Import function',
+                '[FIXED] Add "Fetcher" to the "Update" tab when downloading Chapters',
+                '[FIXED] Add "Starting Chapter" field to the "Update" tab',
+                '[FIXED] Delete Tab only deletes one file even after selection',
+                '[FIXED] Minor bugs and performance issues'
+            ]},
+            '1.3.8rev118': { date: 'April 15, 2026', changes: ['[NEW] Added support for LightNovelWorld','Added scraper for Author, Cover, Synopsis, and Chapter Content','Added About Developer tab','Added Github link in the Developer tab','Added Website Link in the Developer tab','Added auto-scroll speed presets','Added "Import File" function to the Backup System','Improved Skipper Code functionality','Increased value presets for AutoScroll, Line Spacing, and Font Size','Download Tab now downloads cover locally for offline display','Improved the scraper for the LightNovelWorld','[NEEDS FIXING] "Delete Tab" only deletes one file even after selection','[NEEDS FIXING] To add "Starting Chapter" field to the "Update" tab','[NEEDS FIXING] To add "Fetcher" to the "Update" tab when downloading Chapters.','[NEEDS FIXING] Resolve the dysfunctional "Restore" system in the Import system','[NEEDS FIXING] Make "Batch Restore" the default for restoring files from Imported Backup','Minor bugs and performance issues'] },
+            '1.0.3rev055': { date: 'April 13, 2026', changes: ['NovelBin and FreeWebNovel now fully supported','Library filters: All, Unread, Reading, Completed','Library search, and batch delete (via ⋮ menu)','Long press novel cover to update reading status','AutoScroll with presets','Updates tab now has search function','Skipper (skip existing chapters) and Traverser (resume downloads)','Backup & Restore system','2-prompt warning when deleting a novel','Better Download tab stability','FreeWebNovel now shows author, cover, and synopsis'] },
+            '1.0.2rev36': { date: 'March 27, 2026', changes: ['Activity Logs are now visible.','Progress bar is now visible','Stabilized downloader & update lifeline code','[NEEDS FIXING] Modify the icon of the Update tab.','[NEEDS FIXING] Full FreeWebNovel site support','[NEEDS FIXING] Improved Author & Synopsis extraction'] },
+            '1.0.1rev16': { date: 'March 27, 2026', changes: ['Initial public release','ReadNovelFull, NovelFull support','Partial FreeWebNovelSupport','Basic download & update functionality','Dark, Light, Sepia themes','Reader Settings presets: Line Spacing & Font Size','Added Delete novel by long-pressing the novel cover'] }
+        };
 
-  if (closeVersionChangelogBtn) {
-    closeVersionChangelogBtn.addEventListener('click', () => { versionChangelogModal.style.display = 'none'; });
-  }
-  
-  if (versionChangelogModal) {
-    versionChangelogModal.addEventListener('click', (e) => { 
-      if (e.target === versionChangelogModal) versionChangelogModal.style.display = 'none'; 
-    });
-  }
+        function showVersionChangelog(version) {
+            const changelog = versionChangelogs[version];
+            if (changelog) {
+                modalVersionTitle.textContent = version;
+                let html = `<p class="changelog-date">📅 ${changelog.date}</p><ul class="version-changelog-list" style="list-style:none;padding:0;margin:0;">`;
+                changelog.changes.forEach(change => { html += `<li style="padding:8px 0 8px 24px;background:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22%238f5e4e%22><path d=%22M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z%22/></svg>') left center no-repeat;background-size:16px;border-bottom:1px solid #f0e4dc;color:#3d2e28;">${change}</li>`; });
+                html += '</ul>';
+                modalChangelogContent.innerHTML = html;
+                versionChangelogModal.style.display = 'flex';
+                const scrollContainer = document.getElementById('modalScrollableContent');
+                if(scrollContainer) scrollContainer.scrollTop = 0;
+            } else {
+                alert('Changelog not available for this version.');
+            }
+        }
+        window.showVersionChangelog = showVersionChangelog;
 
-</script>
+        if (closeVersionChangelogBtn) {
+            closeVersionChangelogBtn.addEventListener('click', () => { versionChangelogModal.style.display = 'none'; });
+        }
+
+        if (versionChangelogModal) {
+            versionChangelogModal.addEventListener('click', (e) => {
+                if (e.target === versionChangelogModal) versionChangelogModal.style.display = 'none';
+            });
+        }
+    </script>
 </body>
 </html>
-
