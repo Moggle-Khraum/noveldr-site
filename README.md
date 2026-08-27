@@ -17,6 +17,7 @@
 - [💀 Deprecated Sources](#dead-sources)
 - [📚 Add Source or Request Source](#wiki-add-or-requestsource)
 - [🌟 Appreciation](#appreciation)
+- [📖 Source Scraper Acknowledgements](#source-scraper)
 - [📜 License](#license)
 - [⚠️ Disclaimer](#disclaimer)
 
@@ -38,7 +39,7 @@ NovelDR is a free, open-source Android application that lets you download webnov
 
 **Download webnovels. Read anywhere. No ads, no login, just pure offline reading.**
 
-🌐 [Website](https://moggle.is-a-good.dev/) · 📦 [Download APK](https://github.com/Moggle-Khraum/noveldr-site/releases) <!--☕ [Leave a Tip](https://wise.com/pay/me/davea261)-->
+🌐 [Website](https://moggle.is-a-good.dev/) · 📦 [Download APK](https://github.com/Moggle-Khraum/noveldr-site/releases) <!--· ☕ [Leave a Tip](https://wise.com/pay/me/davea261)-->
 
 </div>
 
@@ -67,13 +68,11 @@ NovelDR is a free, open-source Android application that lets you download webnov
 | Source Domain                                   | Status         | Source Domain                               | Status         | Source Domain                          | Status         |
 | ----------------------------------------------- | -------------- | ------------------------------------------- | -------------- | -------------------------------------- | -------------- |
 | [ReadNovelFull](https://readnovelfull.com/)     | ✅ Site Active | [NovelFull.com](https://novelfull.com/)     | ✅ Site Active | [NovelbinCC](https://www.novelbin.cc/) | ✅ Site Active |
-| [NovelFull.net](https://novelfull.net/)         | ✅ Site Active | [AllNovel](https://allnovel.org/)           | ✅ Site Active |
-| [FreeWebNovel](https://freewebnovel.com/)       | ✅ Site Active | [NovGo](https://novgo.net/)                 | ✅ Site Active |
+| [NovelFull.net](https://novelfull.net/)         | ✅ Site Active | [AllNovel](https://allnovel.org/)           | ✅ Site Active | [NovelArrow](https://novelarrow.com/)  | ✅ Site Active |
+| [FreeWebNovel](https://freewebnovel.com/)       | ✅ Site Active | [NovGo](https://novgo.net/)                 | ✅ Site Active | [NovelArchive.cc](https://novelarchive.cc/)     | ✅ Site Active  |
 | [LightNovelWorld](https://lightnovelworld.org/) | ✅ Site Active | [WuxiaWorld.site](https://wuxiaworld.site/) | ✅ Site Active |
 | [RoyalRoad](https://www.royalroad.com/)         | ✅ Site Active | [AsiaNovel](https://www.asianovel.net/)     | ✅ Site Active |
 | [NovelPhoenix](https://novelphoenix.com/)       | ✅ Site Active | [Novel-bin](https://novel-bin.com/)         | ✅ Site Active |
-|                                                 |                |                                             |                |                                        |                |
-|                                                 |                |                                             |                |                                        |                |
 
 <a id="dead-sources"></a>
 
@@ -119,6 +118,17 @@ That's it — once submitted, it'll be picked up and worked on.
 ## 🌟 Appreciation
 
 If this project helps you somehow, please dont forget to Star the Repo~!
+
+<a id="source-scraper"></a>
+## 📖 Source Scraper Authors
+
+| Author | Repository | Credited For |
+|-------------|-----------|--------------|
+| [@TUVIMEN](https://github.com/TUVIMEN) | [lightnovelworld](https://github.com/TUVIMEN/lightnovelworld) | Forked LightNovelWorld Scraper into the App. |
+| [@lncrawl](https://github.com/lncrawl) | [lightnovel-crawler](https://github.com/lncrawl/lightnovel-crawler/tree/dev) | Adapted and ported 3 novel scraper sources into the App. |
+| [@Rudransh-Susarla-1802](https://github.com/Rudransh-Susarla-1802) | [Novel_Project](https://github.com/Rudransh-Susarla-1802/Novel_Project) | Adapted and ported NovelArrow scraper to the App. |
+| [@5ghzx](https://github.com/5ghzx) | [novelarchive-lnreader](https://github.com/5ghzx/novelarchive-lnreader) | Adapted and ported the NovelArchive Extension into a Source Scraper. |
+
 
 <a id="license"></a>
 
